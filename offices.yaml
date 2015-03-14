@@ -3,7 +3,7 @@ mixins:
     id: sf_default
     jurisdiction_id: SF
     vote_method: RCV
-    term_length: "4"
+    term_length: 4
 
 jurisdictions:
   -
@@ -71,14 +71,14 @@ bodies:
     url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
   -
     id: SF_CCB
-    name: Community College Board
     jurisdiction_id: SFCC
+    name: Community College Board
     url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
-    term_length: "4"
+    term_length: 4
   -
+    jurisdiction_id: SF
     name: Superior Court
     qualified_name: Superior Court of San Francisco
-    jurisdiction_id: SF
     url: http://www.sfsuperiorcourt.org/
   -
     id: SF_BOS
@@ -92,7 +92,7 @@ bodies:
     jurisdiction_id: SF
     name: Board of Education
     url: http://www.sfusd.edu/en/about-sfusd/board-of-education
-    term_length: "4"
+    term_length: 4
 
 offices:
   -
@@ -125,93 +125,93 @@ offices:
     name: Mayor
     mixin_id: sf_default
     url: http://www.sfmayor.org/
-    seed_year: "2015"
+    seed_year: 2015
   -
     name: Sheriff
     mixin_id: sf_default
     url: http://www.sfsheriff.com/
-    seed_year: "2015"
+    seed_year: 2015
   -
     name: District Attorney
     mixin_id: sf_default
     url: http://www.sfdistrictattorney.org/
-    seed_year: "2015"
+    seed_year: 2015
   -
     name: City Attorney
     mixin_id: sf_default
     url: http://www.sfcityattorney.org/
-    seed_year: "2015"
+    seed_year: 2015
   -
     name: Treasurer
     mixin_id: sf_default
     url: http://sftreasurer.org/
-    seed_year: "2015"
+    seed_year: 2015
   -
     name: Assessor-Recorder
     mixin_id: sf_default
     url: http://www.sfassessor.org/
-    seed_year: "2014"
+    seed_year: 2014
   -
     name: Public Defender
     url: http://sfpublicdefender.org/
-    seed_year: "2014"
+    seed_year: 2014
   -
     body_id: SF_CCB
-    seed_year: "2016"
-    seat_count: "4"
+    seed_year: 2012
+    seat_count: 4
   -
     body_id: SF_CCB
-    seed_year: "2018"
-    seat_count: "3"
+    seed_year: 2014
+    seat_count: 3
   -
     body_id: SF_BOE
-    seed_year: "2016"
-    seat_count: "4"
+    seed_year: 2012
+    seat_count: 4
   -
     body_id: SF_BOE
-    seed_year: "2018"
-    seat_count: "3"
+    seed_year: 2014
+    seat_count: 3
   -
     body_id: SF_BOS
-    district: "1"
-    seed_year: "2012"
+    district: 1
+    seed_year: 2012
   -
     body_id: SF_BOS
-    district: "2"
-    seed_year: "2014"
+    district: 2
+    seed_year: 2014
   -
     body_id: SF_BOS
-    district: "3"
-    seed_year: "2012"
+    district: 3
+    seed_year: 2012
   -
     body_id: SF_BOS
-    district: "4"
-    seed_year: "2014"
+    district: 4
+    seed_year: 2014
   -
     body_id: SF_BOS
-    district: "5"
-    seed_year: "2012"
+    district: 5
+    seed_year: 2012
   -
     body_id: SF_BOS
-    district: "6"
-    seed_year: "2014"
+    district: 6
+    seed_year: 2014
   -
     body_id: SF_BOS
-    district: "7"
-    seed_year: "2012"
+    district: 7
+    seed_year: 2012
   -
     body_id: SF_BOS
-    district: "8"
-    seed_year: "2014"
+    district: 8
+    seed_year: 2014
   -
     body_id: SF_BOS
-    district: "9"
-    seed_year: "2012"
+    district: 9
+    seed_year: 2012
   -
     body_id: SF_BOS
-    district: "10"
-    seed_year: "2014"
+    district: 10
+    seed_year: 2014
   -
     body_id: SF_BOS
     district: 11
-    seed_year: "2012"
+    seed_year: 2012
