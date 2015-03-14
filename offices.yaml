@@ -1,0 +1,195 @@
+jurisdictions:
+  -
+    name: United States of America
+    id: USA
+  -
+    name: State of California
+    id: CA
+  -
+    name: Bay Area Rapid Transit
+    id: BART
+  -
+    name: San Francisco Community College District
+    id: SFCC
+  -
+    name: City and County of San Francisco
+    id: SF
+
+bodies:
+  -
+    id: USA_HR
+    name: United States House of Representatives
+    office_name: United States Representative
+    jurisdiction_id: USA
+    url: http://www.house.gov/
+  -
+    id: USA_S
+    name: United States Senate
+    jurisdiction_id: USA
+    url: http://www.senate.gov/
+  -
+    id: CA_SS
+    name: State Senate
+    qualified_name: California State Senate
+    jurisdiction_id: CA
+    url: http://senate.ca.gov/
+  -
+    id: CA_SA
+    name: State Assembly
+    qualified_name: California State Assembly
+    office_name: Member of the State Assembly
+    jurisdiction_id: CA
+    url: http://assembly.ca.gov/
+  -
+    id: CA_SBOE
+    name: State Board of Equalization
+    qualified_name: California State Board of Equalization
+    office_name: "Member, State Board of Equalization"
+    jurisdiction_id: CA
+    url: http://www.boe.ca.gov/
+  -
+    name: Supreme Court
+    qualified_name: Supreme Court of California
+    jurisdiction_id: CA
+    url: http://www.courts.ca.gov/supremecourt.htm
+  -
+    name: California Courts of Appeal
+    jurisdiction_id: CA
+    url: http://www.courts.ca.gov/courtsofappeal.htm
+  -
+    id: BART
+    name: BART Board of Directors
+    jurisdiction_id: BART
+    url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
+  -
+    name: Community College Board
+    jurisdiction_id: SFCC
+    url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
+  -
+    name: Superior Court
+    qualified_name: Superior Court of San Francisco
+    jurisdiction_id: SF
+    url: http://www.sfsuperiorcourt.org/
+  -
+    id: SF_BOS
+    jurisdiction_id: SF
+    name: Board of Supervisors
+    qualified_name: San Francisco Board of Supervisors
+    office_name: "Member, Board of Supervisors"
+    url: http://www.sfbos.org
+    vote_method: RCV
+    term_length: "4"
+  -
+    id: SF_BOE
+    name: Board of Education
+    jurisdiction_id: SF
+    url: http://www.sfusd.edu/en/about-sfusd/board-of-education
+
+offices:
+  -
+    name: Governor
+    url:
+  -
+    name: Lieutenant Governor
+    url:
+  -
+    name: Secretary of State
+  -
+    name: Controller
+  -
+    name: Treasurer
+  -
+    name: Attorney General
+  -
+    name: Insurance Commissioner
+  -
+    body_id: USA_HR
+  -
+    body_id: CA_SBOE
+    district: "2"
+  -
+    body_id: CA_SA
+  -
+    body_id: BART
+    district: "8"
+  -
+    name: Mayor
+    jurisdiction_id: SF
+    url: http://www.sfmayor.org/
+    vote_method: RCV
+  -
+    name: Sheriff
+    jurisdiction_id: SF
+    url: http://www.sfsheriff.com/
+    vote_method: RCV
+  -
+    name: District Attorney
+    jurisdiction_id: SF
+    url: http://www.sfdistrictattorney.org/
+    vote_method: RCV
+  -
+    name: City Attorney
+    jurisdiction_id: SF
+    url: http://www.sfcityattorney.org/
+    vote_method: RCV
+  -
+    name: Treasurer
+    jurisdiction_id: SF
+    url: http://sftreasurer.org/
+    vote_method: RCV
+  -
+    name: Assessor-Recorder
+    jurisdiction_id: SF
+    url: http://www.sfassessor.org/
+    vote_method: RCV
+    seed_year: "2014"
+  -
+    name: Public Defender
+    jurisdiction_id: SF
+    url: http://sfpublicdefender.org/
+    vote_method: RCV
+    seed_year: "2014"
+  -
+    body_id: SF_BOS
+    district: "1"
+    seed_year: "2012"
+  -
+    body_id: SF_BOS
+    district: "2"
+    seed_year: "2014"
+  -
+    body_id: SF_BOS
+    district: "3"
+    seed_year: "2012"
+  -
+    body_id: SF_BOS
+    district: "4"
+    seed_year: "2014"
+  -
+    body_id: SF_BOS
+    district: "5"
+    seed_year: "2012"
+  -
+    body_id: SF_BOS
+    district: "6"
+    seed_year: "2014"
+  -
+    body_id: SF_BOS
+    district: "7"
+    seed_year: "2012"
+  -
+    body_id: SF_BOS
+    district: "8"
+    seed_year: "2014"
+  -
+    body_id: SF_BOS
+    district: "9"
+    seed_year: "2012"
+  -
+    body_id: SF_BOS
+    district: "10"
+    seed_year: "2014"
+  -
+    body_id: SF_BOS
+    district: "11"
+    seed_year: "2012"
