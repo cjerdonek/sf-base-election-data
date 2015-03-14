@@ -1,3 +1,10 @@
+mixins:
+  -
+    id: sf_default
+    jurisdiction_id: SF
+    vote_method: RCV
+    term_length: "4"
+
 jurisdictions:
   -
     name: United States of America
@@ -75,25 +82,16 @@ bodies:
     url: http://www.sfsuperiorcourt.org/
   -
     id: SF_BOS
-    jurisdiction_id: SF
+    mixin_id: sf_default
     name: Board of Supervisors
     qualified_name: San Francisco Board of Supervisors
     office_name: "Member, Board of Supervisors"
     url: http://www.sfbos.org
-    vote_method: RCV
-    term_length: "4"
   -
     id: SF_BOE
     jurisdiction_id: SF
     name: Board of Education
     url: http://www.sfusd.edu/en/about-sfusd/board-of-education
-    term_length: "4"
-
-base_offices:
-  -
-    id: sf_citywide
-    jurisdiction_id: SF
-    vote_method: RCV
     term_length: "4"
 
 offices:
@@ -125,32 +123,32 @@ offices:
     district: "8"
   -
     name: Mayor
-    base: sf_citywide
+    mixin_id: sf_default
     url: http://www.sfmayor.org/
     seed_year: "2015"
   -
     name: Sheriff
-    base: sf_citywide
+    mixin_id: sf_default
     url: http://www.sfsheriff.com/
     seed_year: "2015"
   -
     name: District Attorney
-    base: sf_citywide
+    mixin_id: sf_default
     url: http://www.sfdistrictattorney.org/
     seed_year: "2015"
   -
     name: City Attorney
-    base: sf_citywide
+    mixin_id: sf_default
     url: http://www.sfcityattorney.org/
     seed_year: "2015"
   -
     name: Treasurer
-    base: sf_citywide
+    mixin_id: sf_default
     url: http://sftreasurer.org/
     seed_year: "2015"
   -
     name: Assessor-Recorder
-    base: sf_citywide
+    mixin_id: sf_default
     url: http://www.sfassessor.org/
     seed_year: "2014"
   -
@@ -215,5 +213,5 @@ offices:
     seed_year: "2014"
   -
     body_id: SF_BOS
-    district: "11"
+    district: 11
     seed_year: "2012"
