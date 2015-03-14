@@ -59,12 +59,15 @@ bodies:
   -
     id: BART
     name: BART Board of Directors
+    office_name: BART Director
     jurisdiction_id: BART
     url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
   -
+    id: SF_CCB
     name: Community College Board
     jurisdiction_id: SFCC
     url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
+    term_length: "4"
   -
     name: Superior Court
     qualified_name: Superior Court of San Francisco
@@ -81,9 +84,17 @@ bodies:
     term_length: "4"
   -
     id: SF_BOE
-    name: Board of Education
     jurisdiction_id: SF
+    name: Board of Education
     url: http://www.sfusd.edu/en/about-sfusd/board-of-education
+    term_length: "4"
+
+base_offices:
+  -
+    id: sf_citywide
+    jurisdiction_id: SF
+    vote_method: RCV
+    term_length: "4"
 
 offices:
   -
@@ -114,41 +125,54 @@ offices:
     district: "8"
   -
     name: Mayor
-    jurisdiction_id: SF
+    base: sf_citywide
     url: http://www.sfmayor.org/
-    vote_method: RCV
+    seed_year: "2015"
   -
     name: Sheriff
-    jurisdiction_id: SF
+    base: sf_citywide
     url: http://www.sfsheriff.com/
-    vote_method: RCV
+    seed_year: "2015"
   -
     name: District Attorney
-    jurisdiction_id: SF
+    base: sf_citywide
     url: http://www.sfdistrictattorney.org/
-    vote_method: RCV
+    seed_year: "2015"
   -
     name: City Attorney
-    jurisdiction_id: SF
+    base: sf_citywide
     url: http://www.sfcityattorney.org/
-    vote_method: RCV
+    seed_year: "2015"
   -
     name: Treasurer
-    jurisdiction_id: SF
+    base: sf_citywide
     url: http://sftreasurer.org/
-    vote_method: RCV
+    seed_year: "2015"
   -
     name: Assessor-Recorder
-    jurisdiction_id: SF
+    base: sf_citywide
     url: http://www.sfassessor.org/
-    vote_method: RCV
     seed_year: "2014"
   -
     name: Public Defender
-    jurisdiction_id: SF
     url: http://sfpublicdefender.org/
-    vote_method: RCV
     seed_year: "2014"
+  -
+    body_id: SF_CCB
+    seed_year: "2016"
+    seat_count: "4"
+  -
+    body_id: SF_CCB
+    seed_year: "2018"
+    seat_count: "3"
+  -
+    body_id: SF_BOE
+    seed_year: "2016"
+    seat_count: "4"
+  -
+    body_id: SF_BOE
+    seed_year: "2018"
+    seat_count: "3"
   -
     body_id: SF_BOS
     district: "1"
