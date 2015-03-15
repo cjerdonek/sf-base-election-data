@@ -38,11 +38,16 @@ bodies:
     _notes:
       The State Controller is the fifth member of this body.
   -
+    id: CA_SC
     name: Supreme Court
     qualified_name: Supreme Court of California
     jurisdiction_id: CA
     url: http://www.courts.ca.gov/supremecourt.htm
     term_length: 12
+    _notes:
+      The Court has six Associate Justices and one Chief Justice.  The
+      justices are appointed by the Governor and are subject to retention
+      elections.
   -
     name: California Courts of Appeal
     jurisdiction_id: CA

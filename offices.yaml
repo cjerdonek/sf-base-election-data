@@ -63,6 +63,43 @@ offices:
     body_id: US_HR
     district: 14
   -
+    id: CA_SC_CJ
+    body_id: CA_SC
+    name: Chief Justice
+    term_expires: 2023-01-01
+  # We include the names of each Associate Justice to clarify which
+  # seat each office represents.
+  -
+    id: CA_SC_AJ_1
+    office_type_id: CA_SC_AJ
+    term_expires: 2027-01-03
+    _person: Kathryn M. Werdegar
+  -
+    id: CA_SC_AJ_2
+    office_type_id: CA_SC_AJ
+    term_expires: 2023-01-01
+    _person: Ming W. Chin
+    -
+    id: CA_SC_AJ_3
+    office_type_id: CA_SC_AJ
+    term_expires: 2019-01-06
+    _person: Carol A. Corrigan
+  -
+    id: CA_SC_AJ_4
+    office_type_id: CA_SC_AJ
+    term_expires: 2023-01-01
+    _person: Goodwin Liu
+  -
+    id: CA_SC_AJ_5
+    office_type_id: CA_SC_AJ
+    term_expires: 2027-01-03
+    _person: Mariano-Florentino Cuéllar
+  -
+    id: CA_SC_AJ_6
+    office_type_id: CA_SC_AJ
+    term_expires: 2019-01-06
+    _person: Leondra R. Kruger
+  -
     body_id: CA_SBOE
     district: 2
   -
