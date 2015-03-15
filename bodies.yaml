@@ -35,15 +35,22 @@ bodies:
     seat_count: 5
     district_count: 4
     term_length: 4
+    _notes:
+      The State Controller is the fifth member of this body.
   -
     name: Supreme Court
     qualified_name: Supreme Court of California
     jurisdiction_id: CA
     url: http://www.courts.ca.gov/supremecourt.htm
+    term_length: 12
   -
     name: California Courts of Appeal
     jurisdiction_id: CA
+    partisan: false
     url: http://www.courts.ca.gov/courtsofappeal.htm
+    term_length: 12
+    _notes:
+      The state has six geographic appellate districts.
   -
     id: SF_SC
     jurisdiction_id: SF
