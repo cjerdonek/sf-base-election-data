@@ -1,0 +1,5 @@
+office_types:
+  -
+    id: CA_SC_AJ
+    body_id: CA_SC
+    name: Associate Justice
