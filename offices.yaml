@@ -8,7 +8,7 @@ mixins:
 jurisdictions:
   -
     name: United States of America
-    id: USA
+    id: US
   -
     name: State of California
     id: CA
@@ -25,30 +25,64 @@ jurisdictions:
 offices:
   -
     name: Governor
-    url:
+    url: http://www.gov.ca.gov
   -
     name: Lieutenant Governor
-    url:
+    url: http://www.ltg.ca.gov/
   -
     name: Secretary of State
+    url: http://www.sos.ca.gov/
   -
     name: Controller
+    url: http://www.sco.ca.gov/
   -
     name: Treasurer
+    url: http://www.treasurer.ca.gov/
   -
     name: Attorney General
+    url: http://www.oag.ca.gov/
   -
     name: Insurance Commissioner
+    url: http://www.insurance.ca.gov/
   -
-    body_id: USA_HR
+    name: Superintendent of Public Instruction
+    partisan: false
+    url: http://www.cde.ca.gov/eo
+  -
+    body_id: USA_S
+    district: CA
+    seed_year: 2012
+  -
+    body_id: USA_S
+    district: CA
+    seed_year: 2014
+  -
+    body_id: US_HR
+    district: 12
+  -
+    body_id: US_HR
+    district: 14
   -
     body_id: CA_SBOE
-    district: "2"
+    district: 2
+  -
+    body_id: CA_SS
+    district: 11
   -
     body_id: CA_SA
+    district: 17
+  -
+    body_id: CA_SA
+    district: 19
   -
     body_id: BART
-    district: "8"
+    district: 7
+  -
+    body_id: BART
+    district: 8
+  -
+    body_id: BART
+    district: 9
   -
     name: Mayor
     mixin_id: sf_default
@@ -86,6 +120,7 @@ offices:
     name:
       en: Public Defender
       es: Defensor Público
+      ch: "公共辯護律師"
     url: http://sfpublicdefender.org/
     seed_year: 2014
   -

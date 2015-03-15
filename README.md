@@ -15,4 +15,5 @@ San Francisco Charter for information about terms of offices, etc.
 
 Resources:
 
-* [List of Elected Officials](http://www.sfgov2.org/index.aspx?page=832)
+* [List of Local Elected Officials](http://www.sfgov2.org/index.aspx?page=832)
+* [List of State Elected Officials](http://www.sfgov2.org/index.aspx?page=833)

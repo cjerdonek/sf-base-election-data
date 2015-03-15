@@ -1,21 +1,22 @@
 bodies:
   -
-    id: USA_HR
+    id: US_S
+    name: United States Senate
+    jurisdiction_id: US
+    url: http://www.senate.gov/
+  -
+    id: US_HR
     name: United States House of Representatives
     office_name: United States Representative
-    jurisdiction_id: USA
+    jurisdiction_id: US
     url: http://www.house.gov/
-  -
-    id: USA_S
-    name: United States Senate
-    jurisdiction_id: USA
-    url: http://www.senate.gov/
   -
     id: CA_SS
     name: State Senate
     qualified_name: California State Senate
     jurisdiction_id: CA
     url: http://senate.ca.gov/
+    seat_count: 40
   -
     id: CA_SA
     name: State Assembly
@@ -23,6 +24,7 @@ bodies:
     office_name: Member of the State Assembly
     jurisdiction_id: CA
     url: http://assembly.ca.gov/
+    seat_count: 80
   -
     id: CA_SBOE
     name: State Board of Equalization
@@ -30,6 +32,9 @@ bodies:
     office_name: "Member, State Board of Equalization"
     jurisdiction_id: CA
     url: http://www.boe.ca.gov/
+    seat_count: 5
+    district_count: 4
+    term_length: 4
   -
     name: Supreme Court
     qualified_name: Supreme Court of California
@@ -40,11 +45,26 @@ bodies:
     jurisdiction_id: CA
     url: http://www.courts.ca.gov/courtsofappeal.htm
   -
+    id: SF_SC
+    jurisdiction_id: SF
+    name: Superior Court
+    office_name: Judge of the Superior Court
+    qualified_name: Superior Court of San Francisco
+    url: http://www.sfsuperiorcourt.org/
+    seat_count: 53
+    term_length: 6
+    _notes:
+      The San Francisco Superior Court Bench is comprised of 52 Judges and
+      one Commissioner.
+  -
     id: BART
     name: BART Board of Directors
     office_name: BART Director
     jurisdiction_id: BART
-    url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
+    url: http://www.bart.gov/about/bod
+    seat_count: 9
+    term_length: 4
+    vote_method: FPTP
   -
     id: SF_CCB
     jurisdiction_id: SFCC
@@ -54,15 +74,11 @@ bodies:
     office_name:
       en: "Member, Community College Board"
       es: Miembro del Consejo del Colegio Comunitario
+      ch: "社區大學董事會成員"
     url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
     seat_count: 7
     term_length: 4
     vote_method: FPTP
-  -
-    jurisdiction_id: SF
-    name: Superior Court
-    qualified_name: Superior Court of San Francisco
-    url: http://www.sfsuperiorcourt.org/
   -
     id: SF_BOS
     jurisdiction_id: SF
@@ -73,6 +89,7 @@ bodies:
     office_name:
       en: "Member, Board of Supervisors"
       es: Miembro del Consejo de Supervisores
+      ch: "市參議員"
     url: http://www.sfbos.org
     seat_count: 11
     term_length: 4
@@ -86,7 +103,28 @@ bodies:
     office_name:
       en: "Member, Board of Education"
       es: Miembro del Consejo de Educación
+      ch: "教育委員會成員"
     url: http://www.sfusd.edu/en/about-sfusd/board-of-education
     seat_count: 7
     term_length: 4
     vote_method: FPTP
+  -
+    id: SF_DCCC
+    name: Democratic County Central Committee
+    jurisdiction_id: SF
+    url: http://www.sfdemocrats.org/
+  -
+    id: SF_GCC
+    name: Green County Council
+    jurisdiction_id: SF
+    url: http://sfgreenparty.org/
+  -
+    id: SF_PFCCC
+    name: Peace and Freedom County Central Committee
+    jurisdiction_id: SF
+    url: http://www.peaceandfreedom.org
+  -
+    id: SF_PFCCC
+    name: Republican County Central Committee
+    jurisdiction_id: SF
+    url: http://sfgop.org/
