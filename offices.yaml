@@ -84,27 +84,42 @@ offices:
     body_id: BART
     district: 9
   -
-    name: Mayor
+    name:
+      en: Mayor
+      es: Alcalde
+      ch: "市長"
     mixin_id: sf_default
     url: http://www.sfmayor.org/
     seed_year: 2015
   -
-    name: Sheriff
+    name:
+      en: Sheriff
+      es: Alguacil
+      ch: "縣警長"
     mixin_id: sf_default
     url: http://www.sfsheriff.com/
     seed_year: 2015
   -
-    name: District Attorney
+    name:
+      en: District Attorney
+      es: Fiscal del Distrito
+      ch: "地方檢察官"
     mixin_id: sf_default
     url: http://www.sfdistrictattorney.org/
     seed_year: 2015
   -
-    name: City Attorney
+    name:
+      en: City Attorney
+      es: Abogado de la Ciudad
+      ch: "市府律師"
     mixin_id: sf_default
     url: http://www.sfcityattorney.org/
     seed_year: 2015
   -
-    name: Treasurer
+    name:
+      en: Treasurer
+      es: Tesorero
+      ch: "財政官"
     mixin_id: sf_default
     url: http://sftreasurer.org/
     seed_year: 2015
