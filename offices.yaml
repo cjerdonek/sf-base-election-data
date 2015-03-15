@@ -22,78 +22,6 @@ jurisdictions:
     name: City and County of San Francisco
     id: SF
 
-bodies:
-  -
-    id: USA_HR
-    name: United States House of Representatives
-    office_name: United States Representative
-    jurisdiction_id: USA
-    url: http://www.house.gov/
-  -
-    id: USA_S
-    name: United States Senate
-    jurisdiction_id: USA
-    url: http://www.senate.gov/
-  -
-    id: CA_SS
-    name: State Senate
-    qualified_name: California State Senate
-    jurisdiction_id: CA
-    url: http://senate.ca.gov/
-  -
-    id: CA_SA
-    name: State Assembly
-    qualified_name: California State Assembly
-    office_name: Member of the State Assembly
-    jurisdiction_id: CA
-    url: http://assembly.ca.gov/
-  -
-    id: CA_SBOE
-    name: State Board of Equalization
-    qualified_name: California State Board of Equalization
-    office_name: "Member, State Board of Equalization"
-    jurisdiction_id: CA
-    url: http://www.boe.ca.gov/
-  -
-    name: Supreme Court
-    qualified_name: Supreme Court of California
-    jurisdiction_id: CA
-    url: http://www.courts.ca.gov/supremecourt.htm
-  -
-    name: California Courts of Appeal
-    jurisdiction_id: CA
-    url: http://www.courts.ca.gov/courtsofappeal.htm
-  -
-    id: BART
-    name: BART Board of Directors
-    office_name: BART Director
-    jurisdiction_id: BART
-    url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
-  -
-    id: SF_CCB
-    jurisdiction_id: SFCC
-    name: Community College Board
-    url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
-    term_length: 4
-  -
-    jurisdiction_id: SF
-    name: Superior Court
-    qualified_name: Superior Court of San Francisco
-    url: http://www.sfsuperiorcourt.org/
-  -
-    id: SF_BOS
-    mixin_id: sf_default
-    name: Board of Supervisors
-    qualified_name: San Francisco Board of Supervisors
-    office_name: "Member, Board of Supervisors"
-    url: http://www.sfbos.org
-  -
-    id: SF_BOE
-    jurisdiction_id: SF
-    name: Board of Education
-    url: http://www.sfusd.edu/en/about-sfusd/board-of-education
-    term_length: 4
-
 offices:
   -
     name: Governor
@@ -147,12 +75,17 @@ offices:
     url: http://sftreasurer.org/
     seed_year: 2015
   -
-    name: Assessor-Recorder
+    name:
+      en: Assessor-Recorder
+      es: Tasador-Registrador
+      ch: "估值官-記錄官"
     mixin_id: sf_default
     url: http://www.sfassessor.org/
     seed_year: 2014
   -
-    name: Public Defender
+    name:
+      en: Public Defender
+      es: Defensor Público
     url: http://sfpublicdefender.org/
     seed_year: 2014
   -

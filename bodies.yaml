@@ -1,0 +1,92 @@
+bodies:
+  -
+    id: USA_HR
+    name: United States House of Representatives
+    office_name: United States Representative
+    jurisdiction_id: USA
+    url: http://www.house.gov/
+  -
+    id: USA_S
+    name: United States Senate
+    jurisdiction_id: USA
+    url: http://www.senate.gov/
+  -
+    id: CA_SS
+    name: State Senate
+    qualified_name: California State Senate
+    jurisdiction_id: CA
+    url: http://senate.ca.gov/
+  -
+    id: CA_SA
+    name: State Assembly
+    qualified_name: California State Assembly
+    office_name: Member of the State Assembly
+    jurisdiction_id: CA
+    url: http://assembly.ca.gov/
+  -
+    id: CA_SBOE
+    name: State Board of Equalization
+    qualified_name: California State Board of Equalization
+    office_name: "Member, State Board of Equalization"
+    jurisdiction_id: CA
+    url: http://www.boe.ca.gov/
+  -
+    name: Supreme Court
+    qualified_name: Supreme Court of California
+    jurisdiction_id: CA
+    url: http://www.courts.ca.gov/supremecourt.htm
+  -
+    name: California Courts of Appeal
+    jurisdiction_id: CA
+    url: http://www.courts.ca.gov/courtsofappeal.htm
+  -
+    id: BART
+    name: BART Board of Directors
+    office_name: BART Director
+    jurisdiction_id: BART
+    url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
+  -
+    id: SF_CCB
+    jurisdiction_id: SFCC
+    name:
+      en: Community College Board
+      es: Consejo del Colegio Comunitario
+    office_name:
+      en: "Member, Community College Board"
+      es: Miembro del Consejo del Colegio Comunitario
+    url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
+    seat_count: 7
+    term_length: 4
+    vote_method: FPTP
+  -
+    jurisdiction_id: SF
+    name: Superior Court
+    qualified_name: Superior Court of San Francisco
+    url: http://www.sfsuperiorcourt.org/
+  -
+    id: SF_BOS
+    jurisdiction_id: SF
+    name:
+      en: Board of Supervisors
+      es: Consejo de Supervisores
+    qualified_name: San Francisco Board of Supervisors
+    office_name:
+      en: "Member, Board of Supervisors"
+      es: Miembro del Consejo de Supervisores
+    url: http://www.sfbos.org
+    seat_count: 11
+    term_length: 4
+    vote_method: RCV
+  -
+    id: SF_BOE
+    jurisdiction_id: SF
+    name:
+      en: Board of Education
+      es: Consejo de Educación
+    office_name:
+      en: "Member, Board of Education"
+      es: Miembro del Consejo de Educación
+    url: http://www.sfusd.edu/en/about-sfusd/board-of-education
+    seat_count: 7
+    term_length: 4
+    vote_method: FPTP

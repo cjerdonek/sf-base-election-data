@@ -12,3 +12,7 @@ Contains San Francisco election-related data
 
 See Article XIII: ELECTIONS, SEC. 13.101. TERMS OF ELECTIVE OFFICE. of the
 San Francisco Charter for information about terms of offices, etc.
+
+Resources:
+
+* [List of Elected Officials](http://www.sfgov2.org/index.aspx?page=832)
