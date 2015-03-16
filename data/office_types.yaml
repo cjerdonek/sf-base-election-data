@@ -1,0 +1,13 @@
+office_types:
+  -
+    id: ca_court_app_pj
+    body_id: ca_court_app
+    name:
+      en: Presiding Justice
+      es: Juez Presidente
+  -
+    id: ca_court_app_aj
+    body_id: ca_court_app
+    name:
+      en: Associate Justice
+      es: Juez Asociada

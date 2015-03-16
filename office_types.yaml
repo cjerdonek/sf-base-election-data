@@ -1,9 +1,0 @@
-office_types:
-  -
-    id: CA_CourtApp_PJ
-    body_id: CA_CourtApp
-    name: Presiding Justice
-  -
-    id: CA_CourtApp_AJ
-    body_id: CA_CourtApp
-    name: Associate Justice

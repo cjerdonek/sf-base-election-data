@@ -41,7 +41,9 @@ bodies:
     # The Court has six Associate Justices and one Chief Justice.
     # Each is appointed by the Governor and subject to retention elections.
     id: CA_SC
-    name: Supreme Court
+    name:
+      en: Supreme Court
+      es: Corte Suprema
     qualified_name: Supreme Court of California
     jurisdiction_id: CA
     url: http://www.courts.ca.gov/supremecourt.htm
@@ -51,8 +53,12 @@ bodies:
     # The state has six geographic appellate districts.
     # The first district, which covers San Francisco, is divided into
     # five non-geographical divisions with four justices each
-    id: CA_CourtApp
-    name: California Courts of Appeal
+    id: ca_court_app
+    name:
+      en: Court of Appeal
+      es: Corte de Apelación
+    qualified_name:
+      en: California Court of Appeal
     jurisdiction_id: CA
     partisan: false
     url: http://www.courts.ca.gov/courtsofappeal.htm
@@ -63,8 +69,12 @@ bodies:
     # one Commissioner.
     id: SF_SC
     jurisdiction_id: SF
-    name: Superior Court
-    office_name: Judge of the Superior Court
+    name:
+      en: Superior Court
+      es: Tribunal Superior
+    office_name:
+      en: Judge of the Superior Court
+      es: Juez del Tribunal Superior
     qualified_name: Superior Court of San Francisco
     url: http://www.sfsuperiorcourt.org/
     term_length: 6

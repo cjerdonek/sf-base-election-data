@@ -1,0 +1,257 @@
+{
+    "bodies": [
+        {
+            "id": "US_S",
+            "jurisdiction_id": "US",
+            "name": "United States Senate",
+            "url": "http://www.senate.gov/"
+        },
+        {
+            "id": "US_HR",
+            "jurisdiction_id": "US",
+            "name": "United States House of Representatives",
+            "office_name": "United States Representative",
+            "url": "http://www.house.gov/"
+        },
+        {
+            "id": "CA_SS",
+            "jurisdiction_id": "CA",
+            "name": "State Senate",
+            "qualified_name": "California State Senate",
+            "seat_count": 40,
+            "url": "http://senate.ca.gov/"
+        },
+        {
+            "id": "CA_SA",
+            "jurisdiction_id": "CA",
+            "name": "State Assembly",
+            "office_name": "Member of the State Assembly",
+            "qualified_name": "California State Assembly",
+            "seat_count": 80,
+            "url": "http://assembly.ca.gov/"
+        },
+        {
+            "_notes": "The State Controller is the fifth member of this body.",
+            "district_count": 4,
+            "id": "CA_SBOE",
+            "jurisdiction_id": "CA",
+            "name": "State Board of Equalization",
+            "office_name": "Member, State Board of Equalization",
+            "qualified_name": "California State Board of Equalization",
+            "seat_count": 5,
+            "term_length": 4,
+            "url": "http://www.boe.ca.gov/"
+        },
+        {
+            "id": "CA_SC",
+            "jurisdiction_id": "CA",
+            "name": {
+                "en": "Supreme Court",
+                "es": "Corte Suprema"
+            },
+            "qualified_name": "Supreme Court of California",
+            "term_length": 12,
+            "url": "http://www.courts.ca.gov/supremecourt.htm",
+            "vote_method": "retention"
+        },
+        {
+            "id": "ca_court_app",
+            "jurisdiction_id": "CA",
+            "name": {
+                "en": "Court of Appeal",
+                "es": "Corte de Apelaci\u00f3n"
+            },
+            "partisan": false,
+            "qualified_name": {
+                "en": "California Court of Appeal"
+            },
+            "term_length": 12,
+            "url": "http://www.courts.ca.gov/courtsofappeal.htm",
+            "vote_method": "retention"
+        },
+        {
+            "id": "SF_SC",
+            "jurisdiction_id": "SF",
+            "name": {
+                "en": "Superior Court",
+                "es": "Tribunal Superior"
+            },
+            "office_name": {
+                "en": "Judge of the Superior Court",
+                "es": "Juez del Tribunal Superior"
+            },
+            "qualified_name": "Superior Court of San Francisco",
+            "term_length": 6,
+            "url": "http://www.sfsuperiorcourt.org/"
+        },
+        {
+            "id": "BART",
+            "jurisdiction_id": "BART",
+            "name": "BART Board of Directors",
+            "office_name": "BART Director",
+            "seat_count": 9,
+            "term_length": 4,
+            "url": "http://www.bart.gov/about/bod",
+            "vote_method": "FPTP"
+        },
+        {
+            "id": "SF_CCB",
+            "jurisdiction_id": "SFCC",
+            "name": {
+                "en": "Community College Board",
+                "es": "Consejo del Colegio Comunitario"
+            },
+            "office_name": {
+                "ch": "\u793e\u5340\u5927\u5b78\u8463\u4e8b\u6703\u6210\u54e1",
+                "en": "Member, Community College Board",
+                "es": "Miembro del Consejo del Colegio Comunitario"
+            },
+            "seat_count": 7,
+            "term_length": 4,
+            "url": "http://www.ccsf.edu/en/about-city-college/board-of-trustees.html",
+            "vote_method": "FPTP"
+        },
+        {
+            "id": "SF_BOS",
+            "jurisdiction_id": "SF",
+            "name": {
+                "en": "Board of Supervisors",
+                "es": "Consejo de Supervisores"
+            },
+            "office_name": {
+                "ch": "\u5e02\u53c3\u8b70\u54e1",
+                "en": "Member, Board of Supervisors",
+                "es": "Miembro del Consejo de Supervisores"
+            },
+            "qualified_name": "San Francisco Board of Supervisors",
+            "seat_count": 11,
+            "term_length": 4,
+            "url": "http://www.sfbos.org",
+            "vote_method": "RCV"
+        },
+        {
+            "id": "SF_BOE",
+            "jurisdiction_id": "SF",
+            "name": {
+                "en": "Board of Education",
+                "es": "Consejo de Educaci\u00f3n"
+            },
+            "office_name": {
+                "ch": "\u6559\u80b2\u59d4\u54e1\u6703\u6210\u54e1",
+                "en": "Member, Board of Education",
+                "es": "Miembro del Consejo de Educaci\u00f3n"
+            },
+            "seat_count": 7,
+            "term_length": 4,
+            "url": "http://www.sfusd.edu/en/about-sfusd/board-of-education",
+            "vote_method": "FPTP"
+        },
+        {
+            "id": "SF_DCCC",
+            "jurisdiction_id": "SF",
+            "name": "Democratic County Central Committee",
+            "url": "http://www.sfdemocrats.org/"
+        },
+        {
+            "id": "SF_GCC",
+            "jurisdiction_id": "SF",
+            "name": "Green County Council",
+            "url": "http://sfgreenparty.org/"
+        },
+        {
+            "id": "SF_PFCCC",
+            "jurisdiction_id": "SF",
+            "name": "Peace and Freedom County Central Committee",
+            "url": "http://www.peaceandfreedom.org"
+        },
+        {
+            "id": "SF_PFCCC",
+            "jurisdiction_id": "SF",
+            "name": "Republican County Central Committee",
+            "url": "http://sfgop.org/"
+        }
+    ],
+    "district_types": [
+        {
+            "_id": "ca_court_app_d1",
+            "body_id": "ca_court_app",
+            "geographic": false,
+            "parent_area_name": "First District",
+            "type_name": "Division"
+        }
+    ],
+    "districts": [
+        {
+            "_id": "ca_court_app_d1_div1",
+            "district_code": 1,
+            "district_type_id": "ca_court_app_d1"
+        },
+        {
+            "_id": "ca_court_app_d1_div2",
+            "district_code": 2,
+            "district_type_id": "ca_court_app_d1"
+        },
+        {
+            "_id": "ca_court_app_d1_div3",
+            "district_code": 3,
+            "district_type_id": "ca_court_app_d1"
+        },
+        {
+            "_id": "ca_court_app_d1_div4",
+            "district_code": 4,
+            "district_type_id": "ca_court_app_d1"
+        },
+        {
+            "_id": "ca_court_app_d1_div5",
+            "district_code": 5,
+            "district_type_id": "ca_court_app_d1"
+        }
+    ],
+    "offices": [
+        {
+            "_id": "ca_court_app_d1_div1_pj",
+            "office_type_id": "ca_court_app_pj"
+        },
+        {
+            "_id": "ca_court_app_d1_div1_aj",
+            "office_type_id": "ca_court_app_aj",
+            "seat_count": 3
+        },
+        {
+            "_id": "ca_court_app_d1_div2_pj",
+            "office_type_id": "ca_court_app_pj"
+        },
+        {
+            "_id": "ca_court_app_d1_div2_aj",
+            "office_type_id": "ca_court_app_aj",
+            "seat_count": 3
+        },
+        {
+            "_id": "ca_court_app_d1_div3_pj",
+            "office_type_id": "ca_court_app_pj"
+        },
+        {
+            "_id": "ca_court_app_d1_div3_aj",
+            "office_type_id": "ca_court_app_aj",
+            "seat_count": 3
+        },
+        {
+            "_id": "ca_court_app_d1_div4_pj",
+            "office_type_id": "ca_court_app_pj"
+        },
+        {
+            "_id": "ca_court_app_d1_div4_aj",
+            "office_type_id": "ca_court_app_aj",
+            "seat_count": 3
+        },
+        {
+            "_id": "ca_court_app_d1_div5_pj",
+            "office_type_id": "ca_court_app_pj"
+        },
+        {
+            "_id": "ca_court_app_d1_div5_aj",
+            "office_type_id": "ca_court_app_aj",
+            "seat_count": 3
+        }
+    ]
+}

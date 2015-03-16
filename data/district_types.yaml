@@ -1,0 +1,7 @@
+district_types:
+  -
+    _id: ca_court_app_d1
+    body_id: ca_court_app
+    geographic: false
+    parent_area_name: First District
+    type_name: Division

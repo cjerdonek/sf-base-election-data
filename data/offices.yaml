@@ -45,7 +45,9 @@ offices:
     name: Insurance Commissioner
     url: http://www.insurance.ca.gov/
   -
-    name: Superintendent of Public Instruction
+    name:
+      en: Superintendent of Public Instruction
+      es: Superintendente Estatal de Instrucción Pública
     partisan: false
     url: http://www.cde.ca.gov/eo
   -
