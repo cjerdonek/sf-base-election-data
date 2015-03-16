@@ -66,42 +66,37 @@ offices:
     id: CA_SC_CJ
     body_id: CA_SC
     name: Chief Justice
-    term_expires: 2023-01-01
-  # We include the names of each Associate Justice to clarify which
-  # seat each office represents.
   -
-    id: CA_SC_AJ_1
-    office_type_id: CA_SC_AJ
-    term_expires: 2027-01-03
-    _person: Kathryn M. Werdegar
+    id: CA_SC_AJ
+    body_id: CA_SC
+    name: Associate Justice
+    seat_count: 6
   -
-    id: CA_SC_AJ_2
-    office_type_id: CA_SC_AJ
-    term_expires: 2023-01-01
-    _person: Ming W. Chin
-    -
-    id: CA_SC_AJ_3
-    office_type_id: CA_SC_AJ
-    term_expires: 2019-01-06
-    _person: Carol A. Corrigan
+    id: CA_SC_CJ
+    body_id: CA_SC
+    name: Chief Justice
   -
-    id: CA_SC_AJ_4
-    office_type_id: CA_SC_AJ
-    term_expires: 2023-01-01
-    _person: Goodwin Liu
+    id: CA_CourtApp_D1_Div1_PJ
+    office_type_id: CA_CourtApp_PJ
+    district: 1
+    division: 1
   -
-    id: CA_SC_AJ_5
-    office_type_id: CA_SC_AJ
-    term_expires: 2027-01-03
-    _person: Mariano-Florentino Cuéllar
+    id: CA_CourtApp_D1_Div1_AJ
+    office_type_id: CA_CourtApp_AJ
+    district: 1
+    division: 1
+    seat_count: 3
   -
-    id: CA_SC_AJ_6
-    office_type_id: CA_SC_AJ
-    term_expires: 2019-01-06
-    _person: Leondra R. Kruger
+    id: CA_CourtApp_D1_Div2_PJ
+    office_type_id: CA_CourtApp_PJ
+    district: 1
+    division: 2
   -
-    body_id: CA_SBOE
-    district: 2
+    id: CA_CourtApp_D1_Div2_AJ
+    office_type_id: CA_CourtApp_AJ
+    district: 1
+    division: 2
+    seat_count: 3
   -
     body_id: CA_SS
     district: 11

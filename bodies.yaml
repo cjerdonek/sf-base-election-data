@@ -38,36 +38,36 @@ bodies:
     _notes:
       The State Controller is the fifth member of this body.
   -
+    # The Court has six Associate Justices and one Chief Justice.
+    # Each is appointed by the Governor and subject to retention elections.
     id: CA_SC
     name: Supreme Court
     qualified_name: Supreme Court of California
     jurisdiction_id: CA
     url: http://www.courts.ca.gov/supremecourt.htm
     term_length: 12
-    _notes:
-      The Court has six Associate Justices and one Chief Justice.  The
-      justices are appointed by the Governor and are subject to retention
-      elections.
+    vote_method: retention
   -
+    # The state has six geographic appellate districts.
+    # The first district, which covers San Francisco, is divided into
+    # five non-geographical divisions with four justices each
+    id: CA_CourtApp
     name: California Courts of Appeal
     jurisdiction_id: CA
     partisan: false
     url: http://www.courts.ca.gov/courtsofappeal.htm
     term_length: 12
-    _notes:
-      The state has six geographic appellate districts.
+    vote_method: retention
   -
+    # The San Francisco Superior Court Bench is comprised of 52 Judges and
+    # one Commissioner.
     id: SF_SC
     jurisdiction_id: SF
     name: Superior Court
     office_name: Judge of the Superior Court
     qualified_name: Superior Court of San Francisco
     url: http://www.sfsuperiorcourt.org/
-    seat_count: 53
     term_length: 6
-    _notes:
-      The San Francisco Superior Court Bench is comprised of 52 Judges and
-      one Commissioner.
   -
     id: BART
     name: BART Board of Directors
