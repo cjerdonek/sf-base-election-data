@@ -14,11 +14,6 @@ KEY_ID = '_id'
 KEY_OFFICES = 'offices'
 
 
-def get_repo_dir():
-    repo_dir = os.path.join(os.path.dirname(__file__), os.pardir)
-    return os.path.abspath(repo_dir)
-
-
 def get_output_path():
     repo_dir = get_repo_dir()
     path = os.path.join(repo_dir, 'offices.json')
@@ -107,6 +102,7 @@ def make_all_data():
     data ={}
     add_source(data, 'bodies')
     add_source(data, 'district_types')
+    add_source(data, 'office_types')
 
     # Make districts.
     districts = make_court_of_appeals_districts()
