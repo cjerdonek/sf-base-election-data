@@ -4,4 +4,4 @@ district_types:
     body_id: ca_court_app
     geographic: false
     parent_area_name: First District
-    type_name: Division
+    district_name: "Division {0}"

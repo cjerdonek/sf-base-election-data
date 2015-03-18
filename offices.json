@@ -207,6 +207,24 @@
             "district_type_id": "ca_court_app_d1"
         }
     ],
+    "office_types": [
+        {
+            "body_id": "ca_court_app",
+            "id": "ca_court_app_pj",
+            "name": {
+                "en": "Presiding Justice",
+                "es": "Juez Presidente"
+            }
+        },
+        {
+            "body_id": "ca_court_app",
+            "id": "ca_court_app_aj",
+            "name": {
+                "en": "Associate Justice",
+                "es": "Juez Asociada"
+            }
+        }
+    ],
     "offices": [
         {
             "_id": "ca_court_app_d1_div1_pj",

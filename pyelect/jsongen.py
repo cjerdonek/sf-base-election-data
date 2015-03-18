@@ -112,15 +112,3 @@ def make_all_data():
     data['offices'] = offices
 
     return data
-
-
-def main():
-    path = get_output_path()
-    data = make_all_data()
-    text = json.dumps(data, indent=4, sort_keys=True)
-    with open(path, mode='w') as f:
-        f.write(text)
-    print(text)
-
-if __name__ == '__main__':
-    main()
