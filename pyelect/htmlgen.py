@@ -6,9 +6,11 @@ from pyelect import utils
 
 
 def make_district(value):
+    print(value)
     data = {
-
+        'name': value['district_code']
     }
+    return data
 
 def make_districts(data):
     districts = [make_district(v) for v in data['districts']]
@@ -32,6 +34,7 @@ def render_template(template_name, data):
     template_dir = utils.get_template_dir()
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template(template_name)
+    print(data)
     return template.render(data)
 
 

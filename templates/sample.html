@@ -1,2 +1,5 @@
-<h1>{{ title }}</h1>
-FOO
+<h1>Districts</h1>
+
+{% for district in districts %}
+<li>{{district.name}}</li>
+{% endfor %}
