@@ -175,9 +175,9 @@
         {
             "_id": "ca_court_app_d1",
             "body_id": "ca_court_app",
+            "district_name_format": "Division {0}",
             "geographic": false,
-            "parent_area_name": "First District",
-            "type_name": "Division"
+            "parent_area_name": "First District"
         }
     ],
     "districts": [

@@ -4,8 +4,8 @@ import os
 
 import yaml
 
+from pyelect import utils
 
-INPUT_DIR = 'data'
 
 COURT_OF_APPEALS_ID = 'ca_court_app'
 
@@ -14,20 +14,8 @@ KEY_ID = '_id'
 KEY_OFFICES = 'offices'
 
 
-def get_output_path():
-    repo_dir = get_repo_dir()
-    path = os.path.join(repo_dir, 'offices.json')
-    return path
-
-
-def get_source_path(name):
-    repo_dir = get_repo_dir()
-    path = os.path.join(repo_dir, INPUT_DIR, '{0}.yaml'.format(name))
-    return path
-
-
 def read_source(name):
-    path = get_source_path(name)
+    path = utils.get_data_path(name)
     with open(path) as f:
         data = yaml.load(f)
     return data

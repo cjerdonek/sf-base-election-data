@@ -85,6 +85,9 @@ def main(argv=None):
     try:
         ns.run_command
     except AttributeError:
+        # We need to handle this exception because of the following
+        # behavior change:
+        #   http://bugs.python.org/issue16308
         parser.print_help()
     else:
         ns.run_command(ns)
