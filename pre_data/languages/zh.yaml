@@ -1,10 +1,10 @@
 texts:
   office_district_attorney_name:
     _en: District Attorney
-    es: Fiscal del Distrito
+    zh: "地方檢察官"
   office_mayor_name:
     en: Mayor
-    es: Alcalde
+    zh: "市長"
   office_sheriff_name:
     en: Sheriff
-    es: Alguacil
+    zh: "縣警長"
