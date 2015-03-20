@@ -1,5 +1,16 @@
-<h1>Districts</h1>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+<body>
+  <h1>Offices on Ballot in San Francisco</h1>
 
-{% for district in districts %}
-<li>{{district.name}}</li>
-{% endfor %}
+    {% for office in offices -%}
+    <li>{{office.name}} {% if office.translations -%}
+        ({{ office.translations|join(' | ') }})
+      {%- endif %}
+    </li>
+    {% endfor %}
+</body>
+</html>
