@@ -1,13 +1,16 @@
 TODO
 ====
-
-* Display the districts nicely.
-* Stub out script to print human-readable version of things.
-  - Start with body, then district
-  - Include all info
-  - Note when language is missing
+* Prototype listing the office names and translations (by hand).
+* Start processing Department csv files.
+* Clean up en.yaml, and add Spanish and Chinese in the cleaned-up format.
+* Consider using "*_i18n" in JSON to signify internationalized text.
+* Prioritize listing the offices as they appear in offices.json.
+  - Different groupings and filters can happen later.
+  - Come up with a DRY pattern to display each language labeled
+    with the language name (try using a macro).
+  - Also note when language is missing
+  - Document the JSON objects as I go.
 * Use resource files instead.
-* Start documenting objects.
 * Document Court of Appeals.
 * Do Supreme Court.
 * Mark partisan.
