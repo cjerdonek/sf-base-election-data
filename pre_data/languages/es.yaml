@@ -2,11 +2,9 @@ text:
   office_district_attorney:
     _en: District Attorney
     es: Fiscal del Distrito
-  -
-    _id: office_mayor
+  office_mayor:
     en: Mayor
     es: Alcalde
-  -
-    _id: office_sheriff
+  office_sheriff:
     en: Sheriff
     es: Alguacil

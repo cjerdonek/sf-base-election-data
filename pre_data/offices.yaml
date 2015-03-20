@@ -118,6 +118,7 @@ offices:
     body_id: BART
     district: 9
   -
+    i18n_name: office_mayor_name
     name:
       en: Mayor
       es: Alcalde
@@ -126,6 +127,7 @@ offices:
     url: http://www.sfmayor.org/
     seed_year: 2015
   -
+    i18n_name: office_sheriff_name
     name:
       en: Sheriff
       es: Alguacil
@@ -134,6 +136,7 @@ offices:
     url: http://www.sfsheriff.com/
     seed_year: 2015
   -
+    i18n_name: office_district_attorney_name
     name:
       en: District Attorney
       es: Fiscal del Distrito

@@ -1,6 +1,8 @@
 
+import glob
 import json
 import os
+from pprint import pprint
 
 from pyelect import utils
 
@@ -12,15 +14,54 @@ KEY_ID = '_id'
 KEY_OFFICES = 'offices'
 
 
-def read_source(name):
-    path = utils.get_data_path(name)
-    return read_yaml(path)
+def get_language_codes():
+    dir_path = utils.get_lang_dir()
+    glob_path = os.path.join(dir_path, "*.yaml")
+    paths = glob.glob(glob_path)
+    langs = []
+    for path in paths:
+        head, tail = os.path.split(path)
+        base, ext = os.path.splitext(tail)
+        langs.append(base)
+    return langs
+
+
+def get_translations(lang):
+    path = utils.get_language_path(lang)
+    return utils.read_yaml(path)
+
+
+def get_yaml(name):
+    path = utils.get_yaml_file_path(name)
+    return utils.read_yaml(path)
 
 
 def add_source(data, source_name):
-    source_data = read_source(source_name)
+    source_data = get_yaml(source_name)
     for key, value in source_data.items():
         data[key] = value
+
+
+def words_from_yaml(lang):
+    data = get_translations(lang)
+    for text_id, value in data['texts'].items():
+        text = value[lang]
+        yield (text_id, text)
+
+
+def make_node_i18n():
+    """Return the node containing internationalized data."""
+    node = {}
+    langs = get_language_codes()
+    for lang in langs:
+        for text_id, text in words_from_yaml(lang):
+            try:
+                words = node[text_id]
+            except KeyError:
+                words = {}
+                node[text_id] = words
+            words[lang] = text
+    return node
 
 
 def make_court_of_appeals_division_numbers():
@@ -82,12 +123,23 @@ def make_court_of_appeals():
     return offices
 
 
+def add_node(data, node_name):
+    make_node_function_name = "make_node_{0}".format(node_name)
+    make_node = globals()[make_node_function_name]
+    node = make_node()
+    data[node_name] = node
+
+
 def make_all_data():
     data ={}
+
+    add_node(data, 'i18n')
+    add_source(data, 'offices')
+    return data
+
     add_source(data, 'bodies')
     add_source(data, 'district_types')
     add_source(data, 'office_types')
-    add_source(data, 'offices')
 
     # Make districts.
     districts = make_court_of_appeals_districts()
