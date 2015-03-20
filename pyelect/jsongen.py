@@ -2,8 +2,6 @@
 import json
 import os
 
-import yaml
-
 from pyelect import utils
 
 
@@ -16,9 +14,7 @@ KEY_OFFICES = 'offices'
 
 def read_source(name):
     path = utils.get_data_path(name)
-    with open(path) as f:
-        data = yaml.load(f)
-    return data
+    return read_yaml(path)
 
 
 def add_source(data, source_name):
@@ -91,12 +87,13 @@ def make_all_data():
     add_source(data, 'bodies')
     add_source(data, 'district_types')
     add_source(data, 'office_types')
+    add_source(data, 'offices')
 
     # Make districts.
     districts = make_court_of_appeals_districts()
     data['districts'] = districts
 
     offices = make_court_of_appeals()
-    data['offices'] = offices
+    data['court_offices'] = offices
 
     return data

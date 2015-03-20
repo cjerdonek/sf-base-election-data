@@ -28,6 +28,12 @@ def command_make_json(ns):
     print(text)
 
 
+def command_normalize_yaml(ns):
+    path = ns.path
+    data = utils.read_yaml(path)
+    utils.write_yaml(data, path, stdout=True)
+
+
 def command_sample_html(ns):
     path = ns.output_path
     # Load JSON data.
@@ -64,6 +70,10 @@ def create_parser():
     parser.add_argument('output_path', metavar='PATH', nargs="?", default=default_output,
         help=("the output path. Defaults to the following path relative to the "
               "repo root: {0}.".format(default_output)))
+
+    parser = make_subparser(sub, "norm_yaml", command_normalize_yaml,
+                help="normalize a YAML file.")
+    parser.add_argument('path', metavar='PATH', help="a path to a YAML file.")
 
     default_output = "sample.html"
     parser = make_subparser(sub, "sample_html", command_sample_html,
