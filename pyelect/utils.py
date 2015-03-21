@@ -38,15 +38,6 @@ def get_lang_path(base, ext=None):
     return os.path.join(lang_dir, '{0}{1}'.format(base, ext))
 
 
-def get_language_path(lang):
-    lang_dir = get_lang_dir()
-    return os.path.join(lang_dir, '{0}.yaml'.format(lang))
-
-
-def get_yaml_file_path(name):
-    return get_pre_data_path('{0}.yaml'.format(name))
-
-
 def get_default_json_path():
     repo_dir = get_repo_dir()
     return os.path.join(repo_dir, REL_PATH_JSON)
@@ -69,7 +60,7 @@ def read_yaml(path):
 
 
 def yaml_dump(*args):
-    return yaml.dump(*args, default_flow_style=False)
+    return yaml.dump(*args, default_flow_style=False, allow_unicode=True)
 
 
 def write_yaml(data, path, stdout=False):
