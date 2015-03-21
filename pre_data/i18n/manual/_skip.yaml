@@ -1,0 +1,13 @@
+# This file contains a list of English phrases to skip when processing
+# the Department CSV.  We skip these because they appear multiple times
+# in the CSV files, and there is no simple way to choose which one
+# to use as the real translation.  Instead, we manage the translations
+# of these words manually.
+texts:
+  - "BART DIRECTOR"
+  - "DISTRICT 11"
+  - "JUDICIAL"
+  - "MEMBER, BOARD OF SUPERVISORS"
+  - "TREASURER"
+  - "Vote for One: Must be different than your first choice"
+  - "Vote for One: Must be different than your first and second choices"
