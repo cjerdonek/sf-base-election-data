@@ -1,0 +1,283 @@
+texts:
+  category_city_county_propositions:
+    _en: CITY & COUNTY PROPOSITIONS
+    fil: ''
+  category_city_county_propositions_edge:
+    _en: ''
+    fil: ''
+  category_measures_submitted_to_the_voters:
+    _en: MEASURES SUBMITTED TO THE VOTERS
+    fil: ''
+  category_measures_submitted_to_the_voters_edge:
+    _en: ''
+    fil: ''
+  category_party_nominated_offices:
+    _en: PARTY-NOMINATED OFFICES
+    fil: ''
+  category_party_nominated_offices_edge:
+    _en: ''
+    fil: ''
+  category_school_propositions:
+    _en: SCHOOL PROPOSITIONS
+    fil: ''
+  category_school_propositions_edge:
+    _en: ''
+    fil: ''
+  category_state_propositions:
+    _en: STATE PROPOSITIONS
+    fil: ''
+  category_state_propositions_edge:
+    _en: ''
+    fil: ''
+  category_voter_nominated_offices:
+    _en: VOTER-NOMINATED OFFICES
+    fil: ''
+  category_voter_nominated_offices_edge:
+    _en: ''
+    fil: ''
+  choice_1:
+    _en: FIRST CHOICE
+    fil: ''
+  choice_1_edge:
+    _en: ''
+    fil: ''
+  choice_2:
+    _en: SECOND CHOICE
+    fil: ''
+  choice_2_edge:
+    _en: ''
+    fil: ''
+  choice_3:
+    _en: THIRD CHOICE
+    fil: ''
+  choice_3_edge:
+    _en: ''
+    fil: ''
+  county_transportation_authority_proposition:
+    _en: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
+    fil: ''
+  county_transportation_authority_proposition_edge:
+    _en: ''
+    fil: ''
+  district:
+    _en: DISTRICT
+    fil: ''
+  district_edge:
+    _en: ''
+    fil: ''
+  office_assessor_recorder:
+    _en: ASSESSOR-RECORDER
+    fil: ''
+  office_assessor_recorder_edge:
+    _en: ASSESSOR-RECORDER
+    fil: ''
+  office_attorney_general:
+    _en: ATTORNEY GENERAL
+    fil: Pangkalahatang Abugado
+  office_attorney_general_edge:
+    _en: ATTORNEY GENERAL
+    fil: ''
+  office_city_attorney:
+    _en: CITY ATTORNEY
+    fil: ''
+  office_city_attorney_edge:
+    _en: CITY ATTORNEY
+    fil: ''
+  office_controller:
+    _en: CONTROLLER
+    fil: Kontroler
+  office_controller_edge:
+    _en: CONTROLLER
+    fil: ''
+  office_district_attorney:
+    _en: DISTRICT ATTORNEY
+    fil: ''
+  office_district_attorney_edge:
+    _en: DISTRICT ATTORNEY
+    fil: ''
+  office_governor:
+    _en: GOVERNOR
+    fil: Gobernador
+  office_governor_edge:
+    _en: GOVERNOR
+    fil: ''
+  office_insurance_commissioner:
+    _en: INSURANCE COMMISSIONER
+    fil: Komisyonado ng Seguro
+  office_insurance_commissioner_edge:
+    _en: INSURANCE COMMISSIONER
+    fil: ''
+  office_judge_of_the_superior_court:
+    _en: JUDGE OF THE SUPERIOR COURT,
+    fil: ''
+  office_judge_of_the_superior_court_edge:
+    _en: 'SUPERIOR COURT JUDGE #X'
+    fil: ''
+  office_lieutenant_governor:
+    _en: LIEUTENANT GOVERNOR
+    fil: Tenyente Gobernador
+  office_lieutenant_governor_edge:
+    _en: LIEUTENANT GOVERNOR
+    fil: ''
+  office_mayor:
+    _en: MAYOR
+    fil: ''
+  office_mayor_edge:
+    _en: MAYOR
+    fil: ''
+  office_member_board_of_education:
+    _en: MEMBER, BOARD OF EDUCATION
+    fil: ''
+  office_member_board_of_education_edge:
+    _en: BOARD OF EDUCATION
+    fil: ''
+  office_member_community_college_board:
+    _en: MEMBER, COMMUNITY COLLEGE BOARD
+    fil: ''
+  office_member_community_college_board_edge:
+    _en: COMMUNITY COLLEGE BOARD
+    fil: ''
+  office_member_county_central_committee:
+    _en: MEMBER, COUNTY CENTRAL COMMITTEE
+    fil: ''
+  office_member_county_central_committee_edge:
+    _en: COUNTY CENTRAL COMMITTEE
+    fil: ''
+  office_member_county_council:
+    _en: MEMBER, COUNTY COUNCIL
+    fil: ''
+  office_member_county_council_edge:
+    _en: COUNTY COUNCIL
+    fil: ''
+  office_member_of_the_state_assembly:
+    _en: MEMBER OF THE STATE ASSEMBLY
+    fil: Miyembro ng Asembleya ng Estado
+  office_member_of_the_state_assembly_edge:
+    _en: MEMBER, STATE ASSEMBLY
+    fil: ''
+  office_member_state_board_of_equalization_district_2:
+    _en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
+    fil: Miyembro, Lupon ng Tagasingil ng Buwis ng Estado Distrito 2
+  office_member_state_board_of_equalization_district_2_edge:
+    _en: BOARD OF EQUALIZATION D2
+    fil: ''
+  office_president_and_vice_president:
+    _en: PRESIDENT AND VICE PRESIDENT
+    fil: Presidente at Bise Presidente
+  office_president_and_vice_president_edge:
+    _en: PRESIDENT & VICE PRES.
+    fil: ''
+  office_president_of_the_united_states:
+    _en: PRESIDENT OF THE UNITED STATES
+    fil: ''
+  office_president_of_the_united_states_edge:
+    _en: U.S. PRESIDENT
+    fil: ''
+  office_public_defender:
+    _en: PUBLIC DEFENDER
+    fil: ''
+  office_public_defender_edge:
+    _en: PUBLIC DEFENDER
+    fil: ''
+  office_secretary_of_state:
+    _en: SECRETARY OF STATE
+    fil: Kalihim ng Estado
+  office_secretary_of_state_edge:
+    _en: SECRETARY OF STATE
+    fil: ''
+  office_sheriff:
+    _en: SHERIFF
+    fil: ''
+  office_sheriff_edge:
+    _en: SHERIFF
+    fil: ''
+  office_state_senator:
+    _en: STATE SENATOR
+    fil: Senador ng Estado
+  office_state_senator_edge:
+    _en: STATE SENATOR
+    fil: ''
+  office_superintendent_of_public_instruction:
+    _en: SUPERINTENDENT OF PUBLIC INSTRUCTION
+    fil: Superintendente ng Pampublikong Pagtuturo
+  office_superintendent_of_public_instruction_edge:
+    _en: SUP OF PUBLIC INSTRUCTN
+    fil: ''
+  office_united_states_representative:
+    _en: UNITED STATES REPRESENTATIVE
+    fil: Kinatawan ng Estados Unidos
+  office_united_states_representative_edge:
+    _en: U.S. REPRESENTATIVE
+    fil: ''
+  office_united_states_senator:
+    _en: UNITED STATES SENATOR
+    fil: Senador ng Estados Unidos
+  office_united_states_senator_edge:
+    _en: UNITED STATES SENATOR
+    fil: ''
+  preference_party:
+    _en: 'Party Preference:'
+    fil: ''
+  preference_party_edge:
+    _en: ''
+    fil: ''
+  preference_presidential:
+    _en: Presidential Preference
+    fil: ''
+  preference_presidential_edge:
+    _en: ''
+    fil: ''
+  type_city_and_county:
+    _en: CITY AND COUNTY
+    fil: ''
+  type_city_and_county_edge:
+    _en: ''
+    fil: ''
+  type_federal:
+    _en: FEDERAL
+    fil: ''
+  type_federal_edge:
+    _en: ''
+    fil: ''
+  type_school:
+    _en: SCHOOL
+    fil: ''
+  type_school_edge:
+    _en: ''
+    fil: ''
+  type_state:
+    _en: STATE
+    fil: ''
+  type_state_edge:
+    _en: ''
+    fil: ''
+  vote_for_no_more_than_three_or_four:
+    _en: Vote for no more than (Three or Four)
+    fil: ''
+  vote_for_no_more_than_three_or_four_edge:
+    _en: ''
+    fil: ''
+  vote_for_one:
+    _en: Vote for One
+    fil: ''
+  vote_for_one_edge:
+    _en: ''
+    fil: ''
+  vote_for_one_party:
+    _en: Vote for One Party
+    fil: ''
+  vote_for_one_party_edge:
+    _en: ''
+    fil: ''
+  vote_yes_or_no_for_each_office:
+    _en: Vote YES or NO for each office
+    fil: ''
+  vote_yes_or_no_for_each_office_edge:
+    _en: ''
+    fil: ''
+  vote_your_first_second_and_third_choices:
+    _en: Vote your first, second, and third choices
+    fil: ''
+  vote_your_first_second_and_third_choices_edge:
+    _en: ''
+    fil: ''

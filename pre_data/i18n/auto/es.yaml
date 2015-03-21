@@ -1,0 +1,284 @@
+texts:
+  category_city_county_propositions:
+    _en: CITY & COUNTY PROPOSITIONS
+    es: PROPOSICIONES DE LA CIUDAD Y EL CONDADO
+  category_city_county_propositions_edge:
+    _en: ''
+    es: ''
+  category_measures_submitted_to_the_voters:
+    _en: MEASURES SUBMITTED TO THE VOTERS
+    es: INICIATIVAS DE LEY PRESENTADAS A LOS ELECTORES
+  category_measures_submitted_to_the_voters_edge:
+    _en: ''
+    es: ''
+  category_party_nominated_offices:
+    _en: PARTY-NOMINATED OFFICES
+    es: CARGOS NOMINADOS POR LOS PARTIDOS
+  category_party_nominated_offices_edge:
+    _en: ''
+    es: ''
+  category_school_propositions:
+    _en: SCHOOL PROPOSITIONS
+    es: PROPOSICIONES ESCOLARES
+  category_school_propositions_edge:
+    _en: ''
+    es: ''
+  category_state_propositions:
+    _en: STATE PROPOSITIONS
+    es: PROPOSICIONES ESTATALES
+  category_state_propositions_edge:
+    _en: ''
+    es: ''
+  category_voter_nominated_offices:
+    _en: VOTER-NOMINATED OFFICES
+    es: CARGOS NOMINADOS POR LOS ELECTORES
+  category_voter_nominated_offices_edge:
+    _en: ''
+    es: ''
+  choice_1:
+    _en: FIRST CHOICE
+    es: PRIMERA PREFERENCIA
+  choice_1_edge:
+    _en: ''
+    es: ''
+  choice_2:
+    _en: SECOND CHOICE
+    es: SEGUNDA PREFERENCIA
+  choice_2_edge:
+    _en: ''
+    es: ''
+  choice_3:
+    _en: THIRD CHOICE
+    es: TERCERA PREFERENCIA
+  choice_3_edge:
+    _en: ''
+    es: ''
+  county_transportation_authority_proposition:
+    _en: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
+    es: PROPOSICIÓN DE LA AUTORIDAD DE TRANSPORTE DEL CONDADO
+  county_transportation_authority_proposition_edge:
+    _en: ''
+    es: ''
+  district:
+    _en: DISTRICT
+    es: DISTRITO
+  district_edge:
+    _en: ''
+    es: ''
+  office_assessor_recorder:
+    _en: ASSESSOR-RECORDER
+    es: TASADOR-REGISTRADOR
+  office_assessor_recorder_edge:
+    _en: ASSESSOR-RECORDER
+    es: TASADOR-REGISTRADOR
+  office_attorney_general:
+    _en: ATTORNEY GENERAL
+    es: PROCURADOR GENERAL
+  office_attorney_general_edge:
+    _en: ATTORNEY GENERAL
+    es: PROCURADOR GENERAL
+  office_city_attorney:
+    _en: CITY ATTORNEY
+    es: ABOGADO DE LA CIUDAD
+  office_city_attorney_edge:
+    _en: CITY ATTORNEY
+    es: ABOGADO DE LA CIUDAD
+  office_controller:
+    _en: CONTROLLER
+    es: CONTRALOR
+  office_controller_edge:
+    _en: CONTROLLER
+    es: CONTRALOR
+  office_district_attorney:
+    _en: DISTRICT ATTORNEY
+    es: FISCAL DEL DISTRITO
+  office_district_attorney_edge:
+    _en: DISTRICT ATTORNEY
+    es: FISCAL DEL DISTRITO
+  office_governor:
+    _en: GOVERNOR
+    es: GOBERNADOR
+  office_governor_edge:
+    _en: GOVERNOR
+    es: GOBERNADOR
+  office_insurance_commissioner:
+    _en: INSURANCE COMMISSIONER
+    es: COMISIONADO DE SEGUROS
+  office_insurance_commissioner_edge:
+    _en: INSURANCE COMMISSIONER
+    es: COMISIONADO DE SEGUROS
+  office_judge_of_the_superior_court:
+    _en: JUDGE OF THE SUPERIOR COURT,
+    es: JUEZ DEL TRIBUNAL SUPERIOR,
+  office_judge_of_the_superior_court_edge:
+    _en: 'SUPERIOR COURT JUDGE #X'
+    es: JUEZ, CORTE SUPERIOR X
+  office_lieutenant_governor:
+    _en: LIEUTENANT GOVERNOR
+    es: VICEGOBERNADOR
+  office_lieutenant_governor_edge:
+    _en: LIEUTENANT GOVERNOR
+    es: VICEGOBERNADOR
+  office_mayor:
+    _en: MAYOR
+    es: ALCALDE
+  office_mayor_edge:
+    _en: MAYOR
+    es: ALCALDE
+  office_member_board_of_education:
+    _en: MEMBER, BOARD OF EDUCATION
+    es: MIEMBRO, CONSEJO DE EDUCACIÓN
+  office_member_board_of_education_edge:
+    _en: BOARD OF EDUCATION
+    es: CONSEJO DE EDUCACIÓN
+  office_member_community_college_board:
+    _en: MEMBER, COMMUNITY COLLEGE BOARD
+    es: MIEMBRO, CONSEJO DEL COLEGIO COMUNITARIO
+  office_member_community_college_board_edge:
+    _en: COMMUNITY COLLEGE BOARD
+    es: CONSEJO COLEGIO COMUNIT.
+  office_member_county_central_committee:
+    _en: MEMBER, COUNTY CENTRAL COMMITTEE
+    es: MIEMBRO, COMITÉ CENTRAL DEL CONDADO
+  office_member_county_central_committee_edge:
+    _en: COUNTY CENTRAL COMMITTEE
+    es: COMITÉ CENTRAL CONDADO
+  office_member_county_council:
+    _en: MEMBER, COUNTY COUNCIL
+    es: MIEMBRO, CONSEJO DEL CONDADO
+  office_member_county_council_edge:
+    _en: COUNTY COUNCIL
+    es: CONSEJO CONDADO
+  office_member_of_the_state_assembly:
+    _en: MEMBER OF THE STATE ASSEMBLY
+    es: MIEMBRO DE LA ASAMBLEA DEL ESTADO
+  office_member_of_the_state_assembly_edge:
+    _en: MEMBER, STATE ASSEMBLY
+    es: ASAMBLEA DEL ESTADO
+  office_member_state_board_of_equalization_district_2:
+    _en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
+    es: MIEMBRO, DIRECTIVA ESTATAL DE IMPUESTOS SOBRE VENTAS, USO, Y OTROS, DISTRITO
+      2
+  office_member_state_board_of_equalization_district_2_edge:
+    _en: BOARD OF EQUALIZATION D2
+    es: DIRECTIVA IGUALACIÓN
+  office_president_and_vice_president:
+    _en: PRESIDENT AND VICE PRESIDENT
+    es: PRESIDENTE Y VICEPRESIDENTE
+  office_president_and_vice_president_edge:
+    _en: PRESIDENT & VICE PRES.
+    es: PRESIDENTE Y VICEPRES.
+  office_president_of_the_united_states:
+    _en: PRESIDENT OF THE UNITED STATES
+    es: PRESIDENTE DE ESTADOS UNIDOS
+  office_president_of_the_united_states_edge:
+    _en: U.S. PRESIDENT
+    es: PRESIDENTE DE EE.UU.
+  office_public_defender:
+    _en: PUBLIC DEFENDER
+    es: DEFENSOR PÚBLICO
+  office_public_defender_edge:
+    _en: PUBLIC DEFENDER
+    es: DEFENSOR PÚBLICO
+  office_secretary_of_state:
+    _en: SECRETARY OF STATE
+    es: SECRETARIO DE ESTADO
+  office_secretary_of_state_edge:
+    _en: SECRETARY OF STATE
+    es: SECRETARIO DE ESTADO
+  office_sheriff:
+    _en: SHERIFF
+    es: ALGUACIL
+  office_sheriff_edge:
+    _en: SHERIFF
+    es: ALGUACIL
+  office_state_senator:
+    _en: STATE SENATOR
+    es: SENADOR ESTATAL
+  office_state_senator_edge:
+    _en: STATE SENATOR
+    es: SENADOR ESTATAL
+  office_superintendent_of_public_instruction:
+    _en: SUPERINTENDENT OF PUBLIC INSTRUCTION
+    es: SUPERINTENDENTE DE INSTRUCCIÓN PÚBLICA
+  office_superintendent_of_public_instruction_edge:
+    _en: SUP OF PUBLIC INSTRUCTN
+    es: SUPERINT. INSTRUCC. PÚB.
+  office_united_states_representative:
+    _en: UNITED STATES REPRESENTATIVE
+    es: REPRESENTANTE DE ESTADOS UNIDOS
+  office_united_states_representative_edge:
+    _en: U.S. REPRESENTATIVE
+    es: REPRESENTANTE DE EE.UU.
+  office_united_states_senator:
+    _en: UNITED STATES SENATOR
+    es: SENADOR DE ESTADOS UNIDOS
+  office_united_states_senator_edge:
+    _en: UNITED STATES SENATOR
+    es: SENADOR DE EE.UU.
+  preference_party:
+    _en: 'Party Preference:'
+    es: 'Preferencia por partido:'
+  preference_party_edge:
+    _en: ''
+    es: ''
+  preference_presidential:
+    _en: Presidential Preference
+    es: Preferencia por un candidato presidencial
+  preference_presidential_edge:
+    _en: ''
+    es: ''
+  type_city_and_county:
+    _en: CITY AND COUNTY
+    es: CIUDAD Y CONDADO
+  type_city_and_county_edge:
+    _en: ''
+    es: ''
+  type_federal:
+    _en: FEDERAL
+    es: FEDERAL
+  type_federal_edge:
+    _en: ''
+    es: ''
+  type_school:
+    _en: SCHOOL
+    es: ESCUELA
+  type_school_edge:
+    _en: ''
+    es: ''
+  type_state:
+    _en: STATE
+    es: ESTADO
+  type_state_edge:
+    _en: ''
+    es: ''
+  vote_for_no_more_than_three_or_four:
+    _en: Vote for no more than (Three or Four)
+    es: Vote por no más de x
+  vote_for_no_more_than_three_or_four_edge:
+    _en: ''
+    es: ''
+  vote_for_one:
+    _en: Vote for One
+    es: Vote por uno
+  vote_for_one_edge:
+    _en: ''
+    es: ''
+  vote_for_one_party:
+    _en: Vote for One Party
+    es: Vote por un partido
+  vote_for_one_party_edge:
+    _en: ''
+    es: ''
+  vote_yes_or_no_for_each_office:
+    _en: Vote YES or NO for each office
+    es: Vote SÍ o NO por cada cargo
+  vote_yes_or_no_for_each_office_edge:
+    _en: ''
+    es: ''
+  vote_your_first_second_and_third_choices:
+    _en: Vote your first, second, and third choices
+    es: Vote por su primera, segunda y tercera preferencias
+  vote_your_first_second_and_third_choices_edge:
+    _en: ''
+    es: ''
