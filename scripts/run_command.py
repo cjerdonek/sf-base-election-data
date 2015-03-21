@@ -20,6 +20,11 @@ from pyelect import utils
 _FORMATTER_CLASS = argparse.RawDescriptionHelpFormatter
 
 
+def command_init_text_ids(ns):
+    path = ns.input_path
+    data = csvlang.create_text_ids(path)
+    print(utils.yaml_dump(data))
+
 def command_make_json(ns):
     path = ns.output_path
 
@@ -77,6 +82,11 @@ def create_parser():
     root_parser = argparse.ArgumentParser(formatter_class=_FORMATTER_CLASS,
             description="command script for repo contributors")
     sub = root_parser.add_subparsers(help='sub-command help')
+
+    parser = make_subparser(sub, "init_text_ids", command_init_text_ids,
+                help="create text ID's from a CSV file.")
+    parser.add_argument('input_path', metavar='CSV_PATH',
+        help="a path to a CSV file.")
 
     default_output = utils.REL_PATH_JSON
     parser = make_subparser(sub, "make_json", command_make_json,
