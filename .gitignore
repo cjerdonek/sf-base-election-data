@@ -1,3 +1,6 @@
 *.pyc
 __pycache__/
 .DS_Store
+
+# Project-specific
+_build/

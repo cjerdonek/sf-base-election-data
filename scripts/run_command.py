@@ -7,6 +7,7 @@ Usage: python scripts/run_command.py -h
 import argparse
 import json
 import logging
+import os
 import subprocess
 import sys
 
@@ -17,7 +18,12 @@ from pyelect import lang
 from pyelect import utils
 
 
+_DEFAULT_OUTPUT_DIR_NAME = '_build'
 _FORMATTER_CLASS = argparse.RawDescriptionHelpFormatter
+
+
+def get_default_sample_html_path():
+    return os.path.join(_DEFAULT_OUTPUT_DIR_NAME, 'sample.html')
 
 
 def command_lang_make_auto(ns):
@@ -48,6 +54,12 @@ def command_parse_csv(ns):
 
 def command_sample_html(ns):
     path = ns.output_path
+    if path is None:
+        path = os.path.join(utils.get_repo_dir(), get_default_sample_html_path())
+        dir_path = os.path.dirname(path)
+        if not os.path.exists(dir_path):
+            os.mkdir(dir_path)
+
     # Load JSON data.
     json_path = utils.get_default_json_path()
     with open(json_path) as f:
@@ -110,13 +122,12 @@ def create_parser():
                 help="parse a CSV language file from the Department.")
     parser.add_argument('path', metavar='PATH', help="a path to a CSV file.")
 
-    default_output = "sample.html"
     parser = make_subparser(sub, "sample_html", command_sample_html,
                 help="make sample HTML from the JSON data.",
                 details="Uses the repo JSON file as input.")
-    parser.add_argument('output_path', metavar='PATH', nargs="?", default=default_output,
-        help=("the output path. Defaults to {0} in the repo root."
-              .format(default_output)))
+    parser.add_argument('output_path', metavar='PATH', nargs="?",
+        help=("the output path. Defaults to the following relative to the repo: {0}"
+              .format(get_default_sample_html_path())))
 
     parser = make_subparser(sub, "yaml_norm", command_yaml_normalize,
                 help="normalize a YAML file.")

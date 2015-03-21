@@ -157,9 +157,9 @@ def make_all_data():
     data ={}
 
     add_node(data, 'i18n')
-    return data
-
     add_source(data, 'offices')
+
+    return data
     add_source(data, 'bodies')
     add_source(data, 'district_types')
     add_source(data, 'office_types')
