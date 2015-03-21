@@ -7,9 +7,11 @@ Usage: python scripts/run_command.py -h
 import argparse
 import json
 import logging
+import subprocess
 import sys
 
 import init_path
+from pyelect import csvlang
 from pyelect import htmlgen
 from pyelect import jsongen
 from pyelect import utils
@@ -23,15 +25,20 @@ def command_make_json(ns):
 
     data = jsongen.make_all_data()
     text = json.dumps(data, indent=4, sort_keys=True)
-    with open(path, mode='w') as f:
-        f.write(text)
     print(text)
+    utils.write(path, text)
 
 
 def command_normalize_yaml(ns):
     path = ns.path
     data = utils.read_yaml(path)
     utils.write_yaml(data, path, stdout=True)
+
+
+def command_parse_csv(ns):
+    path = ns.path
+    data = csvlang.parse_contest_csv(path)
+    print(data)
 
 
 def command_sample_html(ns):
@@ -44,6 +51,7 @@ def command_sample_html(ns):
     html = htmlgen.make_html(input_data)
     with open(path, "w") as f:
         f.write(html)
+    subprocess.call(["open", path])
     print(html)
 
 
@@ -74,6 +82,10 @@ def create_parser():
     parser = make_subparser(sub, "norm_yaml", command_normalize_yaml,
                 help="normalize a YAML file.")
     parser.add_argument('path', metavar='PATH', help="a path to a YAML file.")
+
+    parser = make_subparser(sub, "parse_csv", command_parse_csv,
+                help="parse a CSV language file from the Department.")
+    parser.add_argument('path', metavar='PATH', help="a path to a CSV file.")
 
     default_output = "sample.html"
     parser = make_subparser(sub, "sample_html", command_sample_html,
