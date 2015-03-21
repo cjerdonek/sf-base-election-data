@@ -1,13 +1,14 @@
+category_city_county_propositions: CITY & COUNTY PROPOSITIONS
+category_measures_submitted_to_the_voters: MEASURES SUBMITTED TO THE VOTERS
+category_party_nominated_offices: PARTY-NOMINATED OFFICES
+category_school_propositions: SCHOOL PROPOSITIONS
+category_state_propositions: STATE PROPOSITIONS
+category_voter_nominated_offices: VOTER-NOMINATED OFFICES
 choice_1: FIRST CHOICE
 choice_2: SECOND CHOICE
 choice_3: THIRD CHOICE
-city_and_county: CITY AND COUNTY
-city_county_propositions: CITY & COUNTY PROPOSITIONS
 county_transportation_authority_proposition: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
 district: DISTRICT
-federal: FEDERAL
-judicial: JUDICIAL
-measures_submitted_to_the_voters: MEASURES SUBMITTED TO THE VOTERS
 office_name_assessor_recorder: ASSESSOR-RECORDER
 office_name_attorney_general: ATTORNEY GENERAL
 office_name_bart_director: BART DIRECTOR
@@ -33,17 +34,17 @@ office_name_public_defender: PUBLIC DEFENDER
 office_name_secretary_of_state: SECRETARY OF STATE
 office_name_sheriff: SHERIFF
 office_name_state_senator: STATE SENATOR
+office_name_superintendent_of_public_instruction: SUPERINTENDENT OF PUBLIC INSTRUCTION
 office_name_treasurer: TREASURER
 office_name_united_states_representative: UNITED STATES REPRESENTATIVE
 office_name_united_states_senator: UNITED STATES SENATOR
-party_nominated_offices: PARTY-NOMINATED OFFICES
-party_preference: 'Party Preference:'
-presidential_preference: Presidential Preference
-school: SCHOOL
-school_propositions: SCHOOL PROPOSITIONS
-state: STATE
-state_propositions: STATE PROPOSITIONS
-superintendent_of_public_instruction: SUPERINTENDENT OF PUBLIC INSTRUCTION
+preference_party: 'Party Preference:'
+preference_presidential: Presidential Preference
+type_city_and_county: CITY AND COUNTY
+type_federal: FEDERAL
+type_judicial: JUDICIAL
+type_school: SCHOOL
+type_state: STATE
 vote_for_no_more_than_three_or_four: Vote for no more than (Three or Four)
 vote_for_one: Vote for One
 vote_for_one_must_be_different_than_your_first_and_second_choices: 'Vote for One:
@@ -53,4 +54,3 @@ vote_for_one_must_be_different_than_your_first_choice: 'Vote for One: Must be di
 vote_for_one_party: Vote for One Party
 vote_yes_or_no_for_each_office: Vote YES or NO for each office
 vote_your_first_second_and_third_choices: Vote your first, second, and third choices
-voter_nominated_offices: VOTER-NOMINATED OFFICES
