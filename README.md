@@ -57,3 +57,14 @@ Resources:
 
 Contributors should refer to the [contributor documentation](docs/develop.md)
 for additional information.
+
+
+## License
+
+This project is licensed under the BSD 3-clause license.  See the
+[`LICENSE`](LICENSE) file for details.
+
+
+## Author
+
+Chris Jerdonek (<chris.jerdonek@gmail.com>)
