@@ -1,0 +1,15 @@
+texts:
+  district_numbered_format:
+    en: DISTRICT {0}
+  instructions_vote_choice_2:
+    en: 'Vote for One: Must be different than your first choice'
+  instructions_vote_choice_3:
+    en: 'Vote for One: Must be different than your first and second choices'
+  office_bart_director_name:
+    en: BART DIRECTOR
+  office_board_of_supervisors_member_name:
+    en: MEMBER, BOARD OF SUPERVISORS
+  office_treasurer_name:
+    en: TREASURER
+  office_type_judicial:
+    en: JUDICIAL
