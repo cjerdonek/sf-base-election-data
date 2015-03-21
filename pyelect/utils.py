@@ -15,20 +15,27 @@ def get_repo_dir():
     return os.path.abspath(repo_dir)
 
 
-def get_data_dir():
+def get_pre_data_dir():
     repo_dir = get_repo_dir()
     dir_path = os.path.join(repo_dir, 'pre_data')
     return dir_path
 
 
-def get_yaml_path(name):
-    data_dir = get_data_dir()
+def get_pre_data_path(name):
+    data_dir = get_pre_data_dir()
     path = os.path.join(data_dir, name)
     return path
 
 
 def get_lang_dir():
-    return get_yaml_path('languages')
+    return get_pre_data_path('i18n')
+
+
+def get_lang_path(base, ext=None):
+    if ext is None:
+        ext = '.yaml'
+    lang_dir = get_lang_dir()
+    return os.path.join(lang_dir, '{0}{1}'.format(base, ext))
 
 
 def get_language_path(lang):
@@ -37,7 +44,7 @@ def get_language_path(lang):
 
 
 def get_yaml_file_path(name):
-    return get_yaml_path('{0}.yaml'.format(name))
+    return get_pre_data_path('{0}.yaml'.format(name))
 
 
 def get_default_json_path():

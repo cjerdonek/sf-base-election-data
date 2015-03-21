@@ -6,7 +6,6 @@ from pyelect import utils
 
 
 def make_district(value):
-    print(value)
     data = {
         'name': value['district_code']
     }
@@ -17,9 +16,33 @@ def make_districts(data):
     return districts
 
 
+def make_office(trans, data):
+    try:
+        name_text_id = data['name_i18n']
+    except KeyError:
+        # TODO: calculate the name in all cases.
+        return None
+
+    words = trans[name_text_id]
+    name = words['en']
+    translations = [words[lang] for lang in words.keys() if lang != 'en']
+    office = {
+        'name': name,
+        'translations': translations,
+    }
+    return office
+
+
+def make_offices(data):
+    trans = data['i18n']
+    offices = [make_office(trans, v) for v in data['offices']]
+    return offices
+
+
 def make_template_data(input_data):
     data = {
-        'districts': make_districts(input_data),
+#        'districts': make_districts(input_data),
+        'offices': make_offices(input_data),
     }
 
     return data

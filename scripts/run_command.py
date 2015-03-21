@@ -29,12 +29,6 @@ def command_make_json(ns):
     utils.write(path, text)
 
 
-def command_normalize_yaml(ns):
-    path = ns.path
-    data = utils.read_yaml(path)
-    utils.write_yaml(data, path, stdout=True)
-
-
 def command_parse_csv(ns):
     path = ns.path
     data = csvlang.parse_contest_csv(path)
@@ -53,6 +47,18 @@ def command_sample_html(ns):
         f.write(html)
     subprocess.call(["open", path])
     print(html)
+
+
+def command_yaml_normalize(ns):
+    path = ns.path
+    data = utils.read_yaml(path)
+    utils.write_yaml(data, path, stdout=True)
+
+
+def command_yaml_update_lang(ns):
+    path = ns.path
+    data = utils.read_yaml(path)
+    utils.write_yaml(data, path, stdout=True)
 
 
 def make_subparser(sub, command_name, command_func, help, details=None, **kwargs):
@@ -79,10 +85,6 @@ def create_parser():
         help=("the output path. Defaults to the following path relative to the "
               "repo root: {0}.".format(default_output)))
 
-    parser = make_subparser(sub, "norm_yaml", command_normalize_yaml,
-                help="normalize a YAML file.")
-    parser.add_argument('path', metavar='PATH', help="a path to a YAML file.")
-
     parser = make_subparser(sub, "parse_csv", command_parse_csv,
                 help="parse a CSV language file from the Department.")
     parser.add_argument('path', metavar='PATH', help="a path to a CSV file.")
@@ -94,6 +96,15 @@ def create_parser():
     parser.add_argument('output_path', metavar='PATH', nargs="?", default=default_output,
         help=("the output path. Defaults to {0} in the repo root."
               .format(default_output)))
+
+    parser = make_subparser(sub, "yaml_norm", command_yaml_normalize,
+                help="normalize a YAML file.")
+    parser.add_argument('path', metavar='PATH', help="a path to a YAML file.")
+
+    parser = make_subparser(sub, "yaml_update_lang", command_yaml_update_lang,
+                help="update a YAML translation file from the English.")
+    parser.add_argument('path', metavar='PATH',
+        help="the target path of a non-English YAML file.")
 
     return root_parser
 
