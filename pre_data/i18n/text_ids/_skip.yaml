@@ -1,0 +1,49 @@
+# This file contains a list of English phrases that we should not create
+# a text ID for.
+
+texts:
+  # Skip this because it contains a comma.
+  - "MEMBER, COUNTY CENTRAL COMMITTEE,"
+  # Skip these because they should be handled by format strings.
+  - ASSEMBLY DISTRICT 17
+  - ASSEMBLY DISTRICT 19
+  - DISTRICT 1
+  - DISTRICT 2
+  - DISTRICT 3
+  - DISTRICT 4
+  - DISTRICT 5
+  - DISTRICT 6
+  - DISTRICT 7
+  - DISTRICT 8
+  - DISTRICT 9
+  - DISTRICT 10
+  - DISTRICT 11
+  - DISTRICT 12
+  - DISTRICT 14
+  - DISTRICT 17
+  - DISTRICT 19
+  - OFFICE NO. X
+  - PROPOSITION X
+  - Vote for no more than X
+  - 'FOR ASSOCIATE JUSTICE OF THE SUPREME COURT
+
+    Shall Associate Justice of the Supreme Court, NAME be elected to the office for
+    the
+
+    term provided by law?'
+  - 'FOR CHIEF JUSTICE OF THE SUPREME COURT
+
+    Shall Associate Justice, Court of Appeal, District 3, NAME be elected to the office
+    for the term provided by law?'
+  - 'FOR ASSOCIATE JUSTICE COURT OF APPEAL
+
+    DISTRICT 1, DIVISION X
+
+    Shall Associate Justice, Court of Appeal, NAME be elected to the office for the
+    term provided by law?'
+  - 'FOR PRESIDING JUSTICE COURT OF APPEAL
+
+    DISTRICT 1, DIVISION X
+
+    Shall Presiding Justice, Court of Appeal, NAME be elected to the office for the
+    term provided by law?'

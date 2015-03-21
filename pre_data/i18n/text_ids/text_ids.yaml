@@ -1,0 +1,57 @@
+assessor_recorder: ASSESSOR-RECORDER
+attorney_general: ATTORNEY GENERAL
+bart_director: BART DIRECTOR
+city_and_county: CITY AND COUNTY
+city_attorney: CITY ATTORNEY
+city_county_propositions: CITY & COUNTY PROPOSITIONS
+controller: CONTROLLER
+county_transportation_authority_proposition: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
+district: DISTRICT
+district_attorney: DISTRICT ATTORNEY
+federal: FEDERAL
+first_choice: FIRST CHOICE
+governor: GOVERNOR
+insurance_commissioner: INSURANCE COMMISSIONER
+judge_of_the_superior_court: JUDGE OF THE SUPERIOR COURT,
+judicial: JUDICIAL
+lieutenant_governor: LIEUTENANT GOVERNOR
+mayor: MAYOR
+measures_submitted_to_the_voters: MEASURES SUBMITTED TO THE VOTERS
+member_board_of_education: MEMBER, BOARD OF EDUCATION
+member_board_of_supervisors: MEMBER, BOARD OF SUPERVISORS
+member_community_college_board: MEMBER, COMMUNITY COLLEGE BOARD
+member_county_central_committee: MEMBER, COUNTY CENTRAL COMMITTEE
+member_county_council: MEMBER, COUNTY COUNCIL
+member_of_the_state_assembly: MEMBER OF THE STATE ASSEMBLY
+member_state_board_of_equalization_district_2: MEMBER, STATE BOARD OF EQUALIZATION,
+  DISTRICT 2
+party_nominated_offices: PARTY-NOMINATED OFFICES
+party_preference: 'Party Preference:'
+president_and_vice_president: PRESIDENT AND VICE PRESIDENT
+president_of_the_united_states: PRESIDENT OF THE UNITED STATES
+presidential_preference: Presidential Preference
+public_defender: PUBLIC DEFENDER
+school: SCHOOL
+school_propositions: SCHOOL PROPOSITIONS
+second_choice: SECOND CHOICE
+secretary_of_state: SECRETARY OF STATE
+sheriff: SHERIFF
+state: STATE
+state_propositions: STATE PROPOSITIONS
+state_senator: STATE SENATOR
+superintendent_of_public_instruction: SUPERINTENDENT OF PUBLIC INSTRUCTION
+third_choice: THIRD CHOICE
+treasurer: TREASURER
+united_states_representative: UNITED STATES REPRESENTATIVE
+united_states_senator: UNITED STATES SENATOR
+vote_for_no_more_than_three_or_four: Vote for no more than (Three or Four)
+vote_for_one: Vote for One
+vote_for_one_must_be_different_than_your_first_and_second_choices: 'Vote for One:
+  Must be different than your first and second choices'
+vote_for_one_must_be_different_than_your_first_choice: 'Vote for One: Must be different
+  than your first choice'
+vote_for_one_party: Vote for One Party
+vote_yes_or_no_for_each_office: Vote YES or NO for each office
+vote_your_first_second_and_third_choices: Vote your first, second, and third choices
+voter_nominated_offices: VOTER-NOMINATED OFFICES
+
