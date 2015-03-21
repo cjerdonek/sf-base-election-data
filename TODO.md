@@ -1,6 +1,6 @@
 TODO
 ====
-* Prototype listing the office names and translations (by hand).
+* Stub out a GitHub page for the project.
 * Start processing Department csv files.
 * Clean up en.yaml, and add Spanish and Chinese in the cleaned-up format.
 * Consider using "*_i18n" in JSON to signify internationalized text.

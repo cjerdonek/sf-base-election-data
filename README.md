@@ -51,3 +51,9 @@ Resources:
 
 * [List of Local Elected Officials](http://www.sfgov2.org/index.aspx?page=832)
 * [List of State Elected Officials](http://www.sfgov2.org/index.aspx?page=833)
+
+
+## Contributors
+
+Contributors should refer to the [contributor documentation](docs/develop.md)
+for additional information.
