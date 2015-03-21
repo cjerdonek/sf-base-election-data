@@ -2,12 +2,16 @@
 from collections import defaultdict, namedtuple
 import csv
 import logging
+import os
 import re
 
 from pyelect import utils
 
 
 _log = logging.getLogger()
+
+DIR_LANG = 'i18n'
+DIR_LANG_AUTO = 'auto'
 
 LANG_EN = 'en'
 LANG_ES = 'es'
@@ -31,6 +35,18 @@ CONTEST_INDICES = {
 CONTEST_HEADERS = sorted(CONTEST_INDICES.keys())
 
 ContestRow = namedtuple('ContestRow', CONTEST_HEADERS)
+
+
+def get_lang_dir():
+    dir_path = utils.get_pre_data_dir()
+    return os.path.join(dir_path, DIR_LANG)
+
+
+def get_lang_path(base, ext=None):
+    if ext is None:
+        ext = '.yaml'
+    lang_dir = get_lang_dir()
+    return os.path.join(lang_dir, '{0}{1}'.format(base, ext))
 
 
 def add_key(dict_, key, value):

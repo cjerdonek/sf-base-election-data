@@ -1,9 +1,11 @@
 
+from collections import defaultdict
 import glob
 import json
 import os
 from pprint import pprint
 
+from pyelect import lang
 from pyelect import utils
 
 
@@ -14,10 +16,51 @@ KEY_ID = '_id'
 KEY_OFFICES = 'offices'
 
 
+def dd_dict():
+    """A factory function that returns a defaultdict(dict)."""
+    return defaultdict(dict)
+
+
+def path_to_langcode(path):
+    """Extract the language code from a path and return it."""
+    head, tail = os.path.split(path)
+    base, ext = os.path.splitext(tail)
+    return base
+
+
+def yaml_to_words(data, lang):
+    """Return a dict from: text_id to word in the given language."""
+    text_node = data['texts']
+    # Each trans_map is a dict from: language code to translation.
+    words = {text_id: trans_map[lang] for text_id, trans_map in text_node.items()}
+    return words
+
+
+def read_phrases(path):
+    """Read a file, and return a dict of: text_id to translation."""
+    lang_code = path_to_langcode(path)
+    yaml_data = utils.read_yaml(path)
+    words = yaml_to_words(yaml_data, lang_code)
+    return lang_code, words
+
+
+def read_lang_dir(dir_name):
+    lang_dir = lang.get_lang_dir()
+    auto_dir = os.path.join(lang_dir, lang.DIR_LANG_AUTO)
+    glob_path = os.path.join(auto_dir, "*.yaml")
+    paths = glob.glob(glob_path)
+
+    data = defaultdict(dd_dict)
+    for path in paths:
+        lang_code, phrases = read_phrases(path)
+        for text_id, phrase in phrases.items():
+            data[text_id][lang_code] = phrase
+
+    return data
+
+
 def get_language_codes():
     dir_path = utils.get_lang_dir()
-    glob_path = os.path.join(dir_path, "*.yaml")
-    paths = glob.glob(glob_path)
     langs = []
     for path in paths:
         head, tail = os.path.split(path)
@@ -26,13 +69,9 @@ def get_language_codes():
     return langs
 
 
-def get_translations(lang):
-    path = utils.get_language_path(lang)
-    return utils.read_yaml(path)
-
-
 def get_yaml(name):
-    path = utils.get_yaml_file_path(name)
+    data_dir = utils.get_pre_data_dir()
+    path = "{0}.yaml".format(os.path.join(data_dir, name))
     return utils.read_yaml(path)
 
 
@@ -42,26 +81,10 @@ def add_source(data, source_name):
         data[key] = value
 
 
-def words_from_yaml(lang):
-    data = get_translations(lang)
-    for text_id, value in data['texts'].items():
-        text = value[lang]
-        yield (text_id, text)
-
-
 def make_node_i18n():
     """Return the node containing internationalized data."""
-    node = {}
-    langs = get_language_codes()
-    for lang in langs:
-        for text_id, text in words_from_yaml(lang):
-            try:
-                words = node[text_id]
-            except KeyError:
-                words = {}
-                node[text_id] = words
-            words[lang] = text
-    return node
+    data = read_lang_dir('auto')
+    return data
 
 
 def make_court_of_appeals_division_numbers():
@@ -134,9 +157,9 @@ def make_all_data():
     data ={}
 
     add_node(data, 'i18n')
-    add_source(data, 'offices')
     return data
 
+    add_source(data, 'offices')
     add_source(data, 'bodies')
     add_source(data, 'district_types')
     add_source(data, 'office_types')

@@ -11,32 +11,38 @@ import subprocess
 import sys
 
 import init_path
-from pyelect import csvlang
 from pyelect import htmlgen
 from pyelect import jsongen
+from pyelect import lang
 from pyelect import utils
 
 
 _FORMATTER_CLASS = argparse.RawDescriptionHelpFormatter
 
 
-def command_init_text_ids(ns):
+def command_lang_make_auto(ns):
     path = ns.input_path
-    data = csvlang.create_text_ids(path)
+    lang.create_auto_translations(path)
+
+
+def command_lang_make_ids(ns):
+    path = ns.input_path
+    data = lang.create_text_ids(path)
     print(utils.yaml_dump(data))
+
 
 def command_make_json(ns):
     path = ns.output_path
 
     data = jsongen.make_all_data()
     text = json.dumps(data, indent=4, sort_keys=True)
-    print(text)
+    print("JSON:\n{0}".format(text))
     utils.write(path, text)
 
 
 def command_parse_csv(ns):
     path = ns.path
-    data = csvlang.parse_contest_csv(path)
+    data = lang.parse_contest_csv(path)
     print(data)
 
 
@@ -83,7 +89,12 @@ def create_parser():
             description="command script for repo contributors")
     sub = root_parser.add_subparsers(help='sub-command help')
 
-    parser = make_subparser(sub, "init_text_ids", command_init_text_ids,
+    parser = make_subparser(sub, "lang_make_auto", command_lang_make_auto,
+                help="make the automated translations from a CSV file.")
+    parser.add_argument('input_path', metavar='CSV_PATH',
+        help="a path to a CSV file.")
+
+    parser = make_subparser(sub, "lang_make_ids", command_lang_make_ids,
                 help="create text ID's from a CSV file.")
     parser.add_argument('input_path', metavar='CSV_PATH',
         help="a path to a CSV file.")

@@ -21,23 +21,6 @@ def get_pre_data_dir():
     return dir_path
 
 
-def get_pre_data_path(name):
-    data_dir = get_pre_data_dir()
-    path = os.path.join(data_dir, name)
-    return path
-
-
-def get_lang_dir():
-    return get_pre_data_path('i18n')
-
-
-def get_lang_path(base, ext=None):
-    if ext is None:
-        ext = '.yaml'
-    lang_dir = get_lang_dir()
-    return os.path.join(lang_dir, '{0}{1}'.format(base, ext))
-
-
 def get_default_json_path():
     repo_dir = get_repo_dir()
     return os.path.join(repo_dir, REL_PATH_JSON)

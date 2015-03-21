@@ -3,11 +3,28 @@
 # in the CSV files, and there is no simple way to choose which one
 # to use as the real translation.  Instead, we manage the translations
 # of these words manually.
+#
+# ('BART DIRECTOR', 'BART DIRECTOR DIST. 8', 'DIRECTOR DE BART', 'DIRECTOR BART', '', '', '灣區捷運董事,')
+# ('BART DIRECTOR', 'BART DIRECTOR DIST. 7', 'DIRECTOR DE BART', 'DIRECTOR BART', '', '', '灣區捷運董事,')
+# ('TREASURER', 'TREASURER', 'TESORERO', 'TESORERO', '', '', '財政官')
+# ('TREASURER', 'TREASURER', 'TESORERO', 'TESORERO', 'Ingat-yaman', '', '財政部長')
+# ('MEMBER, BOARD OF SUPERVISORS', 'BOARD OF SUPERVISORS D2', 'MIEMBRO, CONSEJO DE SUPERVISORES', 'CONSEJO SUPERVISORES', '', '', '市參議員')
+# ('MEMBER, BOARD OF SUPERVISORS', 'BOARD OF SUPERVISORS D1', 'MIEMBRO, CONSEJO DE SUPERVISORES', 'CONSEJO SUPERVISORES', '', '', '市參議員')
+# ('DISTRICT 11', '', 'DISTRITO 11', '', '', '', '第11選區')
+# ('DISTRICT 11', '', 'DISTRITO 11', '', 'Distrito 11', '', '第11選區')
+# ('Vote for One: Must be different than your first choice', '', 'Vote por uno: Tiene que ser diferente a su primera y segunda preferencias', '', '', '', '選一名： 必須與第一個選擇不同')
+# ('Vote for One: Must be different than your first choice', '', 'Vote por uno: Tiene que ser diferente a su primera preferencia', '', '', '',            '選一名： 必須與第一個選擇不同')
+# ('Vote for One: Must be different than your first and second choices', '', 'Vote por uno: Tiene que ser diferente a su primera y segunda preferencias', '', '', '', '選一名： 必須與第一個選擇不同')
+# ('Vote for One: Must be different than your first and second choices', '', 'Vote por uno: Tiene que ser diferente a su primera y segunda preferencias', '', '', '', '選一名： 必須與第一個和第二個選擇不同')
+# ('JUDICIAL', '', 'JUDICIAL (Omitted on ballot)', '', '', '', '司法')
+# ('JUDICIAL', '', 'JUDICIAL', '', '', '', '司法')
+
 texts:
   - "BART DIRECTOR"
-  - "DISTRICT 11"
   - "JUDICIAL"
   - "MEMBER, BOARD OF SUPERVISORS"
+  # We skip the following one because it has a comma.
+  - "MEMBER, COUNTY CENTRAL COMMITTEE,"
   - "TREASURER"
   - "Vote for One: Must be different than your first choice"
   - "Vote for One: Must be different than your first and second choices"
