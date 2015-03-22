@@ -11,8 +11,8 @@ See [here][SFBED_gh_page] for a sample web page created from this data.
 If you notice any issues or have a suggestion, please file an issue in the
 [issue tracker][issue_tracker].
 
-SFBED is a project of the [SF Elections Data](sf_elections_data) group
-of [Code for San Francisco](code_for_sf).
+SFBED is a project of the [SF Elections Data][sf_elections_data] group
+of [Code for San Francisco][code_for_sf].
 
 
 ## Overview
