@@ -21,6 +21,9 @@
 # ('JUDICIAL', '', 'JUDICIAL (Omitted on ballot)', '', '', '', '司法')
 # ('JUDICIAL', '', 'JUDICIAL', '', '', '', '司法')
 override:
+  office_city_treasurer:
+    fil: ""
+    zh: 財政官
   type_judicial:
     es: JUDICIAL
   vote_rcv_choice_2:

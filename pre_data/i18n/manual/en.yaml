@@ -8,7 +8,5 @@ texts:
     en: MEMBER, BOARD OF SUPERVISORS
   office_board_of_supervisors_member_edge_format:
     en: BOARD OF SUPERVISORS D{0}
-  office_city_treasurer:
-    en: TREASURER
   office_state_treasurer:
     en: TREASURER

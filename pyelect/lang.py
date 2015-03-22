@@ -59,7 +59,7 @@ def _read_csv(path, skip_rows=1):
 
 
 def _get_text_ids():
-    path = get_lang_path('text_ids/text_ids')
+    path = get_lang_path('text_ids')
     ids_to_en = utils.read_yaml(path)
     en_to_ids = {}
     for text_id, en in ids_to_en.items():
@@ -158,8 +158,6 @@ def lang_contest_csv_to_yaml(input_path):
         short_text_id = "{0}_edge".format(text_id)
         _process_row(row, lang_data, skip_text_ids, manual=manual, langs=LANGS_SHORT,
                      text_id=short_text_id, attr_format="{0}_short")
-    print(lang_data)
-    return
 
     en_translations = lang_data[LANG_EN]
     for lang in LANGS:
