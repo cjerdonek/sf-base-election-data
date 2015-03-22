@@ -2,7 +2,10 @@
 # create a text ID.
 text_ids:
   - office_bart_director_edge
+  - office_member_board_of_supervisors_edge
 phrases:
+  # TODO: turn this into two ID's: office_state_treasurer and office_city_treasurer.
+  - TREASURER
   # We skip the following one because it has a comma.
   # TODO: make this have the same ID as "MEMBER, COUNTY CENTRAL COMMITTEE".
   - "MEMBER, COUNTY CENTRAL COMMITTEE,"

@@ -69,12 +69,16 @@ def _get_text_ids():
     return en_to_ids
 
 
-def _get_yaml_set(base, key):
-    """Read a list from the given YAML, and return a set."""
+def _get_yaml_node(base, key):
     path = get_lang_path(base)
     data = utils.read_yaml(path)
-    set_ = set(data[key])
-    return set_
+    return data[key]
+
+
+def _get_yaml_set(base, key):
+    """Read a list from the given YAML, and return a set."""
+    data = _get_yaml_node(base, key)
+    return set(data)
 
 
 def _make_text_id(text):
@@ -96,29 +100,6 @@ def read_contest_csv(path):
         data = ContestRow(*(row[CONTEST_INDICES[h]].strip() for h in CONTEST_HEADERS))
         seq.append(data)
     return seq
-
-
-def foo():
-    # text_id = _make_text_id(data[0])
-    # data = tuple([text_id] + data)
-
-    skip_words = _get_skip_phrases()
-    row_data = []
-    text_map = {}
-    for data in row_data:
-        text_id = data[0]
-        en_text = data[1]
-        if en_text in skip_words:
-            continue
-        if text_id in text_map:
-            # Then confirm that the text info is the same.
-            if data != text_map[text_id]:
-                raise Exception("different strings for key {0!r}:\n1: {1}\n2: {2}"
-                                .format(text_id, data, text_map[text_id]))
-        else:
-            text_map[text_id] = data
-
-    return text_map
 
 
 def create_text_ids(path):
@@ -144,12 +125,16 @@ def _add_key(dict_, key, value):
     dict_[key] = value
 
 
-def _process_row(row, lang_data, skip_text_ids, langs, text_id, attr_format):
+def _process_row(row, lang_data, skip_text_ids, manual, langs, text_id, attr_format):
     if text_id in skip_text_ids:
         return
+    override = manual[text_id] if text_id in manual else []
     for lang_code in langs:
         one_lang = lang_data[lang_code]
-        text = getattr(row, attr_format.format(lang_code))
+        if lang_code in override:
+            text = override[lang_code]
+        else:
+            text = getattr(row, attr_format.format(lang_code))
         _add_key(one_lang, text_id, text)
 
 
@@ -162,15 +147,16 @@ def lang_contest_csv_to_yaml(input_path):
     english_to_ids = _get_text_ids()
     skip_text_ids = _get_yaml_set('_config/skips', 'text_ids')
 
+    manual = _get_yaml_node('_config/resolve', 'override')
     # Dict from lang_code to dict of: text_id to translation.
     lang_data = defaultdict(dict)
     for row in seq:
         english = row.en
         text_id = english_to_ids[english]
-        _process_row(row, lang_data, skip_text_ids, langs=LANGS,
+        _process_row(row, lang_data, skip_text_ids, manual=manual, langs=LANGS,
                      text_id=text_id, attr_format="{0}")
         short_text_id = "{0}_edge".format(text_id)
-        _process_row(row, lang_data, skip_text_ids, langs=LANGS_SHORT,
+        _process_row(row, lang_data, skip_text_ids, manual=manual, langs=LANGS_SHORT,
                      text_id=short_text_id, attr_format="{0}_short")
     print(lang_data)
     return
