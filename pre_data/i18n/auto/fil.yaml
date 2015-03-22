@@ -77,11 +77,20 @@ texts:
   office_attorney_general_edge:
     _en: ATTORNEY GENERAL
     fil: ''
+  office_bart_director:
+    _en: BART DIRECTOR
+    fil: ''
   office_city_attorney:
     _en: CITY ATTORNEY
     fil: ''
   office_city_attorney_edge:
     _en: CITY ATTORNEY
+    fil: ''
+  office_city_treasurer:
+    _en: TREASURER
+    fil: ''
+  office_city_treasurer_edge:
+    _en: TREASURER
     fil: ''
   office_controller:
     _en: CONTROLLER
@@ -130,6 +139,9 @@ texts:
     fil: ''
   office_member_board_of_education_edge:
     _en: BOARD OF EDUCATION
+    fil: ''
+  office_member_board_of_supervisors:
+    _en: MEMBER, BOARD OF SUPERVISORS
     fil: ''
   office_member_community_college_board:
     _en: MEMBER, COMMUNITY COLLEGE BOARD
@@ -239,6 +251,12 @@ texts:
   type_federal_edge:
     _en: ''
     fil: ''
+  type_judicial:
+    _en: JUDICIAL
+    fil: ''
+  type_judicial_edge:
+    _en: ''
+    fil: ''
   type_school:
     _en: SCHOOL
     fil: ''
@@ -267,6 +285,18 @@ texts:
     _en: Vote for One Party
     fil: ''
   vote_for_one_party_edge:
+    _en: ''
+    fil: ''
+  vote_rcv_choice_2:
+    _en: 'Vote for One: Must be different than your first choice'
+    fil: ''
+  vote_rcv_choice_2_edge:
+    _en: ''
+    fil: ''
+  vote_rcv_choice_3:
+    _en: 'Vote for One: Must be different than your first and second choices'
+    fil: ''
+  vote_rcv_choice_3_edge:
     _en: ''
     fil: ''
   vote_yes_or_no_for_each_office:

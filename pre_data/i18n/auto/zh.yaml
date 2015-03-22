@@ -38,9 +38,15 @@ texts:
   office_attorney_general:
     _en: ATTORNEY GENERAL
     zh: 司法部長
+  office_bart_director:
+    _en: BART DIRECTOR
+    zh: 灣區捷運董事,
   office_city_attorney:
     _en: CITY ATTORNEY
     zh: 市府律師
+  office_city_treasurer:
+    _en: TREASURER
+    zh: 財政官
   office_controller:
     _en: CONTROLLER
     zh: 主計長
@@ -65,6 +71,9 @@ texts:
   office_member_board_of_education:
     _en: MEMBER, BOARD OF EDUCATION
     zh: 教育委員會成員
+  office_member_board_of_supervisors:
+    _en: MEMBER, BOARD OF SUPERVISORS
+    zh: 市參議員
   office_member_community_college_board:
     _en: MEMBER, COMMUNITY COLLEGE BOARD
     zh: 社區大學董事會成員
@@ -119,6 +128,9 @@ texts:
   type_federal:
     _en: FEDERAL
     zh: 聯邦
+  type_judicial:
+    _en: JUDICIAL
+    zh: 司法
   type_school:
     _en: SCHOOL
     zh: 學校
@@ -134,6 +146,12 @@ texts:
   vote_for_one_party:
     _en: Vote for One Party
     zh: 選一黨
+  vote_rcv_choice_2:
+    _en: 'Vote for One: Must be different than your first choice'
+    zh: 選一名： 必須與第一個選擇不同
+  vote_rcv_choice_3:
+    _en: 'Vote for One: Must be different than your first and second choices'
+    zh: 選一名： 必須與第一個和第二個選擇不同
   vote_yes_or_no_for_each_office:
     _en: Vote YES or NO for each office
     zh: 為每位選擇「贊成」或「反對」

@@ -77,12 +77,21 @@ texts:
   office_attorney_general_edge:
     _en: ATTORNEY GENERAL
     es: PROCURADOR GENERAL
+  office_bart_director:
+    _en: BART DIRECTOR
+    es: DIRECTOR DE BART
   office_city_attorney:
     _en: CITY ATTORNEY
     es: ABOGADO DE LA CIUDAD
   office_city_attorney_edge:
     _en: CITY ATTORNEY
     es: ABOGADO DE LA CIUDAD
+  office_city_treasurer:
+    _en: TREASURER
+    es: TESORERO
+  office_city_treasurer_edge:
+    _en: TREASURER
+    es: TESORERO
   office_controller:
     _en: CONTROLLER
     es: CONTRALOR
@@ -131,6 +140,9 @@ texts:
   office_member_board_of_education_edge:
     _en: BOARD OF EDUCATION
     es: CONSEJO DE EDUCACIÓN
+  office_member_board_of_supervisors:
+    _en: MEMBER, BOARD OF SUPERVISORS
+    es: MIEMBRO, CONSEJO DE SUPERVISORES
   office_member_community_college_board:
     _en: MEMBER, COMMUNITY COLLEGE BOARD
     es: MIEMBRO, CONSEJO DEL COLEGIO COMUNITARIO
@@ -240,6 +252,12 @@ texts:
   type_federal_edge:
     _en: ''
     es: ''
+  type_judicial:
+    _en: JUDICIAL
+    es: JUDICIAL
+  type_judicial_edge:
+    _en: ''
+    es: ''
   type_school:
     _en: SCHOOL
     es: ESCUELA
@@ -268,6 +286,18 @@ texts:
     _en: Vote for One Party
     es: Vote por un partido
   vote_for_one_party_edge:
+    _en: ''
+    es: ''
+  vote_rcv_choice_2:
+    _en: 'Vote for One: Must be different than your first choice'
+    es: 'Vote por uno: Tiene que ser diferente a su primera preferencia'
+  vote_rcv_choice_2_edge:
+    _en: ''
+    es: ''
+  vote_rcv_choice_3:
+    _en: 'Vote for One: Must be different than your first and second choices'
+    es: 'Vote por uno: Tiene que ser diferente a su primera y segunda preferencias'
+  vote_rcv_choice_3_edge:
     _en: ''
     es: ''
   vote_yes_or_no_for_each_office:

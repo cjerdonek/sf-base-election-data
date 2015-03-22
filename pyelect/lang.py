@@ -169,5 +169,5 @@ def lang_contest_csv_to_yaml(input_path):
                 entry['_{0}'.format(LANG_EN)] = en_translations[text_id]
             yaml_texts[text_id] = entry
         data = {'texts': yaml_texts}
-        path = utils.get_lang_path('auto/{0}'.format(lang))
+        path = get_lang_path('auto/{0}'.format(lang))
         utils.write_yaml(data, path, stdout=True)
