@@ -26,8 +26,8 @@ office_member_community_college_board: MEMBER, COMMUNITY COLLEGE BOARD
 office_member_county_central_committee: MEMBER, COUNTY CENTRAL COMMITTEE
 office_member_county_council: MEMBER, COUNTY COUNCIL
 office_member_of_the_state_assembly: MEMBER OF THE STATE ASSEMBLY
-office_member_state_board_of_equalization_district_2: MEMBER, STATE BOARD OF
-  EQUALIZATION, DISTRICT 2
+office_member_state_board_of_equalization_district_2: MEMBER, STATE BOARD OF EQUALIZATION,
+  DISTRICT 2
 office_president_and_vice_president: PRESIDENT AND VICE PRESIDENT
 office_president_of_the_united_states: PRESIDENT OF THE UNITED STATES
 office_public_defender: PUBLIC DEFENDER
@@ -47,10 +47,8 @@ type_school: SCHOOL
 type_state: STATE
 vote_for_no_more_than_three_or_four: Vote for no more than (Three or Four)
 vote_for_one: Vote for One
-vote_for_one_must_be_different_than_your_first_and_second_choices: 'Vote for One:
-  Must be different than your first and second choices'
-vote_for_one_must_be_different_than_your_first_choice: 'Vote for One: Must be different
-  than your first choice'
 vote_for_one_party: Vote for One Party
+vote_rcv_choice_2: 'Vote for One: Must be different than your first choice'
+vote_rcv_choice_3: 'Vote for One: Must be different than your first and second choices'
 vote_yes_or_no_for_each_office: Vote YES or NO for each office
 vote_your_first_second_and_third_choices: Vote your first, second, and third choices
