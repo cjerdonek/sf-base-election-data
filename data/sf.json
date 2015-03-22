@@ -606,6 +606,10 @@
     ],
     "offices": [
         {
+            "name_i18n": "office_usa_president_of_the_united_states",
+            "url": "https://www.whitehouse.gov/"
+        },
+        {
             "name": "Governor",
             "url": "http://www.gov.ca.gov"
         },
@@ -733,15 +737,9 @@
         },
         {
             "mixin_id": "sf_default",
-            "name_i18n": "office_sheriff",
-            "seed_year": 2015,
-            "url": "http://www.sfsheriff.com"
-        },
-        {
-            "mixin_id": "sf_default",
-            "name_i18n": "office_district_attorney",
-            "seed_year": 2015,
-            "url": "http://www.sfdistrictattorney.org"
+            "name_i18n": "office_assessor_recorder",
+            "seed_year": 2014,
+            "url": "http://www.sfassessor.org"
         },
         {
             "mixin_id": "sf_default",
@@ -751,23 +749,26 @@
         },
         {
             "mixin_id": "sf_default",
+            "name_i18n": "office_district_attorney",
             "seed_year": 2015,
-            "url": "http://sftreasurer.org"
+            "url": "http://www.sfdistrictattorney.org"
+        },
+        {
+            "name_i18n": "office_public_defender",
+            "seed_year": 2014,
+            "url": "http://sfpublicdefender.org"
         },
         {
             "mixin_id": "sf_default",
-            "name_i18n": "office_assessor_recorder",
-            "seed_year": 2014,
-            "url": "http://www.sfassessor.org"
+            "name_i18n": "office_sheriff",
+            "seed_year": 2015,
+            "url": "http://www.sfsheriff.com"
         },
         {
-            "name": {
-                "ch": "\u516c\u5171\u8faf\u8b77\u5f8b\u5e2b",
-                "en": "Public Defender",
-                "es": "Defensor P\u00fablico"
-            },
-            "seed_year": 2014,
-            "url": "http://sfpublicdefender.org"
+            "mixin_id": "sf_default",
+            "name_i18n": "office_city_treasurer",
+            "seed_year": 2015,
+            "url": "http://sftreasurer.org"
         },
         {
             "body_id": "SF_CCB",

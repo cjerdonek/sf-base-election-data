@@ -24,6 +24,9 @@ jurisdictions:
 
 offices:
   -
+    name_i18n: office_usa_president_of_the_united_states
+    url: https://www.whitehouse.gov/
+  -
     name: Governor
     url: http://www.gov.ca.gov
   -
@@ -123,9 +126,14 @@ offices:
     url: http://www.sfmayor.org
     seed_year: 2015
   -
-    name_i18n: office_sheriff
+    name_i18n: office_assessor_recorder
     mixin_id: sf_default
-    url: http://www.sfsheriff.com
+    url: http://www.sfassessor.org
+    seed_year: 2014
+  -
+    name_i18n: office_city_attorney
+    mixin_id: sf_default
+    url: http://www.sfcityattorney.org
     seed_year: 2015
   -
     name_i18n: office_district_attorney
@@ -133,26 +141,19 @@ offices:
     url: http://www.sfdistrictattorney.org
     seed_year: 2015
   -
-    name_i18n: office_city_attorney
+    name_i18n: office_public_defender
+    url: http://sfpublicdefender.org
+    seed_year: 2014
+  -
+    name_i18n: office_sheriff
     mixin_id: sf_default
-    url: http://www.sfcityattorney.org
+    url: http://www.sfsheriff.com
     seed_year: 2015
   -
+    name_i18n: office_city_treasurer
     mixin_id: sf_default
     url: http://sftreasurer.org
     seed_year: 2015
-  -
-    name_i18n: office_assessor_recorder
-    mixin_id: sf_default
-    url: http://www.sfassessor.org
-    seed_year: 2014
-  -
-    name:
-      en: Public Defender
-      es: Defensor Público
-      ch: "公共辯護律師"
-    url: http://sfpublicdefender.org
-    seed_year: 2014
   -
     body_id: SF_CCB
     seed_year: 2012
