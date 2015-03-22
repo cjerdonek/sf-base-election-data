@@ -34,9 +34,14 @@ def get_default_sample_html_path():
     return os.path.join(_DEFAULT_OUTPUT_DIR_NAME, 'sample.html')
 
 
-def command_lang_make_auto(ns):
+def command_lang_gen_auto(ns):
     path = ns.input_path
-    lang.create_auto_translations(path)
+    lang.create_translations_auto(path)
+
+
+def command_lang_gen_semi(ns):
+    path = ns.input_path
+    lang.create_translations_semi_manual(path)
 
 
 def command_lang_make_ids(ns):
@@ -79,7 +84,7 @@ def command_sample_html(ns):
     subprocess.call(["open", path])
 
 
-def command_yaml_normalize(ns):
+def command_yaml_norm(ns):
     path = ns.path
     data = utils.read_yaml(path)
     utils.write_yaml(data, path, stdout=True)
@@ -91,7 +96,11 @@ def command_yaml_update_lang(ns):
     utils.write_yaml(data, path, stdout=True)
 
 
-def make_subparser(sub, command_name, command_func, help, details=None, **kwargs):
+def make_subparser(sub, command_name, help, command_func=None, details=None, **kwargs):
+    if command_func is None:
+        command_func_name = "command_{0}".format(command_name)
+        command_func = globals()[command_func_name]
+
     # Capitalize the first letter for the long description.
     desc = help[0].upper() + help[1:]
     if details is not None:
@@ -108,39 +117,44 @@ def create_parser():
             description="command script for repo contributors")
     sub = root_parser.add_subparsers(help='sub-command help')
 
-    parser = make_subparser(sub, "lang_make_auto", command_lang_make_auto,
-                help="make the automated translations from a CSV file.")
+    parser = make_subparser(sub, "lang_gen_auto",
+                help="generate the automated translations from a CSV file.")
     parser.add_argument('input_path', metavar='CSV_PATH',
         help="a path to a CSV file.")
 
-    parser = make_subparser(sub, "lang_make_ids", command_lang_make_ids,
+    parser = make_subparser(sub, "lang_gen_semi",
+                help="generate the semi-manual translations from a CSV file.")
+    parser.add_argument('input_path', metavar='CSV_PATH',
+        help="a path to a CSV file.")
+
+    parser = make_subparser(sub, "lang_make_ids",
                 help="create text ID's from a CSV file.")
     parser.add_argument('input_path', metavar='CSV_PATH',
         help="a path to a CSV file.")
 
     default_output = _REL_PATH_JSON_DATA
-    parser = make_subparser(sub, "make_json", command_make_json,
+    parser = make_subparser(sub, "make_json",
                 help="create or update a JSON data file.")
     parser.add_argument('output_path', metavar='PATH', nargs="?", default=default_output,
         help=("the output path. Defaults to the following path relative to the "
               "repo root: {0}.".format(default_output)))
 
-    parser = make_subparser(sub, "parse_csv", command_parse_csv,
+    parser = make_subparser(sub, "parse_csv",
                 help="parse a CSV language file from the Department.")
     parser.add_argument('path', metavar='PATH', help="a path to a CSV file.")
 
-    parser = make_subparser(sub, "sample_html", command_sample_html,
+    parser = make_subparser(sub, "sample_html",
                 help="make sample HTML from the JSON data.",
                 details="Uses the repo JSON file as input.")
     parser.add_argument('output_path', metavar='PATH', nargs="?",
         help=("the output path. Defaults to the following relative to the repo: {0}"
               .format(get_default_sample_html_path())))
 
-    parser = make_subparser(sub, "yaml_norm", command_yaml_normalize,
+    parser = make_subparser(sub, "yaml_norm",
                 help="normalize a YAML file.")
     parser.add_argument('path', metavar='PATH', help="a path to a YAML file.")
 
-    parser = make_subparser(sub, "yaml_update_lang", command_yaml_update_lang,
+    parser = make_subparser(sub, "yaml_update_lang",
                 help="update a YAML translation file from the English.")
     parser.add_argument('path', metavar='PATH',
         help="the target path of a non-English YAML file.")
