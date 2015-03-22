@@ -1,0 +1,16 @@
+jurisdictions:
+  -
+    name: United States of America
+    id: US
+  -
+    name: State of California
+    id: CA
+  -
+    name: Bay Area Rapid Transit
+    id: BART
+  -
+    name: San Francisco Community College District
+    id: SFCC
+  -
+    name: City and County of San Francisco
+    id: SF
