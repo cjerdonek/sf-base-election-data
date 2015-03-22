@@ -3,14 +3,16 @@
 SFBED is an open data project to provide baseline information
 about San Francisco elections.
 
-To permit a higher level of quality and accuracy, the project focus is
-on the information that tends to remain the same from election to election
-(or that changes infrequently).
+To permit a higher guarantee of quality and accuracy, the focus of the
+project is on the information that tends to remain the same from election
+to election (or that changes infrequently).
 
 See [here][SFBED_gh_page] for a sample web page created from this data.
-
 If you notice any issues or have a suggestion, please file an issue in the
 [issue tracker][issue_tracker].
+
+SFBED is a project of the [SF Elections Data](sf_elections_data) group
+of [Code for San Francisco](code_for_sf).
 
 
 ## Overview
@@ -94,5 +96,7 @@ This project is licensed under the BSD 3-clause license.  See the
 Chris Jerdonek (<chris.jerdonek@gmail.com>)
 
 
+[code_for_sf]: http://codeforsanfrancisco.org/
 [issue_tracker]: https://github.com/cjerdonek/sf-base-election-data/issues
+[sf_elections_data]: http://cjerdonek.github.io/sf-elections-data/
 [SFBED_gh_page]: http://cjerdonek.github.io/sf-base-election-data
