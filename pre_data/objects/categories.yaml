@@ -1,0 +1,10 @@
+_meta:
+  _auto: 'WARNING: comments will be deleted during normalization'
+  name_i18n_format: category_{0}
+  normalizable: true
+categories:
+  city_county: {}
+  federal: {}
+  judicial: {}
+  school: {}
+  state: {}
