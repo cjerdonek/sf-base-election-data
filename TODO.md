@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Script to refresh gh-page.
 * Make command to generate a translation file from the English.
   - And start work on manual..
 * Expand `mixin_id` during YAML to JSON stage.
@@ -12,7 +11,6 @@ TODO
     with the language name (try using a macro).
   - Also note when language is missing
   - Document the JSON objects as I go.
-* Use resource files instead.
 * Document Court of Appeals.
 * Do Supreme Court.
 * Mark partisan.

@@ -34,14 +34,9 @@ def get_default_sample_html_path():
     return os.path.join(_DEFAULT_OUTPUT_DIR_NAME, 'sample.html')
 
 
-def command_lang_gen_auto(ns):
+def command_lang_convert_csv(ns):
     path = ns.input_path
-    lang.create_translations_auto(path)
-
-
-def command_lang_gen_semi(ns):
-    path = ns.input_path
-    lang.create_translations_semi_manual(path)
+    lang.lang_contest_csv_to_yaml(path)
 
 
 def command_lang_make_ids(ns):
@@ -117,13 +112,8 @@ def create_parser():
             description="command script for repo contributors")
     sub = root_parser.add_subparsers(help='sub-command help')
 
-    parser = make_subparser(sub, "lang_gen_auto",
+    parser = make_subparser(sub, "lang_convert_csv",
                 help="generate the automated translations from a CSV file.")
-    parser.add_argument('input_path', metavar='CSV_PATH',
-        help="a path to a CSV file.")
-
-    parser = make_subparser(sub, "lang_gen_semi",
-                help="generate the semi-manual translations from a CSV file.")
     parser.add_argument('input_path', metavar='CSV_PATH',
         help="a path to a CSV file.")
 

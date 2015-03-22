@@ -49,13 +49,6 @@ def get_lang_path(base, ext=None):
     return os.path.join(lang_dir, '{0}{1}'.format(base, ext))
 
 
-def add_key(dict_, key, value):
-    if key in dict_ and value != dict_[key]:
-        raise Exception("mismatch for {0!r}:\nold: {1}\nnew: {2}"
-                        .format(key, dict_[key], value))
-    dict_[key] = value
-
-
 def _read_csv(path, skip_rows=1):
     with open(path) as f:
         reader = csv.reader(f)
@@ -66,7 +59,7 @@ def _read_csv(path, skip_rows=1):
 
 
 def _get_text_ids():
-    path = utils.get_lang_path('text_ids/text_ids')
+    path = get_lang_path('text_ids/text_ids')
     ids_to_en = utils.read_yaml(path)
     en_to_ids = {}
     for text_id, en in ids_to_en.items():
@@ -76,11 +69,12 @@ def _get_text_ids():
     return en_to_ids
 
 
-def _get_skip_words(base):
-    path = utils.get_lang_path(base)
+def _get_yaml_set(base, key):
+    """Read a list from the given YAML, and return a set."""
+    path = get_lang_path(base)
     data = utils.read_yaml(path)
-    words = set(data['texts'])
-    return words
+    set_ = set(data[key])
+    return set_
 
 
 def _make_text_id(text):
@@ -108,7 +102,7 @@ def foo():
     # text_id = _make_text_id(data[0])
     # data = tuple([text_id] + data)
 
-    skip_words = _get_skip_words()
+    skip_words = _get_skip_phrases()
     row_data = []
     text_map = {}
     for data in row_data:
@@ -130,7 +124,7 @@ def foo():
 def create_text_ids(path):
     seq = read_contest_csv(path)
     text_map = {}  # maps text ID to English phrase.
-    skip = _get_skip_words('text_ids/_skip')
+    skip = _get_skip_phrases('text_ids/_skip')
     for row in seq:
         english = row.en
         if english in skip:
@@ -143,34 +137,48 @@ def create_text_ids(path):
     return text_map
 
 
-def create_auto_translations(path):
-    en_to_ids = _get_text_ids()
-    skip = _get_skip_words('manual/_skip')
-    seq = read_contest_csv(path)
-    # Mapp from language code to dict of: text_id to translation.
-    all_langs = defaultdict(dict)
+def _add_key(dict_, key, value):
+    if key in dict_ and value != dict_[key]:
+        raise Exception("mismatch for {0!r}:\nold: {1}\nnew: {2}"
+                        .format(key, dict_[key], value))
+    dict_[key] = value
+
+
+def _process_row(row, lang_data, skip_text_ids, langs, text_id, attr_format):
+    if text_id in skip_text_ids:
+        return
+    for lang_code in langs:
+        one_lang = lang_data[lang_code]
+        text = getattr(row, attr_format.format(lang_code))
+        _add_key(one_lang, text_id, text)
+
+
+def lang_contest_csv_to_yaml(input_path):
+    seq = read_contest_csv(input_path)
+
+    skip_phrases = _get_yaml_set('_config/skips', 'phrases')
+    seq = [row for row in seq if row.en not in skip_phrases]
+
+    english_to_ids = _get_text_ids()
+    skip_text_ids = _get_yaml_set('_config/skips', 'text_ids')
+
+    # Dict from lang_code to dict of: text_id to translation.
+    lang_data = defaultdict(dict)
     for row in seq:
         english = row.en
-        if english in skip:
-            continue
-        try:
-            text_id = en_to_ids[english]
-        except KeyError:
-            # Do not process English words not in the dict of ID's.
-            continue
-        for code in LANGS:
-            translations = all_langs[code]
-            translated = getattr(row, code)
-            add_key(translations, text_id, translated)
-        for lang in LANGS_SHORT:
-            translations = all_langs[lang]
-            translated = getattr(row, "{0}_short".format(lang))
-            add_key(translations, "{0}_edge".format(text_id), translated)
+        text_id = english_to_ids[english]
+        _process_row(row, lang_data, skip_text_ids, langs=LANGS,
+                     text_id=text_id, attr_format="{0}")
+        short_text_id = "{0}_edge".format(text_id)
+        _process_row(row, lang_data, skip_text_ids, langs=LANGS_SHORT,
+                     text_id=short_text_id, attr_format="{0}_short")
+    print(lang_data)
+    return
 
-    en_translations = all_langs[LANG_EN]
+    en_translations = lang_data[LANG_EN]
     for lang in LANGS:
         yaml_texts = {}
-        for text_id, text in all_langs[lang].items():
+        for text_id, text in lang_data[lang].items():
             entry = {lang: text}
             if lang != LANG_EN:
                 # Add English to non-English files for readability.
