@@ -46,21 +46,29 @@
         San Francisco election.  The list is not yet complete.
 
         {% for office in offices if office.name -%}
-        <p>
-        <center><b>{{office.name}}</b> <a name="{{office.id}}" href="#{{office.id}}">¶</a> {% if office.translations -%}<br>
-            ({{ office.translations|join(' | ') }})
-          {%- endif %}</center>
-          <p>
-            Stats:
-          <ul>
-            {% if office.url -%}
-             <li><a href="{{office.url}}">{{office.url}}</a>
-            {%- endif %}
-            {% if office.vote_method -%}
-              <li>Method: {{office.vote_method}}
-            {%- endif %}
-          </ul>
-          <hr>
+        <div class="row text-center">
+          <b>{{office.name}}</b> <a name="{{office.id}}" href="#{{office.id}}">¶</a>
+        </div>
+        {% if office.translations -%}
+        <div class="row text-center">
+          ({{ office.translations|join(' | ') }})
+        </div>
+        {%- endif %}
+
+        {% if office.url -%}
+        <div class="row">
+          <div class="col-md-2"><b>Web:</b></div>
+          <div class="col-md-10"><a href="{{office.url}}">{{office.url}}</a></div>
+        </div>
+        {%- endif %}
+        {% if office.vote_method -%}
+        <div class="row">
+          <div class="col-md-2">Method:</div>
+          <div class="col-md-10">{{office.vote_method}}</div>
+        </div>
+        {%- endif %}
+
+        <hr>
         {% endfor %}
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
