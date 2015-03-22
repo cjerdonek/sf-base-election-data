@@ -1,0 +1,28 @@
+# This file contains a list of the text_id's that we need to manually
+# update after automatically pulling from the CSV's (hence we call the
+# containing directory "semi_manual").
+#
+# Below are the differing values that appear in the CSV.  This explains
+# why we need to update the YAML files manually (to manually choose among
+# the different possibilities).
+#
+# ('BART DIRECTOR', 'BART DIRECTOR DIST. 8', 'DIRECTOR DE BART', 'DIRECTOR BART', '', '', '灣區捷運董事,')
+# ('BART DIRECTOR', 'BART DIRECTOR DIST. 7', 'DIRECTOR DE BART', 'DIRECTOR BART', '', '', '灣區捷運董事,')
+# ('JUDICIAL', '', 'JUDICIAL (Omitted on ballot)', '', '', '', '司法')
+# ('JUDICIAL', '', 'JUDICIAL', '', '', '', '司法')
+# ('MEMBER, BOARD OF SUPERVISORS', 'BOARD OF SUPERVISORS D2', 'MIEMBRO, CONSEJO DE SUPERVISORES', 'CONSEJO SUPERVISORES', '', '', '市參議員')
+# ('MEMBER, BOARD OF SUPERVISORS', 'BOARD OF SUPERVISORS D1', 'MIEMBRO, CONSEJO DE SUPERVISORES', 'CONSEJO SUPERVISORES', '', '', '市參議員')
+# ('TREASURER', 'TREASURER', 'TESORERO', 'TESORERO', '', '', '財政官')
+# ('TREASURER', 'TREASURER', 'TESORERO', 'TESORERO', 'Ingat-yaman', '', '財政部長')
+# ('Vote for One: Must be different than your first choice', '', 'Vote por uno: Tiene que ser diferente a su primera y segunda preferencias', '', '', '', '選一名： 必須與第一個選擇不同')
+# ('Vote for One: Must be different than your first choice', '', 'Vote por uno: Tiene que ser diferente a su primera preferencia', '', '', '',            '選一名： 必須與第一個選擇不同')
+# ('Vote for One: Must be different than your first and second choices', '', 'Vote por uno: Tiene que ser diferente a su primera y segunda preferencias', '', '', '', '選一名： 必須與第一個選擇不同')
+# ('Vote for One: Must be different than your first and second choices', '', 'Vote por uno: Tiene que ser diferente a su primera y segunda preferencias', '', '', '', '選一名： 必須與第一個和第二個選擇不同')
+
+texts:
+  - "BART DIRECTOR"
+  - "JUDICIAL"
+  - "MEMBER, BOARD OF SUPERVISORS"
+  - "TREASURER"
+  - "Vote for One: Must be different than your first choice"
+  - "Vote for One: Must be different than your first and second choices"
