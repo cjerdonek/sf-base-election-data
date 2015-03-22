@@ -35,9 +35,6 @@ texts:
   office_assessor_recorder:
     _en: ASSESSOR-RECORDER
     zh: 估值官-記錄官
-  office_attorney_general:
-    _en: ATTORNEY GENERAL
-    zh: 司法部長
   office_bart_director:
     _en: BART DIRECTOR
     zh: 灣區捷運董事,
@@ -53,18 +50,9 @@ texts:
   office_district_attorney:
     _en: DISTRICT ATTORNEY
     zh: 地方檢察官
-  office_governor:
-    _en: GOVERNOR
-    zh: 州長
-  office_insurance_commissioner:
-    _en: INSURANCE COMMISSIONER
-    zh: 保險部長
   office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
     zh: 高等法院法官，
-  office_lieutenant_governor:
-    _en: LIEUTENANT GOVERNOR
-    zh: 副州長
   office_mayor:
     _en: MAYOR
     zh: 市長
@@ -89,31 +77,43 @@ texts:
   office_member_state_board_of_equalization_district_2:
     _en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
     zh: 州平稅局第2選區成員
-  office_president_and_vice_president:
-    _en: PRESIDENT AND VICE PRESIDENT
-    zh: 總統和副總統
-  office_president_of_the_united_states:
-    _en: PRESIDENT OF THE UNITED STATES
-    zh: 美國總統
   office_public_defender:
     _en: PUBLIC DEFENDER
     zh: 公共辯護律師
-  office_secretary_of_state:
-    _en: SECRETARY OF STATE
-    zh: 州務卿
   office_sheriff:
     _en: SHERIFF
     zh: 縣警長
+  office_state_attorney_general:
+    _en: ATTORNEY GENERAL
+    zh: 司法部長
+  office_state_governor:
+    _en: GOVERNOR
+    zh: 州長
+  office_state_insurance_commissioner:
+    _en: INSURANCE COMMISSIONER
+    zh: 保險部長
+  office_state_lieutenant_governor:
+    _en: LIEUTENANT GOVERNOR
+    zh: 副州長
+  office_state_secretary:
+    _en: SECRETARY OF STATE
+    zh: 州務卿
   office_state_senator:
     _en: STATE SENATOR
     zh: 州參議員
   office_superintendent_of_public_instruction:
     _en: SUPERINTENDENT OF PUBLIC INSTRUCTION
     zh: 教育部長
-  office_united_states_representative:
+  office_usa_president_and_vice_president:
+    _en: PRESIDENT AND VICE PRESIDENT
+    zh: 總統和副總統
+  office_usa_president_of_the_united_states:
+    _en: PRESIDENT OF THE UNITED STATES
+    zh: 美國總統
+  office_usa_representative:
     _en: UNITED STATES REPRESENTATIVE
     zh: 美國眾議員
-  office_united_states_senator:
+  office_usa_senator:
     _en: UNITED STATES SENATOR
     zh: 美國參議員
   preference_party:

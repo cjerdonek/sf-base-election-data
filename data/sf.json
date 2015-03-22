@@ -132,17 +132,6 @@
             "es": "TASADOR-REGISTRADOR",
             "fil": ""
         },
-        "office_attorney_general": {
-            "en": "ATTORNEY GENERAL",
-            "es": "PROCURADOR GENERAL",
-            "fil": "Pangkalahatang Abugado",
-            "zh": "\u53f8\u6cd5\u90e8\u9577"
-        },
-        "office_attorney_general_edge": {
-            "en": "ATTORNEY GENERAL",
-            "es": "PROCURADOR GENERAL",
-            "fil": ""
-        },
         "office_bart_director": {
             "en": "BART DIRECTOR",
             "es": "DIRECTOR DE BART",
@@ -193,28 +182,6 @@
             "es": "FISCAL DEL DISTRITO",
             "fil": ""
         },
-        "office_governor": {
-            "en": "GOVERNOR",
-            "es": "GOBERNADOR",
-            "fil": "Gobernador",
-            "zh": "\u5dde\u9577"
-        },
-        "office_governor_edge": {
-            "en": "GOVERNOR",
-            "es": "GOBERNADOR",
-            "fil": ""
-        },
-        "office_insurance_commissioner": {
-            "en": "INSURANCE COMMISSIONER",
-            "es": "COMISIONADO DE SEGUROS",
-            "fil": "Komisyonado ng Seguro",
-            "zh": "\u4fdd\u96aa\u90e8\u9577"
-        },
-        "office_insurance_commissioner_edge": {
-            "en": "INSURANCE COMMISSIONER",
-            "es": "COMISIONADO DE SEGUROS",
-            "fil": ""
-        },
         "office_judge_of_the_superior_court": {
             "en": "JUDGE OF THE SUPERIOR COURT,",
             "es": "JUEZ DEL TRIBUNAL SUPERIOR,",
@@ -224,17 +191,6 @@
         "office_judge_of_the_superior_court_edge": {
             "en": "SUPERIOR COURT JUDGE #X",
             "es": "JUEZ, CORTE SUPERIOR X",
-            "fil": ""
-        },
-        "office_lieutenant_governor": {
-            "en": "LIEUTENANT GOVERNOR",
-            "es": "VICEGOBERNADOR",
-            "fil": "Tenyente Gobernador",
-            "zh": "\u526f\u5dde\u9577"
-        },
-        "office_lieutenant_governor_edge": {
-            "en": "LIEUTENANT GOVERNOR",
-            "es": "VICEGOBERNADOR",
             "fil": ""
         },
         "office_mayor": {
@@ -320,28 +276,6 @@
             "es": "DIRECTIVA IGUALACI\u00d3N",
             "fil": ""
         },
-        "office_president_and_vice_president": {
-            "en": "PRESIDENT AND VICE PRESIDENT",
-            "es": "PRESIDENTE Y VICEPRESIDENTE",
-            "fil": "Presidente at Bise Presidente",
-            "zh": "\u7e3d\u7d71\u548c\u526f\u7e3d\u7d71"
-        },
-        "office_president_and_vice_president_edge": {
-            "en": "PRESIDENT & VICE PRES.",
-            "es": "PRESIDENTE Y VICEPRES.",
-            "fil": ""
-        },
-        "office_president_of_the_united_states": {
-            "en": "PRESIDENT OF THE UNITED STATES",
-            "es": "PRESIDENTE DE ESTADOS UNIDOS",
-            "fil": "",
-            "zh": "\u7f8e\u570b\u7e3d\u7d71"
-        },
-        "office_president_of_the_united_states_edge": {
-            "en": "U.S. PRESIDENT",
-            "es": "PRESIDENTE DE EE.UU.",
-            "fil": ""
-        },
         "office_public_defender": {
             "en": "PUBLIC DEFENDER",
             "es": "DEFENSOR P\u00daBLICO",
@@ -353,17 +287,6 @@
             "es": "DEFENSOR P\u00daBLICO",
             "fil": ""
         },
-        "office_secretary_of_state": {
-            "en": "SECRETARY OF STATE",
-            "es": "SECRETARIO DE ESTADO",
-            "fil": "Kalihim ng Estado",
-            "zh": "\u5dde\u52d9\u537f"
-        },
-        "office_secretary_of_state_edge": {
-            "en": "SECRETARY OF STATE",
-            "es": "SECRETARIO DE ESTADO",
-            "fil": ""
-        },
         "office_sheriff": {
             "en": "SHERIFF",
             "es": "ALGUACIL",
@@ -373,6 +296,61 @@
         "office_sheriff_edge": {
             "en": "SHERIFF",
             "es": "ALGUACIL",
+            "fil": ""
+        },
+        "office_state_attorney_general": {
+            "en": "ATTORNEY GENERAL",
+            "es": "PROCURADOR GENERAL",
+            "fil": "Pangkalahatang Abugado",
+            "zh": "\u53f8\u6cd5\u90e8\u9577"
+        },
+        "office_state_attorney_general_edge": {
+            "en": "ATTORNEY GENERAL",
+            "es": "PROCURADOR GENERAL",
+            "fil": ""
+        },
+        "office_state_governor": {
+            "en": "GOVERNOR",
+            "es": "GOBERNADOR",
+            "fil": "Gobernador",
+            "zh": "\u5dde\u9577"
+        },
+        "office_state_governor_edge": {
+            "en": "GOVERNOR",
+            "es": "GOBERNADOR",
+            "fil": ""
+        },
+        "office_state_insurance_commissioner": {
+            "en": "INSURANCE COMMISSIONER",
+            "es": "COMISIONADO DE SEGUROS",
+            "fil": "Komisyonado ng Seguro",
+            "zh": "\u4fdd\u96aa\u90e8\u9577"
+        },
+        "office_state_insurance_commissioner_edge": {
+            "en": "INSURANCE COMMISSIONER",
+            "es": "COMISIONADO DE SEGUROS",
+            "fil": ""
+        },
+        "office_state_lieutenant_governor": {
+            "en": "LIEUTENANT GOVERNOR",
+            "es": "VICEGOBERNADOR",
+            "fil": "Tenyente Gobernador",
+            "zh": "\u526f\u5dde\u9577"
+        },
+        "office_state_lieutenant_governor_edge": {
+            "en": "LIEUTENANT GOVERNOR",
+            "es": "VICEGOBERNADOR",
+            "fil": ""
+        },
+        "office_state_secretary": {
+            "en": "SECRETARY OF STATE",
+            "es": "SECRETARIO DE ESTADO",
+            "fil": "Kalihim ng Estado",
+            "zh": "\u5dde\u52d9\u537f"
+        },
+        "office_state_secretary_edge": {
+            "en": "SECRETARY OF STATE",
+            "es": "SECRETARIO DE ESTADO",
             "fil": ""
         },
         "office_state_senator": {
@@ -397,24 +375,46 @@
             "es": "SUPERINT. INSTRUCC. P\u00daB.",
             "fil": ""
         },
-        "office_united_states_representative": {
+        "office_usa_president_and_vice_president": {
+            "en": "PRESIDENT AND VICE PRESIDENT",
+            "es": "PRESIDENTE Y VICEPRESIDENTE",
+            "fil": "Presidente at Bise Presidente",
+            "zh": "\u7e3d\u7d71\u548c\u526f\u7e3d\u7d71"
+        },
+        "office_usa_president_and_vice_president_edge": {
+            "en": "PRESIDENT & VICE PRES.",
+            "es": "PRESIDENTE Y VICEPRES.",
+            "fil": ""
+        },
+        "office_usa_president_of_the_united_states": {
+            "en": "PRESIDENT OF THE UNITED STATES",
+            "es": "PRESIDENTE DE ESTADOS UNIDOS",
+            "fil": "",
+            "zh": "\u7f8e\u570b\u7e3d\u7d71"
+        },
+        "office_usa_president_of_the_united_states_edge": {
+            "en": "U.S. PRESIDENT",
+            "es": "PRESIDENTE DE EE.UU.",
+            "fil": ""
+        },
+        "office_usa_representative": {
             "en": "UNITED STATES REPRESENTATIVE",
             "es": "REPRESENTANTE DE ESTADOS UNIDOS",
             "fil": "Kinatawan ng Estados Unidos",
             "zh": "\u7f8e\u570b\u773e\u8b70\u54e1"
         },
-        "office_united_states_representative_edge": {
+        "office_usa_representative_edge": {
             "en": "U.S. REPRESENTATIVE",
             "es": "REPRESENTANTE DE EE.UU.",
             "fil": ""
         },
-        "office_united_states_senator": {
+        "office_usa_senator": {
             "en": "UNITED STATES SENATOR",
             "es": "SENADOR DE ESTADOS UNIDOS",
             "fil": "Senador ng Estados Unidos",
             "zh": "\u7f8e\u570b\u53c3\u8b70\u54e1"
         },
-        "office_united_states_senator_edge": {
+        "office_usa_senator_edge": {
             "en": "UNITED STATES SENATOR",
             "es": "SENADOR DE EE.UU.",
             "fil": ""

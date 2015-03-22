@@ -47,10 +47,6 @@ texts:
     en: ASSESSOR-RECORDER
   office_assessor_recorder_edge:
     en: ASSESSOR-RECORDER
-  office_attorney_general:
-    en: ATTORNEY GENERAL
-  office_attorney_general_edge:
-    en: ATTORNEY GENERAL
   office_bart_director:
     en: BART DIRECTOR
   office_city_attorney:
@@ -69,22 +65,10 @@ texts:
     en: DISTRICT ATTORNEY
   office_district_attorney_edge:
     en: DISTRICT ATTORNEY
-  office_governor:
-    en: GOVERNOR
-  office_governor_edge:
-    en: GOVERNOR
-  office_insurance_commissioner:
-    en: INSURANCE COMMISSIONER
-  office_insurance_commissioner_edge:
-    en: INSURANCE COMMISSIONER
   office_judge_of_the_superior_court:
     en: JUDGE OF THE SUPERIOR COURT,
   office_judge_of_the_superior_court_edge:
     en: 'SUPERIOR COURT JUDGE #X'
-  office_lieutenant_governor:
-    en: LIEUTENANT GOVERNOR
-  office_lieutenant_governor_edge:
-    en: LIEUTENANT GOVERNOR
   office_mayor:
     en: MAYOR
   office_mayor_edge:
@@ -115,26 +99,34 @@ texts:
     en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
   office_member_state_board_of_equalization_district_2_edge:
     en: BOARD OF EQUALIZATION D2
-  office_president_and_vice_president:
-    en: PRESIDENT AND VICE PRESIDENT
-  office_president_and_vice_president_edge:
-    en: PRESIDENT & VICE PRES.
-  office_president_of_the_united_states:
-    en: PRESIDENT OF THE UNITED STATES
-  office_president_of_the_united_states_edge:
-    en: U.S. PRESIDENT
   office_public_defender:
     en: PUBLIC DEFENDER
   office_public_defender_edge:
     en: PUBLIC DEFENDER
-  office_secretary_of_state:
-    en: SECRETARY OF STATE
-  office_secretary_of_state_edge:
-    en: SECRETARY OF STATE
   office_sheriff:
     en: SHERIFF
   office_sheriff_edge:
     en: SHERIFF
+  office_state_attorney_general:
+    en: ATTORNEY GENERAL
+  office_state_attorney_general_edge:
+    en: ATTORNEY GENERAL
+  office_state_governor:
+    en: GOVERNOR
+  office_state_governor_edge:
+    en: GOVERNOR
+  office_state_insurance_commissioner:
+    en: INSURANCE COMMISSIONER
+  office_state_insurance_commissioner_edge:
+    en: INSURANCE COMMISSIONER
+  office_state_lieutenant_governor:
+    en: LIEUTENANT GOVERNOR
+  office_state_lieutenant_governor_edge:
+    en: LIEUTENANT GOVERNOR
+  office_state_secretary:
+    en: SECRETARY OF STATE
+  office_state_secretary_edge:
+    en: SECRETARY OF STATE
   office_state_senator:
     en: STATE SENATOR
   office_state_senator_edge:
@@ -143,13 +135,21 @@ texts:
     en: SUPERINTENDENT OF PUBLIC INSTRUCTION
   office_superintendent_of_public_instruction_edge:
     en: SUP OF PUBLIC INSTRUCTN
-  office_united_states_representative:
+  office_usa_president_and_vice_president:
+    en: PRESIDENT AND VICE PRESIDENT
+  office_usa_president_and_vice_president_edge:
+    en: PRESIDENT & VICE PRES.
+  office_usa_president_of_the_united_states:
+    en: PRESIDENT OF THE UNITED STATES
+  office_usa_president_of_the_united_states_edge:
+    en: U.S. PRESIDENT
+  office_usa_representative:
     en: UNITED STATES REPRESENTATIVE
-  office_united_states_representative_edge:
+  office_usa_representative_edge:
     en: U.S. REPRESENTATIVE
-  office_united_states_senator:
+  office_usa_senator:
     en: UNITED STATES SENATOR
-  office_united_states_senator_edge:
+  office_usa_senator_edge:
     en: UNITED STATES SENATOR
   preference_party:
     en: 'Party Preference:'

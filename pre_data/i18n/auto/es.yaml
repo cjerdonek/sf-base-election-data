@@ -71,12 +71,6 @@ texts:
   office_assessor_recorder_edge:
     _en: ASSESSOR-RECORDER
     es: TASADOR-REGISTRADOR
-  office_attorney_general:
-    _en: ATTORNEY GENERAL
-    es: PROCURADOR GENERAL
-  office_attorney_general_edge:
-    _en: ATTORNEY GENERAL
-    es: PROCURADOR GENERAL
   office_bart_director:
     _en: BART DIRECTOR
     es: DIRECTOR DE BART
@@ -104,30 +98,12 @@ texts:
   office_district_attorney_edge:
     _en: DISTRICT ATTORNEY
     es: FISCAL DEL DISTRITO
-  office_governor:
-    _en: GOVERNOR
-    es: GOBERNADOR
-  office_governor_edge:
-    _en: GOVERNOR
-    es: GOBERNADOR
-  office_insurance_commissioner:
-    _en: INSURANCE COMMISSIONER
-    es: COMISIONADO DE SEGUROS
-  office_insurance_commissioner_edge:
-    _en: INSURANCE COMMISSIONER
-    es: COMISIONADO DE SEGUROS
   office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
     es: JUEZ DEL TRIBUNAL SUPERIOR,
   office_judge_of_the_superior_court_edge:
     _en: 'SUPERIOR COURT JUDGE #X'
     es: JUEZ, CORTE SUPERIOR X
-  office_lieutenant_governor:
-    _en: LIEUTENANT GOVERNOR
-    es: VICEGOBERNADOR
-  office_lieutenant_governor_edge:
-    _en: LIEUTENANT GOVERNOR
-    es: VICEGOBERNADOR
   office_mayor:
     _en: MAYOR
     es: ALCALDE
@@ -174,36 +150,48 @@ texts:
   office_member_state_board_of_equalization_district_2_edge:
     _en: BOARD OF EQUALIZATION D2
     es: DIRECTIVA IGUALACIÓN
-  office_president_and_vice_president:
-    _en: PRESIDENT AND VICE PRESIDENT
-    es: PRESIDENTE Y VICEPRESIDENTE
-  office_president_and_vice_president_edge:
-    _en: PRESIDENT & VICE PRES.
-    es: PRESIDENTE Y VICEPRES.
-  office_president_of_the_united_states:
-    _en: PRESIDENT OF THE UNITED STATES
-    es: PRESIDENTE DE ESTADOS UNIDOS
-  office_president_of_the_united_states_edge:
-    _en: U.S. PRESIDENT
-    es: PRESIDENTE DE EE.UU.
   office_public_defender:
     _en: PUBLIC DEFENDER
     es: DEFENSOR PÚBLICO
   office_public_defender_edge:
     _en: PUBLIC DEFENDER
     es: DEFENSOR PÚBLICO
-  office_secretary_of_state:
-    _en: SECRETARY OF STATE
-    es: SECRETARIO DE ESTADO
-  office_secretary_of_state_edge:
-    _en: SECRETARY OF STATE
-    es: SECRETARIO DE ESTADO
   office_sheriff:
     _en: SHERIFF
     es: ALGUACIL
   office_sheriff_edge:
     _en: SHERIFF
     es: ALGUACIL
+  office_state_attorney_general:
+    _en: ATTORNEY GENERAL
+    es: PROCURADOR GENERAL
+  office_state_attorney_general_edge:
+    _en: ATTORNEY GENERAL
+    es: PROCURADOR GENERAL
+  office_state_governor:
+    _en: GOVERNOR
+    es: GOBERNADOR
+  office_state_governor_edge:
+    _en: GOVERNOR
+    es: GOBERNADOR
+  office_state_insurance_commissioner:
+    _en: INSURANCE COMMISSIONER
+    es: COMISIONADO DE SEGUROS
+  office_state_insurance_commissioner_edge:
+    _en: INSURANCE COMMISSIONER
+    es: COMISIONADO DE SEGUROS
+  office_state_lieutenant_governor:
+    _en: LIEUTENANT GOVERNOR
+    es: VICEGOBERNADOR
+  office_state_lieutenant_governor_edge:
+    _en: LIEUTENANT GOVERNOR
+    es: VICEGOBERNADOR
+  office_state_secretary:
+    _en: SECRETARY OF STATE
+    es: SECRETARIO DE ESTADO
+  office_state_secretary_edge:
+    _en: SECRETARY OF STATE
+    es: SECRETARIO DE ESTADO
   office_state_senator:
     _en: STATE SENATOR
     es: SENADOR ESTATAL
@@ -216,16 +204,28 @@ texts:
   office_superintendent_of_public_instruction_edge:
     _en: SUP OF PUBLIC INSTRUCTN
     es: SUPERINT. INSTRUCC. PÚB.
-  office_united_states_representative:
+  office_usa_president_and_vice_president:
+    _en: PRESIDENT AND VICE PRESIDENT
+    es: PRESIDENTE Y VICEPRESIDENTE
+  office_usa_president_and_vice_president_edge:
+    _en: PRESIDENT & VICE PRES.
+    es: PRESIDENTE Y VICEPRES.
+  office_usa_president_of_the_united_states:
+    _en: PRESIDENT OF THE UNITED STATES
+    es: PRESIDENTE DE ESTADOS UNIDOS
+  office_usa_president_of_the_united_states_edge:
+    _en: U.S. PRESIDENT
+    es: PRESIDENTE DE EE.UU.
+  office_usa_representative:
     _en: UNITED STATES REPRESENTATIVE
     es: REPRESENTANTE DE ESTADOS UNIDOS
-  office_united_states_representative_edge:
+  office_usa_representative_edge:
     _en: U.S. REPRESENTATIVE
     es: REPRESENTANTE DE EE.UU.
-  office_united_states_senator:
+  office_usa_senator:
     _en: UNITED STATES SENATOR
     es: SENADOR DE ESTADOS UNIDOS
-  office_united_states_senator_edge:
+  office_usa_senator_edge:
     _en: UNITED STATES SENATOR
     es: SENADOR DE EE.UU.
   preference_party:

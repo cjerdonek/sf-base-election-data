@@ -10,16 +10,16 @@ choice_3: THIRD CHOICE
 county_transportation_authority_proposition: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
 district: DISTRICT
 office_assessor_recorder: ASSESSOR-RECORDER
-office_attorney_general: ATTORNEY GENERAL
+office_state_attorney_general: ATTORNEY GENERAL
 office_bart_director: BART DIRECTOR
 office_city_attorney: CITY ATTORNEY
 office_city_treasurer: TREASURER
 office_controller: CONTROLLER
 office_district_attorney: DISTRICT ATTORNEY
-office_governor: GOVERNOR
-office_insurance_commissioner: INSURANCE COMMISSIONER
+office_state_governor: GOVERNOR
+office_state_insurance_commissioner: INSURANCE COMMISSIONER
 office_judge_of_the_superior_court: JUDGE OF THE SUPERIOR COURT,
-office_lieutenant_governor: LIEUTENANT GOVERNOR
+office_state_lieutenant_governor: LIEUTENANT GOVERNOR
 office_mayor: MAYOR
 office_member_board_of_education: MEMBER, BOARD OF EDUCATION
 office_member_board_of_supervisors: MEMBER, BOARD OF SUPERVISORS
@@ -30,7 +30,7 @@ office_member_of_the_state_assembly: MEMBER OF THE STATE ASSEMBLY
 office_member_state_board_of_equalization_district_2: MEMBER, STATE BOARD OF EQUALIZATION,
   DISTRICT 2
 office_public_defender: PUBLIC DEFENDER
-office_secretary_of_state: SECRETARY OF STATE
+office_state_secretary: SECRETARY OF STATE
 office_sheriff: SHERIFF
 office_state_senator: STATE SENATOR
 office_superintendent_of_public_instruction: SUPERINTENDENT OF PUBLIC INSTRUCTION

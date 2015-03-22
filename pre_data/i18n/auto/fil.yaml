@@ -71,12 +71,6 @@ texts:
   office_assessor_recorder_edge:
     _en: ASSESSOR-RECORDER
     fil: ''
-  office_attorney_general:
-    _en: ATTORNEY GENERAL
-    fil: Pangkalahatang Abugado
-  office_attorney_general_edge:
-    _en: ATTORNEY GENERAL
-    fil: ''
   office_bart_director:
     _en: BART DIRECTOR
     fil: ''
@@ -104,29 +98,11 @@ texts:
   office_district_attorney_edge:
     _en: DISTRICT ATTORNEY
     fil: ''
-  office_governor:
-    _en: GOVERNOR
-    fil: Gobernador
-  office_governor_edge:
-    _en: GOVERNOR
-    fil: ''
-  office_insurance_commissioner:
-    _en: INSURANCE COMMISSIONER
-    fil: Komisyonado ng Seguro
-  office_insurance_commissioner_edge:
-    _en: INSURANCE COMMISSIONER
-    fil: ''
   office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
     fil: ''
   office_judge_of_the_superior_court_edge:
     _en: 'SUPERIOR COURT JUDGE #X'
-    fil: ''
-  office_lieutenant_governor:
-    _en: LIEUTENANT GOVERNOR
-    fil: Tenyente Gobernador
-  office_lieutenant_governor_edge:
-    _en: LIEUTENANT GOVERNOR
     fil: ''
   office_mayor:
     _en: MAYOR
@@ -173,35 +149,47 @@ texts:
   office_member_state_board_of_equalization_district_2_edge:
     _en: BOARD OF EQUALIZATION D2
     fil: ''
-  office_president_and_vice_president:
-    _en: PRESIDENT AND VICE PRESIDENT
-    fil: Presidente at Bise Presidente
-  office_president_and_vice_president_edge:
-    _en: PRESIDENT & VICE PRES.
-    fil: ''
-  office_president_of_the_united_states:
-    _en: PRESIDENT OF THE UNITED STATES
-    fil: ''
-  office_president_of_the_united_states_edge:
-    _en: U.S. PRESIDENT
-    fil: ''
   office_public_defender:
     _en: PUBLIC DEFENDER
     fil: ''
   office_public_defender_edge:
     _en: PUBLIC DEFENDER
     fil: ''
-  office_secretary_of_state:
-    _en: SECRETARY OF STATE
-    fil: Kalihim ng Estado
-  office_secretary_of_state_edge:
-    _en: SECRETARY OF STATE
-    fil: ''
   office_sheriff:
     _en: SHERIFF
     fil: ''
   office_sheriff_edge:
     _en: SHERIFF
+    fil: ''
+  office_state_attorney_general:
+    _en: ATTORNEY GENERAL
+    fil: Pangkalahatang Abugado
+  office_state_attorney_general_edge:
+    _en: ATTORNEY GENERAL
+    fil: ''
+  office_state_governor:
+    _en: GOVERNOR
+    fil: Gobernador
+  office_state_governor_edge:
+    _en: GOVERNOR
+    fil: ''
+  office_state_insurance_commissioner:
+    _en: INSURANCE COMMISSIONER
+    fil: Komisyonado ng Seguro
+  office_state_insurance_commissioner_edge:
+    _en: INSURANCE COMMISSIONER
+    fil: ''
+  office_state_lieutenant_governor:
+    _en: LIEUTENANT GOVERNOR
+    fil: Tenyente Gobernador
+  office_state_lieutenant_governor_edge:
+    _en: LIEUTENANT GOVERNOR
+    fil: ''
+  office_state_secretary:
+    _en: SECRETARY OF STATE
+    fil: Kalihim ng Estado
+  office_state_secretary_edge:
+    _en: SECRETARY OF STATE
     fil: ''
   office_state_senator:
     _en: STATE SENATOR
@@ -215,16 +203,28 @@ texts:
   office_superintendent_of_public_instruction_edge:
     _en: SUP OF PUBLIC INSTRUCTN
     fil: ''
-  office_united_states_representative:
+  office_usa_president_and_vice_president:
+    _en: PRESIDENT AND VICE PRESIDENT
+    fil: Presidente at Bise Presidente
+  office_usa_president_and_vice_president_edge:
+    _en: PRESIDENT & VICE PRES.
+    fil: ''
+  office_usa_president_of_the_united_states:
+    _en: PRESIDENT OF THE UNITED STATES
+    fil: ''
+  office_usa_president_of_the_united_states_edge:
+    _en: U.S. PRESIDENT
+    fil: ''
+  office_usa_representative:
     _en: UNITED STATES REPRESENTATIVE
     fil: Kinatawan ng Estados Unidos
-  office_united_states_representative_edge:
+  office_usa_representative_edge:
     _en: U.S. REPRESENTATIVE
     fil: ''
-  office_united_states_senator:
+  office_usa_senator:
     _en: UNITED STATES SENATOR
     fil: Senador ng Estados Unidos
-  office_united_states_senator_edge:
+  office_usa_senator_edge:
     _en: UNITED STATES SENATOR
     fil: ''
   preference_party:
