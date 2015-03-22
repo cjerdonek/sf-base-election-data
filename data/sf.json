@@ -574,36 +574,6 @@
             "fil": ""
         }
     },
-    "jurisdictions": [
-        {
-            "id": "US",
-            "name": "United States of America"
-        },
-        {
-            "id": "CA",
-            "name": "State of California"
-        },
-        {
-            "id": "BART",
-            "name": "Bay Area Rapid Transit"
-        },
-        {
-            "id": "SFCC",
-            "name": "San Francisco Community College District"
-        },
-        {
-            "id": "SF",
-            "name": "City and County of San Francisco"
-        }
-    ],
-    "mixins": [
-        {
-            "id": "sf_default",
-            "jurisdiction_id": "SF",
-            "term_length": 4,
-            "vote_method": "RCV"
-        }
-    ],
     "offices": [
         {
             "name_i18n": "office_usa_president_of_the_united_states",
@@ -727,28 +697,40 @@
             "district": 9
         },
         {
-            "mixin_id": "sf_default",
+            "jurisdiction_id": "SF",
+            "mixin_id": "sf_common",
             "name_i18n": "office_mayor",
             "seed_year": 2015,
-            "url": "http://www.sfmayor.org"
+            "term_length": 4,
+            "url": "http://www.sfmayor.org",
+            "vote_method": "RCV"
         },
         {
-            "mixin_id": "sf_default",
+            "jurisdiction_id": "SF",
+            "mixin_id": "sf_common",
             "name_i18n": "office_assessor_recorder",
             "seed_year": 2014,
-            "url": "http://www.sfassessor.org"
+            "term_length": 4,
+            "url": "http://www.sfassessor.org",
+            "vote_method": "RCV"
         },
         {
-            "mixin_id": "sf_default",
+            "jurisdiction_id": "SF",
+            "mixin_id": "sf_common",
             "name_i18n": "office_city_attorney",
             "seed_year": 2015,
-            "url": "http://www.sfcityattorney.org"
+            "term_length": 4,
+            "url": "http://www.sfcityattorney.org",
+            "vote_method": "RCV"
         },
         {
-            "mixin_id": "sf_default",
+            "jurisdiction_id": "SF",
+            "mixin_id": "sf_common",
             "name_i18n": "office_district_attorney",
             "seed_year": 2015,
-            "url": "http://www.sfdistrictattorney.org"
+            "term_length": 4,
+            "url": "http://www.sfdistrictattorney.org",
+            "vote_method": "RCV"
         },
         {
             "name_i18n": "office_public_defender",
@@ -756,16 +738,22 @@
             "url": "http://sfpublicdefender.org"
         },
         {
-            "mixin_id": "sf_default",
+            "jurisdiction_id": "SF",
+            "mixin_id": "sf_common",
             "name_i18n": "office_sheriff",
             "seed_year": 2015,
-            "url": "http://www.sfsheriff.com"
+            "term_length": 4,
+            "url": "http://www.sfsheriff.com",
+            "vote_method": "RCV"
         },
         {
-            "mixin_id": "sf_default",
+            "jurisdiction_id": "SF",
+            "mixin_id": "sf_common",
             "name_i18n": "office_city_treasurer",
             "seed_year": 2015,
-            "url": "http://sftreasurer.org"
+            "term_length": 4,
+            "url": "http://sftreasurer.org",
+            "vote_method": "RCV"
         },
         {
             "body_id": "SF_CCB",

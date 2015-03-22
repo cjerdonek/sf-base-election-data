@@ -1,5 +1,6 @@
 
 from collections import defaultdict
+from copy import deepcopy
 import glob
 import json
 import os
@@ -84,9 +85,24 @@ def make_node_i18n():
 
 def make_node_offices(mixins):
     """Return the node containing internationalized data."""
-    data = get_object_data('offices')
-    print(data)
-    exit()
+    offices = get_object_data('offices')
+
+    # TODO: convert this to a dict with office_id's.
+    node = []
+    for office in offices:
+        try:
+            mixin_id = office['mixin_id']
+        except KeyError:
+            pass
+        else:
+            # Make the office "extend" from the mixin.
+            office_new = deepcopy(mixins[mixin_id])
+            office_new.update(office)
+            office = office_new
+
+        node.append(office)
+
+    return node
 
 
 def make_court_of_appeals_division_numbers():

@@ -96,22 +96,22 @@ offices:
     district: 9
   -
     name_i18n: office_mayor
-    mixin_id: sf_default
+    mixin_id: sf_common
     url: http://www.sfmayor.org
     seed_year: 2015
   -
     name_i18n: office_assessor_recorder
-    mixin_id: sf_default
+    mixin_id: sf_common
     url: http://www.sfassessor.org
     seed_year: 2014
   -
     name_i18n: office_city_attorney
-    mixin_id: sf_default
+    mixin_id: sf_common
     url: http://www.sfcityattorney.org
     seed_year: 2015
   -
     name_i18n: office_district_attorney
-    mixin_id: sf_default
+    mixin_id: sf_common
     url: http://www.sfdistrictattorney.org
     seed_year: 2015
   -
@@ -120,12 +120,12 @@ offices:
     seed_year: 2014
   -
     name_i18n: office_sheriff
-    mixin_id: sf_default
+    mixin_id: sf_common
     url: http://www.sfsheriff.com
     seed_year: 2015
   -
     name_i18n: office_city_treasurer
-    mixin_id: sf_default
+    mixin_id: sf_common
     url: http://sftreasurer.org
     seed_year: 2015
   -
