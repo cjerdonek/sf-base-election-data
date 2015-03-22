@@ -18,6 +18,8 @@ from pyelect import lang
 from pyelect import utils
 
 
+_log = logging.getLogger()
+
 _DEFAULT_OUTPUT_DIR_NAME = '_build'
 _FORMATTER_CLASS = argparse.RawDescriptionHelpFormatter
 _REL_PATH_JSON_DATA = "data/sf.json"
@@ -70,10 +72,11 @@ def command_sample_html(ns):
         input_data = json.load(f)
     # Make and output HTML.
     html = htmlgen.make_html(input_data)
+    print(html)
+    _log.info("writing to: {0}".format(path))
     with open(path, "w") as f:
         f.write(html)
     subprocess.call(["open", path])
-    print(html)
 
 
 def command_yaml_normalize(ns):

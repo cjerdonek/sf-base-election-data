@@ -138,7 +138,6 @@ offices:
     url: http://www.sfcityattorney.org
     seed_year: 2015
   -
-    name_i18n: office_treasurer
     mixin_id: sf_default
     url: http://sftreasurer.org
     seed_year: 2015

@@ -695,7 +695,6 @@
         },
         {
             "mixin_id": "sf_default",
-            "name_i18n": "office_treasurer",
             "seed_year": 2015,
             "url": "http://sftreasurer.org"
         },
