@@ -1,7 +1,10 @@
 # San Francisco Elected Offices
 
-This is an open data project to provide structured information about
-offices appearing on the ballot in San Francisco elections.
+This is a project to provide open data about offices appearing on the
+ballot in San Francisco elections.
+
+See here for a sample web page created from this data:
+[http://cjerdonek.github.io/sf-elected-offices](http://cjerdonek.github.io/sf-elected-offices)
 
 
 ## Overview
