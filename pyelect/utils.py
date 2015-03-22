@@ -45,3 +45,25 @@ def write_yaml(data, path, stdout=False):
         yaml_dump(data, f)
     if stdout:
         print(yaml_dump(data))
+
+
+def _get_yaml_meta(data):
+    return data['_meta']
+
+
+def _is_yaml_normalizable(data):
+    try:
+        meta = _get_yaml_meta(data)
+        normalizable = meta['normalizable']
+    except KeyError:
+        normalizable = False
+    return normalizable
+
+
+def normalize_yaml(path, stdout=None):
+    data = read_yaml(path)
+    if not _is_yaml_normalizable(data):
+        raise Exception("file not marked normalizable: {0}".format(path))
+    meta = _get_yaml_meta(data)
+    meta['_auto'] = "WARNING: comments will be deleted during normalization"
+    write_yaml(data, path, stdout=stdout)

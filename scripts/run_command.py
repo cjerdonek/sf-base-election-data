@@ -81,8 +81,7 @@ def command_sample_html(ns):
 
 def command_yaml_norm(ns):
     path = ns.path
-    data = utils.read_yaml(path)
-    utils.write_yaml(data, path, stdout=True)
+    utils.normalize_yaml(path, stdout=True)
 
 
 def command_yaml_update_lang(ns):

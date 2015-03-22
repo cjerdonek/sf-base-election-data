@@ -1,9 +1,9 @@
 TODO
 ====
 
+* Expand `mixin_id` during YAML to JSON stage.
 * Make command to generate a translation file from the English.
   - And start work on manual..
-* Expand `mixin_id` during YAML to JSON stage.
 * Clean up en.yaml, and add Spanish and Chinese in the cleaned-up format.
 * Prioritize listing the offices as they appear in sf.json.
   - Different groupings and filters can happen later.
