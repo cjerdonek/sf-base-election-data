@@ -1,4 +1,21 @@
 {
+    "categories": {
+        "city_county": {
+            "name_i18n": "category_city_county"
+        },
+        "federal": {
+            "name_i18n": "category_federal"
+        },
+        "judicial": {
+            "name_i18n": "category_judicial"
+        },
+        "school": {
+            "name_i18n": "category_school"
+        },
+        "state": {
+            "name_i18n": "category_state"
+        }
+    },
     "i18n": {
         "category_city_county_propositions": {
             "en": "CITY & COUNTY PROPOSITIONS",
@@ -733,9 +750,13 @@
             "vote_method": "RCV"
         },
         {
+            "jurisdiction_id": "SF",
+            "mixin_id": "sf_common",
             "name_i18n": "office_public_defender",
             "seed_year": 2014,
-            "url": "http://sfpublicdefender.org"
+            "term_length": 4,
+            "url": "http://sfpublicdefender.org",
+            "vote_method": "RCV"
         },
         {
             "jurisdiction_id": "SF",

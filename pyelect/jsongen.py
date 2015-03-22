@@ -15,6 +15,7 @@ COURT_OF_APPEALS_ID = 'ca_court_app'
 
 KEY_DISTRICTS = 'districts'
 KEY_ID = '_id'
+KEY_META = '_meta'
 KEY_OFFICES = 'offices'
 
 DIR_NAME_OBJECTS = 'objects'
@@ -39,9 +40,32 @@ def get_object_path(name):
 
 
 def get_object_data(name):
+    """Return the data in a YAML file as a pair of dicts.
+
+    Arguments:
+      name: base name of the objects file (e.g. "offices" for "offices.yaml").
+    """
     path = get_object_path(name)
     data = utils.read_yaml(path)
-    return data[name]
+    objects = data[name]
+    meta = data[KEY_META]
+    return objects, meta
+
+
+def make_node_categories(node_name):
+    categories, meta = get_object_data(node_name)
+
+    name_i18n_format = meta['name_i18n_format']
+
+    node = {}
+    for category_id, data in categories.items():
+        name_i18n = name_i18n_format.format(category_id)
+        category = {
+            'name_i18n': name_i18n,
+        }
+        node[category_id] = category
+
+    return node
 
 
 def path_to_langcode(path):
@@ -67,7 +91,7 @@ def read_phrases(path):
     return lang_code, words
 
 
-def make_node_i18n():
+def make_node_i18n(node_name):
     """Return the node containing internationalized data."""
     lang_dir = lang.get_lang_dir()
     auto_dir = os.path.join(lang_dir, lang.DIR_LANG_AUTO)
@@ -83,9 +107,9 @@ def make_node_i18n():
     return data
 
 
-def make_node_offices(mixins):
+def make_node_offices(node_name, mixins):
     """Return the node containing internationalized data."""
-    offices = get_object_data('offices')
+    offices, meta = get_object_data('offices')
 
     # TODO: convert this to a dict with office_id's.
     node = []
@@ -175,16 +199,17 @@ def add_source(data, source_name):
 
 def add_node(json_data, node_name, **kwargs):
     make_node_function_name = "make_node_{0}".format(node_name)
-    make_node = globals()[make_node_function_name]
-    node = make_node(**kwargs)
+    make_node_func = globals()[make_node_function_name]
+    node = make_node_func(node_name, **kwargs)
     json_data[node_name] = node
 
 
 def make_all_data():
-    mixins = get_object_data('mixins')
+    mixins, meta = get_object_data('mixins')
 
     json_data ={}
 
+    add_node(json_data, 'categories')
     add_node(json_data, 'i18n')
     add_node(json_data, 'offices', mixins=mixins)
 
