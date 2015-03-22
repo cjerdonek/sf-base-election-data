@@ -1,6 +1,6 @@
 # San Francisco Base Election Data (SFBED)
 
-This is an open data project to provide data about San Francisco
+SFBED is an open data project to provide data about San Francisco
 elections that tends to remain the same from election to election (or
 that changes infrequently).
 

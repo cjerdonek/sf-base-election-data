@@ -26,6 +26,7 @@ def make_office(trans, data):
     words = trans[name_text_id]
     name = words['en']
     translations = [words[lang] for lang in words.keys() if lang != 'en']
+    translations = filter(None, translations)
     office = {
         'name': name,
         'translations': translations,
