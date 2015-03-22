@@ -143,6 +143,12 @@
             "es": "PROCURADOR GENERAL",
             "fil": ""
         },
+        "office_bart_director": {
+            "en": "BART DIRECTOR",
+            "es": "DIRECTOR DE BART",
+            "fil": "",
+            "zh": "\u7063\u5340\u6377\u904b\u8463\u4e8b,"
+        },
         "office_city_attorney": {
             "en": "CITY ATTORNEY",
             "es": "ABOGADO DE LA CIUDAD",
@@ -152,6 +158,17 @@
         "office_city_attorney_edge": {
             "en": "CITY ATTORNEY",
             "es": "ABOGADO DE LA CIUDAD",
+            "fil": ""
+        },
+        "office_city_treasurer": {
+            "en": "TREASURER",
+            "es": "TESORERO",
+            "fil": "",
+            "zh": "\u8ca1\u653f\u5b98"
+        },
+        "office_city_treasurer_edge": {
+            "en": "TREASURER",
+            "es": "TESORERO",
             "fil": ""
         },
         "office_controller": {
@@ -241,6 +258,12 @@
             "en": "BOARD OF EDUCATION",
             "es": "CONSEJO DE EDUCACI\u00d3N",
             "fil": ""
+        },
+        "office_member_board_of_supervisors": {
+            "en": "MEMBER, BOARD OF SUPERVISORS",
+            "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
+            "fil": "",
+            "zh": "\u5e02\u53c3\u8b70\u54e1"
         },
         "office_member_community_college_board": {
             "en": "MEMBER, COMMUNITY COLLEGE BOARD",
@@ -440,6 +463,17 @@
             "es": "",
             "fil": ""
         },
+        "type_judicial": {
+            "en": "JUDICIAL",
+            "es": "JUDICIAL",
+            "fil": "",
+            "zh": "\u53f8\u6cd5"
+        },
+        "type_judicial_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
         "type_school": {
             "en": "SCHOOL",
             "es": "ESCUELA",
@@ -491,6 +525,28 @@
             "zh": "\u9078\u4e00\u9ee8"
         },
         "vote_for_one_party_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "vote_rcv_choice_2": {
+            "en": "Vote for One: Must be different than your first choice",
+            "es": "Vote por uno: Tiene que ser diferente a su primera preferencia",
+            "fil": "",
+            "zh": "\u9078\u4e00\u540d\uff1a \u5fc5\u9808\u8207\u7b2c\u4e00\u500b\u9078\u64c7\u4e0d\u540c"
+        },
+        "vote_rcv_choice_2_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "vote_rcv_choice_3": {
+            "en": "Vote for One: Must be different than your first and second choices",
+            "es": "Vote por uno: Tiene que ser diferente a su primera y segunda preferencias",
+            "fil": "",
+            "zh": "\u9078\u4e00\u540d\uff1a \u5fc5\u9808\u8207\u7b2c\u4e00\u500b\u548c\u7b2c\u4e8c\u500b\u9078\u64c7\u4e0d\u540c"
+        },
+        "vote_rcv_choice_3_edge": {
             "en": "",
             "es": "",
             "fil": ""
