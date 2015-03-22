@@ -16,9 +16,9 @@ def make_districts(data):
     return districts
 
 
-def make_office(trans, json_office):
+def make_office(trans, office_json):
     # TODO: there should be an ID attribute separate from name_i18n.
-    name_text_id = json_office.get('name_i18n')
+    name_text_id = office_json.get('name_i18n')
     # TODO: all offices should be fully processed with a name, etc.
     if name_text_id is None:
         return None
@@ -30,8 +30,9 @@ def make_office(trans, json_office):
     office = {
         'id': name_text_id,
         'name': name,
+        'vote_method': office_json.get('vote_method'),
         'translations': translations,
-        'url': json_office.get('url')
+        'url': office_json.get('url')
     }
     return office
 

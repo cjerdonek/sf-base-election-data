@@ -116,6 +116,7 @@ offices:
     seed_year: 2015
   -
     name_i18n: office_public_defender
+    mixin_id: sf_common
     url: http://sfpublicdefender.org
     seed_year: 2014
   -

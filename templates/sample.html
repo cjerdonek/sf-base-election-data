@@ -36,6 +36,9 @@
         {% if office.url -%}
          <li><a href="{{office.url}}">{{office.url}}</a>
         {%- endif %}
+        {% if office.vote_method -%}
+          <li>Method: {{office.vote_method}}
+        {%- endif %}
       </ul>
       <hr>
     {% endfor %}
