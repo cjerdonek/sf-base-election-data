@@ -1,151 +1,178 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>SF Base Election Data (SFBED) - Sample Page</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
-<body>
-  <h1>SF Base Election Data (SFBED)</h1>
+  <body>
+    <div class="container">
 
-  <p>
-    This is a sample web page to illustrate using the data from the
-    <a href="https://github.com/cjerdonek/sf-base-election-data">SFBED</a>
-      open data project.
-  <p>
-    This web page was generated from a single
-    <a href="https://github.com/cjerdonek/sf-elected-offices/blob/master/data/sf.json">JSON file</a>
-    of structured data about San Francisco elections.
-  <p>
-    If you notice any issues about the data or have a suggestion,
-    please file an issue in the
-    <a href="https://github.com/cjerdonek/sf-base-election-data/issues">issue tracker</a>.
+      <h1>SF Base Election Data (SFBED)</h1>
 
-  <h2>San Francisco Offices on Ballot</h2>
+      <p>
+        This is a sample web page to illustrate using the data from the
+        <a href="https://github.com/cjerdonek/sf-base-election-data">SFBED</a>
+          open data project.
+      <p>
+        This web page was generated from a single
+        <a href="https://github.com/cjerdonek/sf-elected-offices/blob/master/data/sf.json">JSON file</a>
+        of structured data about San Francisco elections.
+      <p>
+        If you notice any issues about the data or have a suggestion,
+        please file an issue in the
+        <a href="https://github.com/cjerdonek/sf-base-election-data/issues">issue tracker</a>.
 
-  <p>
-    Below is a list of offices that may appear on the ballot in a
-    San Francisco election.  The list is not yet complete.
+      <h2>San Francisco Offices on Ballot</h2>
 
-    <p>
-    <center><b>PRESIDENT OF THE UNITED STATES</b> <a name="office_usa_president_of_the_united_states" href="#office_usa_president_of_the_united_states">¶</a> <br>
-        (PRESIDENTE DE ESTADOS UNIDOS | 美國總統)</center>
       <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="https://www.whitehouse.gov/">https://www.whitehouse.gov/</a>
-        
-      </ul>
-      <hr>
-    <p>
-    <center><b>GOVERNOR</b> <a name="office_state_governor" href="#office_state_governor">¶</a> <br>
-        (GOBERNADOR | 州長 | Gobernador)</center>
-      <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="http://www.gov.ca.gov">http://www.gov.ca.gov</a>
-        
-      </ul>
-      <hr>
-    <p>
-    <center><b>LIEUTENANT GOVERNOR</b> <a name="office_state_lieutenant_governor" href="#office_state_lieutenant_governor">¶</a> <br>
-        (VICEGOBERNADOR | 副州長 | Tenyente Gobernador)</center>
-      <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="http://www.ltg.ca.gov/">http://www.ltg.ca.gov/</a>
-        
-      </ul>
-      <hr>
-    <p>
-    <center><b>SECRETARY OF STATE</b> <a name="office_state_secretary" href="#office_state_secretary">¶</a> <br>
-        (SECRETARIO DE ESTADO | 州務卿 | Kalihim ng Estado)</center>
-      <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="http://www.sos.ca.gov/">http://www.sos.ca.gov/</a>
-        
-      </ul>
-      <hr>
-    <p>
-    <center><b>SUPERINTENDENT OF PUBLIC INSTRUCTION</b> <a name="office_superintendent_of_public_instruction" href="#office_superintendent_of_public_instruction">¶</a> <br>
-        (SUPERINTENDENTE DE INSTRUCCIÓN PÚBLICA | 教育部長 | Superintendente ng Pampublikong Pagtuturo)</center>
-      <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="http://www.cde.ca.gov/eo">http://www.cde.ca.gov/eo</a>
-        
-      </ul>
-      <hr>
-    <p>
-    <center><b>MAYOR</b> <a name="office_mayor" href="#office_mayor">¶</a> <br>
-        (ALCALDE | 市長)</center>
-      <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="http://www.sfmayor.org">http://www.sfmayor.org</a>
-        <li>Method: RCV
-      </ul>
-      <hr>
-    <p>
-    <center><b>ASSESSOR-RECORDER</b> <a name="office_assessor_recorder" href="#office_assessor_recorder">¶</a> <br>
-        (TASADOR-REGISTRADOR | 估值官-記錄官)</center>
-      <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="http://www.sfassessor.org">http://www.sfassessor.org</a>
-        <li>Method: RCV
-      </ul>
-      <hr>
-    <p>
-    <center><b>CITY ATTORNEY</b> <a name="office_city_attorney" href="#office_city_attorney">¶</a> <br>
-        (ABOGADO DE LA CIUDAD | 市府律師)</center>
-      <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="http://www.sfcityattorney.org">http://www.sfcityattorney.org</a>
-        <li>Method: RCV
-      </ul>
-      <hr>
-    <p>
-    <center><b>DISTRICT ATTORNEY</b> <a name="office_district_attorney" href="#office_district_attorney">¶</a> <br>
-        (FISCAL DEL DISTRITO | 地方檢察官)</center>
-      <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="http://www.sfdistrictattorney.org">http://www.sfdistrictattorney.org</a>
-        <li>Method: RCV
-      </ul>
-      <hr>
-    <p>
-    <center><b>PUBLIC DEFENDER</b> <a name="office_public_defender" href="#office_public_defender">¶</a> <br>
-        (DEFENSOR PÚBLICO | 公共辯護律師)</center>
-      <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="http://sfpublicdefender.org">http://sfpublicdefender.org</a>
-        
-      </ul>
-      <hr>
-    <p>
-    <center><b>SHERIFF</b> <a name="office_sheriff" href="#office_sheriff">¶</a> <br>
-        (ALGUACIL | 縣警長)</center>
-      <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="http://www.sfsheriff.com">http://www.sfsheriff.com</a>
-        <li>Method: RCV
-      </ul>
-      <hr>
-    <p>
-    <center><b>TREASURER</b> <a name="office_city_treasurer" href="#office_city_treasurer">¶</a> <br>
-        (TESORERO | 財政官)</center>
-      <p>
-        Stats:
-      <ul>
-        <li>Web: <a href="http://sftreasurer.org">http://sftreasurer.org</a>
-        <li>Method: RCV
-      </ul>
-      <hr>
-    
+        Below is a list of offices that may appear on the ballot in a
+        San Francisco election.  The list is not yet complete.
 
-</body>
+        <p>
+        <center><b>PRESIDENT OF THE UNITED STATES</b> <a name="office_usa_president_of_the_united_states" href="#office_usa_president_of_the_united_states">¶</a> <br>
+            (PRESIDENTE DE ESTADOS UNIDOS | 美國總統)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="https://www.whitehouse.gov/">https://www.whitehouse.gov/</a>
+            
+          </ul>
+          <hr>
+        <p>
+        <center><b>GOVERNOR</b> <a name="office_state_governor" href="#office_state_governor">¶</a> <br>
+            (GOBERNADOR | Gobernador | 州長)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="http://www.gov.ca.gov">http://www.gov.ca.gov</a>
+            
+          </ul>
+          <hr>
+        <p>
+        <center><b>LIEUTENANT GOVERNOR</b> <a name="office_state_lieutenant_governor" href="#office_state_lieutenant_governor">¶</a> <br>
+            (VICEGOBERNADOR | Tenyente Gobernador | 副州長)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="http://www.ltg.ca.gov/">http://www.ltg.ca.gov/</a>
+            
+          </ul>
+          <hr>
+        <p>
+        <center><b>SECRETARY OF STATE</b> <a name="office_state_secretary" href="#office_state_secretary">¶</a> <br>
+            (SECRETARIO DE ESTADO | Kalihim ng Estado | 州務卿)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="http://www.sos.ca.gov/">http://www.sos.ca.gov/</a>
+            
+          </ul>
+          <hr>
+        <p>
+        <center><b>SUPERINTENDENT OF PUBLIC INSTRUCTION</b> <a name="office_superintendent_of_public_instruction" href="#office_superintendent_of_public_instruction">¶</a> <br>
+            (SUPERINTENDENTE DE INSTRUCCIÓN PÚBLICA | Superintendente ng Pampublikong Pagtuturo | 教育部長)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="http://www.cde.ca.gov/eo">http://www.cde.ca.gov/eo</a>
+            
+          </ul>
+          <hr>
+        <p>
+        <center><b>MAYOR</b> <a name="office_mayor" href="#office_mayor">¶</a> <br>
+            (ALCALDE | 市長)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="http://www.sfmayor.org">http://www.sfmayor.org</a>
+            <li>Method: RCV
+          </ul>
+          <hr>
+        <p>
+        <center><b>ASSESSOR-RECORDER</b> <a name="office_assessor_recorder" href="#office_assessor_recorder">¶</a> <br>
+            (TASADOR-REGISTRADOR | 估值官-記錄官)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="http://www.sfassessor.org">http://www.sfassessor.org</a>
+            <li>Method: RCV
+          </ul>
+          <hr>
+        <p>
+        <center><b>CITY ATTORNEY</b> <a name="office_city_attorney" href="#office_city_attorney">¶</a> <br>
+            (ABOGADO DE LA CIUDAD | 市府律師)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="http://www.sfcityattorney.org">http://www.sfcityattorney.org</a>
+            <li>Method: RCV
+          </ul>
+          <hr>
+        <p>
+        <center><b>DISTRICT ATTORNEY</b> <a name="office_district_attorney" href="#office_district_attorney">¶</a> <br>
+            (FISCAL DEL DISTRITO | 地方檢察官)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="http://www.sfdistrictattorney.org">http://www.sfdistrictattorney.org</a>
+            <li>Method: RCV
+          </ul>
+          <hr>
+        <p>
+        <center><b>PUBLIC DEFENDER</b> <a name="office_public_defender" href="#office_public_defender">¶</a> <br>
+            (DEFENSOR PÚBLICO | 公共辯護律師)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="http://sfpublicdefender.org">http://sfpublicdefender.org</a>
+            
+          </ul>
+          <hr>
+        <p>
+        <center><b>SHERIFF</b> <a name="office_sheriff" href="#office_sheriff">¶</a> <br>
+            (ALGUACIL | 縣警長)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="http://www.sfsheriff.com">http://www.sfsheriff.com</a>
+            <li>Method: RCV
+          </ul>
+          <hr>
+        <p>
+        <center><b>TREASURER</b> <a name="office_city_treasurer" href="#office_city_treasurer">¶</a> <br>
+            (TESORERO | 財政官)</center>
+          <p>
+            Stats:
+          <ul>
+            <li><a href="http://sftreasurer.org">http://sftreasurer.org</a>
+            <li>Method: RCV
+          </ul>
+          <hr>
+        
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <!-- Latest compiled and minified JavaScript -->
+      <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+    </div>
+
+  </body>
 </html>
