@@ -1,11 +1,10 @@
 # San Francisco Base Election Data (SFBED)
 
-This is an open data project to provide the data about San Francisco
-elections that tends to remain the same from election to election, or
-that changes infrequently.
+This is an open data project to provide data about San Francisco
+elections that tends to remain the same from election to election (or
+that changes infrequently).
 
-See here for a sample web page created from this data:
-[http://cjerdonek.github.io/sf-elected-offices](http://cjerdonek.github.io/sf-elected-offices)
+See [here](http://cjerdonek.github.io/sf-elected-offices) for a sample web page created from this data.
 
 
 ## Overview
