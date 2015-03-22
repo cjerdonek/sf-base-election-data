@@ -27,14 +27,17 @@
 
     {% for office in offices if office.name -%}
     <p>
-    <b>{{office.name}}</b> {% if office.translations -%}
+    <center><b>{{office.name}}</b> <a name="{{office.id}}" href="#{{office.id}}">¶</a> {% if office.translations -%}<br>
         ({{ office.translations|join(' | ') }})
-      {%- endif %}
+      {%- endif %}</center>
+      <p>
+        Stats:
       <ul>
         {% if office.url -%}
          <li><a href="{{office.url}}">{{office.url}}</a>
         {%- endif %}
       </ul>
+      <hr>
     {% endfor %}
 
 </body>

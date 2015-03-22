@@ -27,13 +27,13 @@ offices:
     name_i18n: office_usa_president_of_the_united_states
     url: https://www.whitehouse.gov/
   -
-    name: Governor
+    name_i18n: office_state_governor
     url: http://www.gov.ca.gov
   -
-    name: Lieutenant Governor
+    name_i18n: office_state_lieutenant_governor
     url: http://www.ltg.ca.gov/
   -
-    name: Secretary of State
+    name_i18n: office_state_secretary
     url: http://www.sos.ca.gov/
   -
     name: Controller
@@ -48,9 +48,7 @@ offices:
     name: Insurance Commissioner
     url: http://www.insurance.ca.gov/
   -
-    name:
-      en: Superintendent of Public Instruction
-      es: Superintendente Estatal de Instrucción Pública
+    name_i18n: office_superintendent_of_public_instruction
     partisan: false
     url: http://www.cde.ca.gov/eo
   -

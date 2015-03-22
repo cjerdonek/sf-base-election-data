@@ -17,6 +17,7 @@ def make_districts(data):
 
 
 def make_office(trans, json_office):
+    # TODO: there should be an ID attribute separate from name_i18n.
     name_text_id = json_office.get('name_i18n')
     # TODO: all offices should be fully processed with a name, etc.
     if name_text_id is None:
@@ -27,6 +28,7 @@ def make_office(trans, json_office):
     translations = [words[lang] for lang in words.keys() if lang != 'en']
     translations = filter(None, translations)
     office = {
+        'id': name_text_id,
         'name': name,
         'translations': translations,
         'url': json_office.get('url')
