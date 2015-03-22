@@ -8,6 +8,7 @@ import yaml
 
 _log = logging.getLogger()
 
+DIR_PRE_DATA = 'pre_data'
 
 def get_repo_dir():
     repo_dir = os.path.join(os.path.dirname(__file__), os.pardir)
@@ -16,7 +17,7 @@ def get_repo_dir():
 
 def get_pre_data_dir():
     repo_dir = get_repo_dir()
-    dir_path = os.path.join(repo_dir, 'pre_data')
+    dir_path = os.path.join(repo_dir, DIR_PRE_DATA)
     return dir_path
 
 

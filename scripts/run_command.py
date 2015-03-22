@@ -81,6 +81,8 @@ def command_sample_html(ns):
 
 def command_yaml_norm(ns):
     path = ns.path
+    if os.path.isdir(path):
+        raise Exception("directories not supported yet!")
     utils.normalize_yaml(path, stdout=True)
 
 

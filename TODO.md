@@ -2,6 +2,8 @@ TODO
 ====
 
 * Expand `mixin_id` during YAML to JSON stage.
+* Make command to normalize all YAML files.
+  - require that all files have the normalizable marker.
 * Make command to generate a translation file from the English.
   - And start work on manual..
 * Clean up en.yaml, and add Spanish and Chinese in the cleaned-up format.

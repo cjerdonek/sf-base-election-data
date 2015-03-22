@@ -9,16 +9,38 @@ from pyelect import lang
 from pyelect import utils
 
 
+
 COURT_OF_APPEALS_ID = 'ca_court_app'
 
 KEY_DISTRICTS = 'districts'
 KEY_ID = '_id'
 KEY_OFFICES = 'offices'
 
+DIR_NAME_OBJECTS = 'objects'
+
 
 def dd_dict():
     """A factory function that returns a defaultdict(dict)."""
     return defaultdict(dict)
+
+
+def get_data_dir(dir_name):
+    return os.path.join(utils.get_pre_data_dir(), dir_name)
+
+
+def get_yaml_path(dir_name, file_base):
+    file_name = "{0}.yaml".format(file_base)
+    return os.path.join(get_data_dir(dir_name), file_name)
+
+
+def get_object_path(name):
+    return get_yaml_path(DIR_NAME_OBJECTS, name)
+
+
+def get_object_data(name):
+    path = get_object_path(name)
+    data = utils.read_yaml(path)
+    return data[name]
 
 
 def path_to_langcode(path):
@@ -44,7 +66,8 @@ def read_phrases(path):
     return lang_code, words
 
 
-def read_lang_dir(dir_name):
+def make_node_i18n():
+    """Return the node containing internationalized data."""
     lang_dir = lang.get_lang_dir()
     auto_dir = os.path.join(lang_dir, lang.DIR_LANG_AUTO)
     glob_path = os.path.join(auto_dir, "*.yaml")
@@ -59,32 +82,11 @@ def read_lang_dir(dir_name):
     return data
 
 
-def get_language_codes():
-    dir_path = utils.get_lang_dir()
-    langs = []
-    for path in paths:
-        head, tail = os.path.split(path)
-        base, ext = os.path.splitext(tail)
-        langs.append(base)
-    return langs
-
-
-def get_yaml(name):
-    data_dir = utils.get_pre_data_dir()
-    path = "{0}.yaml".format(os.path.join(data_dir, name))
-    return utils.read_yaml(path)
-
-
-def add_source(data, source_name):
-    source_data = get_yaml(source_name)
-    for key, value in source_data.items():
-        data[key] = value
-
-
-def make_node_i18n():
+def make_node_offices(mixins):
     """Return the node containing internationalized data."""
-    data = read_lang_dir('auto')
-    return data
+    data = get_object_data('offices')
+    print(data)
+    exit()
 
 
 def make_court_of_appeals_division_numbers():
@@ -146,20 +148,33 @@ def make_court_of_appeals():
     return offices
 
 
-def add_node(data, node_name):
+
+
+# TODO: remove this function.
+def add_source(data, source_name):
+    source_data = get_yaml(source_name)
+    for key, value in source_data.items():
+        data[key] = value
+
+
+def add_node(json_data, node_name, **kwargs):
     make_node_function_name = "make_node_{0}".format(node_name)
     make_node = globals()[make_node_function_name]
-    node = make_node()
-    data[node_name] = node
+    node = make_node(**kwargs)
+    json_data[node_name] = node
 
 
 def make_all_data():
-    data ={}
+    mixins = get_object_data('mixins')
 
-    add_node(data, 'i18n')
-    add_source(data, 'offices')
+    json_data ={}
 
-    return data
+    add_node(json_data, 'i18n')
+    add_node(json_data, 'offices', mixins=mixins)
+
+    return json_data
+
+    # TODO
     add_source(data, 'bodies')
     add_source(data, 'district_types')
     add_source(data, 'office_types')
