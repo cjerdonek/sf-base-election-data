@@ -1,7 +1,8 @@
-# San Francisco Elected Offices
+# San Francisco Base Election Data (SFBED)
 
-This is a project to provide open data about offices appearing on the
-ballot in San Francisco elections.
+This is an open data project to provide the data about San Francisco
+elections that tends to remain the same from election to election, or
+that changes infrequently.
 
 See here for a sample web page created from this data:
 [http://cjerdonek.github.io/sf-elected-offices](http://cjerdonek.github.io/sf-elected-offices)
@@ -9,8 +10,8 @@ See here for a sample web page created from this data:
 
 ## Overview
 
-The data is provided as [YAML](http://www.yaml.org/) files checked into
-the repository.
+The data is provided as a single JSON file included in this repository:
+[`data/sf.json`](data/sf.json).
 
 Examples of the type of information that the project aims to provide include--
 
