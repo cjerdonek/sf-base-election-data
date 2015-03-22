@@ -1,8 +1,8 @@
-# This file contains a list of English phrases that we should not create
-# a text ID for.
-
+# This file contains a list of English phrases from which we should not
+# create a text ID.
 texts:
-  # Skip this because it contains a comma.
+  # We skip the following one because it has a comma.
+  # TODO: make this have the same ID as "MEMBER, COUNTY CENTRAL COMMITTEE".
   - "MEMBER, COUNTY CENTRAL COMMITTEE,"
   # Skip these because they should be handled by format strings.
   - ASSEMBLY DISTRICT 17

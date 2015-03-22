@@ -1,8 +1,10 @@
-# This file contains a list of English phrases to skip when processing
-# the Department CSV.  We skip these because they appear multiple times
-# in the CSV files, and there is no simple way to choose which one
-# to use as the real translation.  Instead, we manage the translations
-# of these words manually.
+# This file contains manual translations (into certain languages) of
+# certain phrases that appear in the Department CSV files.
+#
+# We do this because, in some cases, the CSV files provide more than one
+# translation, and there is no clear automated way to choose among the
+# possibilities.  For future reference, we include these ambiguous entries
+# in the comments below.
 #
 # ('BART DIRECTOR', 'BART DIRECTOR DIST. 8', 'DIRECTOR DE BART', 'DIRECTOR BART', '', '', '灣區捷運董事,')
 # ('BART DIRECTOR', 'BART DIRECTOR DIST. 7', 'DIRECTOR DE BART', 'DIRECTOR BART', '', '', '灣區捷運董事,')
@@ -18,13 +20,12 @@
 # ('Vote for One: Must be different than your first and second choices', '', 'Vote por uno: Tiene que ser diferente a su primera y segunda preferencias', '', '', '', '選一名： 必須與第一個和第二個選擇不同')
 # ('JUDICIAL', '', 'JUDICIAL (Omitted on ballot)', '', '', '', '司法')
 # ('JUDICIAL', '', 'JUDICIAL', '', '', '', '司法')
-
-texts:
+skip_ids:
+  - office_bart_director_edge
+translations:
   - "BART DIRECTOR"
   - "JUDICIAL"
   - "MEMBER, BOARD OF SUPERVISORS"
-  # We skip the following one because it has a comma.
-  - "MEMBER, COUNTY CENTRAL COMMITTEE,"
   - "TREASURER"
   - "Vote for One: Must be different than your first choice"
   - "Vote for One: Must be different than your first and second choices"
