@@ -8,7 +8,6 @@ import yaml
 
 _log = logging.getLogger()
 
-REL_PATH_JSON = "offices.json"
 
 def get_repo_dir():
     repo_dir = os.path.join(os.path.dirname(__file__), os.pardir)
@@ -19,11 +18,6 @@ def get_pre_data_dir():
     repo_dir = get_repo_dir()
     dir_path = os.path.join(repo_dir, 'pre_data')
     return dir_path
-
-
-def get_default_json_path():
-    repo_dir = get_repo_dir()
-    return os.path.join(repo_dir, REL_PATH_JSON)
 
 
 def get_template_dir():

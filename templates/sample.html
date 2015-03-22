@@ -7,12 +7,12 @@
   <h1>San Francisco Base Election Data</h1>
 
   <p>
-    This is a sample web page to illustrate using the data at the
+    This is a sample web page to illustrate using the data from the
     <a href="https://github.com/cjerdonek/sf-base-election-data">SFBED</a>
       open data project.
   <p>
     This web page was generated from a single
-    <a href="https://github.com/cjerdonek/sf-elected-offices/blob/master/data/offices.json">JSON file</a>
+    <a href="https://github.com/cjerdonek/sf-elected-offices/blob/master/data/sf.json">JSON file</a>
     of structured data about San Francisco elections.
 
   <h2>San Francisco Offices on Ballot</h2>
@@ -22,10 +22,15 @@
     San Francisco election.  The list is not yet complete.
 
     {% for office in offices if office.name -%}
-    <li>{{office.name}} {% if office.translations -%}
+    <p>
+    <b>{{office.name}}</b> {% if office.translations -%}
         ({{ office.translations|join(' | ') }})
       {%- endif %}
-    </li>
+      <ul>
+        {% if office.url -%}
+         <li><a href="{{office.url}}">{{office.url}}</a>
+        {%- endif %}
+      </ul>
     {% endfor %}
 
 </body>

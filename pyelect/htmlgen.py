@@ -16,11 +16,10 @@ def make_districts(data):
     return districts
 
 
-def make_office(trans, data):
-    try:
-        name_text_id = data['name_i18n']
-    except KeyError:
-        # TODO: calculate the name in all cases.
+def make_office(trans, json_office):
+    name_text_id = json_office.get('name_i18n')
+    # TODO: all offices should be fully processed with a name, etc.
+    if name_text_id is None:
         return None
 
     words = trans[name_text_id]
@@ -30,6 +29,7 @@ def make_office(trans, data):
     office = {
         'name': name,
         'translations': translations,
+        'url': json_office.get('url')
     }
     return office
 

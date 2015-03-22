@@ -673,45 +673,37 @@
             "mixin_id": "sf_default",
             "name_i18n": "office_mayor",
             "seed_year": 2015,
-            "url": "http://www.sfmayor.org/"
+            "url": "http://www.sfmayor.org"
         },
         {
             "mixin_id": "sf_default",
             "name_i18n": "office_sheriff",
             "seed_year": 2015,
-            "url": "http://www.sfsheriff.com/"
+            "url": "http://www.sfsheriff.com"
         },
         {
             "mixin_id": "sf_default",
             "name_i18n": "office_district_attorney",
             "seed_year": 2015,
-            "url": "http://www.sfdistrictattorney.org/"
+            "url": "http://www.sfdistrictattorney.org"
         },
         {
             "mixin_id": "sf_default",
             "name_i18n": "office_city_attorney",
             "seed_year": 2015,
-            "url": "http://www.sfcityattorney.org/"
+            "url": "http://www.sfcityattorney.org"
         },
         {
             "mixin_id": "sf_default",
-            "name": {
-                "ch": "\u8ca1\u653f\u5b98",
-                "en": "Treasurer",
-                "es": "Tesorero"
-            },
+            "name_i18n": "office_treasurer",
             "seed_year": 2015,
-            "url": "http://sftreasurer.org/"
+            "url": "http://sftreasurer.org"
         },
         {
             "mixin_id": "sf_default",
-            "name": {
-                "ch": "\u4f30\u503c\u5b98-\u8a18\u9304\u5b98",
-                "en": "Assessor-Recorder",
-                "es": "Tasador-Registrador"
-            },
+            "name_i18n": "office_assessor_recorder",
             "seed_year": 2014,
-            "url": "http://www.sfassessor.org/"
+            "url": "http://www.sfassessor.org"
         },
         {
             "name": {
@@ -720,7 +712,7 @@
                 "es": "Defensor P\u00fablico"
             },
             "seed_year": 2014,
-            "url": "http://sfpublicdefender.org/"
+            "url": "http://sfpublicdefender.org"
         },
         {
             "body_id": "SF_CCB",

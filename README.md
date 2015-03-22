@@ -41,12 +41,27 @@ with or otherwise supplementing presentations of--
 * campaign finance information.
 
 
-## Rules
+## The Data
 
-* A mixin cannot be used if a body_id is present.
+This section documents the JSON structure, and how to construct objects
+from the JSON.
+
+TODO: explain the `_i18n` suffix.
+
+### Office
+
+Attributes:
+
+* name_i18n: the office name, which may or may not be qualified with the
+  jurisdiction (e.g. "UNITED STATES REPRESENTATIVE" is and "MAYOR" is not).
+* url: the official URL for the office.
+
+Construction:
+
+* name:
 
 
-## Background
+## Sources
 
 See Article XIII: ELECTIONS, SEC. 13.101. TERMS OF ELECTIVE OFFICE. of the
 San Francisco Charter for information about terms of offices, etc.

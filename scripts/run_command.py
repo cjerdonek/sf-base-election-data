@@ -20,6 +20,12 @@ from pyelect import utils
 
 _DEFAULT_OUTPUT_DIR_NAME = '_build'
 _FORMATTER_CLASS = argparse.RawDescriptionHelpFormatter
+_REL_PATH_JSON_DATA = "data/sf.json"
+
+
+def get_default_json_path():
+    repo_dir = utils.get_repo_dir()
+    return os.path.join(repo_dir, _REL_PATH_JSON_DATA)
 
 
 def get_default_sample_html_path():
@@ -39,10 +45,8 @@ def command_lang_make_ids(ns):
 
 def command_make_json(ns):
     path = ns.output_path
-
     data = jsongen.make_all_data()
     text = json.dumps(data, indent=4, sort_keys=True)
-    print("JSON:\n{0}".format(text))
     utils.write(path, text)
 
 
@@ -61,7 +65,7 @@ def command_sample_html(ns):
             os.mkdir(dir_path)
 
     # Load JSON data.
-    json_path = utils.get_default_json_path()
+    json_path = get_default_json_path()
     with open(json_path) as f:
         input_data = json.load(f)
     # Make and output HTML.
@@ -111,7 +115,7 @@ def create_parser():
     parser.add_argument('input_path', metavar='CSV_PATH',
         help="a path to a CSV file.")
 
-    default_output = utils.REL_PATH_JSON
+    default_output = _REL_PATH_JSON_DATA
     parser = make_subparser(sub, "make_json", command_make_json,
                 help="create or update a JSON data file.")
     parser.add_argument('output_path', metavar='PATH', nargs="?", default=default_output,
