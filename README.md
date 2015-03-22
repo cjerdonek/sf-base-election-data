@@ -4,7 +4,8 @@ SFBED is an open data project to provide data about San Francisco
 elections that tends to remain the same from election to election (or
 that changes infrequently).
 
-See [here](http://cjerdonek.github.io/sf-elected-offices) for a sample web page created from this data.
+See [here](http://cjerdonek.github.io/sf-base-election-data) for a sample
+web page created from this data.
 
 
 ## Overview
