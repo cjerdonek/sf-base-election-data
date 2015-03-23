@@ -31,22 +31,24 @@
         This is a sample web page to illustrate using the data from the
         <a href="https://github.com/cjerdonek/sf-base-election-data">SFBED</a>
           open data project.
-      <p>
+
         This web page was generated from a single
         <a href="https://github.com/cjerdonek/sf-elected-offices/blob/master/data/sf.json">JSON file</a>
         of structured data about San Francisco elections.
+
       <p>
         If you notice any issues about the data or have a suggestion,
         please file an issue in the
         <a href="https://github.com/cjerdonek/sf-base-election-data/issues">issue tracker</a>.
 
-      <h2>San Francisco Offices on Ballot</h2>
+      <h2>San Francisco Offices</h2>
 
       <p>
-        Below is a list of offices that may appear on the ballot in a
-        San Francisco election.  The list is not yet complete.
+        Below is a list of offices that may appear on the ballot in a San
+        Francisco election.  {{ office_count }} seats are shown in all.
+        This list is not yet complete.
 
-        {% for office in offices if office.name_i18n -%}
+        {% for office in offices -%}
 
         {% if office.category_name_i18n -%}
         <div class="row text-center">

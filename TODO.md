@@ -3,7 +3,7 @@ TODO
 
 HTML:
 
-* Group by category
+* Group by category.
 
 * Display the year the office is next up for election.
 

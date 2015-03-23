@@ -75,6 +75,8 @@ def make_office(all_json, data):
         'category_name_i18n': category_name_i18n,
         'id': office_id,
         'name_i18n': name_i18n,
+        # TODO: use a real seat count.
+        'seat_count': 1,
         'term_length': term_length,
         'vote_method': data.get('vote_method'),
         'url': data.get('url')
@@ -85,13 +87,19 @@ def make_office(all_json, data):
 
 def make_offices(all_json):
     offices = [make_office(all_json, v) for v in all_json['offices']]
+    offices = list(filter(None, offices))
     return offices
 
 
 def make_template_data(all_json):
+    """Return the context to use when rendering the template."""
+    offices = make_offices(all_json)
+    office_count = sum([o['seat_count'] for o in offices])
+
     data = {
 #        'districts': make_districts(input_data),
-        'offices': make_offices(all_json),
+        'offices': offices,
+        'office_count': office_count,
     }
 
     return data
