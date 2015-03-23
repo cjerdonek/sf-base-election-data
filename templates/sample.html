@@ -22,6 +22,13 @@
     <![endif]-->
   </head>
   <body>
+    {% macro row(header, value) -%}
+    <div class="row">
+      <div class="col-md-2">{{ header }}:</div>
+      <div class="col-md-10">{{ value }}</div>
+    </div>
+    {%- endmacro %}
+
     <div class="container">
 
       <h1>SF Base Election Data (SFBED)</h1>
@@ -54,18 +61,13 @@
           ({{ office.name_i18n.non_english|join(' | ') }})
         </div>
         {%- endif %}
+        <p>
 
         {% if office.url -%}
-        <div class="row">
-          <div class="col-md-2"><b>Web:</b></div>
-          <div class="col-md-10"><a href="{{office.url}}">{{office.url}}</a></div>
-        </div>
+        {% include 'row_web.html' %}
         {%- endif %}
         {% if office.vote_method -%}
-        <div class="row">
-          <div class="col-md-2">Method:</div>
-          <div class="col-md-10">{{office.vote_method}}</div>
-        </div>
+        {% include 'row_election.html' %}
         {%- endif %}
 
         <hr>
