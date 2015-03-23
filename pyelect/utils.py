@@ -22,11 +22,6 @@ def get_pre_data_dir():
     return dir_path
 
 
-def get_template_dir():
-    repo_dir = get_repo_dir()
-    return os.path.join(repo_dir, 'templates')
-
-
 def write(path, text):
     _log.info("writing to: {0}".format(path))
     with open(path, mode='w') as f:

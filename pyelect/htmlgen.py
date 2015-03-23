@@ -1,8 +1,15 @@
 """Support for making html."""
 
+import os
+
 from jinja2 import Environment, FileSystemLoader
 
 from pyelect import utils
+
+
+def _get_template_dir():
+    repo_dir = utils.get_repo_dir()
+    return os.path.join(repo_dir, 'templates')
 
 
 def _get_translations(trans, text_id):
@@ -91,7 +98,7 @@ def render_template(template_name, data):
     Argument:
       data: a dict of template variables.
     """
-    template_dir = utils.get_template_dir()
+    template_dir = _get_template_dir()
     env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template(template_name)
     return template.render(data)

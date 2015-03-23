@@ -22,12 +22,6 @@
     <![endif]-->
   </head>
   <body>
-    {% macro row(header, value) -%}
-    <div class="row">
-      <div class="col-md-2">{{ header }}:</div>
-      <div class="col-md-10">{{ value }}</div>
-    </div>
-    {%- endmacro %}
 
     <div class="container">
 
@@ -53,6 +47,18 @@
         San Francisco election.  The list is not yet complete.
 
         {% for office in offices if office.name_i18n -%}
+
+        {% if office.category_name_i18n -%}
+        <div class="row text-center">
+          <h4>{{ office.category_name_i18n.english }}
+          {% if office.category_name_i18n.non_english -%}
+          <br>
+            ({{ office.category_name_i18n.non_english|join(' | ') }})
+          {%- endif %}
+          </h4>
+        </div>
+        {%- endif %}
+
         <div class="row text-center">
           <b>{{office.name_i18n.english}}</b> <a name="{{office.id}}" href="#{{office.id}}">¶</a>
         </div>
@@ -63,12 +69,14 @@
         {%- endif %}
         <p>
 
-        {% if office.url -%}
-        {% include 'row_web.html' %}
-        {%- endif %}
-        {% if office.vote_method -%}
-        {% include 'row_election.html' %}
-        {%- endif %}
+        {% macro row(should_render, template) -%}
+          {% if should_render -%}
+            {% include template %}
+          {%- endif %}
+        {%- endmacro %}
+
+        {{ row(office.url, 'row_web.html') }}
+        {{ row(office.vote_method, 'row_election.html') }}
 
         <hr>
         {% endfor %}
