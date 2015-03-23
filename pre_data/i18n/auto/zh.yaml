@@ -1,22 +1,4 @@
 texts:
-  category_city_county_propositions:
-    _en: CITY & COUNTY PROPOSITIONS
-    zh: 市縣提案
-  category_measures_submitted_to_the_voters:
-    _en: MEASURES SUBMITTED TO THE VOTERS
-    zh: 提交選民投票表決的提案
-  category_party_nominated_offices:
-    _en: PARTY-NOMINATED OFFICES
-    zh: 政黨提名職位
-  category_school_propositions:
-    _en: SCHOOL PROPOSITIONS
-    zh: 學校提案
-  category_state_propositions:
-    _en: STATE PROPOSITIONS
-    zh: 州提案
-  category_voter_nominated_offices:
-    _en: VOTER-NOMINATED OFFICES
-    zh: 選民提名職位
   choice_1:
     _en: FIRST CHOICE
     zh: 第一選擇
@@ -32,6 +14,24 @@ texts:
   district:
     _en: DISTRICT
     zh: 區
+  header_city_county_propositions:
+    _en: CITY & COUNTY PROPOSITIONS
+    zh: 市縣提案
+  header_measures_submitted_to_the_voters:
+    _en: MEASURES SUBMITTED TO THE VOTERS
+    zh: 提交選民投票表決的提案
+  header_party_nominated_offices:
+    _en: PARTY-NOMINATED OFFICES
+    zh: 政黨提名職位
+  header_school_propositions:
+    _en: SCHOOL PROPOSITIONS
+    zh: 學校提案
+  header_state_propositions:
+    _en: STATE PROPOSITIONS
+    zh: 州提案
+  header_voter_nominated_offices:
+    _en: VOTER-NOMINATED OFFICES
+    zh: 選民提名職位
   office_assessor_recorder:
     _en: ASSESSOR-RECORDER
     zh: 估值官-記錄官
@@ -74,7 +74,7 @@ texts:
   office_member_of_the_state_assembly:
     _en: MEMBER OF THE STATE ASSEMBLY
     zh: 州眾議員
-  office_member_state_board_of_equalization_district_2:
+  office_member_state_board_of_eq_d2:
     _en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
     zh: 州平稅局第2選區成員
   office_public_defender:

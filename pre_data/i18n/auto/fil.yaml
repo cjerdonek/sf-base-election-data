@@ -1,40 +1,4 @@
 texts:
-  category_city_county_propositions:
-    _en: CITY & COUNTY PROPOSITIONS
-    fil: ''
-  category_city_county_propositions_edge:
-    _en: ''
-    fil: ''
-  category_measures_submitted_to_the_voters:
-    _en: MEASURES SUBMITTED TO THE VOTERS
-    fil: ''
-  category_measures_submitted_to_the_voters_edge:
-    _en: ''
-    fil: ''
-  category_party_nominated_offices:
-    _en: PARTY-NOMINATED OFFICES
-    fil: ''
-  category_party_nominated_offices_edge:
-    _en: ''
-    fil: ''
-  category_school_propositions:
-    _en: SCHOOL PROPOSITIONS
-    fil: ''
-  category_school_propositions_edge:
-    _en: ''
-    fil: ''
-  category_state_propositions:
-    _en: STATE PROPOSITIONS
-    fil: ''
-  category_state_propositions_edge:
-    _en: ''
-    fil: ''
-  category_voter_nominated_offices:
-    _en: VOTER-NOMINATED OFFICES
-    fil: ''
-  category_voter_nominated_offices_edge:
-    _en: ''
-    fil: ''
   choice_1:
     _en: FIRST CHOICE
     fil: ''
@@ -63,6 +27,42 @@ texts:
     _en: DISTRICT
     fil: ''
   district_edge:
+    _en: ''
+    fil: ''
+  header_city_county_propositions:
+    _en: CITY & COUNTY PROPOSITIONS
+    fil: ''
+  header_city_county_propositions_edge:
+    _en: ''
+    fil: ''
+  header_measures_submitted_to_the_voters:
+    _en: MEASURES SUBMITTED TO THE VOTERS
+    fil: ''
+  header_measures_submitted_to_the_voters_edge:
+    _en: ''
+    fil: ''
+  header_party_nominated_offices:
+    _en: PARTY-NOMINATED OFFICES
+    fil: ''
+  header_party_nominated_offices_edge:
+    _en: ''
+    fil: ''
+  header_school_propositions:
+    _en: SCHOOL PROPOSITIONS
+    fil: ''
+  header_school_propositions_edge:
+    _en: ''
+    fil: ''
+  header_state_propositions:
+    _en: STATE PROPOSITIONS
+    fil: ''
+  header_state_propositions_edge:
+    _en: ''
+    fil: ''
+  header_voter_nominated_offices:
+    _en: VOTER-NOMINATED OFFICES
+    fil: ''
+  header_voter_nominated_offices_edge:
     _en: ''
     fil: ''
   office_assessor_recorder:
@@ -100,9 +100,6 @@ texts:
     fil: ''
   office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
-    fil: ''
-  office_judge_of_the_superior_court_edge:
-    _en: 'SUPERIOR COURT JUDGE #X'
     fil: ''
   office_mayor:
     _en: MAYOR
@@ -143,10 +140,10 @@ texts:
   office_member_of_the_state_assembly_edge:
     _en: MEMBER, STATE ASSEMBLY
     fil: ''
-  office_member_state_board_of_equalization_district_2:
+  office_member_state_board_of_eq_d2:
     _en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
     fil: Miyembro, Lupon ng Tagasingil ng Buwis ng Estado Distrito 2
-  office_member_state_board_of_equalization_district_2_edge:
+  office_member_state_board_of_eq_d2_edge:
     _en: BOARD OF EQUALIZATION D2
     fil: ''
   office_public_defender:

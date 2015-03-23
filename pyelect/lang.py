@@ -59,8 +59,9 @@ def _read_csv(path, skip_rows=1):
 
 
 def _get_text_ids():
-    path = get_lang_path('text_ids')
-    ids_to_en = utils.read_yaml(path)
+    lang_dir = get_lang_dir()
+    ids_to_en, meta = utils.get_yaml_data(lang_dir, 'text_ids')
+
     en_to_ids = {}
     for text_id, en in ids_to_en.items():
         if en in en_to_ids:

@@ -1,40 +1,4 @@
 texts:
-  category_city_county_propositions:
-    _en: CITY & COUNTY PROPOSITIONS
-    es: PROPOSICIONES DE LA CIUDAD Y EL CONDADO
-  category_city_county_propositions_edge:
-    _en: ''
-    es: ''
-  category_measures_submitted_to_the_voters:
-    _en: MEASURES SUBMITTED TO THE VOTERS
-    es: INICIATIVAS DE LEY PRESENTADAS A LOS ELECTORES
-  category_measures_submitted_to_the_voters_edge:
-    _en: ''
-    es: ''
-  category_party_nominated_offices:
-    _en: PARTY-NOMINATED OFFICES
-    es: CARGOS NOMINADOS POR LOS PARTIDOS
-  category_party_nominated_offices_edge:
-    _en: ''
-    es: ''
-  category_school_propositions:
-    _en: SCHOOL PROPOSITIONS
-    es: PROPOSICIONES ESCOLARES
-  category_school_propositions_edge:
-    _en: ''
-    es: ''
-  category_state_propositions:
-    _en: STATE PROPOSITIONS
-    es: PROPOSICIONES ESTATALES
-  category_state_propositions_edge:
-    _en: ''
-    es: ''
-  category_voter_nominated_offices:
-    _en: VOTER-NOMINATED OFFICES
-    es: CARGOS NOMINADOS POR LOS ELECTORES
-  category_voter_nominated_offices_edge:
-    _en: ''
-    es: ''
   choice_1:
     _en: FIRST CHOICE
     es: PRIMERA PREFERENCIA
@@ -63,6 +27,42 @@ texts:
     _en: DISTRICT
     es: DISTRITO
   district_edge:
+    _en: ''
+    es: ''
+  header_city_county_propositions:
+    _en: CITY & COUNTY PROPOSITIONS
+    es: PROPOSICIONES DE LA CIUDAD Y EL CONDADO
+  header_city_county_propositions_edge:
+    _en: ''
+    es: ''
+  header_measures_submitted_to_the_voters:
+    _en: MEASURES SUBMITTED TO THE VOTERS
+    es: INICIATIVAS DE LEY PRESENTADAS A LOS ELECTORES
+  header_measures_submitted_to_the_voters_edge:
+    _en: ''
+    es: ''
+  header_party_nominated_offices:
+    _en: PARTY-NOMINATED OFFICES
+    es: CARGOS NOMINADOS POR LOS PARTIDOS
+  header_party_nominated_offices_edge:
+    _en: ''
+    es: ''
+  header_school_propositions:
+    _en: SCHOOL PROPOSITIONS
+    es: PROPOSICIONES ESCOLARES
+  header_school_propositions_edge:
+    _en: ''
+    es: ''
+  header_state_propositions:
+    _en: STATE PROPOSITIONS
+    es: PROPOSICIONES ESTATALES
+  header_state_propositions_edge:
+    _en: ''
+    es: ''
+  header_voter_nominated_offices:
+    _en: VOTER-NOMINATED OFFICES
+    es: CARGOS NOMINADOS POR LOS ELECTORES
+  header_voter_nominated_offices_edge:
     _en: ''
     es: ''
   office_assessor_recorder:
@@ -101,9 +101,6 @@ texts:
   office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
     es: JUEZ DEL TRIBUNAL SUPERIOR,
-  office_judge_of_the_superior_court_edge:
-    _en: 'SUPERIOR COURT JUDGE #X'
-    es: JUEZ, CORTE SUPERIOR X
   office_mayor:
     _en: MAYOR
     es: ALCALDE
@@ -143,11 +140,11 @@ texts:
   office_member_of_the_state_assembly_edge:
     _en: MEMBER, STATE ASSEMBLY
     es: ASAMBLEA DEL ESTADO
-  office_member_state_board_of_equalization_district_2:
+  office_member_state_board_of_eq_d2:
     _en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
     es: MIEMBRO, DIRECTIVA ESTATAL DE IMPUESTOS SOBRE VENTAS, USO, Y OTROS, DISTRITO
       2
-  office_member_state_board_of_equalization_district_2_edge:
+  office_member_state_board_of_eq_d2_edge:
     _en: BOARD OF EQUALIZATION D2
     es: DIRECTIVA IGUALACIÓN
   office_public_defender:

@@ -15,7 +15,6 @@ COURT_OF_APPEALS_ID = 'ca_court_app'
 
 KEY_DISTRICTS = 'districts'
 KEY_ID = '_id'
-KEY_META = '_meta'
 KEY_OFFICES = 'offices'
 
 DIR_NAME_OBJECTS = 'objects'
@@ -37,19 +36,6 @@ def get_yaml_path(dir_name, file_base):
 
 def get_object_path(name):
     return get_yaml_path(DIR_NAME_OBJECTS, name)
-
-
-def get_object_data(name):
-    """Return the data in a YAML file as a pair of dicts.
-
-    Arguments:
-      name: base name of the objects file (e.g. "offices" for "offices.yaml").
-    """
-    path = get_object_path(name)
-    data = utils.read_yaml(path)
-    objects = data[name]
-    meta = data[KEY_META]
-    return objects, meta
 
 
 def make_node_categories(node_name):

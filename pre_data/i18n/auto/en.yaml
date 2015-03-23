@@ -1,28 +1,4 @@
 texts:
-  category_city_county_propositions:
-    en: CITY & COUNTY PROPOSITIONS
-  category_city_county_propositions_edge:
-    en: ''
-  category_measures_submitted_to_the_voters:
-    en: MEASURES SUBMITTED TO THE VOTERS
-  category_measures_submitted_to_the_voters_edge:
-    en: ''
-  category_party_nominated_offices:
-    en: PARTY-NOMINATED OFFICES
-  category_party_nominated_offices_edge:
-    en: ''
-  category_school_propositions:
-    en: SCHOOL PROPOSITIONS
-  category_school_propositions_edge:
-    en: ''
-  category_state_propositions:
-    en: STATE PROPOSITIONS
-  category_state_propositions_edge:
-    en: ''
-  category_voter_nominated_offices:
-    en: VOTER-NOMINATED OFFICES
-  category_voter_nominated_offices_edge:
-    en: ''
   choice_1:
     en: FIRST CHOICE
   choice_1_edge:
@@ -42,6 +18,30 @@ texts:
   district:
     en: DISTRICT
   district_edge:
+    en: ''
+  header_city_county_propositions:
+    en: CITY & COUNTY PROPOSITIONS
+  header_city_county_propositions_edge:
+    en: ''
+  header_measures_submitted_to_the_voters:
+    en: MEASURES SUBMITTED TO THE VOTERS
+  header_measures_submitted_to_the_voters_edge:
+    en: ''
+  header_party_nominated_offices:
+    en: PARTY-NOMINATED OFFICES
+  header_party_nominated_offices_edge:
+    en: ''
+  header_school_propositions:
+    en: SCHOOL PROPOSITIONS
+  header_school_propositions_edge:
+    en: ''
+  header_state_propositions:
+    en: STATE PROPOSITIONS
+  header_state_propositions_edge:
+    en: ''
+  header_voter_nominated_offices:
+    en: VOTER-NOMINATED OFFICES
+  header_voter_nominated_offices_edge:
     en: ''
   office_assessor_recorder:
     en: ASSESSOR-RECORDER
@@ -67,8 +67,6 @@ texts:
     en: DISTRICT ATTORNEY
   office_judge_of_the_superior_court:
     en: JUDGE OF THE SUPERIOR COURT,
-  office_judge_of_the_superior_court_edge:
-    en: 'SUPERIOR COURT JUDGE #X'
   office_mayor:
     en: MAYOR
   office_mayor_edge:
@@ -95,9 +93,9 @@ texts:
     en: MEMBER OF THE STATE ASSEMBLY
   office_member_of_the_state_assembly_edge:
     en: MEMBER, STATE ASSEMBLY
-  office_member_state_board_of_equalization_district_2:
+  office_member_state_board_of_eq_d2:
     en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
-  office_member_state_board_of_equalization_district_2_edge:
+  office_member_state_board_of_eq_d2_edge:
     en: BOARD OF EQUALIZATION D2
   office_public_defender:
     en: PUBLIC DEFENDER

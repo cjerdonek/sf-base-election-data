@@ -5,10 +5,17 @@ from jinja2 import Environment, FileSystemLoader
 from pyelect import utils
 
 
+def _get_translations(trans, text_id):
+    try:
+        dict_ = trans[text_id]
+    except KeyError:
+        raise Exception("json translations node does not have text_id: {0!r}".format(text_id))
+    return dict_
+
 def _get_i18n(trans, obj_json, key_base):
     key = '{0}_i18n'.format(key_base)
     text_id = obj_json[key]
-    words = trans[text_id]
+    words = _get_translations(trans, text_id)
     english = words['en']
     non_english = [words[lang] for lang in words.keys() if lang != 'en']
     non_english = filter(None, non_english)
