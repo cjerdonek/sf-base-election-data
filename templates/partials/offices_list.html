@@ -1,6 +1,8 @@
 {% extends "base/category_list.html" %}
+{% set objects_by_category = offices_by_category %}
 {% block show_category %}
-{% for office in offices_by_category[category_id] -%}
+  {% set office = object %}
+
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-10">
@@ -28,6 +30,4 @@
   {{ row(office.twitter, 'row_twitter.html') }}
   {% include 'row_election.html' %}
 
-  <hr>
-{% endfor %}
 {% endblock %}
