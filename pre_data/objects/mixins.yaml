@@ -3,6 +3,6 @@ _meta:
   normalizable: true
 mixins:
   sf_common:
-    jurisdiction_id: SF
+    category_id: city_county
     term_length: 4
     vote_method: RCV

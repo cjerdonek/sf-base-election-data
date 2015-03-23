@@ -188,8 +188,6 @@ def make_court_of_appeals():
     return offices
 
 
-
-
 # TODO: remove this function.
 def add_source(data, source_name):
     source_data = get_yaml(source_name)

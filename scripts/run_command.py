@@ -69,9 +69,9 @@ def command_sample_html(ns):
     # Load JSON data.
     json_path = get_default_json_path()
     with open(json_path) as f:
-        input_data = json.load(f)
+        json_data = json.load(f)
     # Make and output HTML.
-    html = htmlgen.make_html(input_data)
+    html = htmlgen.make_html(json_data)
     print(html)
     _log.info("writing to: {0}".format(path))
     with open(path, "w") as f:

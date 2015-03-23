@@ -714,7 +714,7 @@
             "district": 9
         },
         {
-            "jurisdiction_id": "SF",
+            "category_id": "city_county",
             "mixin_id": "sf_common",
             "name_i18n": "office_mayor",
             "seed_year": 2015,
@@ -723,7 +723,7 @@
             "vote_method": "RCV"
         },
         {
-            "jurisdiction_id": "SF",
+            "category_id": "city_county",
             "mixin_id": "sf_common",
             "name_i18n": "office_assessor_recorder",
             "seed_year": 2014,
@@ -732,7 +732,7 @@
             "vote_method": "RCV"
         },
         {
-            "jurisdiction_id": "SF",
+            "category_id": "city_county",
             "mixin_id": "sf_common",
             "name_i18n": "office_city_attorney",
             "seed_year": 2015,
@@ -741,7 +741,7 @@
             "vote_method": "RCV"
         },
         {
-            "jurisdiction_id": "SF",
+            "category_id": "city_county",
             "mixin_id": "sf_common",
             "name_i18n": "office_district_attorney",
             "seed_year": 2015,
@@ -750,7 +750,7 @@
             "vote_method": "RCV"
         },
         {
-            "jurisdiction_id": "SF",
+            "category_id": "city_county",
             "mixin_id": "sf_common",
             "name_i18n": "office_public_defender",
             "seed_year": 2014,
@@ -759,7 +759,7 @@
             "vote_method": "RCV"
         },
         {
-            "jurisdiction_id": "SF",
+            "category_id": "city_county",
             "mixin_id": "sf_common",
             "name_i18n": "office_sheriff",
             "seed_year": 2015,
@@ -768,7 +768,7 @@
             "vote_method": "RCV"
         },
         {
-            "jurisdiction_id": "SF",
+            "category_id": "city_county",
             "mixin_id": "sf_common",
             "name_i18n": "office_city_treasurer",
             "seed_year": 2015,

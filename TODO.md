@@ -3,6 +3,7 @@ TODO
 
 HTML:
 
+* Group by category
 * Download Bootstrap locally.
 * Use classes to style row headers (light gray background).
 * Make macro for row.
