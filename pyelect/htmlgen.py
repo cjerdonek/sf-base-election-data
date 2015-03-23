@@ -4,8 +4,11 @@ import os
 
 from jinja2 import Environment, FileSystemLoader
 
+from pyelect import lang
 from pyelect import utils
 
+
+NON_ENGLISH_ORDER = [lang.LANG_CH, lang.LANG_ES, lang.LANG_FI]
 
 def _get_template_dir():
     repo_dir = utils.get_repo_dir()
@@ -23,9 +26,10 @@ def _get_i18n(trans, obj_json, key_base):
     key = '{0}_i18n'.format(key_base)
     text_id = obj_json[key]
     words = _get_translations(trans, text_id)
-    english = words['en']
-    non_english = [words[lang] for lang in words.keys() if lang != 'en']
-    non_english = list(filter(None, non_english))
+    english = words[lang.LANG_EN]
+    non_english = [words[lang] for lang in NON_ENGLISH_ORDER]
+    # Remove empty strings.
+    non_english = filter(None, non_english)
 
     i18n = {
         'english': english,
