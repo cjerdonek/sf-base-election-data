@@ -18,7 +18,7 @@ def _get_i18n(trans, obj_json, key_base):
     words = _get_translations(trans, text_id)
     english = words['en']
     non_english = [words[lang] for lang in words.keys() if lang != 'en']
-    non_english = filter(None, non_english)
+    non_english = list(filter(None, non_english))
 
     i18n = {
         'english': english,
@@ -44,11 +44,13 @@ def make_office(all_json, data):
     categories = all_json['categories']
     trans = all_json['i18n']
 
-    # TODO: there should be an ID attribute separate from name_i18n.
-    name_text_id = data.get('name_i18n')
-    # TODO: all offices should be fully processed with a name, etc.
-    if name_text_id is None:
+    # TODO: incorporate a real ID.
+    office_id = data.get('name_i18n')
+    # TODO: do not skip any offices.
+    if office_id is None:
         return None
+
+    name_i18n = _get_i18n(trans, data, 'name')
 
     try:
         category_id = data['category_id']
@@ -58,19 +60,14 @@ def make_office(all_json, data):
         category = categories[category_id]
         category_name_i18n = _get_i18n(trans, category, 'name')
 
-    # TODO: use _get_i18n().
-    words = trans[name_text_id]
-    name = words['en']
-    translations = [words[lang] for lang in words.keys() if lang != 'en']
-    translations = filter(None, translations)
     office = {
         'category_name_i18n': category_name_i18n,
-        'id': name_text_id,
-        'name': name,
+        'id': office_id,
+        'name_i18n': name_i18n,
         'vote_method': data.get('vote_method'),
-        'translations': translations,
         'url': data.get('url')
     }
+    print(office)
     return office
 
 

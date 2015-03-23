@@ -45,13 +45,13 @@
         Below is a list of offices that may appear on the ballot in a
         San Francisco election.  The list is not yet complete.
 
-        {% for office in offices if office.name -%}
+        {% for office in offices if office.name_i18n -%}
         <div class="row text-center">
-          <b>{{office.name}}</b> <a name="{{office.id}}" href="#{{office.id}}">¶</a>
+          <b>{{office.name_i18n.english}}</b> <a name="{{office.id}}" href="#{{office.id}}">¶</a>
         </div>
-        {% if office.translations -%}
+        {% if office.name_i18n.non_english -%}
         <div class="row text-center">
-          ({{ office.translations|join(' | ') }})
+          ({{ office.name_i18n.non_english|join(' | ') }})
         </div>
         {%- endif %}
 
