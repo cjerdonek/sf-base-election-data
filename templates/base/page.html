@@ -27,29 +27,42 @@
 
       <h1>SF Base Election Data (SFBED)</h1>
 
-      {% block intro %}
       <p>
-        This page is part of a sample web site to illustrate using data from
-        the <a href="https://github.com/cjerdonek/sf-base-election-data">SFBED</a>
-        open data project.  For an overview of the site or to provide
-        feedback, see the site <a href="index.html">home page</a>.
-      {% endblock %}
+        This is a sample web page to illustrate using the data from the
+        <a href="https://github.com/cjerdonek/sf-base-election-data">SFBED</a>
+          open data project.
+
+        This web page was generated from a single
+        <a href="https://github.com/cjerdonek/sf-elected-offices/blob/master/data/sf.json">JSON file</a>
+        of structured data about San Francisco elections.
+
+      <h3 class="text-center">Contents</h3>
+
+      {% macro content_link(page, name) -%}
+        <li><a href="{{ page }}">{{ name }}</a>
+      {%- endmacro %}
+
+      <ul>
+        {{ content_link(name, "Offices") }}
+        <li><a href="bodies.html">Bodies</a>
+      </ul>
+
+      <p>
+        If you notice any issues about the data or have a suggestion,
+        please file an issue in the
+        <a href="https://github.com/cjerdonek/sf-base-election-data/issues">issue tracker</a>.
 
       <h2 class="text-center">{% block content_title %}{% endblock %}</h2>
 
-      {% block content %}
-
+      {% block content_intro %}
         <p>
-          {% block content_intro %}
+          {% block content_intro_para %}
           {% endblock %}
-          See the <a href="index.html">home page</a> for a list of other
-          available information.
         <p>
           Current count: {% block current_count_value %}{% endblock %}
+      {% endblock %}
 
-        {% block content_body %}
-        {% endblock %}
-
+      {% block content_body %}
       {% endblock %}
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

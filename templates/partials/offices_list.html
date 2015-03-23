@@ -1,6 +1,7 @@
 {% extends "base/category_list.html" %}
 {% set objects_by_category = offices_by_category %}
 {% block show_category %}
+  {% from 'macros.html' import row_if %}
   {% set office = object %}
 
   <div class="row">
@@ -20,14 +21,8 @@
   {%- endif %}
   <p>
 
-  {% macro row(should_render, template) -%}
-    {% if should_render -%}
-      {% include template %}
-    {%- endif %}
-  {%- endmacro %}
-
-  {{ row(office.url, 'row_web.html') }}
-  {{ row(office.twitter, 'row_twitter.html') }}
+  {{ row_if(office.url, 'row_web.html', office) }}
+  {{ row_if(office.twitter, 'row_twitter.html', office) }}
   {% include 'row_election.html' %}
 
 {% endblock %}
