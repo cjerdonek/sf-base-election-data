@@ -2,6 +2,9 @@ _meta:
   _auto: 'WARNING: comments will be deleted during normalization'
   normalizable: true
 mixins:
+  ca_common:
+    category_id: state
+    term_length: 4
   sf_common:
     category_id: city_county
     term_length: 4

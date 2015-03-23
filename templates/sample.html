@@ -76,7 +76,7 @@
         {%- endmacro %}
 
         {{ row(office.url, 'row_web.html') }}
-        {{ row(office.vote_method, 'row_election.html') }}
+        {% include 'row_election.html' %}
 
         <hr>
         {% endfor %}

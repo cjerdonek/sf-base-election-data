@@ -3,12 +3,17 @@ _meta:
   normalizable: true
 offices:
 - name_i18n: office_usa_president_of_the_united_states
+  term_length: 4
+  category_id: federal
   url: https://www.whitehouse.gov/
 - name_i18n: office_state_governor
+  mixin_id: ca_common
   url: http://www.gov.ca.gov
 - name_i18n: office_state_lieutenant_governor
+  mixin_id: ca_common
   url: http://www.ltg.ca.gov/
 - name_i18n: office_state_secretary
+  mixin_id: ca_common
   url: http://www.sos.ca.gov/
 - name: Controller
   url: http://www.sco.ca.gov/
@@ -19,6 +24,7 @@ offices:
 - name: Insurance Commissioner
   url: http://www.insurance.ca.gov/
 - name_i18n: office_superintendent_of_public_instruction
+  mixin_id: ca_common
   partisan: false
   url: http://www.cde.ca.gov/eo
 - body_id: USA_S

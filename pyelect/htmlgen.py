@@ -67,10 +67,15 @@ def make_office(all_json, data):
         category = categories[category_id]
         category_name_i18n = _get_i18n(trans, category, 'name')
 
+    term_length = data.get('term_length')
+    if term_length:
+        term_length = "{0} year term".format(term_length)
+
     office = {
         'category_name_i18n': category_name_i18n,
         'id': office_id,
         'name_i18n': name_i18n,
+        'term_length': term_length,
         'vote_method': data.get('vote_method'),
         'url': data.get('url')
     }

@@ -588,19 +588,29 @@
     },
     "offices": [
         {
+            "category_id": "federal",
             "name_i18n": "office_usa_president_of_the_united_states",
             "url": "https://www.whitehouse.gov/"
         },
         {
+            "category_id": "state",
+            "mixin_id": "ca_common",
             "name_i18n": "office_state_governor",
+            "term_length": 4,
             "url": "http://www.gov.ca.gov"
         },
         {
+            "category_id": "state",
+            "mixin_id": "ca_common",
             "name_i18n": "office_state_lieutenant_governor",
+            "term_length": 4,
             "url": "http://www.ltg.ca.gov/"
         },
         {
+            "category_id": "state",
+            "mixin_id": "ca_common",
             "name_i18n": "office_state_secretary",
+            "term_length": 4,
             "url": "http://www.sos.ca.gov/"
         },
         {
@@ -620,8 +630,11 @@
             "url": "http://www.insurance.ca.gov/"
         },
         {
+            "category_id": "state",
+            "mixin_id": "ca_common",
             "name_i18n": "office_superintendent_of_public_instruction",
             "partisan": false,
+            "term_length": 4,
             "url": "http://www.cde.ca.gov/eo"
         },
         {
