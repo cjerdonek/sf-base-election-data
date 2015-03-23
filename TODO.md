@@ -4,9 +4,12 @@ TODO
 HTML:
 
 * Show the body name when there is a body (or else None).
+  - Work on BOS first.
+* Have a list of bodies, and link to that in each member section.
 * Show the seat name (that distinguishes among body members)
   - at the top, but below the overall name.
 
+* Add vote method object (to spell it out)
 * Make command to normalize all YAML files.
   - require that all files have the normalizable marker.
 * Make command to generate a translation file from the English.

@@ -30,8 +30,8 @@ def get_default_json_path():
     return os.path.join(repo_dir, _REL_PATH_JSON_DATA)
 
 
-def get_default_sample_html_path():
-    return os.path.join(_DEFAULT_OUTPUT_DIR_NAME, 'sample.html')
+def get_sample_html_default_rel_dir():
+    return os.path.join(utils.DIR_NAME_OUTPUT, htmlgen.DIR_NAME_HTML_OUTPUT)
 
 
 def command_lang_convert_csv(ns):
@@ -59,24 +59,19 @@ def command_parse_csv(ns):
 
 
 def command_sample_html(ns):
-    path = ns.output_path
-    if path is None:
-        path = os.path.join(utils.get_repo_dir(), get_default_sample_html_path())
-        dir_path = os.path.dirname(path)
+    dir_path = ns.output_dir
+    if dir_path is None:
+        dir_path = os.path.join(utils.get_repo_dir(), get_sample_html_default_rel_dir())
         if not os.path.exists(dir_path):
-            os.mkdir(dir_path)
+            os.makedirs(dir_path)
 
     # Load JSON data.
     json_path = get_default_json_path()
     with open(json_path) as f:
         json_data = json.load(f)
     # Make and output HTML.
-    html = htmlgen.make_html(json_data)
-    print(html)
-    _log.info("writing to: {0}".format(path))
-    with open(path, "w") as f:
-        f.write(html)
-    subprocess.call(["open", path])
+    index_path = htmlgen.make_html(json_data, dir_path)
+    subprocess.call(["open", index_path])
 
 
 def command_yaml_norm(ns):
@@ -137,9 +132,9 @@ def create_parser():
     parser = make_subparser(sub, "sample_html",
                 help="make sample HTML from the JSON data.",
                 details="Uses the repo JSON file as input.")
-    parser.add_argument('output_path', metavar='PATH', nargs="?",
-        help=("the output path. Defaults to the following relative to the repo: {0}"
-              .format(get_default_sample_html_path())))
+    parser.add_argument('output_dir', metavar='DIR', nargs="?",
+        help=("the output path. Defaults to the following directory relative "
+              "to the repo: {0}".format(get_sample_html_default_rel_dir())))
 
     parser = make_subparser(sub, "yaml_norm",
                 help="normalize a YAML file.")

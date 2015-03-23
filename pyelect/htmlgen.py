@@ -11,12 +11,22 @@ from pyelect import utils
 
 
 CATEGORY_ORDER = ["federal", "state", "city_county", "school", "judicial"]
+DIR_NAME_HTML_OUTPUT = 'html'
 NON_ENGLISH_ORDER = [lang.LANG_CH, lang.LANG_ES, lang.LANG_FI]
+TEMPLATE_PAGE_NAMES = """\
+index.html
+bodies.html
+""".strip().split()
 
 
-def _get_template_dir():
+def _get_templates_dir():
     repo_dir = utils.get_repo_dir()
     return os.path.join(repo_dir, 'templates')
+
+
+def _get_page_templates_dir():
+    templates_dir = _get_templates_dir()
+    return os.path.join(templates_dir, 'pages')
 
 
 def _get_translations(trans, text_id):
@@ -150,19 +160,32 @@ def make_template_data(all_json):
     return data
 
 
-def render_template(template_name, data):
+def _make_template_env():
+    templates_dir = _get_templates_dir()
+    page_templates_dir = _get_page_templates_dir()
+    env = Environment(loader=FileSystemLoader([templates_dir, page_templates_dir]))
+    return env
+
+
+def render_template(env, template_name, data):
     """Render the sample template as a Unicode string.
 
     Argument:
       data: a dict of template variables.
     """
-    template_dir = _get_template_dir()
-    env = Environment(loader=FileSystemLoader(template_dir))
     template = env.get_template(template_name)
     return template.render(data)
 
 
-def make_html(json_data):
-    template_data = make_template_data(json_data)
-    html = render_template('sample.html', template_data)
-    return html
+def make_html(json_data, output_dir):
+    data = make_template_data(json_data)
+    env = _make_template_env()
+    page_templates_dir = _get_page_templates_dir()
+
+    for file_name in TEMPLATE_PAGE_NAMES:
+        html = render_template(env, file_name, data=data)
+        output_path = os.path.join(output_dir, file_name)
+        utils.write(output_path, html)
+    index_path = os.path.join(output_dir, TEMPLATE_PAGE_NAMES[0])
+
+    return index_path

@@ -8,6 +8,7 @@ import yaml
 
 _log = logging.getLogger()
 
+DIR_NAME_OUTPUT = '_build'
 DIR_PRE_DATA = 'pre_data'
 KEY_META = '_meta'
 
