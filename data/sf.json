@@ -17,6 +17,61 @@
         }
     },
     "i18n": {
+        "category_city_county": {
+            "en": "CITY AND COUNTY",
+            "es": "CIUDAD Y CONDADO",
+            "fil": "",
+            "zh": "\u5e02\u7e23"
+        },
+        "category_city_county_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "category_federal": {
+            "en": "FEDERAL",
+            "es": "FEDERAL",
+            "fil": "",
+            "zh": "\u806f\u90a6"
+        },
+        "category_federal_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "category_judicial": {
+            "en": "JUDICIAL",
+            "es": "JUDICIAL",
+            "fil": "",
+            "zh": "\u53f8\u6cd5"
+        },
+        "category_judicial_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "category_school": {
+            "en": "SCHOOL",
+            "es": "ESCUELA",
+            "fil": "",
+            "zh": "\u5b78\u6821"
+        },
+        "category_school_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "category_state": {
+            "en": "STATE",
+            "es": "ESTADO",
+            "fil": "",
+            "zh": "\u5dde"
+        },
+        "category_state_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
         "choice_1": {
             "en": "FIRST CHOICE",
             "es": "PRIMERA PREFERENCIA",
@@ -449,61 +504,6 @@
             "zh": "\u9078\u64c7\u7e3d\u7d71\u5019\u9078\u4eba"
         },
         "preference_presidential_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "type_city_and_county": {
-            "en": "CITY AND COUNTY",
-            "es": "CIUDAD Y CONDADO",
-            "fil": "",
-            "zh": "\u5e02\u7e23"
-        },
-        "type_city_and_county_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "type_federal": {
-            "en": "FEDERAL",
-            "es": "FEDERAL",
-            "fil": "",
-            "zh": "\u806f\u90a6"
-        },
-        "type_federal_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "type_judicial": {
-            "en": "JUDICIAL",
-            "es": "JUDICIAL",
-            "fil": "",
-            "zh": "\u53f8\u6cd5"
-        },
-        "type_judicial_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "type_school": {
-            "en": "SCHOOL",
-            "es": "ESCUELA",
-            "fil": "",
-            "zh": "\u5b78\u6821"
-        },
-        "type_school_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "type_state": {
-            "en": "STATE",
-            "es": "ESTADO",
-            "fil": "",
-            "zh": "\u5dde"
-        },
-        "type_state_edge": {
             "en": "",
             "es": "",
             "fil": ""

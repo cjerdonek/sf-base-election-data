@@ -1,8 +1,8 @@
 texts:
-  category_city_and_county:
+  category_city_county:
     _en: CITY AND COUNTY
     es: CIUDAD Y CONDADO
-  category_city_and_county_edge:
+  category_city_county_edge:
     _en: ''
     es: ''
   category_federal:

@@ -2,7 +2,7 @@ _meta:
   _auto: 'WARNING: comments will be deleted during normalization'
   normalizable: true
 text_ids:
-  category_city_and_county: CITY AND COUNTY
+  category_city_county: CITY AND COUNTY
   category_federal: FEDERAL
   category_judicial: JUDICIAL
   category_school: SCHOOL
