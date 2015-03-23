@@ -50,22 +50,7 @@ with or otherwise supplementing presentations of--
 
 ## The Data
 
-This section documents the JSON structure, and how to construct objects
-from the JSON.
-
-TODO: explain the `_i18n` suffix.
-
-### Office
-
-Attributes:
-
-* name_i18n: the office name, which may or may not be qualified with the
-  jurisdiction (e.g. "UNITED STATES REPRESENTATIVE" is and "MAYOR" is not).
-* url: the official URL for the office.
-
-Construction:
-
-* name:
+For how to interpret the JSON file, see [this page](docs/json.md).
 
 
 ## Sources
