@@ -1,6 +1,6 @@
 {% extends "base_row.html" %}
 {% block row_header %}Election{% endblock %}
 {% block row_value %}
-{% set info = [ office.term_length, office.next_election_text, office.vote_method ] %}
+{%- set info = [ office.term_length, office.next_election_text, office.vote_method ] -%}
 {{ info | reject('none') | join(', ') }}
-{% endblock %}
+{%- endblock %}
