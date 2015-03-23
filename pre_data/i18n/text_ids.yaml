@@ -2,6 +2,11 @@ _meta:
   _auto: 'WARNING: comments will be deleted during normalization'
   normalizable: true
 text_ids:
+  category_city_and_county: CITY AND COUNTY
+  category_federal: FEDERAL
+  category_judicial: JUDICIAL
+  category_school: SCHOOL
+  category_state: STATE
   choice_1: FIRST CHOICE
   choice_2: SECOND CHOICE
   choice_3: THIRD CHOICE
@@ -44,11 +49,6 @@ text_ids:
   office_usa_senator: UNITED STATES SENATOR
   preference_party: 'Party Preference:'
   preference_presidential: Presidential Preference
-  type_city_and_county: CITY AND COUNTY
-  type_federal: FEDERAL
-  type_judicial: JUDICIAL
-  type_school: SCHOOL
-  type_state: STATE
   vote_for_no_more_than_three_or_four: Vote for no more than (Three or Four)
   vote_for_one: Vote for One
   vote_for_one_party: Vote for One Party
