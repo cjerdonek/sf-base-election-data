@@ -1,6 +1,7 @@
 """Support for making html."""
 
 from collections import defaultdict
+from datetime import date
 import os
 
 from jinja2 import Environment, FileSystemLoader
@@ -65,6 +66,25 @@ def make_categories(all_json, trans):
     return categories
 
 
+def _compute_next_election_year(office_json):
+    term_length = office_json.get('term_length')
+    # TODO: make this required.
+    if not term_length:
+        return None
+    try:
+        seed_year = office_json['seed_year']
+    except KeyError:
+        raise Exception("office: {0!r}".format(office_json))
+    year = date.today().year
+    # Find a year before the current year.
+    while seed_year >= year:
+        seed_year -= term_length
+    # Advance until the current or later.
+    while seed_year < year:
+        seed_year += term_length
+    return seed_year
+
+
 def make_office(all_json, data):
     trans = all_json['i18n']
 
@@ -80,10 +100,13 @@ def make_office(all_json, data):
     if term_length:
         term_length = "{0} year term".format(term_length)
 
+    next_election_year = _compute_next_election_year(data)
+
     office = {
         'category_id': data.get('category_id'),
         'id': office_id,
         'name_i18n': name_i18n,
+        'next_election_text': "{0} next".format(next_election_year),
         # TODO: use a real seat count.
         'seat_count': 1,
         'term_length': term_length,

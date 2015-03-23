@@ -3,7 +3,9 @@ TODO
 
 HTML:
 
-* Display the year the office is next up for election.
+* Show the body name when there is a body (or else None).
+* Show the seat name (that distinguishes among body members)
+  - at the top, but below the overall name.
 
 * Make command to normalize all YAML files.
   - require that all files have the normalizable marker.

@@ -590,6 +590,7 @@
         {
             "category_id": "federal",
             "name_i18n": "office_usa_president_of_the_united_states",
+            "seed_year": 2016,
             "term_length": 4,
             "url": "https://www.whitehouse.gov/"
         },
@@ -597,6 +598,7 @@
             "category_id": "state",
             "mixin_id": "ca_common",
             "name_i18n": "office_state_governor",
+            "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.gov.ca.gov"
         },
@@ -604,6 +606,7 @@
             "category_id": "state",
             "mixin_id": "ca_common",
             "name_i18n": "office_state_lieutenant_governor",
+            "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.ltg.ca.gov/"
         },
@@ -611,6 +614,7 @@
             "category_id": "state",
             "mixin_id": "ca_common",
             "name_i18n": "office_state_secretary",
+            "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.sos.ca.gov/"
         },
@@ -635,6 +639,7 @@
             "mixin_id": "ca_common",
             "name_i18n": "office_superintendent_of_public_instruction",
             "partisan": false,
+            "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.cde.ca.gov/eo"
         },

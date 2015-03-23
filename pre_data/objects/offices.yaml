@@ -4,16 +4,20 @@ _meta:
 offices:
 - category_id: federal
   name_i18n: office_usa_president_of_the_united_states
+  seed_year: 2016
   term_length: 4
   url: https://www.whitehouse.gov/
 - mixin_id: ca_common
   name_i18n: office_state_governor
   url: http://www.gov.ca.gov
+  seed_year: 2014
 - mixin_id: ca_common
   name_i18n: office_state_lieutenant_governor
   url: http://www.ltg.ca.gov/
+  seed_year: 2014
 - mixin_id: ca_common
   name_i18n: office_state_secretary
+  seed_year: 2014
   url: http://www.sos.ca.gov/
 - name: Controller
   url: http://www.sco.ca.gov/
@@ -25,6 +29,7 @@ offices:
   url: http://www.insurance.ca.gov/
 - mixin_id: ca_common
   name_i18n: office_superintendent_of_public_instruction
+  seed_year: 2014
   partisan: false
   url: http://www.cde.ca.gov/eo
 - body_id: USA_S
