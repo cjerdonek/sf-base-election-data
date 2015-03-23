@@ -1,9 +1,9 @@
-category_city_county_propositions: CITY & COUNTY PROPOSITIONS
-category_measures_submitted_to_the_voters: MEASURES SUBMITTED TO THE VOTERS
-category_party_nominated_offices: PARTY-NOMINATED OFFICES
-category_school_propositions: SCHOOL PROPOSITIONS
-category_state_propositions: STATE PROPOSITIONS
-category_voter_nominated_offices: VOTER-NOMINATED OFFICES
+header_city_county_propositions: CITY & COUNTY PROPOSITIONS
+header_measures_submitted_to_the_voters: MEASURES SUBMITTED TO THE VOTERS
+header_party_nominated_offices: PARTY-NOMINATED OFFICES
+header_school_propositions: SCHOOL PROPOSITIONS
+header_state_propositions: STATE PROPOSITIONS
+header_voter_nominated_offices: VOTER-NOMINATED OFFICES
 choice_1: FIRST CHOICE
 choice_2: SECOND CHOICE
 choice_3: THIRD CHOICE
