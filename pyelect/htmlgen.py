@@ -1,5 +1,6 @@
 """Support for making html."""
 
+from collections import defaultdict
 import os
 
 from jinja2 import Environment, FileSystemLoader
@@ -8,7 +9,9 @@ from pyelect import lang
 from pyelect import utils
 
 
+CATEGORY_ORDER = ["federal", "state", "city_county", "school", "judicial"]
 NON_ENGLISH_ORDER = [lang.LANG_CH, lang.LANG_ES, lang.LANG_FI]
+
 
 def _get_template_dir():
     repo_dir = utils.get_repo_dir()
@@ -51,8 +54,18 @@ def make_districts(data):
     return districts
 
 
+def make_categories(all_json, trans):
+    categories_json = all_json['categories']
+
+    categories = {}
+    for category_id, category_json in categories_json.items():
+        name_i18n = _get_i18n(trans, category_json, 'name')
+        categories[category_id] = name_i18n
+
+    return categories
+
+
 def make_office(all_json, data):
-    categories = all_json['categories']
     trans = all_json['i18n']
 
     # TODO: incorporate a real ID.
@@ -63,20 +76,12 @@ def make_office(all_json, data):
 
     name_i18n = _get_i18n(trans, data, 'name')
 
-    try:
-        category_id = data['category_id']
-    except KeyError:
-        category_name_i18n = None
-    else:
-        category = categories[category_id]
-        category_name_i18n = _get_i18n(trans, category, 'name')
-
     term_length = data.get('term_length')
     if term_length:
         term_length = "{0} year term".format(term_length)
 
     office = {
-        'category_name_i18n': category_name_i18n,
+        'category_id': data.get('category_id'),
         'id': office_id,
         'name_i18n': name_i18n,
         # TODO: use a real seat count.
@@ -97,10 +102,22 @@ def make_offices(all_json):
 
 def make_template_data(all_json):
     """Return the context to use when rendering the template."""
+    trans = all_json['i18n']
+    categories = make_categories(all_json, trans)
+
     offices = make_offices(all_json)
     office_count = sum([o['seat_count'] for o in offices])
 
+    offices_by_category = defaultdict(list)
+    for office in offices:
+        category_id = office['category_id']
+        seq = offices_by_category[category_id]
+        seq.append(office)
+
     data = {
+        'categories': categories,
+        'category_ids': CATEGORY_ORDER,
+        'offices_by_category': offices_by_category,
 #        'districts': make_districts(input_data),
         'offices': offices,
         'office_count': office_count,

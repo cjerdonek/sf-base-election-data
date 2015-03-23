@@ -3,8 +3,6 @@ TODO
 
 HTML:
 
-* Group by category.
-
 * Display the year the office is next up for election.
 
 * Make command to normalize all YAML files.
