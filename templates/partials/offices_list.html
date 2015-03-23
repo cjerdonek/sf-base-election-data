@@ -1,0 +1,33 @@
+{% extends "base/category_list.html" %}
+{% block show_category %}
+{% for office in offices_by_category[category_id] -%}
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <b>{{ office.name_i18n.english }}</b>
+       <a name="{{ office.id }}" href="#{{ office.id }}">¶</a>
+    </div>
+  </div>
+  {% if office.name_i18n.non_english -%}
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      ({{ office.name_i18n.non_english|join(' | ') }})
+    </div>
+  </div>
+  {%- endif %}
+  <p>
+
+  {% macro row(should_render, template) -%}
+    {% if should_render -%}
+      {% include template %}
+    {%- endif %}
+  {%- endmacro %}
+
+  {{ row(office.url, 'row_web.html') }}
+  {{ row(office.twitter, 'row_twitter.html') }}
+  {% include 'row_election.html' %}
+
+  <hr>
+{% endfor %}
+{% endblock %}
