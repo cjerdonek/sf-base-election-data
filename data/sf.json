@@ -590,6 +590,7 @@
         {
             "category_id": "federal",
             "name_i18n": "office_usa_president_of_the_united_states",
+            "term_length": 4,
             "url": "https://www.whitehouse.gov/"
         },
         {

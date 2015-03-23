@@ -13,7 +13,13 @@ TODO: explain the `_i18n` suffix.
 
 ### Categories
 
-TODO
+The Category objects provide a loose, high-level way to group different
+offices.  Currently, the categories correspond to: Federal, State, City
+and County, School, and Judicial.
+
+Attributes:
+
+* `name_i18n`: the display name.
 
 
 ### Offices

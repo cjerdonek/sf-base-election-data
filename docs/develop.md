@@ -10,6 +10,21 @@ environment.  Then--
     $ pip install Jinja2 PyYAML
 
 
+## Working Locally
+
+From the repo root:
+
+    $ python scripts/run_command.py --help
+
+The most commonly used commands are:
+
+    $ python scripts/run_command.py make_json
+
+and
+
+    $ python scripts/run_command.py sample_html
+
+
 ## Excel Language Files
 
 This section discusses the Excel language files from the San Francisco

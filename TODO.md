@@ -6,6 +6,7 @@ HTML:
 * Group by category
 
 * Display the year the office is next up for election.
+
 * Make command to normalize all YAML files.
   - require that all files have the normalizable marker.
 * Make command to generate a translation file from the English.
