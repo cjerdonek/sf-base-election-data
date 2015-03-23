@@ -1,107 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>SF Base Election Data (SFBED) - Sample Page</title>
+{% extends "_base.html" %}
+{% block title_head -%}Home{%- endblock %}
+{% block content_title -%}
+Site Index
+{%- endblock %}
+{% block prologue %}
+<p>
+  This is a sample web site to illustrate using the data from the
+  <a href="https://github.com/cjerdonek/sf-base-election-data">SFBED</a>
+    open data project.
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-    -->
+  The data for the pages on this site come from a single
+  <a href="https://github.com/cjerdonek/sf-elected-offices/blob/master/data/sf.json">JSON file</a>
+  of structured data about San Francisco elections.
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-
-    <div class="container">
-
-      <h1>SF Base Election Data (SFBED)</h1>
-
-      <p>
-        This is a sample web page to illustrate using the data from the
-        <a href="https://github.com/cjerdonek/sf-base-election-data">SFBED</a>
-          open data project.
-
-        This web page was generated from a single
-        <a href="https://github.com/cjerdonek/sf-elected-offices/blob/master/data/sf.json">JSON file</a>
-        of structured data about San Francisco elections.
-
-      <p>
-        If you notice any issues about the data or have a suggestion,
-        please file an issue in the
-        <a href="https://github.com/cjerdonek/sf-base-election-data/issues">issue tracker</a>.
-
-      <h2>San Francisco Offices</h2>
-
-      <p>
-        Below is a list of offices that may appear on the ballot in a San
-        Francisco election.  {{ office_count }} seats are shown in all.
-        This list is not yet complete.
-
-        {% for category_id in category_ids %}
-          {% set category_name_i18n = categories[category_id] %}
-
-          <div class="row text-center">
-            <h3>{{ category_name_i18n.english }} <a name="{{ category_id }}" href="#{{ category_id }}">¶</a>
-            {% if category_name_i18n.non_english -%}
-            <br>
-              ({{ category_name_i18n.non_english|join(' | ') }})
-            {%- endif %}
-            </h3>
-          </div>
-          <p>
-
-          {% for office in offices_by_category[category_id] -%}
-
-            <div class="row">
-              <div class="col-md-2"></div>
-              <div class="col-md-10">
-                <b>{{ office.name_i18n.english }}</b>
-                 <a name="{{ office.id }}" href="#{{ office.id }}">¶</a>
-              </div>
-            </div>
-            {% if office.name_i18n.non_english -%}
-            <div class="row">
-              <div class="col-md-2"></div>
-              <div class="col-md-10">
-                ({{ office.name_i18n.non_english|join(' | ') }})
-              </div>
-            </div>
-            {%- endif %}
-            <p>
-
-            {% macro row(should_render, template) -%}
-              {% if should_render -%}
-                {% include template %}
-              {%- endif %}
-            {%- endmacro %}
-
-            {{ row(office.url, 'row_web.html') }}
-            {{ row(office.twitter, 'row_twitter.html') }}
-            {% include 'row_election.html' %}
-
-            <hr>
-
-          {% endfor %}
-
-        {% endfor %}
-
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <!-- Latest compiled and minified JavaScript -->
-      <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
-    </div>
-
-  </body>
-</html>
+<p>
+  If you notice any issues about the data or have a suggestion,
+  please file an issue in the
+  <a href="https://github.com/cjerdonek/sf-base-election-data/issues">issue tracker</a>.
+{% endblock %}
+{% block content %}
+<ul>
+  <li><a href="offices.html">Offices</a>
+  <li><a href="bodies.html">Bodies</a>
+</ul>
+{% endblock %}

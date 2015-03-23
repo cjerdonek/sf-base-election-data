@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>SFBED - {% block title_short %}{% endblock %}</title>
+    <title>SFBED Sample - {% block title_head %}{% endblock %}</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -27,23 +27,29 @@
 
       <h1>SF Base Election Data (SFBED)</h1>
 
+      {% block prologue %}
       <p>
         This page is part of a sample web site to illustrate using data from
         the <a href="https://github.com/cjerdonek/sf-base-election-data">SFBED</a>
         open data project.  For an overview of the site or to provide
         feedback, see the site <a href="index.html">home page</a>.
+      {% endblock %}
 
-      <h2 class="text-center">{% block title %}{% endblock %}</h2>
-
-      <p>
-        {% block intro %}
-        {% endblock %}
-        See the <a href="index.html">home page</a> for a list of other
-        available information.
-      <p>
-        Current count: {% block current_count_value %}{% endblock %}
+      <h2 class="text-center">{% block content_title %}{% endblock %}</h2>
 
       {% block content %}
+
+        <p>
+          {% block content_intro %}
+          {% endblock %}
+          See the <a href="index.html">home page</a> for a list of other
+          available information.
+        <p>
+          Current count: {% block current_count_value %}{% endblock %}
+
+        {% block content_body %}
+        {% endblock %}
+
       {% endblock %}
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
