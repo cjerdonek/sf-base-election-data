@@ -110,6 +110,7 @@ def make_office(all_json, data):
         # TODO: use a real seat count.
         'seat_count': 1,
         'term_length': term_length,
+        'twitter': data.get('twitter'),
         'vote_method': data.get('vote_method'),
         'url': data.get('url')
     }

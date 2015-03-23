@@ -592,6 +592,7 @@
             "name_i18n": "office_usa_president_of_the_united_states",
             "seed_year": 2016,
             "term_length": 4,
+            "twitter": "WhiteHouse",
             "url": "https://www.whitehouse.gov/"
         },
         {
@@ -616,6 +617,7 @@
             "name_i18n": "office_state_secretary",
             "seed_year": 2014,
             "term_length": 4,
+            "twitter": "sosnews",
             "url": "http://www.sos.ca.gov/"
         },
         {
@@ -751,6 +753,7 @@
             "name_i18n": "office_city_attorney",
             "seed_year": 2015,
             "term_length": 4,
+            "twitter": "SFCityAttorney",
             "url": "http://www.sfcityattorney.org",
             "vote_method": "RCV"
         },
@@ -760,6 +763,7 @@
             "name_i18n": "office_district_attorney",
             "seed_year": 2015,
             "term_length": 4,
+            "twitter": "SFDAOffice",
             "url": "http://www.sfdistrictattorney.org",
             "vote_method": "RCV"
         },
@@ -769,6 +773,7 @@
             "name_i18n": "office_public_defender",
             "seed_year": 2014,
             "term_length": 4,
+            "twitter": "sfdefender",
             "url": "http://sfpublicdefender.org",
             "vote_method": "RCV"
         },
@@ -778,6 +783,7 @@
             "name_i18n": "office_sheriff",
             "seed_year": 2015,
             "term_length": 4,
+            "twitter": "SheriffSF",
             "url": "http://www.sfsheriff.com",
             "vote_method": "RCV"
         },
@@ -787,6 +793,7 @@
             "name_i18n": "office_city_treasurer",
             "seed_year": 2015,
             "term_length": 4,
+            "twitter": "TreasurerSF",
             "url": "http://sftreasurer.org",
             "vote_method": "RCV"
         },
