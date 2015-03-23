@@ -34,9 +34,9 @@ information about candidates, election results, or current office holders.
 
 ## Languages
 
-The project has partially support for [internationalization][i18n] (aka "i18n"),
-which means support for multiple languages.  The data contains translations
-of some phrases in the following languages:
+The project has partial support for [internationalization][i18n] (aka "i18n"),
+which means support for multiple languages.  The data provides
+translations of some English phrases into the following languages:
 
 * Chinese
 * Spanish
@@ -46,20 +46,19 @@ The [San Francisco Department of Elections][SFDOE] currently prints official
 ballots in English, Chinese, and Spanish.  In November 2015, the
 Department will begin printing official ballots in Filipino (see
 [here](http://www.sfmayor.org/index.aspx?recordid=543&page=998) for
-information on the San Francisco
-[Language Access Ordinance](http://sfgsa.org/index.aspx?page=4450]), or LAO).
+information on the San Francisco [Language Access Ordinance][SFLAO], or LAO).
 
-The project would like to add translations in the following languages--
+The project would also like to add translations in the following languages--
 
 * Japanese
 * Korean
 * Vietnamese
 
-In the November 2014 election, the Department of Elections also made
-translations of election materials available in the three languages
-above, along with Filipino.  The materials included ballots and related
-instructions, State Voter Information Guides, and Voter Bill of Rights
-posters.
+In the November 2014 election, in addition to Chinese and Spanish, the
+Department of Elections also made translations of election materials
+available in the three languages above, along with Filipino.  Translated
+materials included ballots and related instructions, State Voter
+Information Guides, and Voter Bill of Rights posters.
 
 
 ## Use Cases
@@ -111,4 +110,5 @@ Chris Jerdonek (<chris.jerdonek@gmail.com>)
 [issue_tracker]: https://github.com/cjerdonek/sf-base-election-data/issues
 [sf_elections_data]: http://cjerdonek.github.io/sf-elections-data/
 [SFBED_gh_page]: http://cjerdonek.github.io/sf-base-election-data
-[SFDOE]: sfelections.org
+[SFDOE]: http://sfelections.org
+[SFLAO]: http://sfgsa.org/index.aspx?page=4450
