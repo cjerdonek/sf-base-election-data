@@ -1,4 +1,34 @@
 texts:
+  category_city_and_county:
+    _en: CITY AND COUNTY
+    es: CIUDAD Y CONDADO
+  category_city_and_county_edge:
+    _en: ''
+    es: ''
+  category_federal:
+    _en: FEDERAL
+    es: FEDERAL
+  category_federal_edge:
+    _en: ''
+    es: ''
+  category_judicial:
+    _en: JUDICIAL
+    es: JUDICIAL
+  category_judicial_edge:
+    _en: ''
+    es: ''
+  category_school:
+    _en: SCHOOL
+    es: ESCUELA
+  category_school_edge:
+    _en: ''
+    es: ''
+  category_state:
+    _en: STATE
+    es: ESTADO
+  category_state_edge:
+    _en: ''
+    es: ''
   choice_1:
     _en: FIRST CHOICE
     es: PRIMERA PREFERENCIA
@@ -235,36 +265,6 @@ texts:
     _en: Presidential Preference
     es: Preferencia por un candidato presidencial
   preference_presidential_edge:
-    _en: ''
-    es: ''
-  type_city_and_county:
-    _en: CITY AND COUNTY
-    es: CIUDAD Y CONDADO
-  type_city_and_county_edge:
-    _en: ''
-    es: ''
-  type_federal:
-    _en: FEDERAL
-    es: FEDERAL
-  type_federal_edge:
-    _en: ''
-    es: ''
-  type_judicial:
-    _en: JUDICIAL
-    es: JUDICIAL
-  type_judicial_edge:
-    _en: ''
-    es: ''
-  type_school:
-    _en: SCHOOL
-    es: ESCUELA
-  type_school_edge:
-    _en: ''
-    es: ''
-  type_state:
-    _en: STATE
-    es: ESTADO
-  type_state_edge:
     _en: ''
     es: ''
   vote_for_no_more_than_three_or_four:

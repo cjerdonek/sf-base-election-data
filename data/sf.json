@@ -17,72 +17,6 @@
         }
     },
     "i18n": {
-        "category_city_county_propositions": {
-            "en": "CITY & COUNTY PROPOSITIONS",
-            "es": "PROPOSICIONES DE LA CIUDAD Y EL CONDADO",
-            "fil": "",
-            "zh": "\u5e02\u7e23\u63d0\u6848"
-        },
-        "category_city_county_propositions_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "category_measures_submitted_to_the_voters": {
-            "en": "MEASURES SUBMITTED TO THE VOTERS",
-            "es": "INICIATIVAS DE LEY PRESENTADAS A LOS ELECTORES",
-            "fil": "",
-            "zh": "\u63d0\u4ea4\u9078\u6c11\u6295\u7968\u8868\u6c7a\u7684\u63d0\u6848"
-        },
-        "category_measures_submitted_to_the_voters_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "category_party_nominated_offices": {
-            "en": "PARTY-NOMINATED OFFICES",
-            "es": "CARGOS NOMINADOS POR LOS PARTIDOS",
-            "fil": "",
-            "zh": "\u653f\u9ee8\u63d0\u540d\u8077\u4f4d"
-        },
-        "category_party_nominated_offices_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "category_school_propositions": {
-            "en": "SCHOOL PROPOSITIONS",
-            "es": "PROPOSICIONES ESCOLARES",
-            "fil": "",
-            "zh": "\u5b78\u6821\u63d0\u6848"
-        },
-        "category_school_propositions_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "category_state_propositions": {
-            "en": "STATE PROPOSITIONS",
-            "es": "PROPOSICIONES ESTATALES",
-            "fil": "",
-            "zh": "\u5dde\u63d0\u6848"
-        },
-        "category_state_propositions_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "category_voter_nominated_offices": {
-            "en": "VOTER-NOMINATED OFFICES",
-            "es": "CARGOS NOMINADOS POR LOS ELECTORES",
-            "fil": "",
-            "zh": "\u9078\u6c11\u63d0\u540d\u8077\u4f4d"
-        },
-        "category_voter_nominated_offices_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "choice_1": {
             "en": "FIRST CHOICE",
             "es": "PRIMERA PREFERENCIA",
@@ -134,6 +68,72 @@
             "zh": "\u5340"
         },
         "district_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "header_city_county_propositions": {
+            "en": "CITY & COUNTY PROPOSITIONS",
+            "es": "PROPOSICIONES DE LA CIUDAD Y EL CONDADO",
+            "fil": "",
+            "zh": "\u5e02\u7e23\u63d0\u6848"
+        },
+        "header_city_county_propositions_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "header_measures_submitted_to_the_voters": {
+            "en": "MEASURES SUBMITTED TO THE VOTERS",
+            "es": "INICIATIVAS DE LEY PRESENTADAS A LOS ELECTORES",
+            "fil": "",
+            "zh": "\u63d0\u4ea4\u9078\u6c11\u6295\u7968\u8868\u6c7a\u7684\u63d0\u6848"
+        },
+        "header_measures_submitted_to_the_voters_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "header_party_nominated_offices": {
+            "en": "PARTY-NOMINATED OFFICES",
+            "es": "CARGOS NOMINADOS POR LOS PARTIDOS",
+            "fil": "",
+            "zh": "\u653f\u9ee8\u63d0\u540d\u8077\u4f4d"
+        },
+        "header_party_nominated_offices_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "header_school_propositions": {
+            "en": "SCHOOL PROPOSITIONS",
+            "es": "PROPOSICIONES ESCOLARES",
+            "fil": "",
+            "zh": "\u5b78\u6821\u63d0\u6848"
+        },
+        "header_school_propositions_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "header_state_propositions": {
+            "en": "STATE PROPOSITIONS",
+            "es": "PROPOSICIONES ESTATALES",
+            "fil": "",
+            "zh": "\u5dde\u63d0\u6848"
+        },
+        "header_state_propositions_edge": {
+            "en": "",
+            "es": "",
+            "fil": ""
+        },
+        "header_voter_nominated_offices": {
+            "en": "VOTER-NOMINATED OFFICES",
+            "es": "CARGOS NOMINADOS POR LOS ELECTORES",
+            "fil": "",
+            "zh": "\u9078\u6c11\u63d0\u540d\u8077\u4f4d"
+        },
+        "header_voter_nominated_offices_edge": {
             "en": "",
             "es": "",
             "fil": ""
@@ -204,11 +204,6 @@
             "es": "JUEZ DEL TRIBUNAL SUPERIOR,",
             "fil": "",
             "zh": "\u9ad8\u7b49\u6cd5\u9662\u6cd5\u5b98\uff0c"
-        },
-        "office_judge_of_the_superior_court_edge": {
-            "en": "SUPERIOR COURT JUDGE #X",
-            "es": "JUEZ, CORTE SUPERIOR X",
-            "fil": ""
         },
         "office_mayor": {
             "en": "MAYOR",
@@ -282,13 +277,13 @@
             "es": "ASAMBLEA DEL ESTADO",
             "fil": ""
         },
-        "office_member_state_board_of_equalization_district_2": {
+        "office_member_state_board_of_eq_d2": {
             "en": "MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2",
             "es": "MIEMBRO, DIRECTIVA ESTATAL DE IMPUESTOS SOBRE VENTAS, USO, Y OTROS, DISTRITO 2",
             "fil": "Miyembro, Lupon ng Tagasingil ng Buwis ng Estado Distrito 2",
             "zh": "\u5dde\u5e73\u7a05\u5c40\u7b2c2\u9078\u5340\u6210\u54e1"
         },
-        "office_member_state_board_of_equalization_district_2_edge": {
+        "office_member_state_board_of_eq_d2_edge": {
             "en": "BOARD OF EQUALIZATION D2",
             "es": "DIRECTIVA IGUALACI\u00d3N",
             "fil": ""

@@ -1,4 +1,19 @@
 texts:
+  category_city_and_county:
+    _en: CITY AND COUNTY
+    zh: 市縣
+  category_federal:
+    _en: FEDERAL
+    zh: 聯邦
+  category_judicial:
+    _en: JUDICIAL
+    zh: 司法
+  category_school:
+    _en: SCHOOL
+    zh: 學校
+  category_state:
+    _en: STATE
+    zh: 州
   choice_1:
     _en: FIRST CHOICE
     zh: 第一選擇
@@ -122,21 +137,6 @@ texts:
   preference_presidential:
     _en: Presidential Preference
     zh: 選擇總統候選人
-  type_city_and_county:
-    _en: CITY AND COUNTY
-    zh: 市縣
-  type_federal:
-    _en: FEDERAL
-    zh: 聯邦
-  type_judicial:
-    _en: JUDICIAL
-    zh: 司法
-  type_school:
-    _en: SCHOOL
-    zh: 學校
-  type_state:
-    _en: STATE
-    zh: 州
   vote_for_no_more_than_three_or_four:
     _en: Vote for no more than (Three or Four)
     zh: 選不超過X名

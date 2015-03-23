@@ -21,11 +21,11 @@
 # ('JUDICIAL', '', 'JUDICIAL (Omitted on ballot)', '', '', '', '司法')
 # ('JUDICIAL', '', 'JUDICIAL', '', '', '', '司法')
 override:
+  category_judicial:
+    es: JUDICIAL
   office_city_treasurer:
     fil: ""
     zh: 財政官
-  type_judicial:
-    es: JUDICIAL
   vote_rcv_choice_2:
     es: "Vote por uno: Tiene que ser diferente a su primera preferencia"
   vote_rcv_choice_3:

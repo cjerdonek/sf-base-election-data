@@ -1,4 +1,24 @@
 texts:
+  category_city_and_county:
+    en: CITY AND COUNTY
+  category_city_and_county_edge:
+    en: ''
+  category_federal:
+    en: FEDERAL
+  category_federal_edge:
+    en: ''
+  category_judicial:
+    en: JUDICIAL
+  category_judicial_edge:
+    en: ''
+  category_school:
+    en: SCHOOL
+  category_school_edge:
+    en: ''
+  category_state:
+    en: STATE
+  category_state_edge:
+    en: ''
   choice_1:
     en: FIRST CHOICE
   choice_1_edge:
@@ -156,26 +176,6 @@ texts:
   preference_presidential:
     en: Presidential Preference
   preference_presidential_edge:
-    en: ''
-  type_city_and_county:
-    en: CITY AND COUNTY
-  type_city_and_county_edge:
-    en: ''
-  type_federal:
-    en: FEDERAL
-  type_federal_edge:
-    en: ''
-  type_judicial:
-    en: JUDICIAL
-  type_judicial_edge:
-    en: ''
-  type_school:
-    en: SCHOOL
-  type_school_edge:
-    en: ''
-  type_state:
-    en: STATE
-  type_state_edge:
     en: ''
   vote_for_no_more_than_three_or_four:
     en: Vote for no more than (Three or Four)

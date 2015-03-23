@@ -38,6 +38,12 @@ def get_object_path(name):
     return get_yaml_path(DIR_NAME_OBJECTS, name)
 
 
+def get_object_data(base_name):
+    dir_path = get_data_dir('objects')
+    data, meta = utils.get_yaml_data(dir_path, base_name)
+    return data, meta
+
+
 def make_node_categories(node_name):
     categories, meta = get_object_data(node_name)
 
