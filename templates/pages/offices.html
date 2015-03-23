@@ -1,16 +1,16 @@
 {% extends "_base.html" %}
 {% block title_head -%}Offices{%- endblock %}
-{% block title -%}
+{% block content_title -%}
 San Francisco Offices
 {%- endblock %}
-{% block intro %}
+{% block content_intro %}
 Below is an incomplete list of offices that can appear on the
 ballot in a San Francisco election.
 {% endblock %}
 {% block current_count_value -%}
 {{ office_count }} seats
 {%- endblock %}
-{% block content %}
+{% block content_body %}
 {% for category_id in category_ids %}
   {% set category_name_i18n = categories[category_id] %}
 

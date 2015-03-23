@@ -1,9 +1,6 @@
 {% extends "_base.html" %}
 {% block title_head -%}Home{%- endblock %}
-{% block content_title -%}
-Site Index
-{%- endblock %}
-{% block prologue %}
+{% block intro %}
 <p>
   This is a sample web site to illustrate using the data from the
   <a href="https://github.com/cjerdonek/sf-base-election-data">SFBED</a>
@@ -18,6 +15,9 @@ Site Index
   please file an issue in the
   <a href="https://github.com/cjerdonek/sf-base-election-data/issues">issue tracker</a>.
 {% endblock %}
+{% block content_title -%}
+Site Index
+{%- endblock %}
 {% block content %}
 <ul>
   <li><a href="offices.html">Offices</a>

@@ -16,6 +16,7 @@ NON_ENGLISH_ORDER = [lang.LANG_CH, lang.LANG_ES, lang.LANG_FI]
 TEMPLATE_PAGE_NAMES = """\
 index.html
 bodies.html
+offices.html
 """.strip().split()
 
 
