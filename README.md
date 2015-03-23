@@ -56,9 +56,11 @@ The project would also like to add translations in the following languages--
 
 In the November 2014 election, in addition to Chinese and Spanish, the
 Department of Elections also made translations of election materials
-available in the three languages above, along with Filipino.  Translated
+available in the three languages above, as well as Filipino.  Translated
 materials included ballots and related instructions, State Voter
-Information Guides, and Voter Bill of Rights posters.
+Information Guides, and Voter Bill of Rights posters.  Thus, official
+San Francisco translations already exist in some form, but just need
+to be added to the data.
 
 
 ## Use Cases

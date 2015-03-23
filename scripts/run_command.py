@@ -60,6 +60,8 @@ def command_parse_csv(ns):
 
 def command_sample_html(ns):
     dir_path = ns.output_dir
+    open_browser = ns.open_browser
+
     if dir_path is None:
         dir_path = os.path.join(utils.get_repo_dir(), get_sample_html_default_rel_dir())
         if not os.path.exists(dir_path):
@@ -71,7 +73,8 @@ def command_sample_html(ns):
         json_data = json.load(f)
     # Make and output HTML.
     index_path = htmlgen.make_html(json_data, dir_path)
-    subprocess.call(["open", index_path])
+    if open_browser:
+        subprocess.call(["open", index_path])
 
 
 def command_yaml_norm(ns):
@@ -135,6 +138,8 @@ def create_parser():
     parser.add_argument('output_dir', metavar='DIR', nargs="?",
         help=("the output path. Defaults to the following directory relative "
               "to the repo: {0}".format(get_sample_html_default_rel_dir())))
+    parser.add_argument('--no-browser', dest='open_browser', action='store_false',
+        help='suppress opening the browser.')
 
     parser = make_subparser(sub, "yaml_norm",
                 help="normalize a YAML file.")

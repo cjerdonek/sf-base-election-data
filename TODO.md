@@ -3,6 +3,7 @@ TODO
 
 HTML:
 
+* Include the site map on all pages (and default to Offices)
 * Show the body name when there is a body (or else None).
   - Work on BOS first.
 * Have a list of bodies, and link to that in each member section.
