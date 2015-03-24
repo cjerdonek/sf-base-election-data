@@ -84,6 +84,23 @@ def command_yaml_norm(ns):
     utils.normalize_yaml(path, stdout=True)
 
 
+def command_yaml_temp(ns):
+    path = ns.path
+    data = utils.read_yaml(path)
+    bodies = data['bodies']
+    node = {}
+    for body in bodies:
+        id_ = body['id']
+        id_ = "body_{0}".format(id_.lower())
+        if id_ in node:
+            raise Exception(id_)
+        del body['id']
+        node[id_] = body
+
+    data['bodies'] = node
+    utils.write_yaml(data, path)
+
+
 def command_yaml_update_lang(ns):
     path = ns.path
     data = utils.read_yaml(path)
@@ -144,6 +161,11 @@ def create_parser():
     parser = make_subparser(sub, "yaml_norm",
                 help="normalize a YAML file.")
     parser.add_argument('path', metavar='PATH', help="a path to a YAML file.")
+
+    parser = make_subparser(sub, "yaml_temp",
+                help="temporary scratch command.")
+    parser.add_argument('path', metavar='PATH', nargs='?',
+        help="the target path of a non-English YAML file.")
 
     parser = make_subparser(sub, "yaml_update_lang",
                 help="update a YAML translation file from the English.")

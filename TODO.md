@@ -1,8 +1,8 @@
 TODO
 ====
 
-HTML:
-
+* Clean up office YAML
+* Make text ID's start with text_.
 * Show the body name when there is a body (or else None).
   - Work on BOS first.
 * Have a list of bodies, and link to that in each member section.
