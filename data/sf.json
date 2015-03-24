@@ -104,7 +104,7 @@
             "vote_method": "RCV"
         },
         "body_sf_ccb": {
-            "category_id": "education",
+            "category_id": "school",
             "jurisdiction_id": "SFCC",
             "name": {
                 "en": "Community College Board",
@@ -175,6 +175,9 @@
         }
     },
     "categories": {
+        "bart": {
+            "name_i18n": "text_category_bart"
+        },
         "city_county": {
             "name_i18n": "text_category_city_county"
         },
@@ -183,6 +186,9 @@
         },
         "judicial": {
             "name_i18n": "text_category_judicial"
+        },
+        "party": {
+            "name_i18n": "text_category_party"
         },
         "school": {
             "name_i18n": "text_category_school"
@@ -795,7 +801,7 @@
         },
         "office_assessor_recorder": {
             "category_id": "city_county",
-            "name_i18n": "office_assessor_recorder",
+            "name_i18n": "text_office_assessor_recorder",
             "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.sfassessor.org",
@@ -831,7 +837,7 @@
         },
         "office_city_attorney": {
             "category_id": "city_county",
-            "name_i18n": "office_city_attorney",
+            "name_i18n": "text_office_city_attorney",
             "seed_year": 2015,
             "term_length": 4,
             "twitter": "SFCityAttorney",
@@ -840,7 +846,7 @@
         },
         "office_city_treasurer": {
             "category_id": "city_county",
-            "name_i18n": "office_city_treasurer",
+            "name_i18n": "text_office_city_treasurer",
             "seed_year": 2015,
             "term_length": 4,
             "twitter": "TreasurerSF",
@@ -853,7 +859,7 @@
         },
         "office_district_attorney": {
             "category_id": "city_county",
-            "name_i18n": "office_district_attorney",
+            "name_i18n": "text_office_district_attorney",
             "seed_year": 2015,
             "term_length": 4,
             "twitter": "SFDAOffice",
@@ -866,7 +872,7 @@
         },
         "office_mayor": {
             "category_id": "city_county",
-            "name_i18n": "office_mayor",
+            "name_i18n": "text_office_mayor",
             "seed_year": 2015,
             "term_length": 4,
             "url": "http://www.sfmayor.org",
@@ -874,7 +880,7 @@
         },
         "office_public_defender": {
             "category_id": "city_county",
-            "name_i18n": "office_public_defender",
+            "name_i18n": "text_office_public_defender",
             "seed_year": 2014,
             "term_length": 4,
             "twitter": "sfdefender",
@@ -958,7 +964,7 @@
         },
         "office_sheriff": {
             "category_id": "city_county",
-            "name_i18n": "office_sheriff",
+            "name_i18n": "text_office_sheriff",
             "seed_year": 2015,
             "term_length": 4,
             "twitter": "SheriffSF",
@@ -967,21 +973,21 @@
         },
         "office_state_governor": {
             "category_id": "state",
-            "name_i18n": "office_state_governor",
+            "name_i18n": "text_office_state_governor",
             "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.gov.ca.gov"
         },
         "office_state_lieutenant_governor": {
             "category_id": "state",
-            "name_i18n": "office_state_lieutenant_governor",
+            "name_i18n": "text_office_state_lieutenant_governor",
             "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.ltg.ca.gov/"
         },
         "office_state_secretary": {
             "category_id": "state",
-            "name_i18n": "office_state_secretary",
+            "name_i18n": "text_office_state_secretary",
             "seed_year": 2014,
             "term_length": 4,
             "twitter": "sosnews",
@@ -989,7 +995,7 @@
         },
         "office_superintendent_of_public_instruction": {
             "category_id": "state",
-            "name_i18n": "office_superintendent_of_public_instruction",
+            "name_i18n": "text_office_superintendent_of_public_instruction",
             "partisan": false,
             "seed_year": 2014,
             "term_length": 4,
@@ -1009,7 +1015,7 @@
         },
         "office_usa_president_of_the_united_states": {
             "category_id": "federal",
-            "name_i18n": "office_usa_president_of_the_united_states",
+            "name_i18n": "text_office_usa_president_of_the_united_states",
             "seed_year": 2016,
             "term_length": 4,
             "twitter": "WhiteHouse",

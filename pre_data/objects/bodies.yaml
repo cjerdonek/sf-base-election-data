@@ -94,7 +94,7 @@ bodies:
     url: http://www.sfbos.org
     vote_method: RCV
   body_sf_ccb:
-    category_id: education
+    category_id: school
     jurisdiction_id: SFCC
     name:
       en: Community College Board

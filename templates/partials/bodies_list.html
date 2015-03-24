@@ -6,8 +6,8 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-10">
-      <b>{{ office.name_i18n.english }}</b>
-       <a name="{{ office.id }}" href="#{{ office.id }}">¶</a>
+      <b>{{ body.name }}</b>
+       <a name="{{ body.id }}" href="#{{ body.id }}">¶</a>
     </div>
   </div>
   {% if office.name_i18n.non_english %}
@@ -19,11 +19,6 @@
   </div>
   {% endif %}
   <p>
-
-  {% load custom_tags %}
-  {% cond_include office.url 'row_web.html' office %}
-  {% cond_include office.twitter 'row_twitter.html' office %}
-  {% cond_include office.election_info 'row_election.html' office %}
 
 {% endwith %}
 

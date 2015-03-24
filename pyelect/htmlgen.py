@@ -176,37 +176,18 @@ def make_bodies_one(body_id, data, **kwargs):
     except KeyError:
         raise Exception(data)
 
+    name = data['name']
+    try:
+        name = name['en']
+    except TypeError:
+        pass
+
     body = {
         'category_id': category_id,
-        'name': data['name'],
+        'name': name,
     }
 
     return body
-
-    # trans = all_json['i18n']
-    #
-    # # TODO: incorporate a real ID.
-    # office_id = data.get('name_i18n')
-    # # TODO: do not skip any offices.
-    # if office_id is None:
-    #     return None
-    #
-    # name_i18n = _get_i18n(trans, data, 'name')
-    #
-    # election_info = _make_election_info(data)
-    #
-    # office = {
-    #     'category_id': data.get('category_id'),
-    #     'election_info': election_info,
-    #     'id': office_id,
-    #     'name_i18n': name_i18n,
-    #     # TODO: use a real seat count.
-    #     'seat_count': 1,
-    #     'twitter': data.get('twitter'),
-    #     'url': data.get('url')
-    # }
-    #
-    # return office
 
 
 def add_objects(template_data, json_data, node_name, **kwargs):
@@ -225,10 +206,6 @@ def add_objects(template_data, json_data, node_name, **kwargs):
             continue
         obj['id'] = object_id
         objects.append(obj)
-
-    # TODO: filter (but remove).
-    # offices = list(filter(None, offices))
-
 
     template_data[node_name] = objects
 
@@ -262,8 +239,16 @@ def make_template_data(json_data):
     bodies_by_category = _group_by(bodies, 'category_id')
     offices_by_category = _group_by(offices, 'category_id')
 
+    all_categories = set()
+    for d in (bodies_by_category, offices_by_category):
+        all_categories.update(d.keys())
+    if all_categories > set(CATEGORY_ORDER):
+        extra = all_categories - set(CATEGORY_ORDER)
+        raise Exception("unrecognize categories: {0}".format(extra))
+    exit()
+
     data = {
-        'bodies': bodies,
+        'bodies_count': len(bodies),
         'bodies_by_category': bodies_by_category,
         'categories': categories,
         'category_ids': CATEGORY_ORDER,
