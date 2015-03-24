@@ -59,6 +59,8 @@ def command_parse_csv(ns):
 
 
 def command_sample_html(ns):
+    page_name = ns.page_name
+
     dir_path = ns.output_dir
     open_browser = ns.open_browser
 
@@ -72,9 +74,9 @@ def command_sample_html(ns):
     with open(json_path) as f:
         json_data = json.load(f)
     # Make and output HTML.
-    index_path = htmlgen.make_html(json_data, dir_path)
+    start_path = htmlgen.make_html(json_data, dir_path, page_name=page_name)
     if open_browser:
-        subprocess.call(["open", index_path])
+        subprocess.call(["open", start_path])
 
 
 def command_yaml_norm(ns):
@@ -166,8 +168,10 @@ def create_parser():
     parser = make_subparser(sub, "sample_html",
                 help="make sample HTML from the JSON data.",
                 details="Uses the repo JSON file as input.")
-    parser.add_argument('output_dir', metavar='DIR', nargs="?",
-        help=("the output path. Defaults to the following directory relative "
+    parser.add_argument('--page', dest='page_name',
+        help='the page to generate (e.g. "bodies.html").  Defaults to all pages.')
+    parser.add_argument('--output_dir', metavar='OUTPUT_DIR',
+        help=("the output directory.  Defaults to the following directory relative "
               "to the repo: {0}".format(get_sample_html_default_rel_dir())))
     parser.add_argument('--no-browser', dest='open_browser', action='store_false',
         help='suppress opening the browser.')

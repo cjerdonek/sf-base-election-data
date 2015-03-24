@@ -215,15 +215,24 @@ def render_template(file_name, data):
     return template.render(context)
 
 
-def make_html(json_data, output_dir):
+def make_html(json_data, output_dir, page_name=None):
+    if page_name is None:
+        file_names = get_template_page_file_names()
+    else:
+        file_names = [page_name]
+
     init_django()
     data = make_template_data(json_data)
 
-    for file_name in get_template_page_file_names():
+    for file_name in file_names:
         html = render_template(file_name, data=data)
         print(html)
         output_path = os.path.join(output_dir, file_name)
         utils.write(output_path, html)
-    index_path = os.path.join(output_dir, 'index.html')
+    if len(file_names) == 1:
+        start_page = file_names[0]
+    else:
+        start_page = 'index.html'
+    start_path = os.path.join(output_dir, start_page)
 
-    return index_path
+    return start_path
