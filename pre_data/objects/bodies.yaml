@@ -12,18 +12,18 @@ bodies:
     url: http://www.bart.gov/about/bod
     vote_method: FPTP
   body_ca_court_app:
-    notes: The state has six geographic appellate districts. The first district,
-      which covers San Francisco, is divided into five non-geographical divisions
-      with four justices each
     category_id: judicial
+    district_count: 5
     jurisdiction_id: CA
     name:
       en: California Court of Appeal, First District
       es: Corte de Apelación
+    notes: The state has six geographic appellate districts. The first district, which
+      covers San Francisco, is divided into five non-geographical divisions with four
+      justices each
     partisan: false
     qualified_name:
       en: California Court of Appeal
-    district_count: 5
     seat_count: 20
     term_length: 12
     url: http://www.courts.ca.gov/courtsofappeal.htm
@@ -38,25 +38,24 @@ bodies:
     seat_count: 80
     url: http://assembly.ca.gov/
   body_ca_sboe:
-    notes: The State Controller is the fifth member of this body.
     category_id: state
     district_count: 4
     jurisdiction_id: CA
     name: State Board of Equalization
+    notes: The State Controller is the fifth member of this body.
     office_name: Member, State Board of Equalization
     qualified_name: California State Board of Equalization
     seat_count: 5
     term_length: 4
     url: http://www.boe.ca.gov/
   body_ca_sc:
-    notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
-      by the Governor and subject to retention elections.
     category_id: judicial
     jurisdiction_id: CA
     name:
-      en: Supreme Court
+      en: Supreme Court of California
       es: Corte Suprema
-    qualified_name: Supreme Court of California
+    notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
+      by the Governor and subject to retention elections.
     term_length: 12
     url: http://www.courts.ca.gov/supremecourt.htm
     vote_method: retention
@@ -131,13 +130,13 @@ bodies:
     name: Republican County Central Committee
     url: http://sfgop.org/
   body_sf_sc:
-    notes: The San Francisco Superior Court Bench is comprised of 52 Judges and one
-      Commissioner.
     category_id: judicial
     jurisdiction_id: SF
     name:
       en: Superior Court of San Francisco
       es: Tribunal Superior
+    notes: The San Francisco Superior Court Bench is comprised of 52 Judges and one
+      Commissioner.
     office_name:
       en: Judge of the Superior Court
       es: Juez del Tribunal Superior
