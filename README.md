@@ -1,15 +1,20 @@
 # SF Base Election Data (SFBED)
 
-SFBED is an open data project to provide baseline information
-about San Francisco elections.
+SFBED is an open data project to provide baseline information about
+San Francisco elections.
 
-To permit a higher guarantee of quality and accuracy, the focus of the
-project is on the information that tends to remain the same from election
-to election (or that changes infrequently).
+The "end product" of this project is a single [JSON][json] file (maintained
+at [`data/sf.json`](data/sf.json)).  The file captures in a structured
+format the information about San Francisco elections that tends to remain
+the same from election to election.
+
+This information can be [mashed up][mash_up] with other election information
+(campaign finance info, election results, ballot information, etc)
+to provide more context.
 
 See [here][SFBED_gh_page] for a sample web page created from this data.
-If you notice any issues or have a suggestion, please file an issue in the
-[issue tracker][issue_tracker].
+If you notice any issues with the project data or have other suggestions,
+please file an issue in the [issue tracker][issue_tracker].
 
 SFBED is a project of the [SF Elections Data][sf_elections_data] group
 of [Code for San Francisco][code_for_sf].
@@ -30,6 +35,10 @@ Examples of the type of information that the project aims to provide include--
 The project focus is on the information that tends to remain the
 same from election to election.  Thus, the project does not provide
 information about candidates, election results, or current office holders.
+
+To permit a higher guarantee of quality and accuracy, the focus of the
+project is on the information that tends to remain the same from election
+to election (or that changes infrequently).
 
 
 ## Languages
@@ -65,9 +74,8 @@ to be added to the data.
 
 ## Use Cases
 
-Possible uses of the data include
-"[mashing up](http://en.wikipedia.org/wiki/Mashup_%28web_application_hybrid%29)"
-with or otherwise supplementing presentations of--
+Possible uses of the data include "[mashing up][mash_up]" with or otherwise
+supplementing presentations of--
 
 * what is on the ballot,
 * election results, or
@@ -110,6 +118,8 @@ Chris Jerdonek (<chris.jerdonek@gmail.com>)
 [code_for_sf]: http://codeforsanfrancisco.org/
 [i18n]: http://en.wikipedia.org/wiki/Internationalization_and_localization
 [issue_tracker]: https://github.com/cjerdonek/sf-base-election-data/issues
+[json]: http://json.org/
+[mash_up]: http://en.wikipedia.org/wiki/Mashup_%28web_application_hybrid%29
 [sf_elections_data]: http://cjerdonek.github.io/sf-elections-data/
 [SFBED_gh_page]: http://cjerdonek.github.io/sf-base-election-data
 [SFDOE]: http://sfelections.org
