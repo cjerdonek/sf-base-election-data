@@ -12,6 +12,16 @@ DIR_NAME_OUTPUT = '_build'
 DIR_PRE_DATA = 'pre_data'
 KEY_META = '_meta'
 
+
+def get_from(dict_, key, message=None):
+    try:
+        value = dict_[key]
+    except:
+        raise Exception("error getting key {0!r} from: {1!r} message={2}"
+                        .format(key, dict_, message))
+    return value
+
+
 def get_repo_dir():
     repo_dir = os.path.join(os.path.dirname(__file__), os.pardir)
     return os.path.abspath(repo_dir)

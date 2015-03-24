@@ -71,9 +71,10 @@ def _get_translations(trans, text_id):
         raise Exception("json translations node does not have text_id: {0!r}".format(text_id))
     return dict_
 
+
 def _get_i18n(trans, obj_json, key_base):
     key = '{0}_i18n'.format(key_base)
-    text_id = obj_json[key]
+    text_id = utils.get_from(obj_json, key, message="translation")
     words = _get_translations(trans, text_id)
     english = words[lang.LANG_EN]
     non_english = [words[lang] for lang in NON_ENGLISH_ORDER]
@@ -144,13 +145,9 @@ def _make_election_info(data):
     return list(filter(None, [term_length, next_election_text, vote_method]))
 
 
-def make_office(all_json, data):
-    trans = all_json['i18n']
-
-    # TODO: incorporate a real ID.
-    office_id = data.get('name_i18n')
-    # TODO: do not skip any offices.
-    if office_id is None:
+def make_offices_one(office_id, data, trans=None):
+    # TODO: remove this logic.
+    if 'name_i18n' not in data:
         return None
 
     name_i18n = _get_i18n(trans, data, 'name')
@@ -169,13 +166,6 @@ def make_office(all_json, data):
     }
 
     return office
-
-
-def make_offices(all_json):
-    offices = [make_office(all_json, v) for v in all_json['offices']]
-    # TODO: remove the filter.
-    offices = list(filter(None, offices))
-    return offices
 
 
 def make_bodies_one(body_id, data, **kwargs):
@@ -230,8 +220,15 @@ def add_objects(template_data, json_data, node_name, **kwargs):
     for object_id in object_ids:
         data = json_node[object_id]
         obj = make_object(object_id, data, **kwargs)
+        # TODO: remove this hack (used to skip offices).
+        if not obj:
+            continue
         obj['id'] = object_id
         objects.append(obj)
+
+    # TODO: filter (but remove).
+    # offices = list(filter(None, offices))
+
 
     template_data[node_name] = objects
 
@@ -246,7 +243,7 @@ def _group_by(objects, key):
             value = obj[key]
         except KeyError:
             raise Exception(repr(obj))
-        seq = offices_by_category[value]
+        seq = grouped[value]
         seq.append(obj)
     return grouped
 
@@ -256,20 +253,18 @@ def make_template_data(json_data):
     data = {}
     bodies = add_objects(data, json_data, 'bodies')
 
-    bodies_by_category = _group_by(bodies, 'category_id')
-
-    pprint(data)
-    exit()
-
     trans = json_data['i18n']
     categories = make_categories(json_data, trans)
 
-    offices = make_offices(json_data)
+    offices = add_objects(data, json_data, 'offices', trans=trans)
     office_count = sum([o['seat_count'] for o in offices])
 
+    bodies_by_category = _group_by(bodies, 'category_id')
     offices_by_category = _group_by(offices, 'category_id')
 
     data = {
+        'bodies': bodies,
+        'bodies_by_category': bodies_by_category,
         'categories': categories,
         'category_ids': CATEGORY_ORDER,
         'offices_by_category': offices_by_category,

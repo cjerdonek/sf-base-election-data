@@ -176,19 +176,19 @@
     },
     "categories": {
         "city_county": {
-            "name_i18n": "category_city_county"
+            "name_i18n": "text_category_city_county"
         },
         "federal": {
-            "name_i18n": "category_federal"
+            "name_i18n": "text_category_federal"
         },
         "judicial": {
-            "name_i18n": "category_judicial"
+            "name_i18n": "text_category_judicial"
         },
         "school": {
-            "name_i18n": "category_school"
+            "name_i18n": "text_category_school"
         },
         "state": {
-            "name_i18n": "category_state"
+            "name_i18n": "text_category_state"
         }
     },
     "i18n": {

@@ -29,7 +29,7 @@ offices:
     name: Chief Justice
   office_assessor_recorder:
     mixin_id: sf_common
-    name_i18n: office_assessor_recorder
+    name_i18n: text_office_assessor_recorder
     seed_year: 2014
     url: http://www.sfassessor.org
   office_attorney general:
@@ -55,13 +55,13 @@ offices:
     district: 11
   office_city_attorney:
     mixin_id: sf_common
-    name_i18n: office_city_attorney
+    name_i18n: text_office_city_attorney
     seed_year: 2015
     twitter: SFCityAttorney
     url: http://www.sfcityattorney.org
   office_city_treasurer:
     mixin_id: sf_common
-    name_i18n: office_city_treasurer
+    name_i18n: text_office_city_treasurer
     seed_year: 2015
     twitter: TreasurerSF
     url: http://sftreasurer.org
@@ -70,7 +70,7 @@ offices:
     url: http://www.sco.ca.gov/
   office_district_attorney:
     mixin_id: sf_common
-    name_i18n: office_district_attorney
+    name_i18n: text_office_district_attorney
     seed_year: 2015
     twitter: SFDAOffice
     url: http://www.sfdistrictattorney.org
@@ -79,12 +79,12 @@ offices:
     url: http://www.insurance.ca.gov/
   office_mayor:
     mixin_id: sf_common
-    name_i18n: office_mayor
+    name_i18n: text_office_mayor
     seed_year: 2015
     url: http://www.sfmayor.org
   office_public_defender:
     mixin_id: sf_common
-    name_i18n: office_public_defender
+    name_i18n: text_office_public_defender
     seed_year: 2014
     twitter: sfdefender
     url: http://sfpublicdefender.org
@@ -150,29 +150,29 @@ offices:
     seed_year: 2012
   office_sheriff:
     mixin_id: sf_common
-    name_i18n: office_sheriff
+    name_i18n: text_office_sheriff
     seed_year: 2015
     twitter: SheriffSF
     url: http://www.sfsheriff.com
   office_state_governor:
     mixin_id: ca_common
-    name_i18n: office_state_governor
+    name_i18n: text_office_state_governor
     seed_year: 2014
     url: http://www.gov.ca.gov
   office_state_lieutenant_governor:
     mixin_id: ca_common
-    name_i18n: office_state_lieutenant_governor
+    name_i18n: text_office_state_lieutenant_governor
     seed_year: 2014
     url: http://www.ltg.ca.gov/
   office_state_secretary:
     mixin_id: ca_common
-    name_i18n: office_state_secretary
+    name_i18n: text_office_state_secretary
     seed_year: 2014
     twitter: sosnews
     url: http://www.sos.ca.gov/
   office_superintendent_of_public_instruction:
     mixin_id: ca_common
-    name_i18n: office_superintendent_of_public_instruction
+    name_i18n: text_office_superintendent_of_public_instruction
     partisan: false
     seed_year: 2014
     url: http://www.cde.ca.gov/eo
@@ -187,7 +187,7 @@ offices:
     district: 14
   office_usa_president_of_the_united_states:
     category_id: federal
-    name_i18n: office_usa_president_of_the_united_states
+    name_i18n: text_office_usa_president_of_the_united_states
     seed_year: 2016
     term_length: 4
     twitter: WhiteHouse
