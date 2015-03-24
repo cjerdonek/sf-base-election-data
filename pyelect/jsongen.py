@@ -50,11 +50,9 @@ def make_node_categories(node_name):
     name_i18n_format = meta['name_i18n_format']
 
     node = {}
-    for category_id, data in categories.items():
+    for category_id, category in categories.items():
         name_i18n = name_i18n_format.format(category_id)
-        category = {
-            'name_i18n': name_i18n,
-        }
+        category['name_i18n'] = name_i18n
         node[category_id] = category
 
     return node

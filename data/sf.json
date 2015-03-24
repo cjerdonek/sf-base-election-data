@@ -176,6 +176,7 @@
     },
     "categories": {
         "bart": {
+            "name": "BART",
             "name_i18n": "text_category_bart"
         },
         "city_county": {
@@ -188,6 +189,7 @@
             "name_i18n": "text_category_judicial"
         },
         "party": {
+            "name": "PARTY",
             "name_i18n": "text_category_party"
         },
         "school": {

@@ -17,7 +17,7 @@ from pyelect import utils
 from pyelect.templatetags import custom_tags
 
 
-CATEGORY_ORDER = ["federal", "state", "city_county", "school", "judicial"]
+CATEGORY_ORDER = ["federal", "state", "bart", "city_county", "school", "judicial", "party"]
 DIR_NAME_HTML_OUTPUT = 'html'
 DIR_NAME_TEMPLATE_PAGE = 'pages'
 NON_ENGLISH_ORDER = [lang.LANG_CH, lang.LANG_ES, lang.LANG_FI]
@@ -75,9 +75,15 @@ def _get_translations(trans, text_id):
 def _get_i18n(trans, obj_json, key_base):
     key = '{0}_i18n'.format(key_base)
     text_id = utils.get_from(obj_json, key, message="translation")
-    words = _get_translations(trans, text_id)
-    english = words[lang.LANG_EN]
-    non_english = [words[lang] for lang in NON_ENGLISH_ORDER]
+    # TODO: remove this hack and insist that everything appear in the i18n dict.
+    if text_id not in trans:
+        english = utils.get_from(obj_json, 'name')
+        words = {lang.LANG_EN: english}
+        non_english = []
+    else:
+        words = utils.get_from(trans, text_id)
+        english = words[lang.LANG_EN]
+        non_english = [words[lang] for lang in NON_ENGLISH_ORDER]
     # Remove empty strings.
     non_english = list(filter(None, non_english))
 
@@ -244,8 +250,7 @@ def make_template_data(json_data):
         all_categories.update(d.keys())
     if all_categories > set(CATEGORY_ORDER):
         extra = all_categories - set(CATEGORY_ORDER)
-        raise Exception("unrecognize categories: {0}".format(extra))
-    exit()
+        raise Exception("unrecognized categories: {0}".format(extra))
 
     data = {
         'bodies_count': len(bodies),

@@ -3,10 +3,12 @@ _meta:
   name_i18n_format: text_category_{0}
   normalizable: true
 categories:
-  bart: {}
+  bart:
+    name: BART
   city_county: {}
   federal: {}
   judicial: {}
-  party: {}
+  party:
+    name: PARTY
   school: {}
   state: {}
