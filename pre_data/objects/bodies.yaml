@@ -1,3 +1,6 @@
+_meta:
+  _auto: 'WARNING: comments will be deleted during normalization'
+  normalizable: true
 bodies:
   -
     id: US_S
@@ -38,8 +41,9 @@ bodies:
     _notes:
       The State Controller is the fifth member of this body.
   -
-    # The Court has six Associate Justices and one Chief Justice.
-    # Each is appointed by the Governor and subject to retention elections.
+    _notes: The Court has six Associate Justices and one Chief Justice.
+        Each is appointed by the Governor and subject to retention elections.
+
     id: CA_SC
     name:
       en: Supreme Court
