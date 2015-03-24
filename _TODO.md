@@ -1,6 +1,9 @@
 TODO
 ====
 
+** Get a handle on the language stuff first!
+* Add a `seat_name` attribute to Office that distinguishes members from
+  one another (and `office_name` is the more generic name).
 * Think about whether internationalized text should be mandatory
   (at least in the config).
   - If so, create a workflow to add new text ID's.

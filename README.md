@@ -9,7 +9,7 @@ format the information about San Francisco elections that tends to remain
 the same from election to election.
 
 This information can be [mashed up][mash_up] with other election information
-(e.g. campaign finance info, election results, ballot information, etc)
+(e.g. campaign finance information, election results, ballot information, etc)
 to provide more context.
 
 See [here][SFBED_gh_page] for a sample web page created from this data.
