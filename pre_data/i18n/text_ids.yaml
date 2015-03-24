@@ -2,57 +2,56 @@ _meta:
   _auto: 'WARNING: comments will be deleted during normalization'
   normalizable: true
 text_ids:
-  category_city_county: CITY AND COUNTY
-  category_federal: FEDERAL
-  category_judicial: JUDICIAL
-  category_school: SCHOOL
-  category_state: STATE
-  choice_1: FIRST CHOICE
-  choice_2: SECOND CHOICE
-  choice_3: THIRD CHOICE
-  county_transportation_authority_proposition: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
-  district: DISTRICT
-  header_city_county_propositions: CITY & COUNTY PROPOSITIONS
-  header_measures_submitted_to_the_voters: MEASURES SUBMITTED TO THE VOTERS
-  header_party_nominated_offices: PARTY-NOMINATED OFFICES
-  header_school_propositions: SCHOOL PROPOSITIONS
-  header_state_propositions: STATE PROPOSITIONS
-  header_voter_nominated_offices: VOTER-NOMINATED OFFICES
-  office_assessor_recorder: ASSESSOR-RECORDER
-  office_bart_director: BART DIRECTOR
-  office_city_attorney: CITY ATTORNEY
-  office_city_treasurer: TREASURER
-  office_controller: CONTROLLER
-  office_district_attorney: DISTRICT ATTORNEY
-  office_judge_of_the_superior_court: JUDGE OF THE SUPERIOR COURT,
-  office_mayor: MAYOR
-  office_member_board_of_education: MEMBER, BOARD OF EDUCATION
-  office_member_board_of_supervisors: MEMBER, BOARD OF SUPERVISORS
-  office_member_community_college_board: MEMBER, COMMUNITY COLLEGE BOARD
-  office_member_county_central_committee: MEMBER, COUNTY CENTRAL COMMITTEE
-  office_member_county_council: MEMBER, COUNTY COUNCIL
-  office_member_of_the_state_assembly: MEMBER OF THE STATE ASSEMBLY
-  office_member_state_board_of_eq_d2: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT
-    2
-  office_public_defender: PUBLIC DEFENDER
-  office_sheriff: SHERIFF
-  office_state_attorney_general: ATTORNEY GENERAL
-  office_state_governor: GOVERNOR
-  office_state_insurance_commissioner: INSURANCE COMMISSIONER
-  office_state_lieutenant_governor: LIEUTENANT GOVERNOR
-  office_state_secretary: SECRETARY OF STATE
-  office_state_senator: STATE SENATOR
-  office_superintendent_of_public_instruction: SUPERINTENDENT OF PUBLIC INSTRUCTION
-  office_usa_president_and_vice_president: PRESIDENT AND VICE PRESIDENT
-  office_usa_president_of_the_united_states: PRESIDENT OF THE UNITED STATES
-  office_usa_representative: UNITED STATES REPRESENTATIVE
-  office_usa_senator: UNITED STATES SENATOR
-  preference_party: 'Party Preference:'
-  preference_presidential: Presidential Preference
-  vote_for_no_more_than_three_or_four: Vote for no more than (Three or Four)
-  vote_for_one: Vote for One
-  vote_for_one_party: Vote for One Party
-  vote_rcv_choice_2: 'Vote for One: Must be different than your first choice'
-  vote_rcv_choice_3: 'Vote for One: Must be different than your first and second choices'
-  vote_yes_or_no_for_each_office: Vote YES or NO for each office
-  vote_your_first_second_and_third_choices: Vote your first, second, and third choices
+  text_category_city_county: CITY AND COUNTY
+  text_category_federal: FEDERAL
+  text_category_judicial: JUDICIAL
+  text_category_school: SCHOOL
+  text_category_state: STATE
+  text_choice_1: FIRST CHOICE
+  text_choice_2: SECOND CHOICE
+  text_choice_3: THIRD CHOICE
+  text_county_transportation_authority_proposition: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
+  text_district: DISTRICT
+  text_header_city_county_propositions: CITY & COUNTY PROPOSITIONS
+  text_header_measures_submitted_to_the_voters: MEASURES SUBMITTED TO THE VOTERS
+  text_header_party_nominated_offices: PARTY-NOMINATED OFFICES
+  text_header_school_propositions: SCHOOL PROPOSITIONS
+  text_header_state_propositions: STATE PROPOSITIONS
+  text_header_voter_nominated_offices: VOTER-NOMINATED OFFICES
+  text_office_assessor_recorder: ASSESSOR-RECORDER
+  text_office_bart_director: BART DIRECTOR
+  text_office_city_attorney: CITY ATTORNEY
+  text_office_city_treasurer: TREASURER
+  text_office_controller: CONTROLLER
+  text_office_district_attorney: DISTRICT ATTORNEY
+  text_office_judge_of_the_superior_court: JUDGE OF THE SUPERIOR COURT,
+  text_office_mayor: MAYOR
+  text_office_member_board_of_education: MEMBER, BOARD OF EDUCATION
+  text_office_member_board_of_supervisors: MEMBER, BOARD OF SUPERVISORS
+  text_office_member_community_college_board: MEMBER, COMMUNITY COLLEGE BOARD
+  text_office_member_county_central_committee: MEMBER, COUNTY CENTRAL COMMITTEE
+  text_office_member_county_council: MEMBER, COUNTY COUNCIL
+  text_office_member_of_the_state_assembly: MEMBER OF THE STATE ASSEMBLY
+  text_office_member_state_board_of_eq_d2: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
+  text_office_public_defender: PUBLIC DEFENDER
+  text_office_sheriff: SHERIFF
+  text_office_state_attorney_general: ATTORNEY GENERAL
+  text_office_state_governor: GOVERNOR
+  text_office_state_insurance_commissioner: INSURANCE COMMISSIONER
+  text_office_state_lieutenant_governor: LIEUTENANT GOVERNOR
+  text_office_state_secretary: SECRETARY OF STATE
+  text_office_state_senator: STATE SENATOR
+  text_office_superintendent_of_public_instruction: SUPERINTENDENT OF PUBLIC INSTRUCTION
+  text_office_usa_president_and_vice_president: PRESIDENT AND VICE PRESIDENT
+  text_office_usa_president_of_the_united_states: PRESIDENT OF THE UNITED STATES
+  text_office_usa_representative: UNITED STATES REPRESENTATIVE
+  text_office_usa_senator: UNITED STATES SENATOR
+  text_preference_party: 'Party Preference:'
+  text_preference_presidential: Presidential Preference
+  text_vote_for_no_more_than_three_or_four: Vote for no more than (Three or Four)
+  text_vote_for_one: Vote for One
+  text_vote_for_one_party: Vote for One Party
+  text_vote_rcv_choice_2: 'Vote for One: Must be different than your first choice'
+  text_vote_rcv_choice_3: 'Vote for One: Must be different than your first and second choices'
+  text_vote_yes_or_no_for_each_office: Vote YES or NO for each office
+  text_vote_your_first_second_and_third_choices: Vote your first, second, and third choices
