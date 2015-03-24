@@ -3,22 +3,24 @@
 
 {% with office=object %}
 
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-10">
-    <b>{{ office.name_i18n.english }}</b>
-     <a name="{{ office.id }}" href="#{{ office.id }}">¶</a>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <b>{{ office.name_i18n.english }}</b>
+       <a name="{{ office.id }}" href="#{{ office.id }}">¶</a>
+    </div>
   </div>
-</div>
-{% if office.name_i18n.non_english %}
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-10">
-    ({{ office.name_i18n.non_english|join:' | '  }})
+  {% if office.name_i18n.non_english %}
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      ({{ office.name_i18n.non_english|join:' | '  }})
+    </div>
   </div>
-</div>
-{% endif %}
-<p>
+  {% endif %}
+  <p>
+
+  {% include 'row_election.html' %}
 
 {% endwith %}
 
@@ -27,7 +29,6 @@
 
   {{ row_if(office.url, 'row_web.html', office) }}
   {{ row_if(office.twitter, 'row_twitter.html', office) }}
-  {% include 'row_election.html' %}
 
 {% endcomment %}
 

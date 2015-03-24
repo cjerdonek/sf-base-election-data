@@ -128,6 +128,20 @@ def _compute_next_election_year(office_json):
     return seed_year
 
 
+def _make_election_info(data):
+
+    vote_method = data.get('vote_method')
+
+    next_election_year = _compute_next_election_year(data)
+    next_election_text = "{0} next".format(next_election_year)
+
+    term_length = data.get('term_length')
+    if term_length:
+        term_length = "{0} year term".format(term_length)
+
+    return filter(None, [term_length, next_election_text, vote_method])
+
+
 def make_office(all_json, data):
     trans = all_json['i18n']
 
@@ -139,22 +153,16 @@ def make_office(all_json, data):
 
     name_i18n = _get_i18n(trans, data, 'name')
 
-    term_length = data.get('term_length')
-    if term_length:
-        term_length = "{0} year term".format(term_length)
-
-    next_election_year = _compute_next_election_year(data)
+    election_info = _make_election_info(data)
 
     office = {
         'category_id': data.get('category_id'),
+        'election_info': election_info,
         'id': office_id,
         'name_i18n': name_i18n,
-        'next_election_text': "{0} next".format(next_election_year),
         # TODO: use a real seat count.
         'seat_count': 1,
-        'term_length': term_length,
         'twitter': data.get('twitter'),
-        'vote_method': data.get('vote_method'),
         'url': data.get('url')
     }
     print(office)
