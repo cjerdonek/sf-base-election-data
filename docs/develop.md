@@ -41,16 +41,17 @@ and
 For organizational and communication purposes, we make a distinction in the
 documentation and repo structure between two types of data files:
 
-1. **Public data.**  The publicly useable data, which corresponds to end
-   or finished product of this project.  Currently, the public data is a
-   single JSON file in the [`data`](data) folder.
+1. **Public data.**  The publicly useable data, which corresponds to the
+   "end product" or finished product of this project.  Currently, the public
+   data is a single JSON file in the [`data`][path_data] folder.
 2. **Pre-data.**  The preliminary data files used to prepare the public data.
-   Currently, these files are contained in the [`pre_data`](pre_data) folder.
+   Currently, these files are contained in the [`pre_data`][path_pre_data]
+   folder.
 
 
 ## Public data
 
-For documentation of the public JSON file, see [this page][public_data]
+For documentation of the public JSON file, see [this page][path_docs_json]
 of the documentation.
 
 
@@ -99,6 +100,9 @@ See also the screen shot below:
 ![](images/excel_to_csv.png "Options to Export Excel to CSV")
 
 
+[path_data]: ../data
+[path_docs_json]: json.md
+[path_pre_data]: ../pre_data
 [public_data]: develop.md
 [libre_office]: http://www.libreoffice.org/
 [virtualenv]: https://pypi.python.org/pypi/virtualenv/
