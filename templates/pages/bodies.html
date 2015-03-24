@@ -1,0 +1,17 @@
+{% extends "base/page.html" %}
+{% block title_head %}Bodies{% endblock %}
+{% block content_title %}
+San Francisco Bodies
+{% endblock %}
+{% block content_intro_para %}
+Below is an incomplete list of government bodies whose members can appear
+on the ballot in a San Francisco election.
+{% endblock %}
+{% block current_count_value %}
+0 bodies
+{% endblock %}
+{% block content_body %}
+{% with objects_by_category=offices_by_category %}
+{% include 'partials/offices_list.html' %}
+{% endwith %}
+{% endblock %}

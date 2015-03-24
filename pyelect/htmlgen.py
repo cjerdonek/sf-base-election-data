@@ -20,11 +20,6 @@ CATEGORY_ORDER = ["federal", "state", "city_county", "school", "judicial"]
 DIR_NAME_HTML_OUTPUT = 'html'
 DIR_NAME_TEMPLATE_PAGE = 'pages'
 NON_ENGLISH_ORDER = [lang.LANG_CH, lang.LANG_ES, lang.LANG_FI]
-TEMPLATE_PAGE_NAMES = """\
-index.html
-bodies.html
-offices.html
-""".strip().split()
 
 
 @defaulttags.register.filter
@@ -53,13 +48,19 @@ def _get_templates_dir():
     return os.path.join(repo_dir, 'templates')
 
 
-def _get_page_templates_dir():
+def _get_template_page_dir():
     templates_dir = _get_templates_dir()
     return os.path.join(templates_dir, DIR_NAME_TEMPLATE_PAGE)
 
 
 def _get_template_search_dirs():
     return [_get_templates_dir()]
+
+
+def get_template_page_file_names():
+    dir_path = _get_template_page_dir()
+    file_names = os.listdir(dir_path)
+    return file_names
 
 
 def _get_translations(trans, text_id):
@@ -76,7 +77,7 @@ def _get_i18n(trans, obj_json, key_base):
     english = words[lang.LANG_EN]
     non_english = [words[lang] for lang in NON_ENGLISH_ORDER]
     # Remove empty strings.
-    non_english = filter(None, non_english)
+    non_english = list(filter(None, non_english))
 
     i18n = {
         'english': english,
@@ -139,7 +140,7 @@ def _make_election_info(data):
     if term_length:
         term_length = "{0} year term".format(term_length)
 
-    return filter(None, [term_length, next_election_text, vote_method])
+    return list(filter(None, [term_length, next_election_text, vote_method]))
 
 
 def make_office(all_json, data):
@@ -165,7 +166,7 @@ def make_office(all_json, data):
         'twitter': data.get('twitter'),
         'url': data.get('url')
     }
-    print(office)
+
     return office
 
 
@@ -201,12 +202,13 @@ def make_template_data(all_json):
     return data
 
 
-def render_template(template_name, data):
+def render_template(file_name, data):
     """Render the sample template as a Unicode string.
 
     Argument:
       data: a dict of template variables.
     """
+    template_name = os.path.join(DIR_NAME_TEMPLATE_PAGE, file_name)
     template = get_template(template_name)
     context = Context(data)
     context['current_page'] = os.path.basename(template_name)
@@ -216,15 +218,12 @@ def render_template(template_name, data):
 def make_html(json_data, output_dir):
     init_django()
     data = make_template_data(json_data)
-    page_templates_dir = _get_page_templates_dir()
 
-    #for file_name in TEMPLATE_PAGE_NAMES:
-    for file_name in ('index.html', ):
-        template_name = os.path.join(DIR_NAME_TEMPLATE_PAGE, file_name)
-        html = render_template(template_name, data=data)
+    for file_name in get_template_page_file_names():
+        html = render_template(file_name, data=data)
         print(html)
         output_path = os.path.join(output_dir, file_name)
         utils.write(output_path, html)
-    index_path = os.path.join(output_dir, TEMPLATE_PAGE_NAMES[0])
+    index_path = os.path.join(output_dir, 'index.html')
 
     return index_path
