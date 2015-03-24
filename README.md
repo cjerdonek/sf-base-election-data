@@ -4,12 +4,12 @@ SFBED is an open data project to provide baseline information about
 San Francisco elections.
 
 The "end product" of this project is a single [JSON][json] file (maintained
-at [`data/sf.json`](data/sf.json)).  The file captures in a structured
+at [`data/sf.json`](data/sf.json)).  This file captures in a structured
 format the information about San Francisco elections that tends to remain
 the same from election to election.
 
 This information can be [mashed up][mash_up] with other election information
-(campaign finance info, election results, ballot information, etc)
+(e.g. campaign finance info, election results, ballot information, etc)
 to provide more context.
 
 See [here][SFBED_gh_page] for a sample web page created from this data.
