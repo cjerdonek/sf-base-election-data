@@ -1,28 +1,34 @@
 {% extends "base/category_list.html" %}
-{% set objects_by_category = offices_by_category %}
 {% block show_category %}
-  {% from 'macros.html' import row_if %}
-  {% set office = object %}
 
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-10">
-      <b>{{ office.name_i18n.english }}</b>
-       <a name="{{ office.id }}" href="#{{ office.id }}">¶</a>
-    </div>
+{% with office=object %}
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-10">
+    <b>{{ office.name_i18n.english }}</b>
+     <a name="{{ office.id }}" href="#{{ office.id }}">¶</a>
   </div>
-  {% if office.name_i18n.non_english -%}
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-10">
-      ({{ office.name_i18n.non_english|join(' | ') }})
-    </div>
+</div>
+{% if office.name_i18n.non_english %}
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-10">
+    ({{ office.name_i18n.non_english|join:' | '  }})
   </div>
-  {%- endif %}
-  <p>
+</div>
+{% endif %}
+<p>
+
+{% endwith %}
+
+{% comment %}
+
 
   {{ row_if(office.url, 'row_web.html', office) }}
   {{ row_if(office.twitter, 'row_twitter.html', office) }}
   {% include 'row_election.html' %}
+
+{% endcomment %}
 
 {% endblock %}
