@@ -180,8 +180,14 @@ def make_offices(all_json):
 
 def make_bodies_one(body_id, data, **kwargs):
 
-    print(data)
+    # TODO: make this into a function and DRY up with others.
+    try:
+        category_id = data['category_id']
+    except KeyError:
+        raise Exception(data)
+
     body = {
+        'category_id': category_id,
         'name': data['name'],
     }
 
@@ -217,8 +223,12 @@ def add_objects(template_data, json_data, node_name, **kwargs):
     make_object_func_name = "make_{0}_one".format(node_name)
     make_object = globals()[make_object_func_name]
 
+    json_node = json_data[node_name]
+
     objects = []
-    for object_id, data in json_data[node_name].items():
+    object_ids = sorted(json_node.keys())
+    for object_id in object_ids:
+        data = json_node[object_id]
         obj = make_object(object_id, data, **kwargs)
         obj['id'] = object_id
         objects.append(obj)
