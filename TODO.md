@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Add Wikipedia links.
 * Add to bodies: term length, voting method, Twitter.
 * Change seats to SF seats, e.g. 2 of 80.
 * Add voting method enum.

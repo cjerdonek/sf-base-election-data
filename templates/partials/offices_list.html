@@ -21,9 +21,9 @@
   <p>
 
   {% load custom_tags %}
-  {% cond_include office.url 'row_web.html' office %}
-  {% cond_include office.twitter 'row_twitter.html' office %}
-  {% cond_include office.election_info 'row_election.html' office %}
+  {% url_row 'Web' office.url %}
+  {% cond_include office.twitter 'partials/row_twitter.html' office %}
+  {% cond_include office.election_info 'partials/row_elections.html' office %}
 
 {% endwith %}
 

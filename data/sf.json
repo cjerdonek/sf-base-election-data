@@ -20,9 +20,6 @@
             },
             "notes": "The state has six geographic appellate districts. The first district, which covers San Francisco, is divided into five non-geographical divisions with four justices each",
             "partisan": false,
-            "qualified_name": {
-                "en": "California Court of Appeal"
-            },
             "seat_count": 20,
             "term_length": 12,
             "url": "http://www.courts.ca.gov/courtsofappeal.htm",
@@ -36,7 +33,8 @@
             "office_name": "Member of the State Assembly",
             "qualified_name": "California State Assembly",
             "seat_count": 80,
-            "url": "http://assembly.ca.gov/"
+            "url": "http://assembly.ca.gov/",
+            "wikipedia": "http://en.wikipedia.org/wiki/California_State_Assembly"
         },
         "body_ca_sboe": {
             "category_id": "state",
@@ -48,20 +46,22 @@
             "qualified_name": "California State Board of Equalization",
             "seat_count": 5,
             "term_length": 4,
-            "url": "http://www.boe.ca.gov/"
+            "url": "http://www.boe.ca.gov/",
+            "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29"
         },
         "body_ca_sc": {
             "category_id": "judicial",
             "jurisdiction_id": "CA",
             "name": {
-                "en": "Supreme Court",
+                "en": "Supreme Court of California",
                 "es": "Corte Suprema"
             },
             "notes": "The Court has six Associate Justices and one Chief Justice. Each is appointed by the Governor and subject to retention elections.",
-            "qualified_name": "Supreme Court of California",
+            "seat_count": 7,
             "term_length": 12,
             "url": "http://www.courts.ca.gov/supremecourt.htm",
-            "vote_method": "retention"
+            "vote_method": "retention",
+            "wikipedia": "http://en.wikipedia.org/wiki/Supreme_Court_of_California"
         },
         "body_ca_ss": {
             "category_id": "state",
@@ -69,7 +69,8 @@
             "name": "State Senate",
             "qualified_name": "California State Senate",
             "seat_count": 40,
-            "url": "http://senate.ca.gov/"
+            "url": "http://senate.ca.gov/",
+            "wikipedia": "http://en.wikipedia.org/wiki/California_State_Senate"
         },
         "body_sf_boe": {
             "category_id": "school",
@@ -86,11 +87,13 @@
             "seat_count": 7,
             "term_length": 4,
             "url": "http://www.sfusd.edu/en/about-sfusd/board-of-education",
-            "vote_method": "FPTP"
+            "vote_method": "FPTP",
+            "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_Board_of_Education"
         },
         "body_sf_bos": {
             "category_id": "city_county",
             "jurisdiction_id": "SF",
+            "localwiki": "https://localwiki.org/sf/Board_of_Supervisors",
             "name": {
                 "en": "Board of Supervisors",
                 "es": "Consejo de Supervisores"
@@ -104,7 +107,8 @@
             "seat_count": 11,
             "term_length": 4,
             "url": "http://www.sfbos.org",
-            "vote_method": "RCV"
+            "vote_method": "RCV",
+            "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_Board_of_Supervisors"
         },
         "body_sf_ccb": {
             "category_id": "school",

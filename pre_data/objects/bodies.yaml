@@ -22,8 +22,6 @@ bodies:
       covers San Francisco, is divided into five non-geographical divisions with four
       justices each
     partisan: false
-    qualified_name:
-      en: California Court of Appeal
     seat_count: 20
     term_length: 12
     url: http://www.courts.ca.gov/courtsofappeal.htm
@@ -37,6 +35,7 @@ bodies:
     qualified_name: California State Assembly
     seat_count: 80
     url: http://assembly.ca.gov/
+    wikipedia: http://en.wikipedia.org/wiki/California_State_Assembly
   body_ca_sboe:
     category_id: state
     district_count: 4
@@ -47,6 +46,7 @@ bodies:
     qualified_name: California State Board of Equalization
     seat_count: 5
     term_length: 4
+    wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29
     url: http://www.boe.ca.gov/
   body_ca_sc:
     category_id: judicial
@@ -54,11 +54,13 @@ bodies:
     name:
       en: Supreme Court of California
       es: Corte Suprema
+    seat_count: 7
     notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
       by the Governor and subject to retention elections.
     term_length: 12
     url: http://www.courts.ca.gov/supremecourt.htm
     vote_method: retention
+    wikipedia: http://en.wikipedia.org/wiki/Supreme_Court_of_California
   body_ca_ss:
     category_id: state
     jurisdiction_id: CA
@@ -66,6 +68,7 @@ bodies:
     qualified_name: California State Senate
     seat_count: 40
     url: http://senate.ca.gov/
+    wikipedia: http://en.wikipedia.org/wiki/California_State_Senate
   body_sf_boe:
     category_id: school
     jurisdiction_id: SF
@@ -80,6 +83,7 @@ bodies:
     term_length: 4
     url: http://www.sfusd.edu/en/about-sfusd/board-of-education
     vote_method: FPTP
+    wikipedia: http://en.wikipedia.org/wiki/San_Francisco_Board_of_Education
   body_sf_bos:
     category_id: city_county
     jurisdiction_id: SF
@@ -95,6 +99,8 @@ bodies:
     term_length: 4
     url: http://www.sfbos.org
     vote_method: RCV
+    wikipedia: http://en.wikipedia.org/wiki/San_Francisco_Board_of_Supervisors
+    localwiki: https://localwiki.org/sf/Board_of_Supervisors
   body_sf_ccb:
     category_id: school
     jurisdiction_id: SFCC
