@@ -1,25 +1,31 @@
 {% for category_id in category_ids %}
-  {% set category_name_i18n = categories[category_id] %}
+
+{% with category_name_i18n=categories|get_item:category_id %}
 
   <div class="row text-center">
-    <h3>{{ category_name_i18n.english }} <a name="{{ category_id }}" href="#{{ category_id }}">¶</a>
-    {% if category_name_i18n.non_english -%}
-    <br>
-      ({{ category_name_i18n.non_english|join(' | ') }})
-    {%- endif %}
+    <h3>{{ category_name_i18n.english }}
+      <a name="{{ category_id }}" href="#{{ category_id }}">¶</a>
+    {% if category_name_i18n.non_english %}<br>
+      ({{ category_name_i18n.non_english|join:' | ' }})
+    {% endif %}
     </h3>
   </div>
   <p>
 
-  {% for object in objects_by_category[category_id] -%}
+{% endwith %}
+{% comment %}
 
-    {# We need to set the block to "scoped" to make the loop variable
-       available to the block in child templates. #}
-    {% block show_category scoped %}
-    {% endblock %}
+{% for object in objects_by_category[category_id] -%}
 
-  <hr>
-  {% endfor %}
+  {# We need to set the block to "scoped" to make the loop variable
+     available to the block in child templates. #}
+  {% block show_category %}
+  {% endblock %}
+
+<hr>
+{% endfor %}
+
+{% endcomment %}
 
 
 {% endfor %}
