@@ -4,7 +4,10 @@ from collections import defaultdict
 from datetime import date
 import os
 
-from jinja2 import Environment, FileSystemLoader
+from django.conf import settings
+from django.template import Context
+import django.template.defaulttags as defaulttags
+from django.template.loader import get_template
 
 from pyelect import lang
 from pyelect import utils
@@ -12,12 +15,18 @@ from pyelect import utils
 
 CATEGORY_ORDER = ["federal", "state", "city_county", "school", "judicial"]
 DIR_NAME_HTML_OUTPUT = 'html'
+DIR_NAME_TEMPLATE_PAGE = 'pages'
 NON_ENGLISH_ORDER = [lang.LANG_CH, lang.LANG_ES, lang.LANG_FI]
 TEMPLATE_PAGE_NAMES = """\
 index.html
 bodies.html
 offices.html
 """.strip().split()
+
+
+@defaulttags.register.filter
+def get_item(dict_, key):
+    return dict_.get(key)
 
 
 def _get_templates_dir():
@@ -27,7 +36,11 @@ def _get_templates_dir():
 
 def _get_page_templates_dir():
     templates_dir = _get_templates_dir()
-    return os.path.join(templates_dir, 'pages')
+    return os.path.join(templates_dir, DIR_NAME_TEMPLATE_PAGE)
+
+
+def _get_template_search_dirs():
+    return [_get_templates_dir()]
 
 
 def _get_translations(trans, text_id):
@@ -161,30 +174,36 @@ def make_template_data(all_json):
     return data
 
 
-def _make_template_env():
-    templates_dir = _get_templates_dir()
-    page_templates_dir = _get_page_templates_dir()
-    env = Environment(loader=FileSystemLoader([templates_dir, page_templates_dir]))
-    return env
-
-
-def render_template(env, template_name, data):
+def render_template(template_name, data):
     """Render the sample template as a Unicode string.
 
     Argument:
       data: a dict of template variables.
     """
-    template = env.get_template(template_name)
-    return template.render(data)
+    template = get_template(template_name)
+    context = Context(data)
+    return template.render(context)
 
 
 def make_html(json_data, output_dir):
+    search_dirs = _get_template_search_dirs()
+    settings.configure(
+        TEMPLATE_DIRS=search_dirs,
+        TEMPLATE_STRING_IF_INVALID="***%s",
+        # The default setting contains this:
+        #   'django.template.loaders.app_directories.Loader'
+        # See this issue for more information:
+        #   https://code.djangoproject.com/ticket/24527
+        TEMPLATE_LOADERS=('django.template.loaders.filesystem.Loader', ),
+    )
     data = make_template_data(json_data)
-    env = _make_template_env()
     page_templates_dir = _get_page_templates_dir()
 
-    for file_name in TEMPLATE_PAGE_NAMES:
-        html = render_template(env, file_name, data=data)
+    #for file_name in TEMPLATE_PAGE_NAMES:
+    for file_name in ('temp.html', ):
+        template_name = os.path.join(DIR_NAME_TEMPLATE_PAGE, file_name)
+        html = render_template(template_name, data=data)
+        print(html)
         output_path = os.path.join(output_dir, file_name)
         utils.write(output_path, html)
     index_path = os.path.join(output_dir, TEMPLATE_PAGE_NAMES[0])
