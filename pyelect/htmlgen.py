@@ -201,6 +201,7 @@ def render_template(template_name, data):
     """
     template = get_template(template_name)
     context = Context(data)
+    context['current_page'] = os.path.basename(template_name)
     return template.render(context)
 
 

@@ -14,19 +14,11 @@
 
   {% for object in objects_by_category|get_item:category_id %}
 
-    {{ object }}
+    {% block show_category %}
+    {% endblock %}
 
   <hr>
   {% endfor %}
 {% endwith %}
-
-{% comment %}
-
-{# We need to set the block to "scoped" to make the loop variable
-   available to the block in child templates. #}
-{% block show_category %}
-{% endblock %}
-
-{% endcomment %}
 
 {% endfor %}
