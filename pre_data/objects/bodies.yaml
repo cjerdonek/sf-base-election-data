@@ -3,6 +3,7 @@ _meta:
   normalizable: true
 bodies:
   body_bart:
+    category_id: bart
     jurisdiction_id: BART
     name: BART Board of Directors
     office_name: BART Director
@@ -11,6 +12,7 @@ bodies:
     url: http://www.bart.gov/about/bod
     vote_method: FPTP
   body_ca_court_app:
+    category_id: judicial
     _notes: The state has six geographic appellate districts. The first district,
       which covers San Francisco, is divided into five non-geographical divisions
       with four justices each
@@ -25,6 +27,7 @@ bodies:
     url: http://www.courts.ca.gov/courtsofappeal.htm
     vote_method: retention
   body_ca_sa:
+    category_id: state
     jurisdiction_id: CA
     name: State Assembly
     office_name: Member of the State Assembly
@@ -32,6 +35,7 @@ bodies:
     seat_count: 80
     url: http://assembly.ca.gov/
   body_ca_sboe:
+    category_id: state
     _notes: The State Controller is the fifth member of this body.
     district_count: 4
     jurisdiction_id: CA
@@ -42,6 +46,7 @@ bodies:
     term_length: 4
     url: http://www.boe.ca.gov/
   body_ca_sc:
+    category_id: judicial
     _notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
       by the Governor and subject to retention elections.
     jurisdiction_id: CA
@@ -53,12 +58,14 @@ bodies:
     url: http://www.courts.ca.gov/supremecourt.htm
     vote_method: retention
   body_ca_ss:
+    category_id: state
     jurisdiction_id: CA
     name: State Senate
     qualified_name: California State Senate
     seat_count: 40
     url: http://senate.ca.gov/
   body_sf_boe:
+    category_id: school
     jurisdiction_id: SF
     name:
       en: Board of Education
@@ -72,6 +79,7 @@ bodies:
     url: http://www.sfusd.edu/en/about-sfusd/board-of-education
     vote_method: FPTP
   body_sf_bos:
+    category_id: city_county
     jurisdiction_id: SF
     name:
       en: Board of Supervisors
