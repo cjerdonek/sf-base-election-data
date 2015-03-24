@@ -87,17 +87,31 @@ def command_yaml_norm(ns):
 def command_yaml_temp(ns):
     path = ns.path
     data = utils.read_yaml(path)
-    bodies = data['bodies']
+    offices = data['offices']
     node = {}
-    for body in bodies:
-        id_ = body['id']
-        id_ = "body_{0}".format(id_.lower())
+    for office in offices:
+        if 'id' in office:
+            id_ = office['id']
+        elif 'name_i18n' in office:
+            id_ = office['name_i18n']
+        elif 'name' in office:
+            name = office['name']
+            id_ = "office_{0}".format(name.lower())
+        elif 'body_id' in office:
+            name = office['body_id']
+            district = office['district']
+            id_ = "office_{0}_{1}".format(name.lower(), district)
+        else:
+            raise Exception(office)
+        print(id_)
         if id_ in node:
             raise Exception(id_)
-        del body['id']
-        node[id_] = body
+        if 'id' in office:
+            del office['id']
+        node[id_] = office
+        print(office)
 
-    data['bodies'] = node
+    data['offices'] = node
     utils.write_yaml(data, path)
 
 
