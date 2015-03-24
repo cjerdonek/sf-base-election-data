@@ -586,105 +586,76 @@
             "fil": ""
         }
     },
-    "offices": [
-        {
-            "body_id": "CA_SC",
-            "name": "Chief Justice"
-        },
-        {
-            "body_id": "SF_BOS",
-            "district": 3,
-            "seed_year": 2012
-        },
-        {
-            "body_id": "BART",
-            "district": 9
-        },
-        {
-            "category_id": "city_county",
-            "mixin_id": "sf_common",
-            "name_i18n": "office_city_treasurer",
-            "seed_year": 2015,
-            "term_length": 4,
-            "twitter": "TreasurerSF",
-            "url": "http://sftreasurer.org",
-            "vote_method": "RCV"
-        },
-        {
+    "offices": {
+        "CA_CourtApp_D1_Div1_AJ": {
             "district": 1,
             "division": 1,
             "office_type_id": "CA_CourtApp_AJ",
             "seat_count": 3
         },
-        {
+        "CA_CourtApp_D1_Div1_PJ": {
+            "district": 1,
+            "division": 1,
+            "office_type_id": "CA_CourtApp_PJ"
+        },
+        "CA_CourtApp_D1_Div2_AJ": {
             "district": 1,
             "division": 2,
             "office_type_id": "CA_CourtApp_AJ",
             "seat_count": 3
         },
-        {
-            "category_id": "state",
-            "mixin_id": "ca_common",
-            "name_i18n": "office_state_secretary",
-            "seed_year": 2014,
-            "term_length": 4,
-            "twitter": "sosnews",
-            "url": "http://www.sos.ca.gov/"
-        },
-        {
+        "CA_CourtApp_D1_Div2_PJ": {
             "district": 1,
-            "division": 1,
+            "division": 2,
             "office_type_id": "CA_CourtApp_PJ"
         },
-        {
-            "body_id": "SF_BOE",
-            "seat_count": 4,
-            "seed_year": 2012
+        "CA_SC_AJ": {
+            "body_id": "CA_SC",
+            "name": "Associate Justice",
+            "seat_count": 6
         },
-        {
+        "CA_SC_CJ": {
+            "body_id": "CA_SC",
+            "name": "Chief Justice"
+        },
+        "office_assessor_recorder": {
+            "category_id": "city_county",
+            "name_i18n": "office_assessor_recorder",
+            "seed_year": 2014,
+            "term_length": 4,
+            "url": "http://www.sfassessor.org",
+            "vote_method": "RCV"
+        },
+        "office_attorney general": {
+            "name": "Attorney General",
+            "url": "http://www.oag.ca.gov/"
+        },
+        "office_bart_7": {
+            "body_id": "BART",
+            "district": 7
+        },
+        "office_bart_8": {
+            "body_id": "BART",
+            "district": 8
+        },
+        "office_bart_9": {
+            "body_id": "BART",
+            "district": 9
+        },
+        "office_ca_sa_17": {
+            "body_id": "CA_SA",
+            "district": 17
+        },
+        "office_ca_sa_19": {
             "body_id": "CA_SA",
             "district": 19
         },
-        {
-            "body_id": "US_HR",
-            "district": 12
-        },
-        {
+        "office_ca_ss_11": {
             "body_id": "CA_SS",
             "district": 11
         },
-        {
-            "body_id": "SF_BOS",
-            "district": 4,
-            "seed_year": 2014
-        },
-        {
+        "office_city_attorney": {
             "category_id": "city_county",
-            "mixin_id": "sf_common",
-            "name_i18n": "office_sheriff",
-            "seed_year": 2015,
-            "term_length": 4,
-            "twitter": "SheriffSF",
-            "url": "http://www.sfsheriff.com",
-            "vote_method": "RCV"
-        },
-        {
-            "body_id": "SF_BOS",
-            "district": 11,
-            "seed_year": 2012
-        },
-        {
-            "name": "Insurance Commissioner",
-            "url": "http://www.insurance.ca.gov/"
-        },
-        {
-            "body_id": "SF_BOS",
-            "district": 7,
-            "seed_year": 2012
-        },
-        {
-            "category_id": "city_county",
-            "mixin_id": "sf_common",
             "name_i18n": "office_city_attorney",
             "seed_year": 2015,
             "term_length": 4,
@@ -692,86 +663,21 @@
             "url": "http://www.sfcityattorney.org",
             "vote_method": "RCV"
         },
-        {
-            "category_id": "state",
-            "mixin_id": "ca_common",
-            "name_i18n": "office_state_lieutenant_governor",
-            "seed_year": 2014,
-            "term_length": 4,
-            "url": "http://www.ltg.ca.gov/"
-        },
-        {
-            "body_id": "SF_BOS",
-            "district": 9,
-            "seed_year": 2012
-        },
-        {
-            "body_id": "USA_S",
-            "district": "CA",
-            "seed_year": 2014
-        },
-        {
-            "body_id": "SF_BOS",
-            "district": 8,
-            "seed_year": 2014
-        },
-        {
-            "category_id": "state",
-            "mixin_id": "ca_common",
-            "name_i18n": "office_superintendent_of_public_instruction",
-            "partisan": false,
-            "seed_year": 2014,
-            "term_length": 4,
-            "url": "http://www.cde.ca.gov/eo"
-        },
-        {
-            "category_id": "state",
-            "mixin_id": "ca_common",
-            "name_i18n": "office_state_governor",
-            "seed_year": 2014,
-            "term_length": 4,
-            "url": "http://www.gov.ca.gov"
-        },
-        {
-            "name": "Attorney General",
-            "url": "http://www.oag.ca.gov/"
-        },
-        {
-            "body_id": "CA_SC",
-            "name": "Associate Justice",
-            "seat_count": 6
-        },
-        {
-            "body_id": "SF_BOS",
-            "district": 1,
-            "seed_year": 2012
-        },
-        {
-            "body_id": "US_HR",
-            "district": 14
-        },
-        {
-            "body_id": "SF_BOS",
-            "district": 2,
-            "seed_year": 2014
-        },
-        {
-            "body_id": "SF_CCB",
-            "seat_count": 4,
-            "seed_year": 2012
-        },
-        {
+        "office_city_treasurer": {
             "category_id": "city_county",
-            "mixin_id": "sf_common",
-            "name_i18n": "office_mayor",
+            "name_i18n": "office_city_treasurer",
             "seed_year": 2015,
             "term_length": 4,
-            "url": "http://www.sfmayor.org",
+            "twitter": "TreasurerSF",
+            "url": "http://sftreasurer.org",
             "vote_method": "RCV"
         },
-        {
+        "office_controller": {
+            "name": "Controller",
+            "url": "http://www.sco.ca.gov/"
+        },
+        "office_district_attorney": {
             "category_id": "city_county",
-            "mixin_id": "sf_common",
             "name_i18n": "office_district_attorney",
             "seed_year": 2015,
             "term_length": 4,
@@ -779,18 +685,20 @@
             "url": "http://www.sfdistrictattorney.org",
             "vote_method": "RCV"
         },
-        {
-            "body_id": "SF_BOS",
-            "district": 6,
-            "seed_year": 2014
+        "office_insurance commissioner": {
+            "name": "Insurance Commissioner",
+            "url": "http://www.insurance.ca.gov/"
         },
-        {
-            "name": "Controller",
-            "url": "http://www.sco.ca.gov/"
-        },
-        {
+        "office_mayor": {
             "category_id": "city_county",
-            "mixin_id": "sf_common",
+            "name_i18n": "office_mayor",
+            "seed_year": 2015,
+            "term_length": 4,
+            "url": "http://www.sfmayor.org",
+            "vote_method": "RCV"
+        },
+        "office_public_defender": {
+            "category_id": "city_county",
             "name_i18n": "office_public_defender",
             "seed_year": 2014,
             "term_length": 4,
@@ -798,39 +706,133 @@
             "url": "http://sfpublicdefender.org",
             "vote_method": "RCV"
         },
-        {
-            "category_id": "city_county",
-            "mixin_id": "sf_common",
-            "name_i18n": "office_assessor_recorder",
-            "seed_year": 2014,
-            "term_length": 4,
-            "url": "http://www.sfassessor.org",
-            "vote_method": "RCV"
+        "office_sf_boe_seats_3": {
+            "body_id": "SF_BOE",
+            "seat_count": 3,
+            "seed_year": 2014
         },
-        {
+        "office_sf_boe_seats_4": {
+            "body_id": "SF_BOE",
+            "seat_count": 4,
+            "seed_year": 2012
+        },
+        "office_sf_bos_1": {
+            "body_id": "SF_BOS",
+            "district": 1,
+            "seed_year": 2012
+        },
+        "office_sf_bos_10": {
             "body_id": "SF_BOS",
             "district": 10,
             "seed_year": 2014
         },
-        {
-            "body_id": "USA_S",
-            "district": "CA",
+        "office_sf_bos_11": {
+            "body_id": "SF_BOS",
+            "district": 11,
             "seed_year": 2012
         },
-        {
-            "body_id": "BART",
-            "district": 7
+        "office_sf_bos_2": {
+            "body_id": "SF_BOS",
+            "district": 2,
+            "seed_year": 2014
         },
-        {
-            "district": 1,
-            "division": 2,
-            "office_type_id": "CA_CourtApp_PJ"
+        "office_sf_bos_3": {
+            "body_id": "SF_BOS",
+            "district": 3,
+            "seed_year": 2012
         },
-        {
-            "body_id": "BART",
-            "district": 8
+        "office_sf_bos_4": {
+            "body_id": "SF_BOS",
+            "district": 4,
+            "seed_year": 2014
         },
-        {
+        "office_sf_bos_5": {
+            "body_id": "SF_BOS",
+            "district": 5,
+            "seed_year": 2012
+        },
+        "office_sf_bos_6": {
+            "body_id": "SF_BOS",
+            "district": 6,
+            "seed_year": 2014
+        },
+        "office_sf_bos_7": {
+            "body_id": "SF_BOS",
+            "district": 7,
+            "seed_year": 2012
+        },
+        "office_sf_bos_8": {
+            "body_id": "SF_BOS",
+            "district": 8,
+            "seed_year": 2014
+        },
+        "office_sf_bos_9": {
+            "body_id": "SF_BOS",
+            "district": 9,
+            "seed_year": 2012
+        },
+        "office_sf_ccb_seats_3": {
+            "body_id": "SF_CCB",
+            "seat_count": 3,
+            "seed_year": 2014
+        },
+        "office_sf_ccb_seats_4": {
+            "body_id": "SF_CCB",
+            "seat_count": 4,
+            "seed_year": 2012
+        },
+        "office_sheriff": {
+            "category_id": "city_county",
+            "name_i18n": "office_sheriff",
+            "seed_year": 2015,
+            "term_length": 4,
+            "twitter": "SheriffSF",
+            "url": "http://www.sfsheriff.com",
+            "vote_method": "RCV"
+        },
+        "office_state_governor": {
+            "category_id": "state",
+            "name_i18n": "office_state_governor",
+            "seed_year": 2014,
+            "term_length": 4,
+            "url": "http://www.gov.ca.gov"
+        },
+        "office_state_lieutenant_governor": {
+            "category_id": "state",
+            "name_i18n": "office_state_lieutenant_governor",
+            "seed_year": 2014,
+            "term_length": 4,
+            "url": "http://www.ltg.ca.gov/"
+        },
+        "office_state_secretary": {
+            "category_id": "state",
+            "name_i18n": "office_state_secretary",
+            "seed_year": 2014,
+            "term_length": 4,
+            "twitter": "sosnews",
+            "url": "http://www.sos.ca.gov/"
+        },
+        "office_superintendent_of_public_instruction": {
+            "category_id": "state",
+            "name_i18n": "office_superintendent_of_public_instruction",
+            "partisan": false,
+            "seed_year": 2014,
+            "term_length": 4,
+            "url": "http://www.cde.ca.gov/eo"
+        },
+        "office_treasurer": {
+            "name": "Treasurer",
+            "url": "http://www.treasurer.ca.gov/"
+        },
+        "office_us_hr_12": {
+            "body_id": "US_HR",
+            "district": 12
+        },
+        "office_us_hr_14": {
+            "body_id": "US_HR",
+            "district": 14
+        },
+        "office_usa_president_of_the_united_states": {
             "category_id": "federal",
             "name_i18n": "office_usa_president_of_the_united_states",
             "seed_year": 2016,
@@ -838,28 +840,15 @@
             "twitter": "WhiteHouse",
             "url": "https://www.whitehouse.gov/"
         },
-        {
-            "name": "Treasurer",
-            "url": "http://www.treasurer.ca.gov/"
-        },
-        {
-            "body_id": "SF_BOE",
-            "seat_count": 3,
+        "office_usa_senate_1": {
+            "body_id": "USA_S",
+            "district": "CA",
             "seed_year": 2014
         },
-        {
-            "body_id": "SF_CCB",
-            "seat_count": 3,
-            "seed_year": 2014
-        },
-        {
-            "body_id": "CA_SA",
-            "district": 17
-        },
-        {
-            "body_id": "SF_BOS",
-            "district": 5,
+        "office_usa_senate_2": {
+            "body_id": "USA_S",
+            "district": "CA",
             "seed_year": 2012
         }
-    ]
+    }
 }
