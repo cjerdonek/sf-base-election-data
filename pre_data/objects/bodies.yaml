@@ -1,5 +1,5 @@
 _meta:
-  _auto: 'WARNING: comments will be deleted during normalization'
+  _comment: 'WARNING: comments will be deleted automatically during normalization'
   normalizable: true
 bodies:
   body_bart:
@@ -12,10 +12,10 @@ bodies:
     url: http://www.bart.gov/about/bod
     vote_method: FPTP
   body_ca_court_app:
-    category_id: judicial
     _notes: The state has six geographic appellate districts. The first district,
       which covers San Francisco, is divided into five non-geographical divisions
       with four justices each
+    category_id: judicial
     jurisdiction_id: CA
     name:
       en: Court of Appeal
@@ -35,8 +35,8 @@ bodies:
     seat_count: 80
     url: http://assembly.ca.gov/
   body_ca_sboe:
-    category_id: state
     _notes: The State Controller is the fifth member of this body.
+    category_id: state
     district_count: 4
     jurisdiction_id: CA
     name: State Board of Equalization
@@ -46,9 +46,9 @@ bodies:
     term_length: 4
     url: http://www.boe.ca.gov/
   body_ca_sc:
-    category_id: judicial
     _notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
       by the Governor and subject to retention elections.
+    category_id: judicial
     jurisdiction_id: CA
     name:
       en: Supreme Court
@@ -128,9 +128,9 @@ bodies:
     name: Republican County Central Committee
     url: http://sfgop.org/
   body_sf_sc:
-    category_id: judicial
     _notes: The San Francisco Superior Court Bench is comprised of 52 Judges and one
       Commissioner.
+    category_id: judicial
     jurisdiction_id: SF
     name:
       en: Superior Court
