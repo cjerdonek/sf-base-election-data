@@ -103,10 +103,10 @@ def make_node_offices(node_name, mixins):
     """Return the node containing internationalized data."""
     offices, meta = get_object_data('offices')
 
-    # TODO: convert this to a dict with office_id's.
-    node = []
-    for office in offices:
+    node = {}
+    for office_id, office in offices.items():
         try:
+            print(office)
             mixin_id = office['mixin_id']
         except KeyError:
             pass
@@ -114,9 +114,10 @@ def make_node_offices(node_name, mixins):
             # Make the office "extend" from the mixin.
             office_new = deepcopy(mixins[mixin_id])
             office_new.update(office)
+            del office_new['mixin_id']
             office = office_new
 
-        node.append(office)
+        node[office_id] = office
 
     return node
 
