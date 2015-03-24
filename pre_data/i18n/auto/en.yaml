@@ -1,207 +1,207 @@
 texts:
-  category_city_county:
+  text_category_city_county:
     en: CITY AND COUNTY
-  category_city_county_edge:
+  text_category_city_county_edge:
     en: ''
-  category_federal:
+  text_category_federal:
     en: FEDERAL
-  category_federal_edge:
+  text_category_federal_edge:
     en: ''
-  category_judicial:
+  text_category_judicial:
     en: JUDICIAL
-  category_judicial_edge:
+  text_category_judicial_edge:
     en: ''
-  category_school:
+  text_category_school:
     en: SCHOOL
-  category_school_edge:
+  text_category_school_edge:
     en: ''
-  category_state:
+  text_category_state:
     en: STATE
-  category_state_edge:
+  text_category_state_edge:
     en: ''
-  choice_1:
+  text_choice_1:
     en: FIRST CHOICE
-  choice_1_edge:
+  text_choice_1_edge:
     en: ''
-  choice_2:
+  text_choice_2:
     en: SECOND CHOICE
-  choice_2_edge:
+  text_choice_2_edge:
     en: ''
-  choice_3:
+  text_choice_3:
     en: THIRD CHOICE
-  choice_3_edge:
+  text_choice_3_edge:
     en: ''
-  county_transportation_authority_proposition:
+  text_county_transportation_authority_proposition:
     en: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
-  county_transportation_authority_proposition_edge:
+  text_county_transportation_authority_proposition_edge:
     en: ''
-  district:
+  text_district:
     en: DISTRICT
-  district_edge:
+  text_district_edge:
     en: ''
-  header_city_county_propositions:
+  text_header_city_county_propositions:
     en: CITY & COUNTY PROPOSITIONS
-  header_city_county_propositions_edge:
+  text_header_city_county_propositions_edge:
     en: ''
-  header_measures_submitted_to_the_voters:
+  text_header_measures_submitted_to_the_voters:
     en: MEASURES SUBMITTED TO THE VOTERS
-  header_measures_submitted_to_the_voters_edge:
+  text_header_measures_submitted_to_the_voters_edge:
     en: ''
-  header_party_nominated_offices:
+  text_header_party_nominated_offices:
     en: PARTY-NOMINATED OFFICES
-  header_party_nominated_offices_edge:
+  text_header_party_nominated_offices_edge:
     en: ''
-  header_school_propositions:
+  text_header_school_propositions:
     en: SCHOOL PROPOSITIONS
-  header_school_propositions_edge:
+  text_header_school_propositions_edge:
     en: ''
-  header_state_propositions:
+  text_header_state_propositions:
     en: STATE PROPOSITIONS
-  header_state_propositions_edge:
+  text_header_state_propositions_edge:
     en: ''
-  header_voter_nominated_offices:
+  text_header_voter_nominated_offices:
     en: VOTER-NOMINATED OFFICES
-  header_voter_nominated_offices_edge:
+  text_header_voter_nominated_offices_edge:
     en: ''
-  office_assessor_recorder:
+  text_office_assessor_recorder:
     en: ASSESSOR-RECORDER
-  office_assessor_recorder_edge:
+  text_office_assessor_recorder_edge:
     en: ASSESSOR-RECORDER
-  office_bart_director:
+  text_office_bart_director:
     en: BART DIRECTOR
-  office_city_attorney:
+  text_office_city_attorney:
     en: CITY ATTORNEY
-  office_city_attorney_edge:
+  text_office_city_attorney_edge:
     en: CITY ATTORNEY
-  office_city_treasurer:
+  text_office_city_treasurer:
     en: TREASURER
-  office_city_treasurer_edge:
+  text_office_city_treasurer_edge:
     en: TREASURER
-  office_controller:
+  text_office_controller:
     en: CONTROLLER
-  office_controller_edge:
+  text_office_controller_edge:
     en: CONTROLLER
-  office_district_attorney:
+  text_office_district_attorney:
     en: DISTRICT ATTORNEY
-  office_district_attorney_edge:
+  text_office_district_attorney_edge:
     en: DISTRICT ATTORNEY
-  office_judge_of_the_superior_court:
+  text_office_judge_of_the_superior_court:
     en: JUDGE OF THE SUPERIOR COURT,
-  office_mayor:
+  text_office_mayor:
     en: MAYOR
-  office_mayor_edge:
+  text_office_mayor_edge:
     en: MAYOR
-  office_member_board_of_education:
+  text_office_member_board_of_education:
     en: MEMBER, BOARD OF EDUCATION
-  office_member_board_of_education_edge:
+  text_office_member_board_of_education_edge:
     en: BOARD OF EDUCATION
-  office_member_board_of_supervisors:
+  text_office_member_board_of_supervisors:
     en: MEMBER, BOARD OF SUPERVISORS
-  office_member_community_college_board:
+  text_office_member_community_college_board:
     en: MEMBER, COMMUNITY COLLEGE BOARD
-  office_member_community_college_board_edge:
+  text_office_member_community_college_board_edge:
     en: COMMUNITY COLLEGE BOARD
-  office_member_county_central_committee:
+  text_office_member_county_central_committee:
     en: MEMBER, COUNTY CENTRAL COMMITTEE
-  office_member_county_central_committee_edge:
+  text_office_member_county_central_committee_edge:
     en: COUNTY CENTRAL COMMITTEE
-  office_member_county_council:
+  text_office_member_county_council:
     en: MEMBER, COUNTY COUNCIL
-  office_member_county_council_edge:
+  text_office_member_county_council_edge:
     en: COUNTY COUNCIL
-  office_member_of_the_state_assembly:
+  text_office_member_of_the_state_assembly:
     en: MEMBER OF THE STATE ASSEMBLY
-  office_member_of_the_state_assembly_edge:
+  text_office_member_of_the_state_assembly_edge:
     en: MEMBER, STATE ASSEMBLY
-  office_member_state_board_of_eq_d2:
+  text_office_member_state_board_of_eq_d2:
     en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
-  office_member_state_board_of_eq_d2_edge:
+  text_office_member_state_board_of_eq_d2_edge:
     en: BOARD OF EQUALIZATION D2
-  office_public_defender:
+  text_office_public_defender:
     en: PUBLIC DEFENDER
-  office_public_defender_edge:
+  text_office_public_defender_edge:
     en: PUBLIC DEFENDER
-  office_sheriff:
+  text_office_sheriff:
     en: SHERIFF
-  office_sheriff_edge:
+  text_office_sheriff_edge:
     en: SHERIFF
-  office_state_attorney_general:
+  text_office_state_attorney_general:
     en: ATTORNEY GENERAL
-  office_state_attorney_general_edge:
+  text_office_state_attorney_general_edge:
     en: ATTORNEY GENERAL
-  office_state_governor:
+  text_office_state_governor:
     en: GOVERNOR
-  office_state_governor_edge:
+  text_office_state_governor_edge:
     en: GOVERNOR
-  office_state_insurance_commissioner:
+  text_office_state_insurance_commissioner:
     en: INSURANCE COMMISSIONER
-  office_state_insurance_commissioner_edge:
+  text_office_state_insurance_commissioner_edge:
     en: INSURANCE COMMISSIONER
-  office_state_lieutenant_governor:
+  text_office_state_lieutenant_governor:
     en: LIEUTENANT GOVERNOR
-  office_state_lieutenant_governor_edge:
+  text_office_state_lieutenant_governor_edge:
     en: LIEUTENANT GOVERNOR
-  office_state_secretary:
+  text_office_state_secretary:
     en: SECRETARY OF STATE
-  office_state_secretary_edge:
+  text_office_state_secretary_edge:
     en: SECRETARY OF STATE
-  office_state_senator:
+  text_office_state_senator:
     en: STATE SENATOR
-  office_state_senator_edge:
+  text_office_state_senator_edge:
     en: STATE SENATOR
-  office_superintendent_of_public_instruction:
+  text_office_superintendent_of_public_instruction:
     en: SUPERINTENDENT OF PUBLIC INSTRUCTION
-  office_superintendent_of_public_instruction_edge:
+  text_office_superintendent_of_public_instruction_edge:
     en: SUP OF PUBLIC INSTRUCTN
-  office_usa_president_and_vice_president:
+  text_office_usa_president_and_vice_president:
     en: PRESIDENT AND VICE PRESIDENT
-  office_usa_president_and_vice_president_edge:
+  text_office_usa_president_and_vice_president_edge:
     en: PRESIDENT & VICE PRES.
-  office_usa_president_of_the_united_states:
+  text_office_usa_president_of_the_united_states:
     en: PRESIDENT OF THE UNITED STATES
-  office_usa_president_of_the_united_states_edge:
+  text_office_usa_president_of_the_united_states_edge:
     en: U.S. PRESIDENT
-  office_usa_representative:
+  text_office_usa_representative:
     en: UNITED STATES REPRESENTATIVE
-  office_usa_representative_edge:
+  text_office_usa_representative_edge:
     en: U.S. REPRESENTATIVE
-  office_usa_senator:
+  text_office_usa_senator:
     en: UNITED STATES SENATOR
-  office_usa_senator_edge:
+  text_office_usa_senator_edge:
     en: UNITED STATES SENATOR
-  preference_party:
+  text_preference_party:
     en: 'Party Preference:'
-  preference_party_edge:
+  text_preference_party_edge:
     en: ''
-  preference_presidential:
+  text_preference_presidential:
     en: Presidential Preference
-  preference_presidential_edge:
+  text_preference_presidential_edge:
     en: ''
-  vote_for_no_more_than_three_or_four:
+  text_vote_for_no_more_than_three_or_four:
     en: Vote for no more than (Three or Four)
-  vote_for_no_more_than_three_or_four_edge:
+  text_vote_for_no_more_than_three_or_four_edge:
     en: ''
-  vote_for_one:
+  text_vote_for_one:
     en: Vote for One
-  vote_for_one_edge:
+  text_vote_for_one_edge:
     en: ''
-  vote_for_one_party:
+  text_vote_for_one_party:
     en: Vote for One Party
-  vote_for_one_party_edge:
+  text_vote_for_one_party_edge:
     en: ''
-  vote_rcv_choice_2:
+  text_vote_rcv_choice_2:
     en: 'Vote for One: Must be different than your first choice'
-  vote_rcv_choice_2_edge:
+  text_vote_rcv_choice_2_edge:
     en: ''
-  vote_rcv_choice_3:
+  text_vote_rcv_choice_3:
     en: 'Vote for One: Must be different than your first and second choices'
-  vote_rcv_choice_3_edge:
+  text_vote_rcv_choice_3_edge:
     en: ''
-  vote_yes_or_no_for_each_office:
+  text_vote_yes_or_no_for_each_office:
     en: Vote YES or NO for each office
-  vote_yes_or_no_for_each_office_edge:
+  text_vote_yes_or_no_for_each_office_edge:
     en: ''
-  vote_your_first_second_and_third_choices:
+  text_vote_your_first_second_and_third_choices:
     en: Vote your first, second, and third choices
-  vote_your_first_second_and_third_choices_edge:
+  text_vote_your_first_second_and_third_choices_edge:
     en: ''

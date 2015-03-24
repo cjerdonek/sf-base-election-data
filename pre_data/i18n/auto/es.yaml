@@ -1,311 +1,311 @@
 texts:
-  category_city_county:
+  text_category_city_county:
     _en: CITY AND COUNTY
     es: CIUDAD Y CONDADO
-  category_city_county_edge:
+  text_category_city_county_edge:
     _en: ''
     es: ''
-  category_federal:
+  text_category_federal:
     _en: FEDERAL
     es: FEDERAL
-  category_federal_edge:
+  text_category_federal_edge:
     _en: ''
     es: ''
-  category_judicial:
+  text_category_judicial:
     _en: JUDICIAL
     es: JUDICIAL
-  category_judicial_edge:
+  text_category_judicial_edge:
     _en: ''
     es: ''
-  category_school:
+  text_category_school:
     _en: SCHOOL
     es: ESCUELA
-  category_school_edge:
+  text_category_school_edge:
     _en: ''
     es: ''
-  category_state:
+  text_category_state:
     _en: STATE
     es: ESTADO
-  category_state_edge:
+  text_category_state_edge:
     _en: ''
     es: ''
-  choice_1:
+  text_choice_1:
     _en: FIRST CHOICE
     es: PRIMERA PREFERENCIA
-  choice_1_edge:
+  text_choice_1_edge:
     _en: ''
     es: ''
-  choice_2:
+  text_choice_2:
     _en: SECOND CHOICE
     es: SEGUNDA PREFERENCIA
-  choice_2_edge:
+  text_choice_2_edge:
     _en: ''
     es: ''
-  choice_3:
+  text_choice_3:
     _en: THIRD CHOICE
     es: TERCERA PREFERENCIA
-  choice_3_edge:
+  text_choice_3_edge:
     _en: ''
     es: ''
-  county_transportation_authority_proposition:
+  text_county_transportation_authority_proposition:
     _en: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
     es: PROPOSICIÓN DE LA AUTORIDAD DE TRANSPORTE DEL CONDADO
-  county_transportation_authority_proposition_edge:
+  text_county_transportation_authority_proposition_edge:
     _en: ''
     es: ''
-  district:
+  text_district:
     _en: DISTRICT
     es: DISTRITO
-  district_edge:
+  text_district_edge:
     _en: ''
     es: ''
-  header_city_county_propositions:
+  text_header_city_county_propositions:
     _en: CITY & COUNTY PROPOSITIONS
     es: PROPOSICIONES DE LA CIUDAD Y EL CONDADO
-  header_city_county_propositions_edge:
+  text_header_city_county_propositions_edge:
     _en: ''
     es: ''
-  header_measures_submitted_to_the_voters:
+  text_header_measures_submitted_to_the_voters:
     _en: MEASURES SUBMITTED TO THE VOTERS
     es: INICIATIVAS DE LEY PRESENTADAS A LOS ELECTORES
-  header_measures_submitted_to_the_voters_edge:
+  text_header_measures_submitted_to_the_voters_edge:
     _en: ''
     es: ''
-  header_party_nominated_offices:
+  text_header_party_nominated_offices:
     _en: PARTY-NOMINATED OFFICES
     es: CARGOS NOMINADOS POR LOS PARTIDOS
-  header_party_nominated_offices_edge:
+  text_header_party_nominated_offices_edge:
     _en: ''
     es: ''
-  header_school_propositions:
+  text_header_school_propositions:
     _en: SCHOOL PROPOSITIONS
     es: PROPOSICIONES ESCOLARES
-  header_school_propositions_edge:
+  text_header_school_propositions_edge:
     _en: ''
     es: ''
-  header_state_propositions:
+  text_header_state_propositions:
     _en: STATE PROPOSITIONS
     es: PROPOSICIONES ESTATALES
-  header_state_propositions_edge:
+  text_header_state_propositions_edge:
     _en: ''
     es: ''
-  header_voter_nominated_offices:
+  text_header_voter_nominated_offices:
     _en: VOTER-NOMINATED OFFICES
     es: CARGOS NOMINADOS POR LOS ELECTORES
-  header_voter_nominated_offices_edge:
+  text_header_voter_nominated_offices_edge:
     _en: ''
     es: ''
-  office_assessor_recorder:
+  text_office_assessor_recorder:
     _en: ASSESSOR-RECORDER
     es: TASADOR-REGISTRADOR
-  office_assessor_recorder_edge:
+  text_office_assessor_recorder_edge:
     _en: ASSESSOR-RECORDER
     es: TASADOR-REGISTRADOR
-  office_bart_director:
+  text_office_bart_director:
     _en: BART DIRECTOR
     es: DIRECTOR DE BART
-  office_city_attorney:
+  text_office_city_attorney:
     _en: CITY ATTORNEY
     es: ABOGADO DE LA CIUDAD
-  office_city_attorney_edge:
+  text_office_city_attorney_edge:
     _en: CITY ATTORNEY
     es: ABOGADO DE LA CIUDAD
-  office_city_treasurer:
+  text_office_city_treasurer:
     _en: TREASURER
     es: TESORERO
-  office_city_treasurer_edge:
+  text_office_city_treasurer_edge:
     _en: TREASURER
     es: TESORERO
-  office_controller:
+  text_office_controller:
     _en: CONTROLLER
     es: CONTRALOR
-  office_controller_edge:
+  text_office_controller_edge:
     _en: CONTROLLER
     es: CONTRALOR
-  office_district_attorney:
+  text_office_district_attorney:
     _en: DISTRICT ATTORNEY
     es: FISCAL DEL DISTRITO
-  office_district_attorney_edge:
+  text_office_district_attorney_edge:
     _en: DISTRICT ATTORNEY
     es: FISCAL DEL DISTRITO
-  office_judge_of_the_superior_court:
+  text_office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
     es: JUEZ DEL TRIBUNAL SUPERIOR,
-  office_mayor:
+  text_office_mayor:
     _en: MAYOR
     es: ALCALDE
-  office_mayor_edge:
+  text_office_mayor_edge:
     _en: MAYOR
     es: ALCALDE
-  office_member_board_of_education:
+  text_office_member_board_of_education:
     _en: MEMBER, BOARD OF EDUCATION
     es: MIEMBRO, CONSEJO DE EDUCACIÓN
-  office_member_board_of_education_edge:
+  text_office_member_board_of_education_edge:
     _en: BOARD OF EDUCATION
     es: CONSEJO DE EDUCACIÓN
-  office_member_board_of_supervisors:
+  text_office_member_board_of_supervisors:
     _en: MEMBER, BOARD OF SUPERVISORS
     es: MIEMBRO, CONSEJO DE SUPERVISORES
-  office_member_community_college_board:
+  text_office_member_community_college_board:
     _en: MEMBER, COMMUNITY COLLEGE BOARD
     es: MIEMBRO, CONSEJO DEL COLEGIO COMUNITARIO
-  office_member_community_college_board_edge:
+  text_office_member_community_college_board_edge:
     _en: COMMUNITY COLLEGE BOARD
     es: CONSEJO COLEGIO COMUNIT.
-  office_member_county_central_committee:
+  text_office_member_county_central_committee:
     _en: MEMBER, COUNTY CENTRAL COMMITTEE
     es: MIEMBRO, COMITÉ CENTRAL DEL CONDADO
-  office_member_county_central_committee_edge:
+  text_office_member_county_central_committee_edge:
     _en: COUNTY CENTRAL COMMITTEE
     es: COMITÉ CENTRAL CONDADO
-  office_member_county_council:
+  text_office_member_county_council:
     _en: MEMBER, COUNTY COUNCIL
     es: MIEMBRO, CONSEJO DEL CONDADO
-  office_member_county_council_edge:
+  text_office_member_county_council_edge:
     _en: COUNTY COUNCIL
     es: CONSEJO CONDADO
-  office_member_of_the_state_assembly:
+  text_office_member_of_the_state_assembly:
     _en: MEMBER OF THE STATE ASSEMBLY
     es: MIEMBRO DE LA ASAMBLEA DEL ESTADO
-  office_member_of_the_state_assembly_edge:
+  text_office_member_of_the_state_assembly_edge:
     _en: MEMBER, STATE ASSEMBLY
     es: ASAMBLEA DEL ESTADO
-  office_member_state_board_of_eq_d2:
+  text_office_member_state_board_of_eq_d2:
     _en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
     es: MIEMBRO, DIRECTIVA ESTATAL DE IMPUESTOS SOBRE VENTAS, USO, Y OTROS, DISTRITO
       2
-  office_member_state_board_of_eq_d2_edge:
+  text_office_member_state_board_of_eq_d2_edge:
     _en: BOARD OF EQUALIZATION D2
     es: DIRECTIVA IGUALACIÓN
-  office_public_defender:
+  text_office_public_defender:
     _en: PUBLIC DEFENDER
     es: DEFENSOR PÚBLICO
-  office_public_defender_edge:
+  text_office_public_defender_edge:
     _en: PUBLIC DEFENDER
     es: DEFENSOR PÚBLICO
-  office_sheriff:
+  text_office_sheriff:
     _en: SHERIFF
     es: ALGUACIL
-  office_sheriff_edge:
+  text_office_sheriff_edge:
     _en: SHERIFF
     es: ALGUACIL
-  office_state_attorney_general:
+  text_office_state_attorney_general:
     _en: ATTORNEY GENERAL
     es: PROCURADOR GENERAL
-  office_state_attorney_general_edge:
+  text_office_state_attorney_general_edge:
     _en: ATTORNEY GENERAL
     es: PROCURADOR GENERAL
-  office_state_governor:
+  text_office_state_governor:
     _en: GOVERNOR
     es: GOBERNADOR
-  office_state_governor_edge:
+  text_office_state_governor_edge:
     _en: GOVERNOR
     es: GOBERNADOR
-  office_state_insurance_commissioner:
+  text_office_state_insurance_commissioner:
     _en: INSURANCE COMMISSIONER
     es: COMISIONADO DE SEGUROS
-  office_state_insurance_commissioner_edge:
+  text_office_state_insurance_commissioner_edge:
     _en: INSURANCE COMMISSIONER
     es: COMISIONADO DE SEGUROS
-  office_state_lieutenant_governor:
+  text_office_state_lieutenant_governor:
     _en: LIEUTENANT GOVERNOR
     es: VICEGOBERNADOR
-  office_state_lieutenant_governor_edge:
+  text_office_state_lieutenant_governor_edge:
     _en: LIEUTENANT GOVERNOR
     es: VICEGOBERNADOR
-  office_state_secretary:
+  text_office_state_secretary:
     _en: SECRETARY OF STATE
     es: SECRETARIO DE ESTADO
-  office_state_secretary_edge:
+  text_office_state_secretary_edge:
     _en: SECRETARY OF STATE
     es: SECRETARIO DE ESTADO
-  office_state_senator:
+  text_office_state_senator:
     _en: STATE SENATOR
     es: SENADOR ESTATAL
-  office_state_senator_edge:
+  text_office_state_senator_edge:
     _en: STATE SENATOR
     es: SENADOR ESTATAL
-  office_superintendent_of_public_instruction:
+  text_office_superintendent_of_public_instruction:
     _en: SUPERINTENDENT OF PUBLIC INSTRUCTION
     es: SUPERINTENDENTE DE INSTRUCCIÓN PÚBLICA
-  office_superintendent_of_public_instruction_edge:
+  text_office_superintendent_of_public_instruction_edge:
     _en: SUP OF PUBLIC INSTRUCTN
     es: SUPERINT. INSTRUCC. PÚB.
-  office_usa_president_and_vice_president:
+  text_office_usa_president_and_vice_president:
     _en: PRESIDENT AND VICE PRESIDENT
     es: PRESIDENTE Y VICEPRESIDENTE
-  office_usa_president_and_vice_president_edge:
+  text_office_usa_president_and_vice_president_edge:
     _en: PRESIDENT & VICE PRES.
     es: PRESIDENTE Y VICEPRES.
-  office_usa_president_of_the_united_states:
+  text_office_usa_president_of_the_united_states:
     _en: PRESIDENT OF THE UNITED STATES
     es: PRESIDENTE DE ESTADOS UNIDOS
-  office_usa_president_of_the_united_states_edge:
+  text_office_usa_president_of_the_united_states_edge:
     _en: U.S. PRESIDENT
     es: PRESIDENTE DE EE.UU.
-  office_usa_representative:
+  text_office_usa_representative:
     _en: UNITED STATES REPRESENTATIVE
     es: REPRESENTANTE DE ESTADOS UNIDOS
-  office_usa_representative_edge:
+  text_office_usa_representative_edge:
     _en: U.S. REPRESENTATIVE
     es: REPRESENTANTE DE EE.UU.
-  office_usa_senator:
+  text_office_usa_senator:
     _en: UNITED STATES SENATOR
     es: SENADOR DE ESTADOS UNIDOS
-  office_usa_senator_edge:
+  text_office_usa_senator_edge:
     _en: UNITED STATES SENATOR
     es: SENADOR DE EE.UU.
-  preference_party:
+  text_preference_party:
     _en: 'Party Preference:'
     es: 'Preferencia por partido:'
-  preference_party_edge:
+  text_preference_party_edge:
     _en: ''
     es: ''
-  preference_presidential:
+  text_preference_presidential:
     _en: Presidential Preference
     es: Preferencia por un candidato presidencial
-  preference_presidential_edge:
+  text_preference_presidential_edge:
     _en: ''
     es: ''
-  vote_for_no_more_than_three_or_four:
+  text_vote_for_no_more_than_three_or_four:
     _en: Vote for no more than (Three or Four)
     es: Vote por no más de x
-  vote_for_no_more_than_three_or_four_edge:
+  text_vote_for_no_more_than_three_or_four_edge:
     _en: ''
     es: ''
-  vote_for_one:
+  text_vote_for_one:
     _en: Vote for One
     es: Vote por uno
-  vote_for_one_edge:
+  text_vote_for_one_edge:
     _en: ''
     es: ''
-  vote_for_one_party:
+  text_vote_for_one_party:
     _en: Vote for One Party
     es: Vote por un partido
-  vote_for_one_party_edge:
+  text_vote_for_one_party_edge:
     _en: ''
     es: ''
-  vote_rcv_choice_2:
+  text_vote_rcv_choice_2:
     _en: 'Vote for One: Must be different than your first choice'
     es: 'Vote por uno: Tiene que ser diferente a su primera preferencia'
-  vote_rcv_choice_2_edge:
+  text_vote_rcv_choice_2_edge:
     _en: ''
     es: ''
-  vote_rcv_choice_3:
+  text_vote_rcv_choice_3:
     _en: 'Vote for One: Must be different than your first and second choices'
     es: 'Vote por uno: Tiene que ser diferente a su primera y segunda preferencias'
-  vote_rcv_choice_3_edge:
+  text_vote_rcv_choice_3_edge:
     _en: ''
     es: ''
-  vote_yes_or_no_for_each_office:
+  text_vote_yes_or_no_for_each_office:
     _en: Vote YES or NO for each office
     es: Vote SÍ o NO por cada cargo
-  vote_yes_or_no_for_each_office_edge:
+  text_vote_yes_or_no_for_each_office_edge:
     _en: ''
     es: ''
-  vote_your_first_second_and_third_choices:
+  text_vote_your_first_second_and_third_choices:
     _en: Vote your first, second, and third choices
     es: Vote por su primera, segunda y tercera preferencias
-  vote_your_first_second_and_third_choices_edge:
+  text_vote_your_first_second_and_third_choices_edge:
     _en: ''
     es: ''

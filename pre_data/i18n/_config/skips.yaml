@@ -1,9 +1,9 @@
 # This file contains a list of English phrases from which we should not
 # create a text ID.
 text_ids:
-  - office_bart_director_edge
-  - office_member_board_of_supervisors_edge
-  - office_judge_of_the_superior_court_edge
+  - text_office_bart_director_edge
+  - text_office_member_board_of_supervisors_edge
+  - text_office_judge_of_the_superior_court_edge
 phrases:
   # We skip the following one because it has a comma.
   # TODO: make this have the same ID as "MEMBER, COUNTY CENTRAL COMMITTEE".

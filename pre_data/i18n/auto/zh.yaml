@@ -1,160 +1,160 @@
 texts:
-  category_city_county:
+  text_category_city_county:
     _en: CITY AND COUNTY
     zh: 市縣
-  category_federal:
+  text_category_federal:
     _en: FEDERAL
     zh: 聯邦
-  category_judicial:
+  text_category_judicial:
     _en: JUDICIAL
     zh: 司法
-  category_school:
+  text_category_school:
     _en: SCHOOL
     zh: 學校
-  category_state:
+  text_category_state:
     _en: STATE
     zh: 州
-  choice_1:
+  text_choice_1:
     _en: FIRST CHOICE
     zh: 第一選擇
-  choice_2:
+  text_choice_2:
     _en: SECOND CHOICE
     zh: 第二選擇
-  choice_3:
+  text_choice_3:
     _en: THIRD CHOICE
     zh: 第三選擇
-  county_transportation_authority_proposition:
+  text_county_transportation_authority_proposition:
     _en: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
     zh: 縣交通局提案
-  district:
+  text_district:
     _en: DISTRICT
     zh: 區
-  header_city_county_propositions:
+  text_header_city_county_propositions:
     _en: CITY & COUNTY PROPOSITIONS
     zh: 市縣提案
-  header_measures_submitted_to_the_voters:
+  text_header_measures_submitted_to_the_voters:
     _en: MEASURES SUBMITTED TO THE VOTERS
     zh: 提交選民投票表決的提案
-  header_party_nominated_offices:
+  text_header_party_nominated_offices:
     _en: PARTY-NOMINATED OFFICES
     zh: 政黨提名職位
-  header_school_propositions:
+  text_header_school_propositions:
     _en: SCHOOL PROPOSITIONS
     zh: 學校提案
-  header_state_propositions:
+  text_header_state_propositions:
     _en: STATE PROPOSITIONS
     zh: 州提案
-  header_voter_nominated_offices:
+  text_header_voter_nominated_offices:
     _en: VOTER-NOMINATED OFFICES
     zh: 選民提名職位
-  office_assessor_recorder:
+  text_office_assessor_recorder:
     _en: ASSESSOR-RECORDER
     zh: 估值官-記錄官
-  office_bart_director:
+  text_office_bart_director:
     _en: BART DIRECTOR
     zh: 灣區捷運董事,
-  office_city_attorney:
+  text_office_city_attorney:
     _en: CITY ATTORNEY
     zh: 市府律師
-  office_city_treasurer:
+  text_office_city_treasurer:
     _en: TREASURER
     zh: 財政官
-  office_controller:
+  text_office_controller:
     _en: CONTROLLER
     zh: 主計長
-  office_district_attorney:
+  text_office_district_attorney:
     _en: DISTRICT ATTORNEY
     zh: 地方檢察官
-  office_judge_of_the_superior_court:
+  text_office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
     zh: 高等法院法官，
-  office_mayor:
+  text_office_mayor:
     _en: MAYOR
     zh: 市長
-  office_member_board_of_education:
+  text_office_member_board_of_education:
     _en: MEMBER, BOARD OF EDUCATION
     zh: 教育委員會成員
-  office_member_board_of_supervisors:
+  text_office_member_board_of_supervisors:
     _en: MEMBER, BOARD OF SUPERVISORS
     zh: 市參議員
-  office_member_community_college_board:
+  text_office_member_community_college_board:
     _en: MEMBER, COMMUNITY COLLEGE BOARD
     zh: 社區大學董事會成員
-  office_member_county_central_committee:
+  text_office_member_county_central_committee:
     _en: MEMBER, COUNTY CENTRAL COMMITTEE
     zh: 縣中央委員會委員
-  office_member_county_council:
+  text_office_member_county_council:
     _en: MEMBER, COUNTY COUNCIL
     zh: 縣委員會委員
-  office_member_of_the_state_assembly:
+  text_office_member_of_the_state_assembly:
     _en: MEMBER OF THE STATE ASSEMBLY
     zh: 州眾議員
-  office_member_state_board_of_eq_d2:
+  text_office_member_state_board_of_eq_d2:
     _en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
     zh: 州平稅局第2選區成員
-  office_public_defender:
+  text_office_public_defender:
     _en: PUBLIC DEFENDER
     zh: 公共辯護律師
-  office_sheriff:
+  text_office_sheriff:
     _en: SHERIFF
     zh: 縣警長
-  office_state_attorney_general:
+  text_office_state_attorney_general:
     _en: ATTORNEY GENERAL
     zh: 司法部長
-  office_state_governor:
+  text_office_state_governor:
     _en: GOVERNOR
     zh: 州長
-  office_state_insurance_commissioner:
+  text_office_state_insurance_commissioner:
     _en: INSURANCE COMMISSIONER
     zh: 保險部長
-  office_state_lieutenant_governor:
+  text_office_state_lieutenant_governor:
     _en: LIEUTENANT GOVERNOR
     zh: 副州長
-  office_state_secretary:
+  text_office_state_secretary:
     _en: SECRETARY OF STATE
     zh: 州務卿
-  office_state_senator:
+  text_office_state_senator:
     _en: STATE SENATOR
     zh: 州參議員
-  office_superintendent_of_public_instruction:
+  text_office_superintendent_of_public_instruction:
     _en: SUPERINTENDENT OF PUBLIC INSTRUCTION
     zh: 教育部長
-  office_usa_president_and_vice_president:
+  text_office_usa_president_and_vice_president:
     _en: PRESIDENT AND VICE PRESIDENT
     zh: 總統和副總統
-  office_usa_president_of_the_united_states:
+  text_office_usa_president_of_the_united_states:
     _en: PRESIDENT OF THE UNITED STATES
     zh: 美國總統
-  office_usa_representative:
+  text_office_usa_representative:
     _en: UNITED STATES REPRESENTATIVE
     zh: 美國眾議員
-  office_usa_senator:
+  text_office_usa_senator:
     _en: UNITED STATES SENATOR
     zh: 美國參議員
-  preference_party:
+  text_preference_party:
     _en: 'Party Preference:'
     zh: 政黨傾向：
-  preference_presidential:
+  text_preference_presidential:
     _en: Presidential Preference
     zh: 選擇總統候選人
-  vote_for_no_more_than_three_or_four:
+  text_vote_for_no_more_than_three_or_four:
     _en: Vote for no more than (Three or Four)
     zh: 選不超過X名
-  vote_for_one:
+  text_vote_for_one:
     _en: Vote for One
     zh: 選一名
-  vote_for_one_party:
+  text_vote_for_one_party:
     _en: Vote for One Party
     zh: 選一黨
-  vote_rcv_choice_2:
+  text_vote_rcv_choice_2:
     _en: 'Vote for One: Must be different than your first choice'
     zh: 選一名： 必須與第一個選擇不同
-  vote_rcv_choice_3:
+  text_vote_rcv_choice_3:
     _en: 'Vote for One: Must be different than your first and second choices'
     zh: 選一名： 必須與第一個和第二個選擇不同
-  vote_yes_or_no_for_each_office:
+  text_vote_yes_or_no_for_each_office:
     _en: Vote YES or NO for each office
     zh: 為每位選擇「贊成」或「反對」
-  vote_your_first_second_and_third_choices:
+  text_vote_your_first_second_and_third_choices:
     _en: Vote your first, second, and third choices
     zh: 投選您的第一、第二和第三選擇

@@ -82,5 +82,5 @@ def normalize_yaml(path, stdout=None):
     if not _is_yaml_normalizable(data):
         raise Exception("file not marked normalizable: {0}".format(path))
     meta = _get_yaml_meta(data)
-    meta['_auto'] = "WARNING: comments will be deleted during normalization"
+    meta['_comment'] = "WARNING: comments will be deleted automatically during normalization"
     write_yaml(data, path, stdout=stdout)
