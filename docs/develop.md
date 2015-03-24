@@ -21,6 +21,10 @@ dependencies.  Then--
 
     $ pip install Django PyYAML
 
+Django is installed only for the purposes of using its widely used
+and well-supported [Django templating][django_templates] system.
+(Originally, the project tried using [Jinja2][jinja2].)
+
 
 ### Working Locally
 
@@ -101,6 +105,8 @@ See also the screen shot below:
 ![](images/excel_to_csv.png "Options to Export Excel to CSV")
 
 
+[django_templates]: https://docs.djangoproject.com/en/stable/topics/templates
+[jinja2]: http://jinja.pocoo.org/docs/
 [path_data]: ../data
 [path_docs_json]: json.md
 [path_pre_data]: ../pre_data
