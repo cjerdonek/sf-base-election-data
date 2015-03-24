@@ -2,137 +2,137 @@ _meta:
   _auto: 'WARNING: comments will be deleted during normalization'
   normalizable: true
 bodies:
-- id: US_S
-  jurisdiction_id: US
-  name: United States Senate
-  url: http://www.senate.gov/
-- id: US_HR
-  jurisdiction_id: US
-  name: United States House of Representatives
-  office_name: United States Representative
-  url: http://www.house.gov/
-- id: CA_SS
-  jurisdiction_id: CA
-  name: State Senate
-  qualified_name: California State Senate
-  seat_count: 40
-  url: http://senate.ca.gov/
-- id: CA_SA
-  jurisdiction_id: CA
-  name: State Assembly
-  office_name: Member of the State Assembly
-  qualified_name: California State Assembly
-  seat_count: 80
-  url: http://assembly.ca.gov/
-- _notes: The State Controller is the fifth member of this body.
-  district_count: 4
-  id: CA_SBOE
-  jurisdiction_id: CA
-  name: State Board of Equalization
-  office_name: Member, State Board of Equalization
-  qualified_name: California State Board of Equalization
-  seat_count: 5
-  term_length: 4
-  url: http://www.boe.ca.gov/
-- _notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
-    by the Governor and subject to retention elections.
-  id: CA_SC
-  jurisdiction_id: CA
-  name:
-    en: Supreme Court
-    es: Corte Suprema
-  qualified_name: Supreme Court of California
-  term_length: 12
-  url: http://www.courts.ca.gov/supremecourt.htm
-  vote_method: retention
-- _notes: The state has six geographic appellate districts. The first district, which
-    covers San Francisco, is divided into five non-geographical divisions with four
-    justices each
-  id: ca_court_app
-  jurisdiction_id: CA
-  name:
-    en: Court of Appeal
-    es: Corte de Apelación
-  partisan: false
-  qualified_name:
-    en: California Court of Appeal
-  term_length: 12
-  url: http://www.courts.ca.gov/courtsofappeal.htm
-  vote_method: retention
-- _notes: The San Francisco Superior Court Bench is comprised of 52 Judges and one
-    Commissioner.
-  id: SF_SC
-  jurisdiction_id: SF
-  name:
-    en: Superior Court
-    es: Tribunal Superior
-  office_name:
-    en: Judge of the Superior Court
-    es: Juez del Tribunal Superior
-  qualified_name: Superior Court of San Francisco
-  term_length: 6
-  url: http://www.sfsuperiorcourt.org/
-- id: BART
-  jurisdiction_id: BART
-  name: BART Board of Directors
-  office_name: BART Director
-  seat_count: 9
-  term_length: 4
-  url: http://www.bart.gov/about/bod
-  vote_method: FPTP
-- id: SF_CCB
-  jurisdiction_id: SFCC
-  name:
-    en: Community College Board
-    es: Consejo del Colegio Comunitario
-  office_name:
-    ch: 社區大學董事會成員
-    en: Member, Community College Board
-    es: Miembro del Consejo del Colegio Comunitario
-  seat_count: 7
-  term_length: 4
-  url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
-  vote_method: FPTP
-- id: SF_BOS
-  jurisdiction_id: SF
-  name:
-    en: Board of Supervisors
-    es: Consejo de Supervisores
-  office_name:
-    ch: 市參議員
-    en: Member, Board of Supervisors
-    es: Miembro del Consejo de Supervisores
-  qualified_name: San Francisco Board of Supervisors
-  seat_count: 11
-  term_length: 4
-  url: http://www.sfbos.org
-  vote_method: RCV
-- id: SF_BOE
-  jurisdiction_id: SF
-  name:
-    en: Board of Education
-    es: Consejo de Educación
-  office_name:
-    ch: 教育委員會成員
-    en: Member, Board of Education
-    es: Miembro del Consejo de Educación
-  seat_count: 7
-  term_length: 4
-  url: http://www.sfusd.edu/en/about-sfusd/board-of-education
-  vote_method: FPTP
-- id: SF_DCCC
-  jurisdiction_id: SF
-  name: Democratic County Central Committee
-  url: http://www.sfdemocrats.org/
-- id: SF_GCC
-  jurisdiction_id: SF
-  name: Green County Council
-  url: http://sfgreenparty.org/
-- id: SF_PFCCC
-  jurisdiction_id: SF
-  name: Peace and Freedom County Central Committee
-  url: http://www.peaceandfreedom.org
-- id: SF_RCCC
-  jurisdiction_id: SF
-  name: Republican County Central Committee
-  url: http://sfgop.org/
+  body_bart:
+    jurisdiction_id: BART
+    name: BART Board of Directors
+    office_name: BART Director
+    seat_count: 9
+    term_length: 4
+    url: http://www.bart.gov/about/bod
+    vote_method: FPTP
+  body_ca_court_app:
+    _notes: The state has six geographic appellate districts. The first district,
+      which covers San Francisco, is divided into five non-geographical divisions
+      with four justices each
+    jurisdiction_id: CA
+    name:
+      en: Court of Appeal
+      es: Corte de Apelación
+    partisan: false
+    qualified_name:
+      en: California Court of Appeal
+    term_length: 12
+    url: http://www.courts.ca.gov/courtsofappeal.htm
+    vote_method: retention
+  body_ca_sa:
+    jurisdiction_id: CA
+    name: State Assembly
+    office_name: Member of the State Assembly
+    qualified_name: California State Assembly
+    seat_count: 80
+    url: http://assembly.ca.gov/
+  body_ca_sboe:
+    _notes: The State Controller is the fifth member of this body.
+    district_count: 4
+    jurisdiction_id: CA
+    name: State Board of Equalization
+    office_name: Member, State Board of Equalization
+    qualified_name: California State Board of Equalization
+    seat_count: 5
+    term_length: 4
+    url: http://www.boe.ca.gov/
+  body_ca_sc:
+    _notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
+      by the Governor and subject to retention elections.
+    jurisdiction_id: CA
+    name:
+      en: Supreme Court
+      es: Corte Suprema
+    qualified_name: Supreme Court of California
+    term_length: 12
+    url: http://www.courts.ca.gov/supremecourt.htm
+    vote_method: retention
+  body_ca_ss:
+    jurisdiction_id: CA
+    name: State Senate
+    qualified_name: California State Senate
+    seat_count: 40
+    url: http://senate.ca.gov/
+  body_sf_boe:
+    jurisdiction_id: SF
+    name:
+      en: Board of Education
+      es: Consejo de Educación
+    office_name:
+      ch: 教育委員會成員
+      en: Member, Board of Education
+      es: Miembro del Consejo de Educación
+    seat_count: 7
+    term_length: 4
+    url: http://www.sfusd.edu/en/about-sfusd/board-of-education
+    vote_method: FPTP
+  body_sf_bos:
+    jurisdiction_id: SF
+    name:
+      en: Board of Supervisors
+      es: Consejo de Supervisores
+    office_name:
+      ch: 市參議員
+      en: Member, Board of Supervisors
+      es: Miembro del Consejo de Supervisores
+    qualified_name: San Francisco Board of Supervisors
+    seat_count: 11
+    term_length: 4
+    url: http://www.sfbos.org
+    vote_method: RCV
+  body_sf_ccb:
+    jurisdiction_id: SFCC
+    name:
+      en: Community College Board
+      es: Consejo del Colegio Comunitario
+    office_name:
+      ch: 社區大學董事會成員
+      en: Member, Community College Board
+      es: Miembro del Consejo del Colegio Comunitario
+    seat_count: 7
+    term_length: 4
+    url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
+    vote_method: FPTP
+  body_sf_dccc:
+    jurisdiction_id: SF
+    name: Democratic County Central Committee
+    url: http://www.sfdemocrats.org/
+  body_sf_gcc:
+    jurisdiction_id: SF
+    name: Green County Council
+    url: http://sfgreenparty.org/
+  body_sf_pfccc:
+    jurisdiction_id: SF
+    name: Peace and Freedom County Central Committee
+    url: http://www.peaceandfreedom.org
+  body_sf_rccc:
+    jurisdiction_id: SF
+    name: Republican County Central Committee
+    url: http://sfgop.org/
+  body_sf_sc:
+    _notes: The San Francisco Superior Court Bench is comprised of 52 Judges and one
+      Commissioner.
+    jurisdiction_id: SF
+    name:
+      en: Superior Court
+      es: Tribunal Superior
+    office_name:
+      en: Judge of the Superior Court
+      es: Juez del Tribunal Superior
+    qualified_name: Superior Court of San Francisco
+    term_length: 6
+    url: http://www.sfsuperiorcourt.org/
+  body_us_hr:
+    jurisdiction_id: US
+    name: United States House of Representatives
+    office_name: United States Representative
+    url: http://www.house.gov/
+  body_us_s:
+    jurisdiction_id: US
+    name: United States Senate
+    url: http://www.senate.gov/
