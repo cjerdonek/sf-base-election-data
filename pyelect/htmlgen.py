@@ -151,7 +151,13 @@ def _make_election_info(data):
     if term_length:
         term_length = "{0} year term".format(term_length)
 
-    return list(filter(None, [term_length, next_election_text, vote_method]))
+    partisan = data.get('partisan')
+    if partisan is not None:
+        partisan_text = "{0}partisan".format("" if partisan else "non-")
+    else:
+        partisan_text = None
+
+    return list(filter(None, [term_length, next_election_text, vote_method, partisan_text]))
 
 
 def make_bodies_one(body_id, data, **kwargs):
