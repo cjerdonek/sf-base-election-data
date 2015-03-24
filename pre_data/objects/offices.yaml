@@ -2,166 +2,201 @@ _meta:
   _auto: 'WARNING: comments will be deleted during normalization'
   normalizable: true
 offices:
-- category_id: federal
-  name_i18n: office_usa_president_of_the_united_states
-  seed_year: 2016
-  term_length: 4
-  twitter: WhiteHouse
-  url: https://www.whitehouse.gov/
-- mixin_id: ca_common
-  name_i18n: office_state_governor
-  url: http://www.gov.ca.gov
-  seed_year: 2014
-- mixin_id: ca_common
-  name_i18n: office_state_lieutenant_governor
-  url: http://www.ltg.ca.gov/
-  seed_year: 2014
-- mixin_id: ca_common
-  name_i18n: office_state_secretary
-  seed_year: 2014
-  twitter: sosnews
-  url: http://www.sos.ca.gov/
-- name: Controller
-  url: http://www.sco.ca.gov/
-- name: Treasurer
-  url: http://www.treasurer.ca.gov/
-- name: Attorney General
-  url: http://www.oag.ca.gov/
-- name: Insurance Commissioner
-  url: http://www.insurance.ca.gov/
-- mixin_id: ca_common
-  name_i18n: office_superintendent_of_public_instruction
-  seed_year: 2014
-  partisan: false
-  url: http://www.cde.ca.gov/eo
-- id: office_usa_senate_2
-  body_id: USA_S
-  district: CA
-  seed_year: 2012
-- id: office_usa_senate_1
-  body_id: USA_S
-  district: CA
-  seed_year: 2014
-- body_id: US_HR
-  district: 12
-- body_id: US_HR
-  district: 14
-- body_id: CA_SC
-  id: CA_SC_CJ
-  name: Chief Justice
-- body_id: CA_SC
-  id: CA_SC_AJ
-  name: Associate Justice
-  seat_count: 6
-- district: 1
-  division: 1
-  id: CA_CourtApp_D1_Div1_PJ
-  office_type_id: CA_CourtApp_PJ
-- district: 1
-  division: 1
-  id: CA_CourtApp_D1_Div1_AJ
-  office_type_id: CA_CourtApp_AJ
-  seat_count: 3
-- district: 1
-  division: 2
-  id: CA_CourtApp_D1_Div2_PJ
-  office_type_id: CA_CourtApp_PJ
-- district: 1
-  division: 2
-  id: CA_CourtApp_D1_Div2_AJ
-  office_type_id: CA_CourtApp_AJ
-  seat_count: 3
-- body_id: CA_SS
-  district: 11
-- body_id: CA_SA
-  district: 17
-- body_id: CA_SA
-  district: 19
-- body_id: BART
-  district: 7
-- body_id: BART
-  district: 8
-- body_id: BART
-  district: 9
-- mixin_id: sf_common
-  name_i18n: office_mayor
-  seed_year: 2015
-  url: http://www.sfmayor.org
-- mixin_id: sf_common
-  name_i18n: office_assessor_recorder
-  seed_year: 2014
-  url: http://www.sfassessor.org
-- mixin_id: sf_common
-  name_i18n: office_city_attorney
-  seed_year: 2015
-  twitter: SFCityAttorney
-  url: http://www.sfcityattorney.org
-- mixin_id: sf_common
-  name_i18n: office_district_attorney
-  seed_year: 2015
-  url: http://www.sfdistrictattorney.org
-  twitter: SFDAOffice
-- mixin_id: sf_common
-  name_i18n: office_public_defender
-  seed_year: 2014
-  url: http://sfpublicdefender.org
-  twitter: sfdefender
-- mixin_id: sf_common
-  name_i18n: office_sheriff
-  seed_year: 2015
-  url: http://www.sfsheriff.com
-  twitter: SheriffSF
-- mixin_id: sf_common
-  name_i18n: office_city_treasurer
-  twitter: TreasurerSF
-  seed_year: 2015
-  url: http://sftreasurer.org
-- id: office_sf_ccb_seats_4
-  body_id: SF_CCB
-  seat_count: 4
-  seed_year: 2012
-- id: office_sf_ccb_seats_3
-  body_id: SF_CCB
-  seat_count: 3
-  seed_year: 2014
-- id: office_sf_boe_seats_4
-  body_id: SF_BOE
-  seat_count: 4
-  seed_year: 2012
-- id: office_sf_boe_seats_3
-  body_id: SF_BOE
-  seat_count: 3
-  seed_year: 2014
-- body_id: SF_BOS
-  district: 1
-  seed_year: 2012
-- body_id: SF_BOS
-  district: 2
-  seed_year: 2014
-- body_id: SF_BOS
-  district: 3
-  seed_year: 2012
-- body_id: SF_BOS
-  district: 4
-  seed_year: 2014
-- body_id: SF_BOS
-  district: 5
-  seed_year: 2012
-- body_id: SF_BOS
-  district: 6
-  seed_year: 2014
-- body_id: SF_BOS
-  district: 7
-  seed_year: 2012
-- body_id: SF_BOS
-  district: 8
-  seed_year: 2014
-- body_id: SF_BOS
-  district: 9
-  seed_year: 2012
-- body_id: SF_BOS
-  district: 10
-  seed_year: 2014
-- body_id: SF_BOS
-  district: 11
-  seed_year: 2012
+  CA_CourtApp_D1_Div1_AJ:
+    district: 1
+    division: 1
+    office_type_id: CA_CourtApp_AJ
+    seat_count: 3
+  CA_CourtApp_D1_Div1_PJ:
+    district: 1
+    division: 1
+    office_type_id: CA_CourtApp_PJ
+  CA_CourtApp_D1_Div2_AJ:
+    district: 1
+    division: 2
+    office_type_id: CA_CourtApp_AJ
+    seat_count: 3
+  CA_CourtApp_D1_Div2_PJ:
+    district: 1
+    division: 2
+    office_type_id: CA_CourtApp_PJ
+  CA_SC_AJ:
+    body_id: CA_SC
+    name: Associate Justice
+    seat_count: 6
+  CA_SC_CJ:
+    body_id: CA_SC
+    name: Chief Justice
+  office_assessor_recorder:
+    mixin_id: sf_common
+    name_i18n: office_assessor_recorder
+    seed_year: 2014
+    url: http://www.sfassessor.org
+  office_attorney general:
+    name: Attorney General
+    url: http://www.oag.ca.gov/
+  office_bart_7:
+    body_id: BART
+    district: 7
+  office_bart_8:
+    body_id: BART
+    district: 8
+  office_bart_9:
+    body_id: BART
+    district: 9
+  office_ca_sa_17:
+    body_id: CA_SA
+    district: 17
+  office_ca_sa_19:
+    body_id: CA_SA
+    district: 19
+  office_ca_ss_11:
+    body_id: CA_SS
+    district: 11
+  office_city_attorney:
+    mixin_id: sf_common
+    name_i18n: office_city_attorney
+    seed_year: 2015
+    twitter: SFCityAttorney
+    url: http://www.sfcityattorney.org
+  office_city_treasurer:
+    mixin_id: sf_common
+    name_i18n: office_city_treasurer
+    seed_year: 2015
+    twitter: TreasurerSF
+    url: http://sftreasurer.org
+  office_controller:
+    name: Controller
+    url: http://www.sco.ca.gov/
+  office_district_attorney:
+    mixin_id: sf_common
+    name_i18n: office_district_attorney
+    seed_year: 2015
+    twitter: SFDAOffice
+    url: http://www.sfdistrictattorney.org
+  office_insurance commissioner:
+    name: Insurance Commissioner
+    url: http://www.insurance.ca.gov/
+  office_mayor:
+    mixin_id: sf_common
+    name_i18n: office_mayor
+    seed_year: 2015
+    url: http://www.sfmayor.org
+  office_public_defender:
+    mixin_id: sf_common
+    name_i18n: office_public_defender
+    seed_year: 2014
+    twitter: sfdefender
+    url: http://sfpublicdefender.org
+  office_sf_boe_seats_3:
+    body_id: SF_BOE
+    seat_count: 3
+    seed_year: 2014
+  office_sf_boe_seats_4:
+    body_id: SF_BOE
+    seat_count: 4
+    seed_year: 2012
+  office_sf_bos_1:
+    body_id: SF_BOS
+    district: 1
+    seed_year: 2012
+  office_sf_bos_10:
+    body_id: SF_BOS
+    district: 10
+    seed_year: 2014
+  office_sf_bos_11:
+    body_id: SF_BOS
+    district: 11
+    seed_year: 2012
+  office_sf_bos_2:
+    body_id: SF_BOS
+    district: 2
+    seed_year: 2014
+  office_sf_bos_3:
+    body_id: SF_BOS
+    district: 3
+    seed_year: 2012
+  office_sf_bos_4:
+    body_id: SF_BOS
+    district: 4
+    seed_year: 2014
+  office_sf_bos_5:
+    body_id: SF_BOS
+    district: 5
+    seed_year: 2012
+  office_sf_bos_6:
+    body_id: SF_BOS
+    district: 6
+    seed_year: 2014
+  office_sf_bos_7:
+    body_id: SF_BOS
+    district: 7
+    seed_year: 2012
+  office_sf_bos_8:
+    body_id: SF_BOS
+    district: 8
+    seed_year: 2014
+  office_sf_bos_9:
+    body_id: SF_BOS
+    district: 9
+    seed_year: 2012
+  office_sf_ccb_seats_3:
+    body_id: SF_CCB
+    seat_count: 3
+    seed_year: 2014
+  office_sf_ccb_seats_4:
+    body_id: SF_CCB
+    seat_count: 4
+    seed_year: 2012
+  office_sheriff:
+    mixin_id: sf_common
+    name_i18n: office_sheriff
+    seed_year: 2015
+    twitter: SheriffSF
+    url: http://www.sfsheriff.com
+  office_state_governor:
+    mixin_id: ca_common
+    name_i18n: office_state_governor
+    seed_year: 2014
+    url: http://www.gov.ca.gov
+  office_state_lieutenant_governor:
+    mixin_id: ca_common
+    name_i18n: office_state_lieutenant_governor
+    seed_year: 2014
+    url: http://www.ltg.ca.gov/
+  office_state_secretary:
+    mixin_id: ca_common
+    name_i18n: office_state_secretary
+    seed_year: 2014
+    twitter: sosnews
+    url: http://www.sos.ca.gov/
+  office_superintendent_of_public_instruction:
+    mixin_id: ca_common
+    name_i18n: office_superintendent_of_public_instruction
+    partisan: false
+    seed_year: 2014
+    url: http://www.cde.ca.gov/eo
+  office_treasurer:
+    name: Treasurer
+    url: http://www.treasurer.ca.gov/
+  office_us_hr_12:
+    body_id: US_HR
+    district: 12
+  office_us_hr_14:
+    body_id: US_HR
+    district: 14
+  office_usa_president_of_the_united_states:
+    category_id: federal
+    name_i18n: office_usa_president_of_the_united_states
+    seed_year: 2016
+    term_length: 4
+    twitter: WhiteHouse
+    url: https://www.whitehouse.gov/
+  office_usa_senate_1:
+    body_id: USA_S
+    district: CA
+    seed_year: 2014
+  office_usa_senate_2:
+    body_id: USA_S
+    district: CA
+    seed_year: 2012
