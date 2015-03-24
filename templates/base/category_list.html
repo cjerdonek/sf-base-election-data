@@ -12,20 +12,21 @@
   </div>
   <p>
 
+  {% for object in objects_by_category|get_item:category_id %}
+
+    {{ object }}
+
+  <hr>
+  {% endfor %}
 {% endwith %}
+
 {% comment %}
 
-{% for object in objects_by_category[category_id] -%}
-
-  {# We need to set the block to "scoped" to make the loop variable
-     available to the block in child templates. #}
-  {% block show_category %}
-  {% endblock %}
-
-<hr>
-{% endfor %}
+{# We need to set the block to "scoped" to make the loop variable
+   available to the block in child templates. #}
+{% block show_category %}
+{% endblock %}
 
 {% endcomment %}
-
 
 {% endfor %}
