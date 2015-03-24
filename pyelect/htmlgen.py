@@ -3,6 +3,7 @@
 from collections import defaultdict
 from datetime import date
 import os
+from pprint import pprint
 
 import django
 from django.conf import settings
@@ -172,23 +173,91 @@ def make_office(all_json, data):
 
 def make_offices(all_json):
     offices = [make_office(all_json, v) for v in all_json['offices']]
+    # TODO: remove the filter.
     offices = list(filter(None, offices))
     return offices
 
 
-def make_template_data(all_json):
-    """Return the context to use when rendering the template."""
-    trans = all_json['i18n']
-    categories = make_categories(all_json, trans)
+def make_bodies_one(body_id, data, **kwargs):
 
-    offices = make_offices(all_json)
+    print(data)
+    body = {
+        'name': data['name'],
+    }
+
+    return body
+
+    # trans = all_json['i18n']
+    #
+    # # TODO: incorporate a real ID.
+    # office_id = data.get('name_i18n')
+    # # TODO: do not skip any offices.
+    # if office_id is None:
+    #     return None
+    #
+    # name_i18n = _get_i18n(trans, data, 'name')
+    #
+    # election_info = _make_election_info(data)
+    #
+    # office = {
+    #     'category_id': data.get('category_id'),
+    #     'election_info': election_info,
+    #     'id': office_id,
+    #     'name_i18n': name_i18n,
+    #     # TODO: use a real seat count.
+    #     'seat_count': 1,
+    #     'twitter': data.get('twitter'),
+    #     'url': data.get('url')
+    # }
+    #
+    # return office
+
+
+def add_objects(template_data, json_data, node_name, **kwargs):
+    make_object_func_name = "make_{0}_one".format(node_name)
+    make_object = globals()[make_object_func_name]
+
+    objects = []
+    for object_id, data in json_data[node_name].items():
+        obj = make_object(object_id, data, **kwargs)
+        obj['id'] = object_id
+        objects.append(obj)
+
+    template_data[node_name] = objects
+
+    # Return it in case the caller wants to do something more with it.
+    return objects
+
+
+def _group_by(objects, key):
+    grouped = defaultdict(list)
+    for obj in objects:
+        try:
+            value = obj[key]
+        except KeyError:
+            raise Exception(repr(obj))
+        seq = offices_by_category[value]
+        seq.append(obj)
+    return grouped
+
+
+def make_template_data(json_data):
+    """Return the context to use when rendering the template."""
+    data = {}
+    bodies = add_objects(data, json_data, 'bodies')
+
+    bodies_by_category = _group_by(bodies, 'category_id')
+
+    pprint(data)
+    exit()
+
+    trans = json_data['i18n']
+    categories = make_categories(json_data, trans)
+
+    offices = make_offices(json_data)
     office_count = sum([o['seat_count'] for o in offices])
 
-    offices_by_category = defaultdict(list)
-    for office in offices:
-        category_id = office['category_id']
-        seq = offices_by_category[category_id]
-        seq.append(office)
+    offices_by_category = _group_by(offices, 'category_id')
 
     data = {
         'categories': categories,

@@ -99,6 +99,17 @@ def make_node_i18n(node_name):
     return data
 
 
+def make_node_bodies(node_name):
+    """Return the node containing internationalized data."""
+    bodies, meta = get_object_data('bodies')
+
+    node = {}
+    for body_id, body in bodies.items():
+        node[body_id] = body
+
+    return node
+
+
 def make_node_offices(node_name, mixins):
     """Return the node containing internationalized data."""
     offices, meta = get_object_data('offices')
@@ -106,7 +117,6 @@ def make_node_offices(node_name, mixins):
     node = {}
     for office_id, office in offices.items():
         try:
-            print(office)
             mixin_id = office['mixin_id']
         except KeyError:
             pass
@@ -198,16 +208,16 @@ def add_node(json_data, node_name, **kwargs):
 def make_all_data():
     mixins, meta = get_object_data('mixins')
 
-    json_data ={}
+    data ={}  # JSON data.
 
-    add_node(json_data, 'categories')
-    add_node(json_data, 'i18n')
-    add_node(json_data, 'offices', mixins=mixins)
+    add_node(data, 'categories')
+    add_node(data, 'i18n')
+    add_node(data, 'bodies')
+    add_node(data, 'offices', mixins=mixins)
 
-    return json_data
+    return data
 
     # TODO
-    add_source(data, 'bodies')
     add_source(data, 'district_types')
     add_source(data, 'office_types')
 
