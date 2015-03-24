@@ -1,5 +1,5 @@
 _meta:
-  _auto: 'WARNING: comments will be deleted during normalization'
+  _comment: 'WARNING: comments will be deleted automatically during normalization'
   normalizable: true
 text_ids:
   text_category_city_county: CITY AND COUNTY
@@ -10,7 +10,8 @@ text_ids:
   text_choice_1: FIRST CHOICE
   text_choice_2: SECOND CHOICE
   text_choice_3: THIRD CHOICE
-  text_county_transportation_authority_proposition: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
+  text_county_transportation_authority_proposition: COUNTY TRANSPORTATION AUTHORITY
+    PROPOSITION
   text_district: DISTRICT
   text_header_city_county_propositions: CITY & COUNTY PROPOSITIONS
   text_header_measures_submitted_to_the_voters: MEASURES SUBMITTED TO THE VOTERS
@@ -32,7 +33,8 @@ text_ids:
   text_office_member_county_central_committee: MEMBER, COUNTY CENTRAL COMMITTEE
   text_office_member_county_council: MEMBER, COUNTY COUNCIL
   text_office_member_of_the_state_assembly: MEMBER OF THE STATE ASSEMBLY
-  text_office_member_state_board_of_eq_d2: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
+  text_office_member_state_board_of_eq_d2: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT
+    2
   text_office_public_defender: PUBLIC DEFENDER
   text_office_sheriff: SHERIFF
   text_office_state_attorney_general: ATTORNEY GENERAL
@@ -52,6 +54,8 @@ text_ids:
   text_vote_for_one: Vote for One
   text_vote_for_one_party: Vote for One Party
   text_vote_rcv_choice_2: 'Vote for One: Must be different than your first choice'
-  text_vote_rcv_choice_3: 'Vote for One: Must be different than your first and second choices'
+  text_vote_rcv_choice_3: 'Vote for One: Must be different than your first and second
+    choices'
   text_vote_yes_or_no_for_each_office: Vote YES or NO for each office
-  text_vote_your_first_second_and_third_choices: Vote your first, second, and third choices
+  text_vote_your_first_second_and_third_choices: Vote your first, second, and third
+    choices
