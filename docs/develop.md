@@ -1,4 +1,4 @@
-# Development
+# Contributor Docs
 
 This document is mainly for project contributors.
 
@@ -8,8 +8,9 @@ This document is mainly for project contributors.
 The repository contains a single command-line script with a number of
 commands to assist with processing and preparing the underlying data.
 
-The script is written in Python and is contained in the `scripts`
-directory.  It is designed by run directly from the repo root.
+The script is written in Python and is contained in the
+[`scripts`][path_scripts] directory.  It is designed to be run directly
+from the repo root.
 
 
 ### Setup
@@ -68,7 +69,7 @@ of files:
    standard or canonical form, e.g. by alphabetizing the key values).
    Because the process of normalizing files strips YAML comments, YAML
    comments should never be added to normalizable files.
-3. **Auto-generated.**  Auto-generated files are generated automaticall
+3. **Auto-generated.**  Auto-generated files are generated automatically
    from other data files.  Thus, they should never be edited by hand.
 
 In the case of YAML files, we use a convention to indicate which type
@@ -103,6 +104,7 @@ See also the screen shot below:
 [path_data]: ../data
 [path_docs_json]: json.md
 [path_pre_data]: ../pre_data
+[path_scripts]: ../scripts
 [public_data]: develop.md
 [libre_office]: http://www.libreoffice.org/
 [virtualenv]: https://pypi.python.org/pypi/virtualenv/
