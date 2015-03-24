@@ -34,10 +34,12 @@ offices:
   seed_year: 2014
   partisan: false
   url: http://www.cde.ca.gov/eo
-- body_id: USA_S
+- id: office_usa_senate_2
+  body_id: USA_S
   district: CA
   seed_year: 2012
-- body_id: USA_S
+- id: office_usa_senate_1
+  body_id: USA_S
   district: CA
   seed_year: 2014
 - body_id: US_HR
@@ -51,9 +53,6 @@ offices:
   id: CA_SC_AJ
   name: Associate Justice
   seat_count: 6
-- body_id: CA_SC
-  id: CA_SC_CJ
-  name: Chief Justice
 - district: 1
   division: 1
   id: CA_CourtApp_D1_Div1_PJ
@@ -117,16 +116,20 @@ offices:
   twitter: TreasurerSF
   seed_year: 2015
   url: http://sftreasurer.org
-- body_id: SF_CCB
+- id: office_sf_ccb_seats_4
+  body_id: SF_CCB
   seat_count: 4
   seed_year: 2012
-- body_id: SF_CCB
+- id: office_sf_ccb_seats_3
+  body_id: SF_CCB
   seat_count: 3
   seed_year: 2014
-- body_id: SF_BOE
+- id: office_sf_boe_seats_4
+  body_id: SF_BOE
   seat_count: 4
   seed_year: 2012
-- body_id: SF_BOE
+- id: office_sf_boe_seats_3
+  body_id: SF_BOE
   seat_count: 3
   seed_year: 2014
 - body_id: SF_BOS
