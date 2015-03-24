@@ -22,6 +22,16 @@ def cond_include(should_include, template_name, data):
     }
 
 
+@register.inclusion_tag('tags/cond_include.html')
+def info_row(header, value):
+    return {
+        'header': header,
+        'should_include': value is not None,
+        'template_name': 'tags/info_row.html',
+        'value': value,
+    }
+
+
 @register.inclusion_tag('tags/page_nav.html')
 def page_nav(current_file_name, file_name, display_name):
     """A tag to use in site navigation."""

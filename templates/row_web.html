@@ -1,7 +1,7 @@
 {% extends "base_row.html" %}
 {% block row_header %}Web{% endblock %}
 {% block row_value %}
-  {% with office=data %}
-  <a href="{{ office.url }}">{{ office.url }}</a>
+  {% with object=data %}
+  <a href="{{ object.url }}">{{ object.url }}</a>
   {% endwith %}
 {% endblock %}

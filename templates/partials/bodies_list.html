@@ -20,6 +20,13 @@
   {% endif %}
   <p>
 
+  {% load custom_tags %}
+  {% cond_include body.url 'row_web.html' body %}
+  {% load custom_tags %}
+  {% info_row 'Seats' body.seat_count %}
+  {% cond_include body.election_info 'row_election.html' body %}
+  {% info_row 'Notes' body.notes %}
+
 {% endwith %}
 
 {% endblock %}

@@ -17,7 +17,7 @@ from pyelect import utils
 from pyelect.templatetags import custom_tags
 
 
-CATEGORY_ORDER = ["federal", "state", "bart", "city_county", "school", "judicial", "party"]
+CATEGORY_ORDER = ["federal", "state", "city_county", "school", "bart", "judicial", "party"]
 DIR_NAME_HTML_OUTPUT = 'html'
 DIR_NAME_TEMPLATE_PAGE = 'pages'
 NON_ENGLISH_ORDER = [lang.LANG_CH, lang.LANG_ES, lang.LANG_FI]
@@ -123,10 +123,10 @@ def _compute_next_election_year(office_json):
     # TODO: make this required.
     if not term_length:
         return None
-    try:
-        seed_year = office_json['seed_year']
-    except KeyError:
-        raise Exception("office: {0!r}".format(office_json))
+    seed_year = office_json.get('seed_year')
+    if seed_year is None:
+        return None
+
     year = date.today().year
     # Find a year before the current year.
     while seed_year >= year:
@@ -142,36 +142,16 @@ def _make_election_info(data):
     vote_method = data.get('vote_method')
 
     next_election_year = _compute_next_election_year(data)
-    next_election_text = "{0} next".format(next_election_year)
+    if next_election_year is not None:
+        next_election_text = "{0} next".format(next_election_year)
+    else:
+        next_election_text = None
 
     term_length = data.get('term_length')
     if term_length:
         term_length = "{0} year term".format(term_length)
 
     return list(filter(None, [term_length, next_election_text, vote_method]))
-
-
-def make_offices_one(office_id, data, trans=None):
-    # TODO: remove this logic.
-    if 'name_i18n' not in data:
-        return None
-
-    name_i18n = _get_i18n(trans, data, 'name')
-
-    election_info = _make_election_info(data)
-
-    office = {
-        'category_id': data.get('category_id'),
-        'election_info': election_info,
-        'id': office_id,
-        'name_i18n': name_i18n,
-        # TODO: use a real seat count.
-        'seat_count': 1,
-        'twitter': data.get('twitter'),
-        'url': data.get('url')
-    }
-
-    return office
 
 
 def make_bodies_one(body_id, data, **kwargs):
@@ -190,10 +170,36 @@ def make_bodies_one(body_id, data, **kwargs):
 
     body = {
         'category_id': category_id,
+        'election_info': _make_election_info(data),
         'name': name,
+        'notes': data.get('notes'),
+        'seat_count': data.get('seat_count'),
+        'twitter': data.get('twitter'),
+        'url': data.get('url'),
     }
 
     return body
+
+
+def make_offices_one(office_id, data, trans=None):
+    # TODO: remove this logic.
+    if 'name_i18n' not in data:
+        return None
+
+    name_i18n = _get_i18n(trans, data, 'name')
+
+    office = {
+        'category_id': data.get('category_id'),
+        'election_info': _make_election_info(data),
+        'id': office_id,
+        'name_i18n': name_i18n,
+        # TODO: use a real seat count.
+        'seat_count': 1,
+        'twitter': data.get('twitter'),
+        'url': data.get('url')
+    }
+
+    return office
 
 
 def add_objects(template_data, json_data, node_name, **kwargs):

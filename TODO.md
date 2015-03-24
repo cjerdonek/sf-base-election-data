@@ -1,9 +1,18 @@
 TODO
 ====
 
+* Add Wikipedia links.
+* Add to bodies: term length, voting method, Twitter.
+* Change seats to SF seats, e.g. 2 of 80.
+* Add voting method enum.
+* Think about whether internationalized text should be mandatory
+  (at least in the config).
+  - If so, create a workflow to add new text ID's.
+  - This way people will be able to add translations.
+  - Also clean things up in this regard (will simplify things going forward).
 * Show the body name when there is a body (or else None).
   - Work on BOS first.
-* Have a list of bodies, and link to that in each member section.
+* Link to the body in each office section.
 * Show the seat name (that distinguishes among body members)
   - at the top, but below the overall name.
 
