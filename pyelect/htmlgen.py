@@ -4,13 +4,16 @@ from collections import defaultdict
 from datetime import date
 import os
 
+import django
 from django.conf import settings
+import django.template
 from django.template import Context
 import django.template.defaulttags as defaulttags
 from django.template.loader import get_template
 
 from pyelect import lang
 from pyelect import utils
+from pyelect.templatetags import custom_tags
 
 
 CATEGORY_ORDER = ["federal", "state", "city_county", "school", "judicial"]
@@ -27,6 +30,22 @@ offices.html
 @defaulttags.register.filter
 def get_item(dict_, key):
     return dict_.get(key)
+
+
+def init_django():
+    """Initialize Django."""
+    search_dirs = _get_template_search_dirs()
+    settings.configure(
+        INSTALLED_APPS=('pyelect', ),
+        TEMPLATE_DIRS=search_dirs,
+        TEMPLATE_STRING_IF_INVALID="***%s",
+        # The default setting contains this:
+        #   'django.template.loaders.app_directories.Loader'
+        # See this issue for more information:
+        #   https://code.djangoproject.com/ticket/24527
+        TEMPLATE_LOADERS=('django.template.loaders.filesystem.Loader', ),
+    )
+    django.setup()
 
 
 def _get_templates_dir():
@@ -186,21 +205,12 @@ def render_template(template_name, data):
 
 
 def make_html(json_data, output_dir):
-    search_dirs = _get_template_search_dirs()
-    settings.configure(
-        TEMPLATE_DIRS=search_dirs,
-        TEMPLATE_STRING_IF_INVALID="***%s",
-        # The default setting contains this:
-        #   'django.template.loaders.app_directories.Loader'
-        # See this issue for more information:
-        #   https://code.djangoproject.com/ticket/24527
-        TEMPLATE_LOADERS=('django.template.loaders.filesystem.Loader', ),
-    )
+    init_django()
     data = make_template_data(json_data)
     page_templates_dir = _get_page_templates_dir()
 
     #for file_name in TEMPLATE_PAGE_NAMES:
-    for file_name in ('temp.html', ):
+    for file_name in ('index.html', ):
         template_name = os.path.join(DIR_NAME_TEMPLATE_PAGE, file_name)
         html = render_template(template_name, data=data)
         print(html)

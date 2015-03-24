@@ -38,13 +38,11 @@
 
       <h3 class="text-center">Contents</h3>
 
-      {% macro content_link(page, name) -%}
-        <li><a href="{{ page }}">{{ name }}</a>
-      {%- endmacro %}
 
+      {% load custom_tags %}
       <ul>
-        {{ content_link(name, "Offices") }}
-        <li><a href="bodies.html">Bodies</a>
+        {% page_nav 'index.html' 'Offices' %}
+        {% page_nav 'bodies.html' 'Bodies' %}
       </ul>
 
       <p>
