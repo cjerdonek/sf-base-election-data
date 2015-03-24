@@ -1,3 +1,5 @@
-<li>
-<a {% if file_name == current_file_name %} class="bg-primary"{% endif %} href="{{ file_name }}">
-  <span >{{ display_name }}</span></a>
+<div class="row">
+<div class="col-md-12{% if file_name == current_file_name %} bg-info{% endif %}">
+<a href="{{ file_name }}">{{ display_name }}</a>
+</div>
+</div>
