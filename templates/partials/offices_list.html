@@ -20,16 +20,11 @@
   {% endif %}
   <p>
 
-  {% include 'row_election.html' %}
+  {% load custom_tags %}
+  {% cond_include office.url 'row_web.html' office %}
+  {% cond_include office.twitter 'row_twitter.html' office %}
+  {% cond_include office.election_info 'row_election.html' office %}
 
 {% endwith %}
-
-{% comment %}
-
-
-  {{ row_if(office.url, 'row_web.html', office) }}
-  {{ row_if(office.twitter, 'row_twitter.html', office) }}
-
-{% endcomment %}
 
 {% endblock %}
