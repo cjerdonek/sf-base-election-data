@@ -11,20 +11,23 @@
             "vote_method": "FPTP"
         },
         "body_ca_court_app": {
-            "_notes": "The state has six geographic appellate districts. The first district, which covers San Francisco, is divided into five non-geographical divisions with four justices each",
             "category_id": "judicial",
+            "district_count": 5,
             "jurisdiction_id": "CA",
             "name": {
-                "en": "Court of Appeal",
+                "en": "California Court of Appeal, First District",
                 "es": "Corte de Apelaci\u00f3n"
             },
+            "notes": "The state has six geographic appellate districts. The first district, which covers San Francisco, is divided into five non-geographical divisions with four justices each",
             "partisan": false,
             "qualified_name": {
                 "en": "California Court of Appeal"
             },
+            "seat_count": 20,
             "term_length": 12,
             "url": "http://www.courts.ca.gov/courtsofappeal.htm",
-            "vote_method": "retention"
+            "vote_method": "retention",
+            "wikipedia": "http://en.wikipedia.org/wiki/California_courts_of_appeal"
         },
         "body_ca_sa": {
             "category_id": "state",
@@ -36,11 +39,11 @@
             "url": "http://assembly.ca.gov/"
         },
         "body_ca_sboe": {
-            "_notes": "The State Controller is the fifth member of this body.",
             "category_id": "state",
             "district_count": 4,
             "jurisdiction_id": "CA",
             "name": "State Board of Equalization",
+            "notes": "The State Controller is the fifth member of this body.",
             "office_name": "Member, State Board of Equalization",
             "qualified_name": "California State Board of Equalization",
             "seat_count": 5,
@@ -148,7 +151,7 @@
             "category_id": "judicial",
             "jurisdiction_id": "SF",
             "name": {
-                "en": "Superior Court",
+                "en": "Superior Court of San Francisco",
                 "es": "Tribunal Superior"
             },
             "notes": "The San Francisco Superior Court Bench is comprised of 52 Judges and one Commissioner.",
@@ -156,9 +159,9 @@
                 "en": "Judge of the Superior Court",
                 "es": "Juez del Tribunal Superior"
             },
-            "qualified_name": "Superior Court of San Francisco",
             "term_length": 6,
-            "url": "http://www.sfsuperiorcourt.org/"
+            "url": "http://www.sfsuperiorcourt.org/",
+            "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court"
         },
         "body_us_hr": {
             "category_id": "federal",
@@ -166,14 +169,16 @@
             "name": "United States House of Representatives",
             "office_name": "United States Representative",
             "seat_count": 435,
-            "url": "http://www.house.gov/"
+            "url": "http://www.house.gov/",
+            "wikipedia": "http://en.wikipedia.org/wiki/United_States_House_of_Representatives"
         },
         "body_us_s": {
             "category_id": "federal",
             "jurisdiction_id": "US",
             "name": "United States Senate",
             "seat_count": 100,
-            "url": "http://www.senate.gov/"
+            "url": "http://www.senate.gov/",
+            "wikipedia": "http://en.wikipedia.org/wiki/United_States_Senate"
         }
     },
     "categories": {

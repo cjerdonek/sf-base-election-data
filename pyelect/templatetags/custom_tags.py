@@ -10,7 +10,18 @@ django.template.Library().
 
 from django import template
 
+
 register = template.Library()
+
+@register.inclusion_tag('tags/page_nav.html')
+def page_nav(current_file_name, file_name, display_name):
+    """A tag to use in site navigation."""
+    return {
+        'current_file_name': current_file_name,
+        'file_name': file_name,
+        'display_name': display_name,
+    }
+
 
 @register.inclusion_tag('tags/cond_include.html')
 def cond_include(should_include, template_name, data):
@@ -22,21 +33,20 @@ def cond_include(should_include, template_name, data):
     }
 
 
-@register.inclusion_tag('tags/cond_include.html')
-def info_row(header, value):
+def _cond_include_context(template_name, header, value):
     return {
         'header': header,
         'should_include': value is not None,
-        'template_name': 'tags/info_row.html',
+        'template_name': template_name,
         'value': value,
     }
 
 
-@register.inclusion_tag('tags/page_nav.html')
-def page_nav(current_file_name, file_name, display_name):
-    """A tag to use in site navigation."""
-    return {
-        'current_file_name': current_file_name,
-        'file_name': file_name,
-        'display_name': display_name,
-    }
+@register.inclusion_tag('tags/cond_include.html')
+def info_row(header, value):
+    return _cond_include_context('partials/row_simple.html', header, value)
+
+
+@register.inclusion_tag('tags/cond_include.html')
+def url_row(header, value):
+    return _cond_include_context('partials/row_url.html', header, value)

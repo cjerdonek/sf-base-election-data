@@ -170,12 +170,14 @@ def make_bodies_one(body_id, data, **kwargs):
 
     body = {
         'category_id': category_id,
+        'district_count': data.get('district_count'),
         'election_info': _make_election_info(data),
         'name': name,
         'notes': data.get('notes'),
         'seat_count': data.get('seat_count'),
         'twitter': data.get('twitter'),
         'url': data.get('url'),
+        'wikipedia': data.get('wikipedia')
     }
 
     return body

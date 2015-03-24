@@ -18,14 +18,17 @@ bodies:
     category_id: judicial
     jurisdiction_id: CA
     name:
-      en: Court of Appeal
+      en: California Court of Appeal, First District
       es: Corte de Apelación
     partisan: false
     qualified_name:
       en: California Court of Appeal
+    district_count: 5
+    seat_count: 20
     term_length: 12
     url: http://www.courts.ca.gov/courtsofappeal.htm
     vote_method: retention
+    wikipedia: http://en.wikipedia.org/wiki/California_courts_of_appeal
   body_ca_sa:
     category_id: state
     jurisdiction_id: CA
@@ -133,14 +136,14 @@ bodies:
     category_id: judicial
     jurisdiction_id: SF
     name:
-      en: Superior Court
+      en: Superior Court of San Francisco
       es: Tribunal Superior
     office_name:
       en: Judge of the Superior Court
       es: Juez del Tribunal Superior
-    qualified_name: Superior Court of San Francisco
     term_length: 6
     url: http://www.sfsuperiorcourt.org/
+    wikipedia: http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court
   body_us_hr:
     category_id: federal
     jurisdiction_id: US
@@ -148,9 +151,11 @@ bodies:
     office_name: United States Representative
     seat_count: 435
     url: http://www.house.gov/
+    wikipedia: http://en.wikipedia.org/wiki/United_States_House_of_Representatives
   body_us_s:
     category_id: federal
     jurisdiction_id: US
     name: United States Senate
     seat_count: 100
     url: http://www.senate.gov/
+    wikipedia: http://en.wikipedia.org/wiki/United_States_Senate

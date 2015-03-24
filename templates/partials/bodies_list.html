@@ -21,8 +21,9 @@
   <p>
 
   {% load custom_tags %}
-  {% cond_include body.url 'row_web.html' body %}
-  {% load custom_tags %}
+  {% url_row 'Web' body.url %}
+  {% url_row 'Wikipedia' body.wikipedia %}
+  {% info_row 'Districts' body.district_count %}
   {% info_row 'Seats' body.seat_count %}
   {% cond_include body.election_info 'row_election.html' body %}
   {% info_row 'Notes' body.notes %}
