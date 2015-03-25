@@ -2,18 +2,13 @@ _meta:
   _auto_comment: 'WARNING: normalization will remove YAML comments.'
   type: normalizable
 jurisdictions:
-  -
-    name: United States of America
-    id: US
-  -
-    name: State of California
-    id: CA
-  -
-    name: Bay Area Rapid Transit
-    id: BART
-  -
-    name: San Francisco Community College District
-    id: SFCC
-  -
-    name: City and County of San Francisco
-    id: SF
+- id: US
+  name: United States of America
+- id: CA
+  name: State of California
+- id: BART
+  name: Bay Area Rapid Transit
+- id: SFCC
+  name: San Francisco Community College District
+- id: SF
+  name: City and County of San Francisco
