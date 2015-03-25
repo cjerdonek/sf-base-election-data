@@ -1,9 +1,7 @@
 TODO
 ====
 
-* Make command to normalize all YAML files.
-  - require that all files have the normalizable marker.
-* Get a handle on the language stuff first!
+* Settle the language stuff.
 * Add a `seat_name` attribute to Office that distinguishes members from
   one another (and `office_name` is the more generic name).
 * Think about whether internationalized text should be mandatory
