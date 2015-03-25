@@ -1,4 +1,6 @@
 # TODO: specify these keys in config.
+_meta:
+  type: manual
 texts:
   district_numbered_format:
     en: DISTRICT {0}

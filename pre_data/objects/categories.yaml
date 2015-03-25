@@ -1,7 +1,7 @@
 _meta:
-  _auto: 'WARNING: comments will be deleted during normalization'
+  _auto_comment: 'WARNING: normalization will remove YAML comments.'
   name_i18n_format: text_category_{0}
-  normalizable: true
+  type: normalizable
 categories:
   bart:
     name: BART

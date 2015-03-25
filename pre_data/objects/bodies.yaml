@@ -1,6 +1,6 @@
 _meta:
-  _comment: 'WARNING: comments will be deleted automatically during normalization'
-  normalizable: true
+  _auto_comment: 'WARNING: normalization will remove YAML comments.'
+  type: normalizable
 bodies:
   body_bart:
     category_id: bart
@@ -31,8 +31,8 @@ bodies:
     category_id: state
     jurisdiction_id: CA
     name: State Assembly
-    partisan: true
     office_name: Member of the State Assembly
+    partisan: true
     qualified_name: California State Assembly
     seat_count: 80
     url: http://assembly.ca.gov/
@@ -47,17 +47,17 @@ bodies:
     qualified_name: California State Board of Equalization
     seat_count: 5
     term_length: 4
-    wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29
     url: http://www.boe.ca.gov/
+    wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29
   body_ca_sc:
     category_id: judicial
     jurisdiction_id: CA
     name:
       en: Supreme Court of California
       es: Corte Suprema
-    seat_count: 7
     notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
       by the Governor and subject to retention elections.
+    seat_count: 7
     term_length: 12
     url: http://www.courts.ca.gov/supremecourt.htm
     vote_method: retention
@@ -81,8 +81,8 @@ bodies:
       ch: 教育委員會成員
       en: Member, Board of Education
       es: Miembro del Consejo de Educación
-    seat_count: 7
     partisan: false
+    seat_count: 7
     term_length: 4
     url: http://www.sfusd.edu/en/about-sfusd/board-of-education
     vote_method: FPTP
@@ -90,6 +90,7 @@ bodies:
   body_sf_bos:
     category_id: city_county
     jurisdiction_id: SF
+    localwiki: https://localwiki.org/sf/Board_of_Supervisors
     name:
       en: Board of Supervisors
       es: Consejo de Supervisores
@@ -97,14 +98,13 @@ bodies:
       ch: 市參議員
       en: Member, Board of Supervisors
       es: Miembro del Consejo de Supervisores
-    qualified_name: San Francisco Board of Supervisors
     partisan: false
+    qualified_name: San Francisco Board of Supervisors
     seat_count: 11
     term_length: 4
     url: http://www.sfbos.org
     vote_method: RCV
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_Board_of_Supervisors
-    localwiki: https://localwiki.org/sf/Board_of_Supervisors
   body_sf_ccb:
     category_id: school
     jurisdiction_id: SFCC
