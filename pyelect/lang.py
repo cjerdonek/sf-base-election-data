@@ -171,4 +171,5 @@ def lang_contest_csv_to_yaml(input_path):
             yaml_texts[text_id] = entry
         data = {'texts': yaml_texts}
         path = get_lang_path('auto/{0}'.format(lang))
+        utils._fix_header(data, file_type=utils.FILE_AUTO)
         utils.write_yaml(data, path, stdout=True)

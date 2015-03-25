@@ -17,6 +17,7 @@ FILE_TYPES = (FILE_MANUAL, FILE_NORMALIZABLE, FILE_AUTO)
 DIR_NAME_OUTPUT = '_build'
 DIR_PRE_DATA = 'pre_data'
 KEY_META = '_meta'
+KEY_FILE_TYPE = 'type'
 
 
 def get_from(dict_, key, message=None):
@@ -63,7 +64,18 @@ def write_yaml(data, path, stdout=False):
 
 
 def _get_yaml_meta(data):
-    return data[KEY_META]
+    return get_from(data, KEY_META)
+
+
+def _fix_header(data, file_type=None):
+    try:
+        meta = data[KEY_META]
+    except KeyError:
+        meta = {}
+        data[KEY_META] = meta
+    meta['_auto_comment'] = ("WARNING: normalization will remove YAML comments.")
+    if file_type is not None:
+        meta[KEY_FILE_TYPE] = file_type
 
 
 def get_yaml_data(dir_path, base_name):
@@ -107,6 +119,7 @@ def normalize_yaml(path, stdout=None):
     if not normalizable:
         _log.info("skipping normalization: {0}".format(path))
         return
-    meta = _get_yaml_meta(data)
-    meta['_auto_comment'] = ("WARNING: normalization will remove YAML comments.")
+
+    _fix_header(data, file_type=None)
+
     write_yaml(data, path, stdout=stdout)
