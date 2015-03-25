@@ -1,3 +1,6 @@
+_meta:
+  _auto_comment: 'WARNING: normalization will remove YAML comments.'
+  type: auto_generated
 texts:
   text_category_city_county:
     en: CITY AND COUNTY
