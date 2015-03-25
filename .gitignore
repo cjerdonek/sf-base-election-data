@@ -4,3 +4,5 @@ __pycache__/
 
 # Project-specific
 _build/
+*.ods
+*.xls
