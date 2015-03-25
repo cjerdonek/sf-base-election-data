@@ -83,7 +83,7 @@ of files:
 In the case of YAML files, we use a convention to indicate which type
 each file is.  To assist contributors and to aid the automated tools, the
 file type is indicated at the following node of each YAML file:
-`data[_meta][type]`.  This value must have one of the following three
+`data['_meta']['type']`.  This value must have one of the following three
 string values, corresponding to the three types: `manual`, `normalizable`,
 and `auto_generated`.
 

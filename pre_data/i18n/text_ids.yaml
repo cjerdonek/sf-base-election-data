@@ -1,6 +1,6 @@
 _meta:
-  _comment: 'WARNING: comments will be deleted automatically during normalization'
-  normalizable: true
+  _auto_comment: 'WARNING: normalization will remove YAML comments.'
+  type: normalizable
 text_ids:
   text_category_city_county: CITY AND COUNTY
   text_category_federal: FEDERAL

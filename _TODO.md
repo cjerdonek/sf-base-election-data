@@ -1,7 +1,9 @@
 TODO
 ====
 
-** Get a handle on the language stuff first!
+* Make command to normalize all YAML files.
+  - require that all files have the normalizable marker.
+* Get a handle on the language stuff first!
 * Add a `seat_name` attribute to Office that distinguishes members from
   one another (and `office_name` is the more generic name).
 * Think about whether internationalized text should be mandatory
@@ -19,8 +21,6 @@ TODO
 * Change seats to SF seats, e.g. 2 of 80.
 
 * Add vote method object (to spell it out)
-* Make command to normalize all YAML files.
-  - require that all files have the normalizable marker.
 * Make command to generate a translation file from the English.
   - And start work on manual..
 * Clean up en.yaml, and add Spanish and Chinese in the cleaned-up format.

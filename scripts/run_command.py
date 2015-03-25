@@ -79,11 +79,25 @@ def command_sample_html(ns):
         subprocess.call(["open", start_path])
 
 
+def _get_all_files(dir_path):
+    paths = []
+    for root_dir, dir_paths, file_names in os.walk(dir_path):
+        for file_name in file_names:
+            path = os.path.join(root_dir, file_name)
+            paths.append(path)
+
+    return paths
+
+
 def command_yaml_norm(ns):
-    path = ns.path
-    if os.path.isdir(path):
-        raise Exception("directories not supported yet!")
-    utils.normalize_yaml(path, stdout=True)
+    if ns.all:
+        data_dir = utils.get_pre_data_dir()
+        paths = _get_all_files(data_dir)
+        paths = [p for p in paths if os.path.splitext(p)[1] == '.yaml']
+    else:
+        paths = [ns.path]
+    for path in paths:
+        utils.normalize_yaml(path, stdout=True)
 
 
 def command_yaml_temp(ns):
@@ -177,8 +191,11 @@ def create_parser():
         help='suppress opening the browser.')
 
     parser = make_subparser(sub, "yaml_norm",
-                help="normalize a YAML file.")
-    parser.add_argument('path', metavar='PATH', help="a path to a YAML file.")
+                help="normalize YAML files.")
+    parser.add_argument('--all', dest='all', action='store_true',
+        help='normalize all YAML files.')
+    parser.add_argument('path', metavar='PATH', nargs='?',
+        help="a path to a YAML file.")
 
     parser = make_subparser(sub, "yaml_temp",
                 help="temporary scratch command.")

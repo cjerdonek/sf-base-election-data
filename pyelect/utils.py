@@ -8,6 +8,12 @@ import yaml
 
 _log = logging.getLogger()
 
+FILE_MANUAL = 'manual'
+FILE_NORMALIZABLE = 'normalizable'
+FILE_AUTO = 'auto_generated'
+
+FILE_TYPES = (FILE_MANUAL, FILE_NORMALIZABLE, FILE_AUTO)
+
 DIR_NAME_OUTPUT = '_build'
 DIR_PRE_DATA = 'pre_data'
 KEY_META = '_meta'
@@ -78,19 +84,29 @@ def get_yaml_data(dir_path, base_name):
     return data, meta
 
 
+def _get_yaml_file_type(data):
+    meta = _get_yaml_meta(data)
+    file_type = get_from(meta, 'type')
+    if file_type not in FILE_TYPES:
+        raise Exception('bad file type: {0}'.format(file_type))
+    return file_type
+
+
 def _is_yaml_normalizable(data):
-    try:
-        meta = _get_yaml_meta(data)
-        normalizable = meta['normalizable']
-    except KeyError:
-        normalizable = False
-    return normalizable
+    file_type = _get_yaml_file_type(data)
+    # Use a white list instead of a black list to be safe.
+    return file_type in (FILE_NORMALIZABLE, FILE_AUTO)
 
 
 def normalize_yaml(path, stdout=None):
     data = read_yaml(path)
-    if not _is_yaml_normalizable(data):
-        raise Exception("file not marked normalizable: {0}".format(path))
+    try:
+        normalizable = _is_yaml_normalizable(data)
+    except:
+        raise Exception("for file: {0}".format(path))
+    if not normalizable:
+        _log.info("skipping normalization: {0}".format(path))
+        return
     meta = _get_yaml_meta(data)
-    meta['_comment'] = "WARNING: comments will be deleted automatically during normalization"
+    meta['_auto_comment'] = ("WARNING: normalization will remove YAML comments.")
     write_yaml(data, path, stdout=stdout)
