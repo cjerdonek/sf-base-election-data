@@ -1,5 +1,7 @@
 # This file contains a list of new text ID's that should be added.
 # The translations for these are in the "manual" folder.
+_meta:
+  type: manual
 new_text_ids:
   - district_numbered_format
   - office_bart_director

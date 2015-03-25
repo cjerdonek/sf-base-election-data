@@ -1,5 +1,7 @@
 # This file contains a list of English phrases from which we should not
 # create a text ID.
+_meta:
+  type: manual
 text_ids:
   - text_office_bart_director_edge
   - text_office_member_board_of_supervisors_edge
