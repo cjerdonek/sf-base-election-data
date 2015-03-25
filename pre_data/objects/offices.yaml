@@ -1,6 +1,6 @@
 _meta:
   _auto_comment: 'WARNING: normalization will remove YAML comments.'
-  type: normalizable
+  type: auto_updated
 offices:
   CA_CourtApp_D1_Div1_AJ:
     district: 1

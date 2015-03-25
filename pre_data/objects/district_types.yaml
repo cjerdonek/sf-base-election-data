@@ -1,6 +1,6 @@
 _meta:
   _auto_comment: 'WARNING: normalization will remove YAML comments.'
-  type: normalizable
+  type: auto_updated
 district_types:
 - _id: ca_court_app_d1
   body_id: ca_court_app

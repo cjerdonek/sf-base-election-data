@@ -1,6 +1,8 @@
 TODO
 ====
 
+* Work out way to manually add translations.
+  - Process additions.yaml.
 * Settle the language stuff.
 * Add a `seat_name` attribute to Office that distinguishes members from
   one another (and `office_name` is the more generic name).

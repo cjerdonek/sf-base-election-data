@@ -1,6 +1,6 @@
 _meta:
   _auto_comment: 'WARNING: normalization will remove YAML comments.'
-  type: normalizable
+  type: auto_updated
 mixins:
   ca_common:
     category_id: state

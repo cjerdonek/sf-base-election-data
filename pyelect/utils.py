@@ -9,7 +9,7 @@ import yaml
 _log = logging.getLogger()
 
 FILE_MANUAL = 'manual'
-FILE_NORMALIZABLE = 'normalizable'
+FILE_NORMALIZABLE = 'auto_updated'
 FILE_AUTO = 'auto_generated'
 
 FILE_TYPES = (FILE_MANUAL, FILE_NORMALIZABLE, FILE_AUTO)
@@ -104,7 +104,7 @@ def _get_yaml_file_type(data):
     return file_type
 
 
-def _is_yaml_normalizable(data):
+def _is_yaml_auto_updated(data):
     file_type = _get_yaml_file_type(data)
     # Use a white list instead of a black list to be safe.
     return file_type in (FILE_NORMALIZABLE, FILE_AUTO)
@@ -113,10 +113,10 @@ def _is_yaml_normalizable(data):
 def normalize_yaml(path, stdout=None):
     data = read_yaml(path)
     try:
-        normalizable = _is_yaml_normalizable(data)
+        auto_updated = _is_yaml_auto_updated(data)
     except:
         raise Exception("for file: {0}".format(path))
-    if not normalizable:
+    if not auto_updated:
         _log.info("skipping normalization: {0}".format(path))
         return
 

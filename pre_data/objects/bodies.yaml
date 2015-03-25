@@ -1,6 +1,6 @@
 _meta:
   _auto_comment: 'WARNING: normalization will remove YAML comments.'
-  type: normalizable
+  type: auto_updated
 bodies:
   body_bart:
     category_id: bart

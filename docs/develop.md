@@ -72,7 +72,7 @@ of files:
    However, we use scripts to "normalize" them (i.e. put them into a
    standard or canonical form, e.g. by alphabetizing the key values).
    Because the normalization process is automated and strips YAML comments,
-   YAML comments should never be added to normalizable files.
+   YAML comments should never be added to auto_updated files.
    See the "Comments" section below for additional information.
 3. **Auto-generated.**  Auto-generated files are generated automatically
    from other data files.  These files should thus never be edited by hand.
@@ -84,7 +84,7 @@ In the case of YAML files, we use a convention to indicate which type
 each file is.  To assist contributors and to aid the automated tools, the
 file type is indicated at the following node of each YAML file:
 `data['_meta']['type']`.  This value must have one of the following three
-string values, corresponding to the three types: `manual`, `normalizable`,
+string values, corresponding to the three types: `manual`, `auto_updated`,
 and `auto_generated`.
 
 

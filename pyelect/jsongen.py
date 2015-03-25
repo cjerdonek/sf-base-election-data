@@ -196,10 +196,18 @@ def add_source(data, source_name):
         data[key] = value
 
 
+def check_node(node):
+    for object_id, obj in node.items():
+        for attr, value in obj.items():
+            if type(value) not in (bool, int, str):
+                raise Exception("bad value type {0} for {1} in: {2}"
+                                 .format(type(value), value, obj))
+
 def add_node(json_data, node_name, **kwargs):
     make_node_function_name = "make_node_{0}".format(node_name)
     make_node_func = globals()[make_node_function_name]
     node = make_node_func(node_name, **kwargs)
+    check_node(node)
     json_data[node_name] = node
 
 

@@ -45,6 +45,10 @@ def command_lang_make_ids(ns):
     print(utils.yaml_dump(data))
 
 
+def command_lang_update_adds(ns):
+    lang.update_adds()
+
+
 def command_make_json(ns):
     path = ns.output_path
     data = jsongen.make_all_data()
@@ -167,6 +171,9 @@ def create_parser():
                 help="create text ID's from a CSV file.")
     parser.add_argument('input_path', metavar='CSV_PATH',
         help="a path to a CSV file.")
+
+    parser = make_subparser(sub, "lang_update_adds",
+                help="update the manual language files from additions.yaml.")
 
     default_output = _REL_PATH_JSON_DATA
     parser = make_subparser(sub, "make_json",
