@@ -1,9 +1,9 @@
 _meta:
   _auto_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
   _comment: |
-    This file contains a list of additional text ID's to add to supplement
-    the text ID's coming from the various CSV files.  The corresponding
-    translations are in the "translations_extra" folder.
+    This file contains a list of the text ID's to add to the text ID's
+    of phrases already covered by the various CSV files.  The translations
+    for these "extra" words are in the subfolder: "translations_added".
   type: auto_updated
 new_text_ids:
 - district_numbered_format
