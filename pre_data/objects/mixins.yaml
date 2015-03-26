@@ -1,5 +1,5 @@
 _meta:
-  _auto_comment: 'WARNING: normalization will remove YAML comments.'
+  _auto_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
   type: auto_updated
 mixins:
   ca_common:

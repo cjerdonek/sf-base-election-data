@@ -1,6 +1,9 @@
-# TODO: specify these keys in config.
 _meta:
-  type: manual
+  _auto_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
+  _comment: |
+    The ID's in this file come from _config/text_ids_extra.yaml, but
+    the English texts are specified manually.
+  type: auto_updated
 texts:
   district_numbered_format:
     en: DISTRICT {0}
