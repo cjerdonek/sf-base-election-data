@@ -1,8 +1,10 @@
-# This file contains a list of new text ID's that should be added.
-# The translations for these are in the "manual" folder.
 _meta:
-  type: manual
+  _auto_comment: 'WARNING: this file is auto-updated. YAML comments will be deleted.'
+  _comment: |
+    This file contains a list of new text ID's that should be added.
+    The translations for these are in the "translations_extra" folder.
+  type: auto_updated
 new_text_ids:
-  - district_numbered_format
-  - office_bart_director
-  - office_state_treasurer
+- district_numbered_format
+- office_bart_director
+- office_state_treasurer

@@ -108,7 +108,10 @@ def command_yaml_norm(ns):
         paths = _get_all_files(data_dir)
         paths = [p for p in paths if os.path.splitext(p)[1] == '.yaml']
     else:
-        paths = [ns.path]
+        path = ns.path
+        if not utils.is_yaml_file_normalizable(path):
+            raise Exception("not normalizable: {0}".format(path))
+        paths = [path]
     for path in paths:
         utils.normalize_yaml(path, stdout=True)
 
