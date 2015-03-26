@@ -1,6 +1,9 @@
 TODO
 ====
 
+* Add informative comment to `text_ids.yaml`, being sure to distinguish
+  from additions.yaml.
+* Consider renaming manual to `manual_adds`.
 * Work out way to manually add translations.
   - Process additions.yaml.
 * Settle the language stuff.

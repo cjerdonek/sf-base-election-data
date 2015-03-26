@@ -12,6 +12,10 @@ _log = logging.getLogger()
 
 DIR_LANG = 'i18n'
 DIR_LANG_AUTO = 'auto'
+DIR_LANG_CONFIG = '_config'
+DIR_LANG_TRANSLATIONS_EXTRA = 'translations_extra'
+
+FILE_EXTRA_TEXT_IDS = 'text_ids_extra.yaml'
 
 LANG_EN = 'en'
 LANG_ES = 'es'
@@ -35,6 +39,22 @@ CONTEST_INDICES = {
 CONTEST_HEADERS = sorted(CONTEST_INDICES.keys())
 
 ContestRow = namedtuple('ContestRow', CONTEST_HEADERS)
+
+
+def get_rel_path_lang_dir():
+    return os.path.join(utils.DIR_PRE_DATA, DIR_LANG)
+
+def get_rel_path_config_dir():
+    lang_dir = get_rel_path_lang_dir()
+    return os.path.join(lang_dir, DIR_LANG_CONFIG)
+
+def get_rel_path_extra_translations_dir():
+    lang_dir = get_rel_path_lang_dir()
+    return os.path.join(lang_dir, DIR_LANG_TRANSLATIONS_EXTRA)
+
+def get_rel_path_extra_text_ids():
+    dir_path = get_rel_path_config_dir()
+    return os.path.join(dir_path, FILE_EXTRA_TEXT_IDS)
 
 
 def get_lang_dir():
@@ -119,6 +139,34 @@ def create_text_ids(path):
     return text_map
 
 
+def _create_lang_file_data(text_map, lang_code):
+    """Create the data object suitable for writing to a language file.
+
+    Arguments:
+      text_map: a dict from text_id to dict of: lang_code to
+        text translation.
+    """
+    data = {}
+    english_annotation_key = '_{0}'.format(LANG_EN)
+    for text_id, translations in text_map.items():
+        # TODO: handle the case of the translation being missing.
+        translation = translations[lang_code]
+        text_entry = {lang_code: translation}
+        if lang != LANG_EN:
+            # Annotate with the English to make the raw file more readable.
+            english = translations[LANG_EN]
+            entry[english_annotation_key] = english
+        data[text_id] = text_entry
+    file_data = {'texts': data}
+
+    return file_data
+
+
+def update_adds():
+    # TODO: load additions.yaml.
+    # TODO: check that keys aren't already listed in text_ids.yaml?
+    print("**")
+
 def _add_key(dict_, key, value):
     if key in dict_ and value != dict_[key]:
         raise Exception("mismatch for {0!r}:\nold: {1}\nnew: {2}"
@@ -171,5 +219,4 @@ def lang_contest_csv_to_yaml(input_path):
             yaml_texts[text_id] = entry
         data = {'texts': yaml_texts}
         path = get_lang_path('auto/{0}'.format(lang))
-        utils._fix_header(data, file_type=utils.FILE_AUTO)
-        utils.write_yaml(data, path, stdout=True)
+        write_yaml_with_header(data, path, file_type=utils.FILE_AUTO)
