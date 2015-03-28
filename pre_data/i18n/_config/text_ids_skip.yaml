@@ -1,7 +1,7 @@
 # This file contains a list of English phrases from which we should not
 # create a text ID.
 _meta:
-  type: manual
+  _type: manual
 # TODO: remove these after moving them into the override file.
 # text_ids:
 #   - text_office_bart_director_edge
