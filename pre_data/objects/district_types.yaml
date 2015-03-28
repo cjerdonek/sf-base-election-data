@@ -1,6 +1,6 @@
 _meta:
-  _auto_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
-  type: auto_updated
+  _type: auto_updated
+  _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
 district_types:
 - _id: ca_court_app_d1
   body_id: ca_court_app

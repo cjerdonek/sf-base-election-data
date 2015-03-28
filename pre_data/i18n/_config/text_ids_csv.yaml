@@ -1,11 +1,11 @@
 _meta:
-  _auto_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
-  _comment: |
+  _type: auto_updated
+  _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
+  comments: |
     This file contains the text ID's for all the phrases we are interested
     in that appear in the various CSV files (specifically all English
     phrases in the CSV except for the ones that are marked "skipped"
     in the configuration file for skips).
-  type: auto_updated
 text_ids:
   text_category_city_county: CITY AND COUNTY
   text_category_federal: FEDERAL

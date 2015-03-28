@@ -1,7 +1,7 @@
 _meta:
-  _auto_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
+  _type: auto_updated
+  _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
   name_i18n_format: text_category_{0}
-  type: auto_updated
 categories:
   bart:
     name: BART
