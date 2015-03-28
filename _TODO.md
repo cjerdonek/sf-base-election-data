@@ -3,10 +3,16 @@ TODO
 
 * Add informative comment to `text_ids.yaml`, being sure to distinguish
   from additions.yaml.
-* Consider renaming manual to `manual_adds`.
+* Make a page to display all languages:
+  id
+    - en
+    - sp
+    - ch
+    - notes
 * Work out way to manually add translations.
   - Process additions.yaml.
 * Settle the language stuff.
+* Review `office_bart_director` id.
 * Add a `seat_name` attribute to Office that distinguishes members from
   one another (and `office_name` is the more generic name).
 * Think about whether internationalized text should be mandatory
