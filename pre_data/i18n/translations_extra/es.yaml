@@ -7,7 +7,7 @@ _meta:
 texts:
   district_numbered_format:
     _en: DISTRICT {0}
-    es: ''
+    es: 'DISTRITO {0}'
   office_board_of_supervisors_member:
     _en: MEMBER, BOARD OF SUPERVISORS
     es: ''
