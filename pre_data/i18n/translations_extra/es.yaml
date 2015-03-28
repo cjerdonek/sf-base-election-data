@@ -8,6 +8,27 @@ texts:
   text_district_numbered_format:
     _en: DISTRICT {0}
     es: DISTRITO {0}
+  text_language_chinese:
+    _en: Chinese
+    es: ''
+  text_language_english:
+    _en: English
+    es: ''
+  text_language_filipino:
+    _en: Filipino
+    es: ''
+  text_language_japanese:
+    _en: Japanese
+    es: ''
+  text_language_korean:
+    _en: Korean
+    es: ''
+  text_language_spanish:
+    _en: Spanish
+    es: ''
+  text_language_vietnamese:
+    _en: Vietnamese
+    es: ''
   text_office_board_of_supervisors_member:
     _en: MEMBER, BOARD OF SUPERVISORS
     es: ''

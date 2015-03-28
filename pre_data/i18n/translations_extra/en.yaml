@@ -7,6 +7,20 @@ _meta:
 texts:
   text_district_numbered_format:
     en: DISTRICT {0}
+  text_language_chinese:
+    en: Chinese
+  text_language_english:
+    en: English
+  text_language_filipino:
+    en: Filipino
+  text_language_japanese:
+    en: Japanese
+  text_language_korean:
+    en: Korean
+  text_language_spanish:
+    en: Spanish
+  text_language_vietnamese:
+    en: Vietnamese
   text_office_board_of_supervisors_member:
     en: MEMBER, BOARD OF SUPERVISORS
   text_office_board_of_supervisors_member_edge_format:
