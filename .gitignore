@@ -5,5 +5,6 @@ __pycache__/
 # Project-specific
 _build/
 *.ods
+# Extension *.ods# is for LibreOffice "lock" files.
 *.ods#
 *.xls
