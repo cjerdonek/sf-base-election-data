@@ -25,23 +25,17 @@ def dd_dict():
     return defaultdict(dict)
 
 
-def get_data_dir(dir_name):
-    return os.path.join(utils.get_pre_data_dir(), dir_name)
-
-
-def get_yaml_path(dir_name, file_base):
-    file_name = "{0}.yaml".format(file_base)
-    return os.path.join(get_data_dir(dir_name), file_name)
-
-
-def get_object_path(name):
-    return get_yaml_path(DIR_NAME_OBJECTS, name)
+def get_rel_path_objects_dir():
+    return os.path.join(utils.DIR_PRE_DATA, DIR_NAME_OBJECTS)
 
 
 def get_object_data(base_name):
-    dir_path = get_data_dir('objects')
-    data, meta = utils.get_yaml_data(dir_path, base_name)
-    return data, meta
+    rel_path = get_rel_path_objects_dir()
+    data = utils.read_yaml_rel(rel_path, file_base=base_name)
+    meta = utils.get_yaml_meta(data)
+    objects = utils.get_required(data, base_name)
+
+    return objects, meta
 
 
 def make_node_categories(node_name):
@@ -58,42 +52,9 @@ def make_node_categories(node_name):
     return node
 
 
-def path_to_langcode(path):
-    """Extract the language code from a path and return it."""
-    head, tail = os.path.split(path)
-    base, ext = os.path.splitext(tail)
-    return base
-
-
-def yaml_to_words(data, lang):
-    """Return a dict from: text_id to word in the given language."""
-    text_node = data['texts']
-    # Each trans_map is a dict from: language code to translation.
-    words = {text_id: trans_map[lang] for text_id, trans_map in text_node.items()}
-    return words
-
-
-def read_phrases(path):
-    """Read a file, and return a dict of: text_id to translation."""
-    lang_code = path_to_langcode(path)
-    yaml_data = utils.read_yaml(path)
-    words = yaml_to_words(yaml_data, lang_code)
-    return lang_code, words
-
-
 def make_node_i18n(node_name):
     """Return the node containing internationalized data."""
-    lang_dir = lang.get_lang_dir()
-    auto_dir = os.path.join(lang_dir, lang.DIR_LANG_AUTO)
-    glob_path = os.path.join(auto_dir, "*.yaml")
-    paths = glob.glob(glob_path)
-
-    data = defaultdict(dd_dict)
-    for path in paths:
-        lang_code, phrases = read_phrases(path)
-        for text_id, phrase in phrases.items():
-            data[text_id][lang_code] = phrase
-
+    data = lang.get_translations()
     return data
 
 
