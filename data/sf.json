@@ -14,10 +14,7 @@
             "category_id": "judicial",
             "district_count": 5,
             "jurisdiction_id": "CA",
-            "name": {
-                "en": "California Court of Appeal, First District",
-                "es": "Corte de Apelaci\u00f3n"
-            },
+            "name_i18n": "text_body_ca_court_app",
             "notes": "The state has six geographic appellate districts. The first district, which covers San Francisco, is divided into five non-geographical divisions with four justices each.",
             "partisan": false,
             "seat_count": 20,
@@ -53,10 +50,7 @@
         "body_ca_sc": {
             "category_id": "judicial",
             "jurisdiction_id": "CA",
-            "name": {
-                "en": "Supreme Court of California",
-                "es": "Corte Suprema"
-            },
+            "name_i18n": "text_body_ca_sc",
             "notes": "The Court has six Associate Justices and one Chief Justice. Each is appointed by the Governor and subject to retention elections.",
             "seat_count": 7,
             "term_length": 12,
@@ -77,15 +71,8 @@
         "body_sf_boe": {
             "category_id": "school",
             "jurisdiction_id": "SF",
-            "name": {
-                "en": "Board of Education",
-                "es": "Consejo de Educaci\u00f3n"
-            },
-            "office_name": {
-                "ch": "\u6559\u80b2\u59d4\u54e1\u6703\u6210\u54e1",
-                "en": "Member, Board of Education",
-                "es": "Miembro del Consejo de Educaci\u00f3n"
-            },
+            "name_i18n": "text_body_sf_boe",
+            "office_name_i18n": "text_office_member_board_of_education",
             "partisan": false,
             "seat_count": 7,
             "term_length": 4,
@@ -97,15 +84,8 @@
             "category_id": "city_county",
             "jurisdiction_id": "SF",
             "localwiki": "https://localwiki.org/sf/Board_of_Supervisors",
-            "name": {
-                "en": "Board of Supervisors",
-                "es": "Consejo de Supervisores"
-            },
-            "office_name": {
-                "ch": "\u5e02\u53c3\u8b70\u54e1",
-                "en": "Member, Board of Supervisors",
-                "es": "Miembro del Consejo de Supervisores"
-            },
+            "name_i18n": "text_body_sf_bos",
+            "office_name_i18n": "text_office_member_board_of_supervisors",
             "partisan": false,
             "qualified_name": "San Francisco Board of Supervisors",
             "seat_count": 11,
@@ -117,15 +97,8 @@
         "body_sf_ccb": {
             "category_id": "school",
             "jurisdiction_id": "SFCC",
-            "name": {
-                "en": "Community College Board",
-                "es": "Consejo del Colegio Comunitario"
-            },
-            "office_name": {
-                "ch": "\u793e\u5340\u5927\u5b78\u8463\u4e8b\u6703\u6210\u54e1",
-                "en": "Member, Community College Board",
-                "es": "Miembro del Consejo del Colegio Comunitario"
-            },
+            "name_i18n": "text_body_sf_ccb",
+            "office_name_i18n": "text_office_member_community_college_board",
             "seat_count": 7,
             "term_length": 4,
             "url": "http://www.ccsf.edu/en/about-city-college/board-of-trustees.html",
@@ -158,15 +131,9 @@
         "body_sf_sc": {
             "category_id": "judicial",
             "jurisdiction_id": "SF",
-            "name": {
-                "en": "Superior Court of San Francisco",
-                "es": "Tribunal Superior"
-            },
+            "name_i18n": "text_body_sf_sc",
             "notes": "The San Francisco Superior Court Bench is comprised of 52 Judges and one Commissioner.",
-            "office_name": {
-                "en": "Judge of the Superior Court",
-                "es": "Juez del Tribunal Superior"
-            },
+            "office_name_i18n": "text_office_member_body_sf_sc",
             "term_length": 6,
             "url": "http://www.sfsuperiorcourt.org/",
             "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court"
