@@ -195,8 +195,8 @@ def read_translations_dir(rel_dir):
 
 
 def get_lang_phrase(translations, lang):
-    default = '__TODO__' if lang == LANG_EN else ''
-    return translations.get(lang, default)
+    # This requires that the key be present for English.
+    return translations[lang] if lang == LANG_EN else translations.get(lang, '')
 
 
 def _make_translations_texts(phrases, lang):
@@ -208,7 +208,8 @@ def _make_translations_texts(phrases, lang):
     """
     data = {}
     for text_id, translations in phrases.items():
-        # TODO: handle the case of the translation being missing.
+        if not text_id.startswith('text_'):
+            text_id = "text_{0}".format(text_id)
         phrase = get_lang_phrase(translations, lang)
         entry = {lang: phrase}
         if lang != LANG_EN:

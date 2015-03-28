@@ -2,10 +2,11 @@
 # create a text ID.
 _meta:
   type: manual
-text_ids:
-  - text_office_bart_director_edge
-  - text_office_member_board_of_supervisors_edge
-  - text_office_judge_of_the_superior_court_edge
+# TODO: remove these after moving them into the override file.
+# text_ids:
+#   - text_office_bart_director_edge
+#   - text_office_member_board_of_supervisors_edge
+#   - text_office_judge_of_the_superior_court_edge
 phrases:
   # We skip the following one because it has a comma.
   # TODO: make this have the same ID as "MEMBER, COUNTY CENTRAL COMMITTEE".

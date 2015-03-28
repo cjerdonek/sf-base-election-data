@@ -179,14 +179,15 @@ def create_parser():
     parser.add_argument('input_path', metavar='CSV_PATH',
         help="a path to a CSV file.")
 
-    extra_trans_dir = lang.get_rel_path_extra_translations_dir()
-    extra_text_ids_path = lang.get_rel_path_extra_text_ids()
+    extra_phrases_path = lang.get_rel_path_phrases_extra()
+    extra_trans_dir = lang.get_rel_path_translations_extra()
+    details = textwrap.dedent("""\
+    Add to the translation files in the directory {0} any new phrases in
+    the file: {1}.
+    """.format(extra_trans_dir, extra_phrases_path))
     parser = make_subparser(sub, "lang_extras",
-                help=('update the translation files for the "extra" words '
-                      'with any new text IDs.'),
-                details=("Add any new text IDs from the config file: {0} "
-                         "to the translation files in the directory: {1}."
-                         .format(extra_text_ids_path, extra_trans_dir)))
+                help='update all i18n files with any new "extra" phrases.',
+                details=details)
 
     default_output = _REL_PATH_JSON_DATA
     parser = make_subparser(sub, "make_json",
