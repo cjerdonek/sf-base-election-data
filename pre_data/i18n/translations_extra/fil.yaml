@@ -5,15 +5,15 @@ _meta:
     The non-English translations in this file are meant to be updated
     by hand.
 texts:
-  district_numbered_format:
+  text_district_numbered_format:
     _en: DISTRICT {0}
-    fil: 'Distrito {0}'
-  office_board_of_supervisors_member:
+    fil: Distrito {0}
+  text_office_board_of_supervisors_member:
     _en: MEMBER, BOARD OF SUPERVISORS
     fil: ''
-  office_board_of_supervisors_member_edge_format:
+  text_office_board_of_supervisors_member_edge_format:
     _en: BOARD OF SUPERVISORS D{0}
     fil: ''
-  office_state_treasurer:
+  text_office_state_treasurer:
     _en: TREASURER
     fil: ''

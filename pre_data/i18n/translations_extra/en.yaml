@@ -5,11 +5,11 @@ _meta:
     This file contains a list of phrases to add to the phrases already
     covered by the various CSV files.
 texts:
-  district_numbered_format:
+  text_district_numbered_format:
     en: DISTRICT {0}
-  office_board_of_supervisors_member:
+  text_office_board_of_supervisors_member:
     en: MEMBER, BOARD OF SUPERVISORS
-  office_board_of_supervisors_member_edge_format:
+  text_office_board_of_supervisors_member_edge_format:
     en: BOARD OF SUPERVISORS D{0}
-  office_state_treasurer:
+  text_office_state_treasurer:
     en: TREASURER
