@@ -50,7 +50,7 @@ def _yaml_str_representer(dumper, data):
 yaml.add_representer(str, _yaml_str_representer)
 
 
-def get_from(dict_, key, message=None):
+def get_required(dict_, key, message=None):
     try:
         value = dict_[key]
     except:
@@ -82,18 +82,24 @@ def read_yaml(path):
     return data
 
 
-def read_yaml_rel(rel_path, key=None):
+def read_yaml_rel(rel_path, file_base=None, key=None):
     """Return the data in a YAML file as a Python dict.
 
     Arguments:
       rel_path: the path to the file relative to the repo root.
       key: optionally, the key-value to return.
     """
+    if file_base is not None:
+        file_name = "{0}.yaml".format(file_base)
+        rel_path = os.path.join(rel_path, file_name)
+
     repo_dir = get_repo_dir()
     path = os.path.join(repo_dir, rel_path)
+
     data = read_yaml(path)
     if key is not None:
         data = data[key]
+
     return data
 
 
@@ -110,8 +116,21 @@ def _write_yaml(data, path, stdout=None):
         print(yaml_dump(data))
 
 
-def _get_yaml_meta(data):
-    return get_from(data, KEY_META)
+def get_yaml_meta(data):
+    return get_required(data, KEY_META)
+
+
+def _get_yaml_file_type_from_meta(meta):
+    file_type = get_required(meta, KEY_FILE_TYPE)
+    if file_type not in FILE_TYPES:
+        raise Exception('bad file type: {0}'.format(file_type))
+    return file_type
+
+
+def _get_yaml_file_type(data):
+    meta = get_yaml_meta(data)
+    file_type = _get_yaml_file_type_from_meta(meta)
+    return file_type
 
 
 def _set_header(data, file_type, comments=None):
@@ -119,7 +138,7 @@ def _set_header(data, file_type, comments=None):
 
     if file_type is None:
         # Then we require that the file type already be specified.
-        file_type = meta[KEY_FILE_TYPE]
+        file_type = _get_yaml_file_type_from_meta(meta)
     else:
         meta[KEY_FILE_TYPE] = file_type
 
@@ -151,33 +170,6 @@ def _is_yaml_normalizable(data, path_hint):
 def is_yaml_file_normalizable(path):
     data = read_yaml(path)
     return _is_yaml_normalizable(data, path_hint=path)
-
-
-# TODO: remove this function.
-def _get_yaml_data(dir_path, base_name):
-    """Return the data in a YAML file as a pair of dicts.
-
-    Arguments:
-      name: base name of the objects file (e.g. "offices" for "offices.yaml").
-    """
-    file_name = "{0}.yaml".format(base_name)
-    path = os.path.join(dir_path, file_name)
-    all_yaml = read_yaml(path)
-    data = all_yaml[base_name]
-    try:
-        meta = _get_yaml_meta(all_yaml)
-    except KeyError:
-        raise Exception("from file at: {0}".format(path))
-
-    return data, meta
-
-
-def _get_yaml_file_type(data):
-    meta = _get_yaml_meta(data)
-    file_type = get_from(meta, KEY_FILE_TYPE)
-    if file_type not in FILE_TYPES:
-        raise Exception('bad file type: {0}'.format(file_type))
-    return file_type
 
 
 def normalize_yaml(path, stdout=None):
