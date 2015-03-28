@@ -70,13 +70,8 @@ bodies:
   body_sf_boe:
     category_id: school
     jurisdiction_id: SF
-    name:
-      en: Board of Education
-      es: Consejo de Educación
-    office_name:
-      ch: 教育委員會成員
-      en: Member, Board of Education
-      es: Miembro del Consejo de Educación
+    name_i18n: text_body_sf_boe
+    office_name_i18n: text_office_member_board_of_education
     partisan: false
     seat_count: 7
     term_length: 4
@@ -87,9 +82,7 @@ bodies:
     category_id: city_county
     jurisdiction_id: SF
     localwiki: https://localwiki.org/sf/Board_of_Supervisors
-    name:
-      en: Board of Supervisors
-      es: Consejo de Supervisores
+    name_i18n: text_body_sf_bos
     office_name_i18n: text_office_member_board_of_supervisors
     partisan: false
     qualified_name: San Francisco Board of Supervisors
@@ -101,13 +94,8 @@ bodies:
   body_sf_ccb:
     category_id: school
     jurisdiction_id: SFCC
-    name:
-      en: Community College Board
-      es: Consejo del Colegio Comunitario
-    office_name:
-      ch: 社區大學董事會成員
-      en: Member, Community College Board
-      es: Miembro del Consejo del Colegio Comunitario
+    name_i18n: text_body_sf_ccb
+    office_name_i18n: text_office_member_community_college_board
     seat_count: 7
     term_length: 4
     url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
@@ -138,9 +126,7 @@ bodies:
     name_i18n: text_body_sf_sc
     notes: The San Francisco Superior Court Bench is comprised of 52 Judges and one
       Commissioner.
-    office_name:
-      en: Judge of the Superior Court
-      es: Juez del Tribunal Superior
+    office_name_i18n: text_office_member_body_sf_sc
     term_length: 6
     url: http://www.sfsuperiorcourt.org/
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court

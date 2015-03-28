@@ -11,6 +11,15 @@ texts:
   text_body_ca_sc:
     _en: Supreme Court of California
     es: Corte Suprema
+  text_body_sf_boe:
+    _en: Board of Education
+    es: Consejo de Educación
+  text_body_sf_bos:
+    _en: Board of Supervisors
+    es: Consejo de Supervisores
+  text_body_sf_ccb:
+    _en: Community College Board
+    es: Consejo del Colegio Comunitario
   text_body_sf_sc:
     _en: Superior Court of San Francisco
     es: Tribunal Superior
@@ -41,6 +50,9 @@ texts:
   text_office_board_of_supervisors_member_edge_format:
     _en: BOARD OF SUPERVISORS D{0}
     es: ''
+  text_office_member_body_sf_sc:
+    _en: Judge of the Superior Court
+    es: Juez del Tribunal Superior
   text_office_state_treasurer:
     _en: TREASURER
     es: ''

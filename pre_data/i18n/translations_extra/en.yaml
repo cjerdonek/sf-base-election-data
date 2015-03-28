@@ -9,6 +9,12 @@ texts:
     en: California Court of Appeal, First District
   text_body_ca_sc:
     en: Supreme Court of California
+  text_body_sf_boe:
+    en: Board of Education
+  text_body_sf_bos:
+    en: Board of Supervisors
+  text_body_sf_ccb:
+    en: Community College Board
   text_body_sf_sc:
     en: Superior Court of San Francisco
   text_district_numbered_format:
@@ -29,5 +35,7 @@ texts:
     en: Vietnamese
   text_office_board_of_supervisors_member_edge_format:
     en: BOARD OF SUPERVISORS D{0}
+  text_office_member_body_sf_sc:
+    en: Judge of the Superior Court
   text_office_state_treasurer:
     en: TREASURER

@@ -11,6 +11,15 @@ texts:
   text_body_ca_sc:
     _en: Supreme Court of California
     fil: ''
+  text_body_sf_boe:
+    _en: Board of Education
+    fil: ''
+  text_body_sf_bos:
+    _en: Board of Supervisors
+    fil: ''
+  text_body_sf_ccb:
+    _en: Community College Board
+    fil: ''
   text_body_sf_sc:
     _en: Superior Court of San Francisco
     fil: ''
@@ -40,6 +49,9 @@ texts:
     fil: ''
   text_office_board_of_supervisors_member_edge_format:
     _en: BOARD OF SUPERVISORS D{0}
+    fil: ''
+  text_office_member_body_sf_sc:
+    _en: Judge of the Superior Court
     fil: ''
   text_office_state_treasurer:
     _en: TREASURER
