@@ -15,9 +15,7 @@ bodies:
     category_id: judicial
     district_count: 5
     jurisdiction_id: CA
-    name:
-      en: California Court of Appeal, First District
-      es: Corte de Apelación
+    name_i18n: text_body_ca_court_app
     notes: The state has six geographic appellate districts. The first district, which
       covers San Francisco, is divided into five non-geographical divisions with four
       justices each.
@@ -52,9 +50,7 @@ bodies:
   body_ca_sc:
     category_id: judicial
     jurisdiction_id: CA
-    name:
-      en: Supreme Court of California
-      es: Corte Suprema
+    name_i18n: text_body_ca_sc
     notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
       by the Governor and subject to retention elections.
     seat_count: 7
@@ -94,10 +90,7 @@ bodies:
     name:
       en: Board of Supervisors
       es: Consejo de Supervisores
-    office_name:
-      ch: 市參議員
-      en: Member, Board of Supervisors
-      es: Miembro del Consejo de Supervisores
+    office_name_i18n: text_office_member_board_of_supervisors
     partisan: false
     qualified_name: San Francisco Board of Supervisors
     seat_count: 11
@@ -142,9 +135,7 @@ bodies:
   body_sf_sc:
     category_id: judicial
     jurisdiction_id: SF
-    name:
-      en: Superior Court of San Francisco
-      es: Tribunal Superior
+    name_i18n: text_body_sf_sc
     notes: The San Francisco Superior Court Bench is comprised of 52 Judges and one
       Commissioner.
     office_name:

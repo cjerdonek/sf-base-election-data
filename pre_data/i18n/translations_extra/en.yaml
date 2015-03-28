@@ -5,6 +5,12 @@ _meta:
     This file contains a list of phrases to add to the phrases already
     covered by the various CSV files.
 texts:
+  text_body_ca_court_app:
+    en: California Court of Appeal, First District
+  text_body_ca_sc:
+    en: Supreme Court of California
+  text_body_sf_sc:
+    en: Superior Court of San Francisco
   text_district_numbered_format:
     en: DISTRICT {0}
   text_language_chinese:
@@ -21,8 +27,6 @@ texts:
     en: Spanish
   text_language_vietnamese:
     en: Vietnamese
-  text_office_board_of_supervisors_member:
-    en: MEMBER, BOARD OF SUPERVISORS
   text_office_board_of_supervisors_member_edge_format:
     en: BOARD OF SUPERVISORS D{0}
   text_office_state_treasurer:

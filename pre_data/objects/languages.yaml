@@ -1,0 +1,14 @@
+_meta:
+  _type: auto_updated
+  _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
+languages:
+- id: US
+  name: United States of America
+- id: CA
+  name: State of California
+- id: BART
+  name: Bay Area Rapid Transit
+- id: SFCC
+  name: San Francisco Community College District
+- id: SF
+  name: City and County of San Francisco

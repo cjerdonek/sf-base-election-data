@@ -5,6 +5,15 @@ _meta:
     The non-English translations in this file are meant to be updated
     by hand.
 texts:
+  text_body_ca_court_app:
+    _en: California Court of Appeal, First District
+    fil: ''
+  text_body_ca_sc:
+    _en: Supreme Court of California
+    fil: ''
+  text_body_sf_sc:
+    _en: Superior Court of San Francisco
+    fil: ''
   text_district_numbered_format:
     _en: DISTRICT {0}
     fil: Distrito {0}
@@ -28,9 +37,6 @@ texts:
     fil: ''
   text_language_vietnamese:
     _en: Vietnamese
-    fil: ''
-  text_office_board_of_supervisors_member:
-    _en: MEMBER, BOARD OF SUPERVISORS
     fil: ''
   text_office_board_of_supervisors_member_edge_format:
     _en: BOARD OF SUPERVISORS D{0}
