@@ -753,6 +753,36 @@
             "fil": ""
         }
     },
+    "languages": {
+        "language_chinese": {
+            "code": "zh",
+            "name": "Chinese"
+        },
+        "language_english": {
+            "code": "en",
+            "name": "English"
+        },
+        "language_filipino": {
+            "code": "fil",
+            "name": "Filipino"
+        },
+        "language_japanese": {
+            "code": "jp",
+            "name": "Japanese"
+        },
+        "language_korean": {
+            "code": "ko",
+            "name": "Korean"
+        },
+        "language_spanish": {
+            "code": "es",
+            "name": "Spanish"
+        },
+        "language_vietnamese": {
+            "code": "vi",
+            "name": "Vietnamese"
+        }
+    },
     "offices": {
         "CA_CourtApp_D1_Div1_AJ": {
             "district": 1,
