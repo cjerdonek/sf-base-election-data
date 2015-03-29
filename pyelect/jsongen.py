@@ -5,6 +5,7 @@ import glob
 import json
 import os
 from pprint import pprint
+import textwrap
 
 from pyelect import lang
 from pyelect import utils
@@ -20,11 +21,6 @@ KEY_OFFICES = 'offices'
 DIR_NAME_OBJECTS = 'objects'
 
 
-def dd_dict():
-    """A factory function that returns a defaultdict(dict)."""
-    return defaultdict(dict)
-
-
 def get_rel_path_objects_dir():
     return os.path.join(utils.DIR_PRE_DATA, DIR_NAME_OBJECTS)
 
@@ -38,13 +34,11 @@ def get_object_data(base_name):
     return objects, meta
 
 
-def make_node_categories(node_name):
-    categories, meta = get_object_data(node_name)
-
+def make_node_categories(objects, meta):
     name_i18n_format = meta['name_i18n_format']
 
     node = {}
-    for category_id, category in categories.items():
+    for category_id, category in objects.items():
         name_i18n = name_i18n_format.format(category_id)
         category['name_i18n'] = name_i18n
         node[category_id] = category
@@ -52,24 +46,22 @@ def make_node_categories(node_name):
     return node
 
 
-def make_node_i18n(node_name):
+def make_node_i18n():
     """Return the node containing internationalized data."""
     data = lang.get_translations()
     return data
 
 
-def make_node_bodies(node_name):
+def make_node_bodies(objects, meta):
     """Return the node containing internationalized data."""
-    bodies, meta = get_object_data('bodies')
-
     node = {}
-    for body_id, body in bodies.items():
+    for body_id, body in objects.items():
         node[body_id] = body
 
     return node
 
 
-def make_node_offices(node_name, mixins):
+def make_node_offices(objects, meta, mixins):
     """Return the node containing internationalized data."""
     offices, meta = get_object_data('offices')
 
@@ -89,6 +81,16 @@ def make_node_offices(node_name, mixins):
         node[office_id] = office
 
     return node
+
+
+def make_node_languages(objects, meta):
+    fields = ('name', 'code')
+    for lang_id in objects.keys():
+        lang = objects[lang_id]
+        lang = {k: v for k, v in lang.items() if k in fields}
+        objects[lang_id] = lang
+
+    return objects
 
 
 def make_court_of_appeals_division_numbers():
@@ -157,30 +159,51 @@ def add_source(data, source_name):
         data[key] = value
 
 
-def check_node(node):
+def check_node(node, node_name):
+    allowed_types = (bool, int, str)
     for object_id, obj in node.items():
         for attr, value in obj.items():
-            if type(value) not in (bool, int, str):
-                raise Exception("bad value type {0} for {1} in: {2}"
-                                 .format(type(value), value, obj))
+            if type(value) not in allowed_types:
+                err = textwrap.dedent("""\
+                json node with key "{node_name}" failed sanity check.
+                  object_id: "{object_id}"
+                  object attribute name: "{attr_name}"
+                  attribute value has type {value_type} (only allowed types are: {allowed_types})
+                  object:
+                -->{object}
+                """.format(node_name=node_name, object_id=object_id, attr_name=attr,
+                           value_type=type(value), allowed_types=allowed_types,
+                           object=obj))
+                raise Exception(err)
 
-def add_node(json_data, node_name, **kwargs):
+
+def _add_node_base(json_data, node, node_name):
+    check_node(node, node_name)
+    json_data[node_name] = node
+
+
+def add_node_object(json_data, node_name, **kwargs):
     make_node_function_name = "make_node_{0}".format(node_name)
     make_node_func = globals()[make_node_function_name]
-    node = make_node_func(node_name, **kwargs)
-    check_node(node)
-    json_data[node_name] = node
+    objects, meta = get_object_data(node_name)
+    node = make_node_func(objects, meta=meta, **kwargs)
+    _add_node_base(json_data, node, node_name)
+
+
+def add_node_i18n(json_data):
+    node = make_node_i18n()
+    _add_node_base(json_data, node, 'i18n')
 
 
 def make_all_data():
     mixins, meta = get_object_data('mixins')
 
     data ={}  # JSON data.
-
-    add_node(data, 'categories')
-    add_node(data, 'i18n')
-    add_node(data, 'bodies')
-    add_node(data, 'offices', mixins=mixins)
+    add_node_object(data, 'categories')
+    add_node_i18n(data)
+    add_node_object(data, 'languages')
+    add_node_object(data, 'bodies')
+    add_node_object(data, 'offices', mixins=mixins)
 
     return data
 
