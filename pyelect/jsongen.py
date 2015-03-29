@@ -11,7 +11,6 @@ from pyelect import lang
 from pyelect import utils
 
 
-
 COURT_OF_APPEALS_ID = 'ca_court_app'
 
 KEY_DISTRICTS = 'districts'
@@ -198,7 +197,8 @@ def add_node_i18n(json_data):
 def make_all_data():
     mixins, meta = get_object_data('mixins')
 
-    data ={}  # JSON data.
+    data ={}
+
     add_node_object(data, 'categories')
     add_node_i18n(data)
     add_node_object(data, 'languages')

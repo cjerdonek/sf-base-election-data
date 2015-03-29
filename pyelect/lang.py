@@ -80,6 +80,11 @@ def get_rel_path_translations(dir_name, lang=None):
     return os.path.join(rel_dir, file_name)
 
 
+def get_rel_path_translations_csv(lang=None):
+    """Return the path to the file containing the extra phrases."""
+    return get_rel_path_translations(dir_name=DIR_TRANSLATIONS_CSV, lang=lang)
+
+
 def get_rel_path_translations_extra(lang=None):
     """Return the path to the file containing the extra phrases."""
     return get_rel_path_translations(dir_name=DIR_TRANSLATIONS_EXTRA, lang=lang)
@@ -189,9 +194,19 @@ def read_translations_dir(rel_dir):
     for lang in LANGS_NON_ENGLISH:
         non_english = read_translations_file(rel_dir, lang=lang)
         for text_id, translations in non_english.items():
-            phrases[text_id].update(translations)
+            try:
+                text_info = phrases[text_id]
+            except KeyError:
+                # Then the text ID is present in the non-English but not English.
+                continue
+            text_info.update(translations)
 
     return phrases
+
+
+def get_translations():
+    rel_dir = get_rel_path_translations_csv()
+    return read_translations_dir(rel_dir)
 
 
 def get_lang_phrase(translations, lang):

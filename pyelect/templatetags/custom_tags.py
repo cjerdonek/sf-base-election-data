@@ -23,10 +23,18 @@ def page_nav(current_file_name, file_name, display_name):
     }
 
 
-@register.inclusion_tag('item_header_small.html')
-def item_header_small(header):
+@register.inclusion_tag('anchor.html')
+def anchor(id_):
     return {
-        'title': header
+        'id': id_
+    }
+
+
+@register.inclusion_tag('item_header_small.html')
+def item_header_small(header, item_id):
+    return {
+        'title': header,
+        'item_id': item_id,
     }
 
 

@@ -1,7 +1,10 @@
 TODO
 ====
 
-* Make a page to display all languages:
+* Make a page to display languages.
+* Add Languages object with notes attribute.
+* Add a source for each translation.
+* Make a page to display all translations:
   id
     - en
     - sp

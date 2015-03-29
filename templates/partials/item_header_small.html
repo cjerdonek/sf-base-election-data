@@ -4,4 +4,7 @@
 
 {% block column_left %}&nbsp;{% endblock %}
 
-{% block column_right %}<h4>{{ title }}</h4>{% endblock %}
+{% load custom_tags %}
+{% block column_right %}<h4>{{ title }}
+  {% anchor item_id %}
+  </h4>{% endblock %}

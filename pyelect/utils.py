@@ -50,6 +50,10 @@ def _yaml_str_representer(dumper, data):
 yaml.add_representer(str, _yaml_str_representer)
 
 
+def filter_dict_by_keys(data, keys):
+    return {k: v for k, v in data.items() if k in keys}
+
+
 def get_required(dict_, key, message=None):
     try:
         value = dict_[key]
