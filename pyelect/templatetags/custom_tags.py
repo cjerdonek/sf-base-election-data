@@ -23,6 +23,13 @@ def page_nav(current_file_name, file_name, display_name):
     }
 
 
+@register.inclusion_tag('item_header_small.html')
+def item_header_small(header):
+    return {
+        'title': header
+    }
+
+
 @register.inclusion_tag('tags/cond_include.html')
 def cond_include(should_include, template_name, data):
     """A tag to conditionally include a template."""
