@@ -83,13 +83,14 @@ def make_node_offices(objects, meta, mixins):
 
 
 def make_node_languages(objects, meta):
-    fields = ('name', 'code')
-    for lang_id in objects.keys():
-        lang = objects[lang_id]
-        lang = {k: v for k, v in lang.items() if k in fields}
-        objects[lang_id] = lang
+    fields = ('name', 'code', 'notes')
 
-    return objects
+    node = {}
+    for lang_id, lang in objects.items():
+        node_obj = {k: v for k, v in lang.items() if k in fields}
+        node[lang_id] = node_obj
+
+    return node
 
 
 def make_court_of_appeals_division_numbers():
