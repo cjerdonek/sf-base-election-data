@@ -9,8 +9,8 @@ import yaml
 _log = logging.getLogger()
 
 FILE_MANUAL = 'manual'
-FILE_AUTO_UPDATED = 'auto_updated'
 FILE_AUTO_GENERATED = 'auto_generated'
+FILE_AUTO_UPDATED = 'auto_updated'
 
 FILE_TYPES = (FILE_MANUAL, FILE_AUTO_UPDATED, FILE_AUTO_GENERATED)
 

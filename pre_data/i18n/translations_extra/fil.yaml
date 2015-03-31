@@ -23,6 +23,9 @@ texts:
   text_body_sf_sc:
     _en: Superior Court of San Francisco
     fil: ''
+  text_district_assembly_format:
+    _en: ASSEMBLY DISTRICT {0}
+    fil: ''
   text_district_numbered_format:
     _en: DISTRICT {0}
     fil: Distrito {0}
@@ -61,6 +64,12 @@ texts:
     fil: ''
   text_office_state_treasurer:
     _en: TREASURER
+    fil: ''
+  text_office_x_format:
+    _en: OFFICE NO. {0}
+    fil: ''
+  text_proposition_x_format:
+    _en: PROPOSITION {0}
     fil: ''
   text_vote_for_no_more_than_x_format:
     _en: Vote for no more than {0}

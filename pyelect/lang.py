@@ -37,8 +37,10 @@ LANGS_NON_ENGLISH = (
     LANG_FILIPINO
 )
 LANGS = [LANG_ENGLISH] + list(LANGS_NON_ENGLISH)
-LANGS_SHORT = [LANG_ENGLISH, LANG_SPANISH, LANG_FILIPINO]
+# The languages that need to support an Edge format.
+LANGS_SHORT = (LANG_ENGLISH, LANG_SPANISH, LANG_FILIPINO)
 
+EDGE_SUFFIX = '_edge'
 KEY_ENGLISH_ANNOTATION = '_{0}'.format(LANG_ENGLISH)
 KEY_TEXTS = 'texts'
 
@@ -314,16 +316,14 @@ def get_lang_phrase(translations, lang):
 
 
 def _make_translations_texts(phrases, lang):
-    """Create the texts node suitable for writing to a translations file.
-
-    Arguments:
-      phrases: a dict from text_id to dict of: lang to
-        text translation.
-    """
+    """Create the texts node suitable for writing to a translations file."""
     data = {}
     for text_id, translations in phrases.items():
-        if not text_id.startswith('text_'):
-            text_id = "text_{0}".format(text_id)
+        if text_id.endswith(EDGE_SUFFIX) and lang not in LANGS_SHORT:
+            # Do not include text ID's for edge phrases in language files
+            # that do not need to, because it would create the wrong
+            # perception that such phrases need to be translated.
+            continue
         phrase = get_lang_phrase(translations, lang)
         entry = {lang: phrase}
         if lang != LANG_ENGLISH:
@@ -343,13 +343,22 @@ def write_translations_file(phrases, dir_name, file_type, lang, comments=None):
                                  comments=comments)
 
 
+def write_translations_dir_csv(phrases):
+    """Write the phrases to the extra translations directory."""
+    dir_name = DIR_TRANSLATIONS_CSV
+    file_type = utils.FILE_AUTO_GENERATED
+    for lang in LANGS:
+        write_translations_file(phrases, dir_name=dir_name, file_type=file_type, lang=lang)
+
+
 def write_translations_extra(phrases):
     """Write the phrases to the extra translations directory."""
-    rel_path, file_type = DIR_TRANSLATIONS_EXTRA, utils.FILE_AUTO_UPDATED
-    write_translations_file(phrases, rel_path, file_type=file_type, lang=LANG_ENGLISH,
+    dir_name = DIR_TRANSLATIONS_EXTRA
+    file_type = utils.FILE_AUTO_UPDATED
+    write_translations_file(phrases, dir_name=dir_name, file_type=file_type, lang=LANG_ENGLISH,
                             comments=COMMENT_TRANSLATIONS_EXTRA_ENGLISH)
     for lang in LANGS_NON_ENGLISH:
-        write_translations_file(phrases, rel_path, file_type=file_type, lang=lang,
+        write_translations_file(phrases, dir_name=dir_name, file_type=file_type, lang=lang,
                                 comments=COMMENT_TRANSLATIONS_EXTRA_NON_ENGLISH)
 
 
@@ -386,18 +395,4 @@ def update_extras():
 
 def update_csv_translations():
     phrases = read_csv_dir()
-    pprint(phrases)
-    exit()
-
-    en_translations = lang_data[LANG_ENGLISH]
-    for lang in LANGS:
-        yaml_texts = {}
-        for text_id, text in lang_data[lang].items():
-            entry = {lang: text}
-            if lang != LANG_ENGLISH:
-                # Add English to non-English files for readability.
-                entry['_{0}'.format(LANG_ENGLISH)] = en_translations[text_id]
-            yaml_texts[text_id] = entry
-        data = {'texts': yaml_texts}
-        path = get_lang_path('auto/{0}'.format(lang))
-        write_yaml_with_header(data, path, file_type=utils.FILE_AUTO)
+    write_translations_dir_csv(phrases)
