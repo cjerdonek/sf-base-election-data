@@ -43,3 +43,5 @@ texts:
     en: Judge of the Superior Court
   text_office_state_treasurer:
     en: TREASURER
+  text_vote_for_no_more_than_x_format:
+    en: Vote for no more than {0}

@@ -47,7 +47,13 @@ texts:
   text_language_vietnamese:
     _en: Vietnamese
     zh: ''
-  text_office_board_of_supervisors_member_edge_format:
+  text_office_bart_director_edge_format:
+    _en: BART DIRECTOR DIST. {0}
+    zh: ''
+  text_office_judge_of_the_superior_court_edge_format:
+    _en: 'SUPERIOR COURT JUDGE #{0}'
+    zh: ''
+  text_office_member_board_of_supervisors_edge_format:
     _en: BOARD OF SUPERVISORS D{0}
     zh: ''
   text_office_member_body_sf_sc:
@@ -55,4 +61,7 @@ texts:
     zh: ''
   text_office_state_treasurer:
     _en: TREASURER
+    zh: ''
+  text_vote_for_no_more_than_x_format:
+    _en: Vote for no more than {0}
     zh: ''
