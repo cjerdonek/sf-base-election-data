@@ -4,68 +4,36 @@ _meta:
 texts:
   text_category_city_county:
     en: CITY AND COUNTY
-  text_category_city_county_edge:
-    en: ''
   text_category_federal:
     en: FEDERAL
-  text_category_federal_edge:
-    en: ''
   text_category_judicial:
     en: JUDICIAL
-  text_category_judicial_edge:
-    en: ''
   text_category_school:
     en: SCHOOL
-  text_category_school_edge:
-    en: ''
   text_category_state:
     en: STATE
-  text_category_state_edge:
-    en: ''
   text_choice_1:
     en: FIRST CHOICE
-  text_choice_1_edge:
-    en: ''
   text_choice_2:
     en: SECOND CHOICE
-  text_choice_2_edge:
-    en: ''
   text_choice_3:
     en: THIRD CHOICE
-  text_choice_3_edge:
-    en: ''
   text_county_transportation_authority_proposition:
     en: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
-  text_county_transportation_authority_proposition_edge:
-    en: ''
   text_district:
     en: DISTRICT
-  text_district_edge:
-    en: ''
   text_header_city_county_propositions:
     en: CITY & COUNTY PROPOSITIONS
-  text_header_city_county_propositions_edge:
-    en: ''
   text_header_measures_submitted_to_the_voters:
     en: MEASURES SUBMITTED TO THE VOTERS
-  text_header_measures_submitted_to_the_voters_edge:
-    en: ''
   text_header_party_nominated_offices:
     en: PARTY-NOMINATED OFFICES
-  text_header_party_nominated_offices_edge:
-    en: ''
   text_header_school_propositions:
     en: SCHOOL PROPOSITIONS
-  text_header_school_propositions_edge:
-    en: ''
   text_header_state_propositions:
     en: STATE PROPOSITIONS
-  text_header_state_propositions_edge:
-    en: ''
   text_header_voter_nominated_offices:
     en: VOTER-NOMINATED OFFICES
-  text_header_voter_nominated_offices_edge:
-    en: ''
   text_office_assessor_recorder:
     en: ASSESSOR-RECORDER
   text_office_assessor_recorder_edge:
@@ -174,37 +142,17 @@ texts:
     en: UNITED STATES SENATOR
   text_preference_party:
     en: 'Party Preference:'
-  text_preference_party_edge:
-    en: ''
   text_preference_presidential:
     en: Presidential Preference
-  text_preference_presidential_edge:
-    en: ''
-  text_vote_for_no_more_than_three_or_four:
-    en: Vote for no more than (Three or Four)
-  text_vote_for_no_more_than_three_or_four_edge:
-    en: ''
   text_vote_for_one:
     en: Vote for One
-  text_vote_for_one_edge:
-    en: ''
   text_vote_for_one_party:
     en: Vote for One Party
-  text_vote_for_one_party_edge:
-    en: ''
   text_vote_rcv_choice_2:
     en: 'Vote for One: Must be different than your first choice'
-  text_vote_rcv_choice_2_edge:
-    en: ''
   text_vote_rcv_choice_3:
     en: 'Vote for One: Must be different than your first and second choices'
-  text_vote_rcv_choice_3_edge:
-    en: ''
-  text_vote_yes_or_no_for_each_office:
-    en: Vote YES or NO for each office
-  text_vote_yes_or_no_for_each_office_edge:
-    en: ''
-  text_vote_your_first_second_and_third_choices:
+  text_vote_rcv_choices:
     en: Vote your first, second, and third choices
-  text_vote_your_first_second_and_third_choices_edge:
-    en: ''
+  text_vote_yes_or_no:
+    en: Vote YES or NO for each office
