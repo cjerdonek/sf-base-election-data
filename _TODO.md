@@ -1,15 +1,17 @@
 TODO
 ====
 
-* Make a page to display languages.
+* Remove text_id values from YAML when no english (e.g. edge).
+* Rename the `translations_*` directories to phrases*.
+* Make sure all non-English extras are accounted for (e.g. after updates).
 * Add Languages object with notes attribute.
-* Add a source for each translation.
 * Make a page to display all translations:
   id
     - en
     - sp
     - ch
     - notes
+* Add a source for each translation.
 * Settle the language stuff.
 * Review `office_bart_director` id.
 * Add a `seat_name` attribute to Office that distinguishes members from
