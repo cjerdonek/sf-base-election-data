@@ -23,6 +23,9 @@ texts:
   text_body_sf_sc:
     _en: Superior Court of San Francisco
     zh: ''
+  text_district_assembly_format:
+    _en: ASSEMBLY DISTRICT {0}
+    zh: 州眾議院第{0}選區
   text_district_numbered_format:
     _en: DISTRICT {0}
     zh: 第{0}選區
@@ -62,6 +65,12 @@ texts:
   text_office_state_treasurer:
     _en: TREASURER
     zh: ''
+  text_office_x_format:
+    _en: OFFICE NO. {0}
+    zh: 第{0}席
+  text_proposition_x_format:
+    _en: PROPOSITION {0}
+    zh: 提案{0}
   text_vote_for_no_more_than_x_format:
     _en: Vote for no more than {0}
     zh: 選不超過{0}名

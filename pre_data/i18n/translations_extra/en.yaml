@@ -17,6 +17,8 @@ texts:
     en: Community College Board
   text_body_sf_sc:
     en: Superior Court of San Francisco
+  text_district_assembly_format:
+    en: ASSEMBLY DISTRICT {0}
   text_district_numbered_format:
     en: DISTRICT {0}
   text_language_chinese:
@@ -43,5 +45,9 @@ texts:
     en: Judge of the Superior Court
   text_office_state_treasurer:
     en: TREASURER
+  text_office_x_format:
+    en: OFFICE NO. {0}
+  text_proposition_x_format:
+    en: PROPOSITION {0}
   text_vote_for_no_more_than_x_format:
     en: Vote for no more than {0}
