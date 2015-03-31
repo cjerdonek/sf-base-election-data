@@ -64,4 +64,4 @@ texts:
     es: ''
   text_vote_for_no_more_than_x_format:
     _en: Vote for no more than {0}
-    es: ''
+    es: Vote por no más de {0}

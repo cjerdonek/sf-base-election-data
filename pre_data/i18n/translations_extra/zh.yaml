@@ -64,4 +64,4 @@ texts:
     zh: ''
   text_vote_for_no_more_than_x_format:
     _en: Vote for no more than {0}
-    zh: ''
+    zh: 選不超過{0}名
