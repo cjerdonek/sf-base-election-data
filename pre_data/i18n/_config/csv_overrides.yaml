@@ -22,7 +22,7 @@
 # ('JUDICIAL', '', 'JUDICIAL', '', '', '', '司法')
 _meta:
   _type: manual
-override:
+overrides:
   text_category_judicial:
     es: JUDICIAL
   text_office_city_treasurer:
