@@ -35,10 +35,10 @@ texts:
     en: Vietnamese
   text_office_bart_director_edge_format:
     en: BART DIRECTOR DIST. {0}
+  text_office_judge_of_the_superior_court_edge_format:
+    en: 'SUPERIOR COURT JUDGE #{0}'
   text_office_member_board_of_supervisors_edge_format:
     en: BOARD OF SUPERVISORS D{0}
-  text_office_judge_of_the_superior_court_edge_format:
-    en: "SUPERIOR COURT JUDGE #{0}"
   text_office_member_body_sf_sc:
     en: Judge of the Superior Court
   text_office_state_treasurer:

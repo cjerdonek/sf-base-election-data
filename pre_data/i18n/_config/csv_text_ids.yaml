@@ -60,6 +60,5 @@ text_ids:
   text_vote_rcv_choice_2: 'Vote for One: Must be different than your first choice'
   text_vote_rcv_choice_3: 'Vote for One: Must be different than your first and second
     choices'
+  text_vote_rcv_choices: Vote your first, second, and third choices
   text_vote_yes_or_no: Vote YES or NO for each office
-  text_vote_rcv_choices: Vote your first, second, and third
-    choices

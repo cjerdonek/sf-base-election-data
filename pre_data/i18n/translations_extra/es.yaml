@@ -51,7 +51,7 @@ texts:
     _en: BOARD OF SUPERVISORS D{0}
     es: ''
   text_office_judge_of_the_superior_court_edge_format:
-    en: "JUEZ, CORTE SUPERIOR {0}"
+    en: JUEZ, CORTE SUPERIOR {0}
   text_office_member_body_sf_sc:
     _en: Judge of the Superior Court
     es: Juez del Tribunal Superior
