@@ -15,7 +15,7 @@ from pyelect import utils
 
 CATEGORY_ORDER = ["federal", "state", "city_county", "school", "bart", "judicial", "party"]
 DIR_NAME_HTML_OUTPUT = 'html'
-NON_ENGLISH_ORDER = [lang.LANG_CH, lang.LANG_ES, lang.LANG_FI]
+NON_ENGLISH_ORDER = [lang.LANG_CHINESE, lang.LANG_SPANISH, lang.LANG_FILIPINO]
 
 
 def _get_translations(trans, text_id):
@@ -33,11 +33,11 @@ def _get_i18n(trans, obj_json, key_base):
     # TODO: remove this hack and insist that everything appear in the i18n dict.
     if text_id not in trans:
         english = utils.get_required(obj_json, 'name')
-        words = {lang.LANG_EN: english}
+        words = {lang.LANG_ENGLISH: english}
         non_english = []
     else:
         words = utils.get_required(trans, text_id)
-        english = words[lang.LANG_EN]
+        english = words[lang.LANG_ENGLISH]
         non_english = [words[lang] for lang in NON_ENGLISH_ORDER]
     # Remove empty strings.
     non_english = list(filter(None, non_english))
@@ -51,8 +51,19 @@ def _get_i18n(trans, obj_json, key_base):
 
 
 def make_languages_one(lang_id, data):
-    data['id'] = lang_id
-    return data
+    keys = ('name', 'code', 'notes')
+    # TODO: make this into a helper function.
+    lang = {k: data.setdefault(k, None) for k in keys}
+    lang['id'] = lang_id
+    return lang
+
+
+def make_translations_one(id_, json_data):
+    if not json_data[lang.LANG_ENGLISH]:
+        print(json_data)
+        return None
+    json_data['id'] = id_
+    return json_data
 
 
 def make_district(value):
@@ -175,11 +186,13 @@ def make_offices_one(office_id, data, trans):
     return office
 
 
-def add_objects(template_data, json_data, node_name, **kwargs):
+def add_objects(template_data, json_data, node_name, json_key=None, **kwargs):
+    if json_key is None:
+        json_key = node_name
     make_object_func_name = "make_{0}_one".format(node_name)
     make_object = globals()[make_object_func_name]
 
-    json_node = json_data[node_name]
+    json_node = json_data[json_key]
 
     objects = []
     object_ids = sorted(json_node.keys())
@@ -210,16 +223,24 @@ def _group_by(objects, key):
     return grouped
 
 
+def make_translations(json_data):
+    translations = json_data['i18n']
+    new_translations = {}
+    for text_id, text in translations.items():
+        if not text[lang.LANG_ENGLISH]:
+            continue
+        text['id'] = text_id
+
+
 def make_template_data(json_data):
     """Return the context to use when rendering the template."""
     data = {}
     bodies = add_objects(data, json_data, 'bodies')
 
-    trans = json_data['i18n']
-    categories = make_categories(json_data, trans)
+    categories = make_categories(json_data, phrases)
 
 
-    offices = add_objects(data, json_data, 'offices', trans=trans)
+    offices = add_objects(data, json_data, 'offices', trans=phrases)
     office_count = sum([o['seat_count'] for o in offices])
 
     bodies_by_category = _group_by(bodies, 'category_id')
@@ -240,12 +261,16 @@ def make_template_data(json_data):
         'offices_by_category': offices_by_category,
 #        'districts': make_districts(input_data),
         'office_count': office_count,
-        # TODO
-        'translations': "TODO",
-        'translation_count': 0,
+        'non_english_codes': lang.LANGS_NON_ENGLISH,
+        'translation_ids': [text['id'] for text in sorted(phrases.values(),
+                                key=lambda text: text[lang.LANG_ENGLISH])],
+        'translations': phrases,
     }
 
-    add_objects(data, json_data, 'languages')
+    language_list = add_objects(data, json_data, 'languages')
+    data['language_map'] = {lang['code']: lang for lang in language_list}
+
+    translations = add_objects(data, json_data, 'translations')
 
     return data
 
