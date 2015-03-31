@@ -43,18 +43,16 @@ def get_sample_html_default_rel_dir():
     return os.path.join(utils.DIR_NAME_OUTPUT, htmlgen.DIR_NAME_HTML_OUTPUT)
 
 
-def command_lang_convert_csv(ns):
-    path = ns.input_path
-    lang.lang_contest_csv_to_yaml(path)
-
-
-def command_lang_make_ids(ns):
+def command_lang_csv_ids(ns):
     path = ns.input_path
     data = lang.create_text_ids(path)
     print(utils.yaml_dump(data))
 
+def command_lang_text_csv(ns):
+    lang.update_csv_translations()
 
-def command_lang_extras(ns):
+
+def command_lang_text_extras(ns):
     lang.update_extras()
 
 
@@ -169,15 +167,20 @@ def create_parser():
             description="command script for repo contributors")
     sub = root_parser.add_subparsers(help='sub-command help')
 
-    parser = make_subparser(sub, "lang_convert_csv",
-                help="generate the automated translations from a CSV file.")
-    parser.add_argument('input_path', metavar='CSV_PATH',
-        help="a path to a CSV file.")
-
-    parser = make_subparser(sub, "lang_make_ids",
+    parser = make_subparser(sub, "lang_csv_ids",
                 help="create text ID's from a CSV file.")
     parser.add_argument('input_path', metavar='CSV_PATH',
         help="a path to a CSV file.")
+
+    csv_dir = lang.get_rel_path_csv_dir()
+    csv_trans_dir = lang.get_rel_path_translations_csv()
+    details = textwrap.dedent("""\
+    Update the translation files in the directory {0} with the information
+    in the CSV files in the directory: {1}.
+    """.format(csv_trans_dir, csv_dir))
+    parser = make_subparser(sub, "lang_text_csv",
+                help="update the i18n files for the CSV phrases.",
+                details=details)
 
     extra_phrases_path = lang.get_rel_path_phrases_extra()
     extra_trans_dir = lang.get_rel_path_translations_extra()
@@ -185,8 +188,8 @@ def create_parser():
     Add to the translation files in the directory {0} any new phrases in
     the file: {1}.
     """.format(extra_trans_dir, extra_phrases_path))
-    parser = make_subparser(sub, "lang_extras",
-                help='update all i18n files with any new "extra" phrases.',
+    parser = make_subparser(sub, "lang_text_extras",
+                help='update the i18n files for the "extra" phrases.',
                 details=details)
 
     default_output = _REL_PATH_JSON_DATA
