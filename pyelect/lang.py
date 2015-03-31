@@ -19,6 +19,7 @@ import logging
 import os
 from pprint import pprint
 import re
+import textwrap
 
 from pyelect import utils
 
@@ -48,7 +49,8 @@ DIR_TRANSLATIONS_CSV = 'translations_csv'
 DIR_TRANSLATIONS_EXTRA = 'translations_extra'
 
 FILE_NAME_CSV_SKIPS = 'csv_skips.yaml'
-FILE_TEXT_IDS_CSV = 'text_ids_csv.yaml'
+FILE_TEXT_IDS_CSV = 'csv_text_ids.yaml'
+FILE_NAME_CSV_OVERRIDES = 'csv_overrides.yaml'
 
 # The "short" strings are for Edge review (24 characters max).
 CONTEST_INDICES = {
@@ -155,6 +157,24 @@ def _make_text_id(text):
     return slug
 
 
+def _get_csv_skips(key):
+    rel_dir = get_rel_path_config_dir()
+    rel_path = os.path.join(rel_dir, FILE_NAME_CSV_SKIPS)
+    skip_phrases = set(utils.read_yaml_rel(rel_path, key=key))
+
+    return skip_phrases
+
+
+def _get_csv_skip_phrases():
+    """Return the CSV phrases to skip as a set."""
+    return _get_csv_skips(key='phrases')
+
+
+def _get_csv_skip_text_ids():
+    """Return the CSV phrases to skip as a set."""
+    return _get_csv_skips(key='text_ids')
+
+
 def create_text_ids(path):
     seq = read_csv_rows_contest(path)
     text_map = {}  # maps text ID to English phrase.
@@ -171,13 +191,13 @@ def create_text_ids(path):
     return text_map
 
 
-def _get_csv_skip_phrases():
-    """Return the CSV phrases to skip as a set."""
+def _get_csv_overrides():
+    """Return the translation overrides as a dict."""
     rel_dir = get_rel_path_config_dir()
-    rel_path = os.path.join(rel_dir, FILE_NAME_CSV_SKIPS)
-    skip_phrases = set(utils.read_yaml_rel(rel_path, key='phrases'))
+    rel_path = os.path.join(rel_dir, FILE_NAME_CSV_OVERRIDES)
+    overrides = utils.read_yaml_rel(rel_path, key='overrides')
 
-    return skip_phrases
+    return overrides
 
 
 def _make_english_to_id():
@@ -193,6 +213,24 @@ def _make_english_to_id():
     return english_to_id
 
 
+def _process_contest_row(row, phrases, all_overrides, text_id, langs, attr_format):
+    translations = phrases.setdefault(text_id, {})
+    overrides = all_overrides.get(text_id, {})
+    for lang in langs:
+        attr_name = attr_format.format(lang)
+        translation = overrides.get(lang, getattr(row, attr_name))
+        if lang in translations and translation != translations[lang]:
+            err = textwrap.dedent("""\
+            differing translation found!
+
+              text_id: {text_id}
+                 lang: {lang}
+                  old: {0!r}
+                  new: {1!r}
+            """).format(translations[lang], translation, text_id=text_id, lang=lang)
+            raise Exception(err)
+        translations[lang] = translation
+
 
 def read_csv_dir():
     """Read the contents of the CSV directory.
@@ -200,9 +238,9 @@ def read_csv_dir():
     Returns the contents as a phrases dict.
     """
     skip_phrases = _get_csv_skip_phrases()
+    skip_text_ids = _get_csv_skip_text_ids()
     english_to_id = _make_english_to_id()
-    pprint(english_to_id)
-    exit()
+    overrides = _get_csv_overrides()
 
     # TODO: process *all* files in the CSV directory.
     seq = read_csv_rows_contest()
@@ -210,22 +248,21 @@ def read_csv_dir():
     phrases = {}
     for row in seq:
         english = row.en
-        text_id = english_to_ids[english]
-        _process_row(row, lang_data, manual=manual, langs=LANGS,
-                     text_id=text_id, attr_format="{0}")
-        short_text_id = "{0}_edge".format(text_id)
-        _process_row(row, lang_data, manual=manual, langs=LANGS_SHORT,
-                     text_id=short_text_id, attr_format="{0}_short")
+        if english in skip_phrases:
+            continue
+        text_id = english_to_id[english]
+        _process_contest_row(row, phrases, overrides, text_id=text_id,
+                             langs=LANGS, attr_format="{0}")
+        english_short = row.en_short
+        if not english_short:
+            continue
+        text_id_short = "{0}_edge".format(text_id)
+        if text_id_short in skip_text_ids:
+            continue
+        _process_contest_row(row, phrases, overrides, text_id=text_id_short,
+                             langs=LANGS_SHORT, attr_format="{0}_short")
 
-    print(seq)
-    exit()
-
-    english_to_ids = _get_text_ids()
-    skip_text_ids = _get_yaml_set('_config/skips', 'text_ids')
-
-    manual = _get_yaml_node('_config/resolve', 'override')
-    # Dict from lang to dict of: text_id to translation.
-    # TODO: use dict.setdefault() instead?
+    return phrases
 
 
 def _get_text_ids_extra():
@@ -347,26 +384,9 @@ def update_extras():
         print(lang)
 
 
-def _add_key(dict_, key, value):
-    if key in dict_ and value != dict_[key]:
-        raise Exception("mismatch for {0!r}:\nold: {1}\nnew: {2}"
-                        .format(key, dict_[key], value))
-    dict_[key] = value
-
-
-def _process_row(row, lang_data, manual, langs, text_id, attr_format):
-    override = manual[text_id] if text_id in manual else []
-    for lang in langs:
-        one_lang = lang_data[lang]
-        if lang in override:
-            text = override[lang]
-        else:
-            text = getattr(row, attr_format.format(lang))
-        _add_key(one_lang, text_id, text)
-
-
 def update_csv_translations():
     phrases = read_csv_dir()
+    pprint(phrases)
     exit()
 
     en_translations = lang_data[LANG_ENGLISH]
