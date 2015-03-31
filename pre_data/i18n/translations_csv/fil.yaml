@@ -4,232 +4,232 @@ _meta:
 texts:
   text_category_city_county:
     _en: CITY AND COUNTY
-    fil: ''
+    fil: null
   text_category_federal:
     _en: FEDERAL
-    fil: ''
+    fil: null
   text_category_judicial:
     _en: JUDICIAL
-    fil: ''
+    fil: null
   text_category_school:
     _en: SCHOOL
-    fil: ''
+    fil: null
   text_category_state:
     _en: STATE
-    fil: ''
+    fil: null
   text_choice_1:
     _en: FIRST CHOICE
-    fil: ''
+    fil: null
   text_choice_2:
     _en: SECOND CHOICE
-    fil: ''
+    fil: null
   text_choice_3:
     _en: THIRD CHOICE
-    fil: ''
+    fil: null
   text_county_transportation_authority_proposition:
     _en: COUNTY TRANSPORTATION AUTHORITY PROPOSITION
-    fil: ''
+    fil: null
   text_district:
     _en: DISTRICT
-    fil: ''
+    fil: null
   text_header_city_county_propositions:
     _en: CITY & COUNTY PROPOSITIONS
-    fil: ''
+    fil: null
   text_header_measures_submitted_to_the_voters:
     _en: MEASURES SUBMITTED TO THE VOTERS
-    fil: ''
+    fil: null
   text_header_party_nominated_offices:
     _en: PARTY-NOMINATED OFFICES
-    fil: ''
+    fil: null
   text_header_school_propositions:
     _en: SCHOOL PROPOSITIONS
-    fil: ''
+    fil: null
   text_header_state_propositions:
     _en: STATE PROPOSITIONS
-    fil: ''
+    fil: null
   text_header_voter_nominated_offices:
     _en: VOTER-NOMINATED OFFICES
-    fil: ''
+    fil: null
   text_office_assessor_recorder:
     _en: ASSESSOR-RECORDER
-    fil: ''
+    fil: null
   text_office_assessor_recorder_edge:
     _en: ASSESSOR-RECORDER
-    fil: ''
+    fil: null
   text_office_bart_director:
     _en: BART DIRECTOR
-    fil: ''
+    fil: null
   text_office_city_attorney:
     _en: CITY ATTORNEY
-    fil: ''
+    fil: null
   text_office_city_attorney_edge:
     _en: CITY ATTORNEY
-    fil: ''
+    fil: null
   text_office_city_treasurer:
     _en: TREASURER
-    fil: ''
+    fil: null
   text_office_city_treasurer_edge:
     _en: TREASURER
-    fil: ''
+    fil: null
   text_office_controller:
     _en: CONTROLLER
     fil: Kontroler
   text_office_controller_edge:
     _en: CONTROLLER
-    fil: ''
+    fil: null
   text_office_district_attorney:
     _en: DISTRICT ATTORNEY
-    fil: ''
+    fil: null
   text_office_district_attorney_edge:
     _en: DISTRICT ATTORNEY
-    fil: ''
+    fil: null
   text_office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
-    fil: ''
+    fil: null
   text_office_mayor:
     _en: MAYOR
-    fil: ''
+    fil: null
   text_office_mayor_edge:
     _en: MAYOR
-    fil: ''
+    fil: null
   text_office_member_board_of_education:
     _en: MEMBER, BOARD OF EDUCATION
-    fil: ''
+    fil: null
   text_office_member_board_of_education_edge:
     _en: BOARD OF EDUCATION
-    fil: ''
+    fil: null
   text_office_member_board_of_supervisors:
     _en: MEMBER, BOARD OF SUPERVISORS
-    fil: ''
+    fil: null
   text_office_member_community_college_board:
     _en: MEMBER, COMMUNITY COLLEGE BOARD
-    fil: ''
+    fil: null
   text_office_member_community_college_board_edge:
     _en: COMMUNITY COLLEGE BOARD
-    fil: ''
+    fil: null
   text_office_member_county_central_committee:
     _en: MEMBER, COUNTY CENTRAL COMMITTEE
-    fil: ''
+    fil: null
   text_office_member_county_central_committee_edge:
     _en: COUNTY CENTRAL COMMITTEE
-    fil: ''
+    fil: null
   text_office_member_county_council:
     _en: MEMBER, COUNTY COUNCIL
-    fil: ''
+    fil: null
   text_office_member_county_council_edge:
     _en: COUNTY COUNCIL
-    fil: ''
+    fil: null
   text_office_member_of_the_state_assembly:
     _en: MEMBER OF THE STATE ASSEMBLY
     fil: Miyembro ng Asembleya ng Estado
   text_office_member_of_the_state_assembly_edge:
     _en: MEMBER, STATE ASSEMBLY
-    fil: ''
+    fil: null
   text_office_member_state_board_of_eq_d2:
     _en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
     fil: Miyembro, Lupon ng Tagasingil ng Buwis ng Estado Distrito 2
   text_office_member_state_board_of_eq_d2_edge:
     _en: BOARD OF EQUALIZATION D2
-    fil: ''
+    fil: null
   text_office_public_defender:
     _en: PUBLIC DEFENDER
-    fil: ''
+    fil: null
   text_office_public_defender_edge:
     _en: PUBLIC DEFENDER
-    fil: ''
+    fil: null
   text_office_sheriff:
     _en: SHERIFF
-    fil: ''
+    fil: null
   text_office_sheriff_edge:
     _en: SHERIFF
-    fil: ''
+    fil: null
   text_office_state_attorney_general:
     _en: ATTORNEY GENERAL
     fil: Pangkalahatang Abugado
   text_office_state_attorney_general_edge:
     _en: ATTORNEY GENERAL
-    fil: ''
+    fil: null
   text_office_state_governor:
     _en: GOVERNOR
     fil: Gobernador
   text_office_state_governor_edge:
     _en: GOVERNOR
-    fil: ''
+    fil: null
   text_office_state_insurance_commissioner:
     _en: INSURANCE COMMISSIONER
     fil: Komisyonado ng Seguro
   text_office_state_insurance_commissioner_edge:
     _en: INSURANCE COMMISSIONER
-    fil: ''
+    fil: null
   text_office_state_lieutenant_governor:
     _en: LIEUTENANT GOVERNOR
     fil: Tenyente Gobernador
   text_office_state_lieutenant_governor_edge:
     _en: LIEUTENANT GOVERNOR
-    fil: ''
+    fil: null
   text_office_state_secretary:
     _en: SECRETARY OF STATE
     fil: Kalihim ng Estado
   text_office_state_secretary_edge:
     _en: SECRETARY OF STATE
-    fil: ''
+    fil: null
   text_office_state_senator:
     _en: STATE SENATOR
     fil: Senador ng Estado
   text_office_state_senator_edge:
     _en: STATE SENATOR
-    fil: ''
+    fil: null
   text_office_superintendent_of_public_instruction:
     _en: SUPERINTENDENT OF PUBLIC INSTRUCTION
     fil: Superintendente ng Pampublikong Pagtuturo
   text_office_superintendent_of_public_instruction_edge:
     _en: SUP OF PUBLIC INSTRUCTN
-    fil: ''
+    fil: null
   text_office_usa_president_and_vice_president:
     _en: PRESIDENT AND VICE PRESIDENT
     fil: Presidente at Bise Presidente
   text_office_usa_president_and_vice_president_edge:
     _en: PRESIDENT & VICE PRES.
-    fil: ''
+    fil: null
   text_office_usa_president_of_the_united_states:
     _en: PRESIDENT OF THE UNITED STATES
-    fil: ''
+    fil: null
   text_office_usa_president_of_the_united_states_edge:
     _en: U.S. PRESIDENT
-    fil: ''
+    fil: null
   text_office_usa_representative:
     _en: UNITED STATES REPRESENTATIVE
     fil: Kinatawan ng Estados Unidos
   text_office_usa_representative_edge:
     _en: U.S. REPRESENTATIVE
-    fil: ''
+    fil: null
   text_office_usa_senator:
     _en: UNITED STATES SENATOR
     fil: Senador ng Estados Unidos
   text_office_usa_senator_edge:
     _en: UNITED STATES SENATOR
-    fil: ''
+    fil: null
   text_preference_party:
     _en: 'Party Preference:'
-    fil: ''
+    fil: null
   text_preference_presidential:
     _en: Presidential Preference
-    fil: ''
+    fil: null
   text_vote_for_one:
     _en: Vote for One
-    fil: ''
+    fil: null
   text_vote_for_one_party:
     _en: Vote for One Party
-    fil: ''
+    fil: null
   text_vote_rcv_choice_2:
     _en: 'Vote for One: Must be different than your first choice'
-    fil: ''
+    fil: null
   text_vote_rcv_choice_3:
     _en: 'Vote for One: Must be different than your first and second choices'
-    fil: ''
+    fil: null
   text_vote_rcv_choices:
     _en: Vote your first, second, and third choices
-    fil: ''
+    fil: null
   text_vote_yes_or_no:
     _en: Vote YES or NO for each office
-    fil: ''
+    fil: null
