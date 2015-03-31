@@ -5,9 +5,9 @@ Terminology
 -----------
 
 phrases dict:
-  A dict that maps text_id to translation dict.
+  A dict that maps text_id to a translations dict.
 
-translation dict:
+translations dict:
   A dict that maps language code to the corresponding translation for a
   specific phrase.
 
@@ -221,6 +221,9 @@ def _process_contest_row(row, phrases, all_overrides, text_id, langs, attr_forma
     for lang in langs:
         attr_name = attr_format.format(lang)
         translation = overrides.get(lang, getattr(row, attr_name))
+        if not translation:
+            # Do not store a value if the CSV contained no translation.
+            continue
         if lang in translations and translation != translations[lang]:
             err = textwrap.dedent("""\
             differing translation found!
@@ -289,7 +292,12 @@ def read_translations_file(rel_dir, lang):
 
 
 def read_phrases_dir(rel_dir):
-    """Read a YAML phrases directory, and return its contents as a phrases dict."""
+    """Read a YAML phrases directory, and return its contents as a phrases dict.
+
+    If the translation for a phrase is None for a particular language,
+    the translations dict in the return value will not include that
+    language as a key for that phrase.
+    """
     # Use the English file to establish the text ID's.
     phrases = read_translations_file(rel_dir, lang=LANG_ENGLISH)
     for lang in LANGS_NON_ENGLISH:
@@ -299,7 +307,9 @@ def read_phrases_dir(rel_dir):
                 text_info = phrases[text_id]
             except KeyError:
                 # Then the text ID is present in the non-English but not English.
-                continue
+                raise Exception("text_id: {0}".format(text_id))
+            if translations[lang] is None:
+                del translations[lang]
             text_info.update(translations)
 
     return phrases
@@ -312,7 +322,7 @@ def get_translations():
 
 def get_lang_phrase(translations, lang):
     # This requires that the key be present for English.
-    return translations[lang] if lang == LANG_ENGLISH else translations.get(lang, '')
+    return translations[lang] if lang == LANG_ENGLISH else translations.get(lang, None)
 
 
 def _make_translations_texts(phrases, lang):

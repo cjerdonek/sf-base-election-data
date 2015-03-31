@@ -38,7 +38,7 @@ def _get_i18n(trans, obj_json, key_base):
     else:
         words = utils.get_required(trans, text_id)
         english = words[lang.LANG_ENGLISH]
-        non_english = [words[lang] for lang in NON_ENGLISH_ORDER]
+        non_english = [words[lang] for lang in words.keys() if lang in NON_ENGLISH_ORDER]
     # Remove empty strings.
     non_english = list(filter(None, non_english))
 
@@ -234,6 +234,10 @@ def make_translations(json_data):
 
 def make_template_data(json_data):
     """Return the context to use when rendering the template."""
+    phrases = json_data['i18n']
+    for text_id, translations in phrases.items():
+        translations['id'] = text_id
+
     data = {}
     bodies = add_objects(data, json_data, 'bodies')
 
@@ -262,15 +266,11 @@ def make_template_data(json_data):
 #        'districts': make_districts(input_data),
         'office_count': office_count,
         'non_english_codes': lang.LANGS_NON_ENGLISH,
-        'translation_ids': [text['id'] for text in sorted(phrases.values(),
-                                key=lambda text: text[lang.LANG_ENGLISH])],
         'translations': phrases,
     }
 
     language_list = add_objects(data, json_data, 'languages')
     data['language_map'] = {lang['code']: lang for lang in language_list}
-
-    translations = add_objects(data, json_data, 'translations')
 
     return data
 
