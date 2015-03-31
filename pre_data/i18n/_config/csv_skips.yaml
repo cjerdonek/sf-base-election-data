@@ -14,6 +14,7 @@ phrases:
   # TODO: make this have the same ID as "MEMBER, COUNTY CENTRAL COMMITTEE".
   - "MEMBER, COUNTY CENTRAL COMMITTEE,"
   # Skip these because they should be handled by format strings.
+  # TODO: indicate what format strings replace these.
   - ASSEMBLY DISTRICT 17
   - ASSEMBLY DISTRICT 19
   - DISTRICT 1
@@ -33,6 +34,7 @@ phrases:
   - DISTRICT 19
   - OFFICE NO. X
   - PROPOSITION X
+  - Vote for no more than (Three or Four)
   - Vote for no more than X
   - 'FOR ASSOCIATE JUSTICE OF THE SUPREME COURT
 
