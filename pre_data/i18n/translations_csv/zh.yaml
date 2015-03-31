@@ -53,162 +53,87 @@ texts:
   text_office_assessor_recorder:
     _en: ASSESSOR-RECORDER
     zh: 估值官-記錄官
-  text_office_assessor_recorder_edge:
-    _en: ASSESSOR-RECORDER
-    zh: ''
   text_office_bart_director:
     _en: BART DIRECTOR
     zh: 灣區捷運董事,
   text_office_city_attorney:
     _en: CITY ATTORNEY
     zh: 市府律師
-  text_office_city_attorney_edge:
-    _en: CITY ATTORNEY
-    zh: ''
   text_office_city_treasurer:
     _en: TREASURER
     zh: 財政官
-  text_office_city_treasurer_edge:
-    _en: TREASURER
-    zh: ''
   text_office_controller:
     _en: CONTROLLER
     zh: 主計長
-  text_office_controller_edge:
-    _en: CONTROLLER
-    zh: ''
   text_office_district_attorney:
     _en: DISTRICT ATTORNEY
     zh: 地方檢察官
-  text_office_district_attorney_edge:
-    _en: DISTRICT ATTORNEY
-    zh: ''
   text_office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
     zh: 高等法院法官，
   text_office_mayor:
     _en: MAYOR
     zh: 市長
-  text_office_mayor_edge:
-    _en: MAYOR
-    zh: ''
   text_office_member_board_of_education:
     _en: MEMBER, BOARD OF EDUCATION
     zh: 教育委員會成員
-  text_office_member_board_of_education_edge:
-    _en: BOARD OF EDUCATION
-    zh: ''
   text_office_member_board_of_supervisors:
     _en: MEMBER, BOARD OF SUPERVISORS
     zh: 市參議員
   text_office_member_community_college_board:
     _en: MEMBER, COMMUNITY COLLEGE BOARD
     zh: 社區大學董事會成員
-  text_office_member_community_college_board_edge:
-    _en: COMMUNITY COLLEGE BOARD
-    zh: ''
   text_office_member_county_central_committee:
     _en: MEMBER, COUNTY CENTRAL COMMITTEE
     zh: 縣中央委員會委員
-  text_office_member_county_central_committee_edge:
-    _en: COUNTY CENTRAL COMMITTEE
-    zh: ''
   text_office_member_county_council:
     _en: MEMBER, COUNTY COUNCIL
     zh: 縣委員會委員
-  text_office_member_county_council_edge:
-    _en: COUNTY COUNCIL
-    zh: ''
   text_office_member_of_the_state_assembly:
     _en: MEMBER OF THE STATE ASSEMBLY
     zh: 州眾議員
-  text_office_member_of_the_state_assembly_edge:
-    _en: MEMBER, STATE ASSEMBLY
-    zh: ''
   text_office_member_state_board_of_eq_d2:
     _en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
     zh: 州平稅局第2選區成員
-  text_office_member_state_board_of_eq_d2_edge:
-    _en: BOARD OF EQUALIZATION D2
-    zh: ''
   text_office_public_defender:
     _en: PUBLIC DEFENDER
     zh: 公共辯護律師
-  text_office_public_defender_edge:
-    _en: PUBLIC DEFENDER
-    zh: ''
   text_office_sheriff:
     _en: SHERIFF
     zh: 縣警長
-  text_office_sheriff_edge:
-    _en: SHERIFF
-    zh: ''
   text_office_state_attorney_general:
     _en: ATTORNEY GENERAL
     zh: 司法部長
-  text_office_state_attorney_general_edge:
-    _en: ATTORNEY GENERAL
-    zh: ''
   text_office_state_governor:
     _en: GOVERNOR
     zh: 州長
-  text_office_state_governor_edge:
-    _en: GOVERNOR
-    zh: ''
   text_office_state_insurance_commissioner:
     _en: INSURANCE COMMISSIONER
     zh: 保險部長
-  text_office_state_insurance_commissioner_edge:
-    _en: INSURANCE COMMISSIONER
-    zh: ''
   text_office_state_lieutenant_governor:
     _en: LIEUTENANT GOVERNOR
     zh: 副州長
-  text_office_state_lieutenant_governor_edge:
-    _en: LIEUTENANT GOVERNOR
-    zh: ''
   text_office_state_secretary:
     _en: SECRETARY OF STATE
     zh: 州務卿
-  text_office_state_secretary_edge:
-    _en: SECRETARY OF STATE
-    zh: ''
   text_office_state_senator:
     _en: STATE SENATOR
     zh: 州參議員
-  text_office_state_senator_edge:
-    _en: STATE SENATOR
-    zh: ''
   text_office_superintendent_of_public_instruction:
     _en: SUPERINTENDENT OF PUBLIC INSTRUCTION
     zh: 教育部長
-  text_office_superintendent_of_public_instruction_edge:
-    _en: SUP OF PUBLIC INSTRUCTN
-    zh: ''
   text_office_usa_president_and_vice_president:
     _en: PRESIDENT AND VICE PRESIDENT
     zh: 總統和副總統
-  text_office_usa_president_and_vice_president_edge:
-    _en: PRESIDENT & VICE PRES.
-    zh: ''
   text_office_usa_president_of_the_united_states:
     _en: PRESIDENT OF THE UNITED STATES
     zh: 美國總統
-  text_office_usa_president_of_the_united_states_edge:
-    _en: U.S. PRESIDENT
-    zh: ''
   text_office_usa_representative:
     _en: UNITED STATES REPRESENTATIVE
     zh: 美國眾議員
-  text_office_usa_representative_edge:
-    _en: U.S. REPRESENTATIVE
-    zh: ''
   text_office_usa_senator:
     _en: UNITED STATES SENATOR
     zh: 美國參議員
-  text_office_usa_senator_edge:
-    _en: UNITED STATES SENATOR
-    zh: ''
   text_preference_party:
     _en: 'Party Preference:'
     zh: 政黨傾向：

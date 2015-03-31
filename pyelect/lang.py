@@ -40,7 +40,7 @@ LANGS = [LANG_ENGLISH] + list(LANGS_NON_ENGLISH)
 # The languages that need to support an Edge format.
 LANGS_SHORT = (LANG_ENGLISH, LANG_SPANISH, LANG_FILIPINO)
 
-EDGE_SUFFIX = '_edge'
+EDGE_STRING = '_edge'
 KEY_ENGLISH_ANNOTATION = '_{0}'.format(LANG_ENGLISH)
 KEY_TEXTS = 'texts'
 
@@ -319,7 +319,8 @@ def _make_translations_texts(phrases, lang):
     """Create the texts node suitable for writing to a translations file."""
     data = {}
     for text_id, translations in phrases.items():
-        if text_id.endswith(EDGE_SUFFIX) and lang not in LANGS_SHORT:
+        # TODO: use a less-brittle approach.
+        if EDGE_STRING in text_id and lang not in LANGS_SHORT:
             # Do not include text ID's for edge phrases in language files
             # that do not need to, because it would create the wrong
             # perception that such phrases need to be translated.

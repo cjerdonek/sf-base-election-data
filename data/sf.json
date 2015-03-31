@@ -756,7 +756,8 @@
     "languages": {
         "language_chinese": {
             "code": "zh",
-            "name": "Chinese"
+            "name": "Chinese",
+            "notes": "Test"
         },
         "language_english": {
             "code": "en",

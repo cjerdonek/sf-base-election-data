@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Remove text_id values from YAML when no english (e.g. edge).
 * Rename the `translations_*` directories to phrases*.
 * Make sure all non-English extras are accounted for (e.g. after updates).
 * Add Languages object with notes attribute.
