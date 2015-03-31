@@ -190,21 +190,11 @@
             "fil": "",
             "zh": "\u5e02\u7e23"
         },
-        "text_category_city_county_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "text_category_federal": {
             "en": "FEDERAL",
             "es": "FEDERAL",
             "fil": "",
             "zh": "\u806f\u90a6"
-        },
-        "text_category_federal_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
         },
         "text_category_judicial": {
             "en": "JUDICIAL",
@@ -212,21 +202,11 @@
             "fil": "",
             "zh": "\u53f8\u6cd5"
         },
-        "text_category_judicial_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "text_category_school": {
             "en": "SCHOOL",
             "es": "ESCUELA",
             "fil": "",
             "zh": "\u5b78\u6821"
-        },
-        "text_category_school_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
         },
         "text_category_state": {
             "en": "STATE",
@@ -234,21 +214,11 @@
             "fil": "",
             "zh": "\u5dde"
         },
-        "text_category_state_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "text_choice_1": {
             "en": "FIRST CHOICE",
             "es": "PRIMERA PREFERENCIA",
             "fil": "",
             "zh": "\u7b2c\u4e00\u9078\u64c7"
-        },
-        "text_choice_1_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
         },
         "text_choice_2": {
             "en": "SECOND CHOICE",
@@ -256,21 +226,11 @@
             "fil": "",
             "zh": "\u7b2c\u4e8c\u9078\u64c7"
         },
-        "text_choice_2_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "text_choice_3": {
             "en": "THIRD CHOICE",
             "es": "TERCERA PREFERENCIA",
             "fil": "",
             "zh": "\u7b2c\u4e09\u9078\u64c7"
-        },
-        "text_choice_3_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
         },
         "text_county_transportation_authority_proposition": {
             "en": "COUNTY TRANSPORTATION AUTHORITY PROPOSITION",
@@ -278,21 +238,11 @@
             "fil": "",
             "zh": "\u7e23\u4ea4\u901a\u5c40\u63d0\u6848"
         },
-        "text_county_transportation_authority_proposition_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "text_district": {
             "en": "DISTRICT",
             "es": "DISTRITO",
             "fil": "",
             "zh": "\u5340"
-        },
-        "text_district_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
         },
         "text_header_city_county_propositions": {
             "en": "CITY & COUNTY PROPOSITIONS",
@@ -300,21 +250,11 @@
             "fil": "",
             "zh": "\u5e02\u7e23\u63d0\u6848"
         },
-        "text_header_city_county_propositions_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "text_header_measures_submitted_to_the_voters": {
             "en": "MEASURES SUBMITTED TO THE VOTERS",
             "es": "INICIATIVAS DE LEY PRESENTADAS A LOS ELECTORES",
             "fil": "",
             "zh": "\u63d0\u4ea4\u9078\u6c11\u6295\u7968\u8868\u6c7a\u7684\u63d0\u6848"
-        },
-        "text_header_measures_submitted_to_the_voters_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
         },
         "text_header_party_nominated_offices": {
             "en": "PARTY-NOMINATED OFFICES",
@@ -322,21 +262,11 @@
             "fil": "",
             "zh": "\u653f\u9ee8\u63d0\u540d\u8077\u4f4d"
         },
-        "text_header_party_nominated_offices_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "text_header_school_propositions": {
             "en": "SCHOOL PROPOSITIONS",
             "es": "PROPOSICIONES ESCOLARES",
             "fil": "",
             "zh": "\u5b78\u6821\u63d0\u6848"
-        },
-        "text_header_school_propositions_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
         },
         "text_header_state_propositions": {
             "en": "STATE PROPOSITIONS",
@@ -344,21 +274,11 @@
             "fil": "",
             "zh": "\u5dde\u63d0\u6848"
         },
-        "text_header_state_propositions_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "text_header_voter_nominated_offices": {
             "en": "VOTER-NOMINATED OFFICES",
             "es": "CARGOS NOMINADOS POR LOS ELECTORES",
             "fil": "",
             "zh": "\u9078\u6c11\u63d0\u540d\u8077\u4f4d"
-        },
-        "text_header_voter_nominated_offices_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
         },
         "text_office_assessor_recorder": {
             "en": "ASSESSOR-RECORDER",
@@ -659,32 +579,11 @@
             "fil": "",
             "zh": "\u653f\u9ee8\u50be\u5411\uff1a"
         },
-        "text_preference_party_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "text_preference_presidential": {
             "en": "Presidential Preference",
             "es": "Preferencia por un candidato presidencial",
             "fil": "",
             "zh": "\u9078\u64c7\u7e3d\u7d71\u5019\u9078\u4eba"
-        },
-        "text_preference_presidential_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "text_vote_for_no_more_than_three_or_four": {
-            "en": "Vote for no more than (Three or Four)",
-            "es": "Vote por no m\u00e1s de x",
-            "fil": "",
-            "zh": "\u9078\u4e0d\u8d85\u904eX\u540d"
-        },
-        "text_vote_for_no_more_than_three_or_four_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
         },
         "text_vote_for_one": {
             "en": "Vote for One",
@@ -692,21 +591,11 @@
             "fil": "",
             "zh": "\u9078\u4e00\u540d"
         },
-        "text_vote_for_one_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "text_vote_for_one_party": {
             "en": "Vote for One Party",
             "es": "Vote por un partido",
             "fil": "",
             "zh": "\u9078\u4e00\u9ee8"
-        },
-        "text_vote_for_one_party_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
         },
         "text_vote_rcv_choice_2": {
             "en": "Vote for One: Must be different than your first choice",
@@ -714,43 +603,23 @@
             "fil": "",
             "zh": "\u9078\u4e00\u540d\uff1a \u5fc5\u9808\u8207\u7b2c\u4e00\u500b\u9078\u64c7\u4e0d\u540c"
         },
-        "text_vote_rcv_choice_2_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
         "text_vote_rcv_choice_3": {
             "en": "Vote for One: Must be different than your first and second choices",
             "es": "Vote por uno: Tiene que ser diferente a su primera y segunda preferencias",
             "fil": "",
             "zh": "\u9078\u4e00\u540d\uff1a \u5fc5\u9808\u8207\u7b2c\u4e00\u500b\u548c\u7b2c\u4e8c\u500b\u9078\u64c7\u4e0d\u540c"
         },
-        "text_vote_rcv_choice_3_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "text_vote_yes_or_no_for_each_office": {
-            "en": "Vote YES or NO for each office",
-            "es": "Vote S\u00cd o NO por cada cargo",
-            "fil": "",
-            "zh": "\u70ba\u6bcf\u4f4d\u9078\u64c7\u300c\u8d0a\u6210\u300d\u6216\u300c\u53cd\u5c0d\u300d"
-        },
-        "text_vote_yes_or_no_for_each_office_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
-        },
-        "text_vote_your_first_second_and_third_choices": {
+        "text_vote_rcv_choices": {
             "en": "Vote your first, second, and third choices",
             "es": "Vote por su primera, segunda y tercera preferencias",
             "fil": "",
             "zh": "\u6295\u9078\u60a8\u7684\u7b2c\u4e00\u3001\u7b2c\u4e8c\u548c\u7b2c\u4e09\u9078\u64c7"
         },
-        "text_vote_your_first_second_and_third_choices_edge": {
-            "en": "",
-            "es": "",
-            "fil": ""
+        "text_vote_yes_or_no": {
+            "en": "Vote YES or NO for each office",
+            "es": "Vote S\u00cd o NO por cada cargo",
+            "fil": "",
+            "zh": "\u70ba\u6bcf\u4f4d\u9078\u64c7\u300c\u8d0a\u6210\u300d\u6216\u300c\u53cd\u5c0d\u300d"
         }
     },
     "languages": {
