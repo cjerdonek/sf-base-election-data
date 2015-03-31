@@ -1,4 +1,18 @@
 
+"""Supports translation and i18n processing.
+
+Terminology
+-----------
+
+phrases dict:
+  A dict that maps text_id to translation dict.
+
+translation dict:
+  A dict that maps language code to the corresponding translation for a
+  specific phrase.
+
+"""
+
 from collections import defaultdict, namedtuple
 import csv
 import logging
@@ -11,23 +25,29 @@ from pyelect import utils
 
 _log = logging.getLogger()
 
-LANG_EN = 'en'
-LANG_ES = 'es'
-LANG_FI = 'fil'
-LANG_CH = 'zh'
+LANG_ENGLISH = 'en'
+LANG_SPANISH = 'es'
+LANG_FILIPINO = 'fil'
+LANG_CHINESE = 'zh'
 
-LANGS = [LANG_EN, LANG_ES, LANG_FI, LANG_CH]
-LANGS_NON_ENGLISH = [c for c in LANGS if c != LANG_EN]
-LANGS_SHORT = [LANG_EN, LANG_ES, LANG_FI]
+LANGS_NON_ENGLISH = (
+    LANG_CHINESE,
+    LANG_SPANISH,
+    LANG_FILIPINO
+)
+LANGS = [LANG_ENGLISH] + list(LANGS_NON_ENGLISH)
+LANGS_SHORT = [LANG_ENGLISH, LANG_SPANISH, LANG_FILIPINO]
 
-KEY_ENGLISH_ANNOTATION = '_{0}'.format(LANG_EN)
+KEY_ENGLISH_ANNOTATION = '_{0}'.format(LANG_ENGLISH)
 KEY_TEXTS = 'texts'
 
 DIR_LANG = 'i18n'
 DIR_CONFIG = '_config'
+DIR_CSV_FILES = 'csv'
 DIR_TRANSLATIONS_CSV = 'translations_csv'
 DIR_TRANSLATIONS_EXTRA = 'translations_extra'
 
+FILE_NAME_CSV_SKIPS = 'csv_skips.yaml'
 FILE_TEXT_IDS_CSV = 'text_ids_csv.yaml'
 
 # The "short" strings are for Edge review (24 characters max).
@@ -65,6 +85,12 @@ def get_rel_path_config_dir():
     return os.path.join(lang_dir, DIR_CONFIG)
 
 
+def get_rel_path_csv_dir():
+    """Return the path to the directory containing the source CSV files."""
+    lang_dir = get_rel_path_lang_dir()
+    return os.path.join(lang_dir, DIR_CSV_FILES)
+
+
 def get_rel_path_text_ids_csv():
     dir_path = get_rel_path_config_dir()
     return os.path.join(dir_path, FILE_TEXT_IDS_CSV)
@@ -92,10 +118,12 @@ def get_rel_path_translations_extra(lang=None):
 
 def get_rel_path_phrases_extra():
     """Return the path to the file containing the extra phrases."""
-    return get_rel_path_translations_extra(lang=LANG_EN)
+    return get_rel_path_translations_extra(lang=LANG_ENGLISH)
 
 
-def _read_csv(path, skip_rows=1):
+def _read_csv(rel_path, skip_rows=1):
+    repo_dir = utils.get_repo_dir()
+    path = os.path.join(repo_dir, rel_path)
     with open(path) as f:
         reader = csv.reader(f)
         for i in range(skip_rows):
@@ -104,10 +132,17 @@ def _read_csv(path, skip_rows=1):
     return rows
 
 
-def _get_yaml_set(base, key):
-    """Read a list from the given YAML, and return a set."""
-    data = _get_yaml_node(base, key)
-    return set(data)
+def read_csv_rows_contest():
+    rel_dir = get_rel_path_csv_dir()
+    rel_path = os.path.join(rel_dir, 'contest_names.csv')
+    rows = _read_csv(rel_path)
+    # Remove blank lines (separator lines, etc).
+    rows = [row for row in rows if row[1]]
+    seq = []
+    for row in rows:
+        data = ContestRow(*(row[CONTEST_INDICES[h]].strip() for h in CONTEST_HEADERS))
+        seq.append(data)
+    return seq
 
 
 def _make_text_id(text):
@@ -120,19 +155,8 @@ def _make_text_id(text):
     return slug
 
 
-def read_contest_csv(path):
-    rows = _read_csv(path)
-    # Remove blank lines (separator lines, etc).
-    rows = [row for row in rows if row[1]]
-    seq = []
-    for row in rows:
-        data = ContestRow(*(row[CONTEST_INDICES[h]].strip() for h in CONTEST_HEADERS))
-        seq.append(data)
-    return seq
-
-
 def create_text_ids(path):
-    seq = read_contest_csv(path)
+    seq = read_csv_rows_contest(path)
     text_map = {}  # maps text ID to English phrase.
     skip = _get_skip_phrases('text_ids/_skip')
     for row in seq:
@@ -147,6 +171,63 @@ def create_text_ids(path):
     return text_map
 
 
+def _get_csv_skip_phrases():
+    """Return the CSV phrases to skip as a set."""
+    rel_dir = get_rel_path_config_dir()
+    rel_path = os.path.join(rel_dir, FILE_NAME_CSV_SKIPS)
+    skip_phrases = set(utils.read_yaml_rel(rel_path, key='phrases'))
+
+    return skip_phrases
+
+
+def _make_english_to_id():
+    rel_path = get_rel_path_text_ids_csv()
+    id_to_english = utils.read_yaml_rel(rel_path, key='text_ids')
+
+    english_to_id = {}
+    for text_id, english in id_to_english.items():
+        if english in english_to_id:
+            raise Exception("phrase {0!r} occurs twice in: {1}".format(english, rel_path))
+        english_to_id[english] = text_id
+
+    return english_to_id
+
+
+
+def read_csv_dir():
+    """Read the contents of the CSV directory.
+
+    Returns the contents as a phrases dict.
+    """
+    skip_phrases = _get_csv_skip_phrases()
+    english_to_id = _make_english_to_id()
+    pprint(english_to_id)
+    exit()
+
+    # TODO: process *all* files in the CSV directory.
+    seq = read_csv_rows_contest()
+
+    phrases = {}
+    for row in seq:
+        english = row.en
+        text_id = english_to_ids[english]
+        _process_row(row, lang_data, manual=manual, langs=LANGS,
+                     text_id=text_id, attr_format="{0}")
+        short_text_id = "{0}_edge".format(text_id)
+        _process_row(row, lang_data, manual=manual, langs=LANGS_SHORT,
+                     text_id=short_text_id, attr_format="{0}_short")
+
+    print(seq)
+    exit()
+
+    english_to_ids = _get_text_ids()
+    skip_text_ids = _get_yaml_set('_config/skips', 'text_ids')
+
+    manual = _get_yaml_node('_config/resolve', 'override')
+    # Dict from lang to dict of: text_id to translation.
+    # TODO: use dict.setdefault() instead?
+
+
 def _get_text_ids_extra():
     rel_path = get_rel_path_phrases_extra()
     data = utils.read_yaml_rel(rel_path, key=KEY_TEXTS)
@@ -159,20 +240,6 @@ def _get_text_ids_csv():
     return phrases
 
 
-# TODO: remove this or convert it into a function that validates a
-#   text_id dict.
-def _get_text_ids():
-    lang_dir = get_lang_dir()
-    ids_to_en, meta = utils.get_yaml_data(lang_dir, 'text_ids')
-
-    en_to_ids = {}
-    for text_id, en in ids_to_en.items():
-        if en in en_to_ids:
-            raise Exception("key already exists: {0}".format(en))
-        en_to_ids[en] = text_id
-    return en_to_ids
-
-
 def read_translations_file(rel_dir, lang):
     """Return the dict of: text_id to dict of info."""
     rel_path = os.path.join(rel_dir, "{0}.yaml".format(lang))
@@ -182,15 +249,10 @@ def read_translations_file(rel_dir, lang):
     return phrases
 
 
-def read_translations_dir(rel_dir):
-    """Read and return the i18n data from a translations directory.
-
-    Returns the data as a combined dict mapping text_id to dict
-    of translations.  Each dict of translations maps language code
-    to translation.
-    """
+def read_phrases_dir(rel_dir):
+    """Read a YAML phrases directory, and return its contents as a phrases dict."""
     # Use the English file to establish the text ID's.
-    phrases = read_translations_file(rel_dir, lang=LANG_EN)
+    phrases = read_translations_file(rel_dir, lang=LANG_ENGLISH)
     for lang in LANGS_NON_ENGLISH:
         non_english = read_translations_file(rel_dir, lang=lang)
         for text_id, translations in non_english.items():
@@ -206,12 +268,12 @@ def read_translations_dir(rel_dir):
 
 def get_translations():
     rel_dir = get_rel_path_translations_csv()
-    return read_translations_dir(rel_dir)
+    return read_phrases_dir(rel_dir)
 
 
 def get_lang_phrase(translations, lang):
     # This requires that the key be present for English.
-    return translations[lang] if lang == LANG_EN else translations.get(lang, '')
+    return translations[lang] if lang == LANG_ENGLISH else translations.get(lang, '')
 
 
 def _make_translations_texts(phrases, lang):
@@ -227,9 +289,9 @@ def _make_translations_texts(phrases, lang):
             text_id = "text_{0}".format(text_id)
         phrase = get_lang_phrase(translations, lang)
         entry = {lang: phrase}
-        if lang != LANG_EN:
+        if lang != LANG_ENGLISH:
             # Annotate with the English to make the raw file more readable.
-            english = get_lang_phrase(translations, LANG_EN)
+            english = get_lang_phrase(translations, LANG_ENGLISH)
             entry[KEY_ENGLISH_ANNOTATION] = english
         data[text_id] = entry
 
@@ -247,7 +309,7 @@ def write_translations_file(phrases, dir_name, file_type, lang, comments=None):
 def write_translations_extra(phrases):
     """Write the phrases to the extra translations directory."""
     rel_path, file_type = DIR_TRANSLATIONS_EXTRA, utils.FILE_AUTO_UPDATED
-    write_translations_file(phrases, rel_path, file_type=file_type, lang=LANG_EN,
+    write_translations_file(phrases, rel_path, file_type=file_type, lang=LANG_ENGLISH,
                             comments=COMMENT_TRANSLATIONS_EXTRA_ENGLISH)
     for lang in LANGS_NON_ENGLISH:
         write_translations_file(phrases, rel_path, file_type=file_type, lang=lang,
@@ -269,7 +331,7 @@ def update_extras():
 
     # TODO: check for text ID's that don't belong.
     rel_dir = get_rel_path_translations_extra()
-    phrases = read_translations_dir(rel_dir)
+    phrases = read_phrases_dir(rel_dir)
 
     write_translations_extra(phrases)
 
@@ -292,9 +354,7 @@ def _add_key(dict_, key, value):
     dict_[key] = value
 
 
-def _process_row(row, lang_data, skip_text_ids, manual, langs, text_id, attr_format):
-    if text_id in skip_text_ids:
-        return
+def _process_row(row, lang_data, manual, langs, text_id, attr_format):
     override = manual[text_id] if text_id in manual else []
     for lang in langs:
         one_lang = lang_data[lang]
@@ -305,35 +365,18 @@ def _process_row(row, lang_data, skip_text_ids, manual, langs, text_id, attr_for
         _add_key(one_lang, text_id, text)
 
 
-def lang_contest_csv_to_yaml(input_path):
-    seq = read_contest_csv(input_path)
+def update_csv_translations():
+    phrases = read_csv_dir()
+    exit()
 
-    skip_phrases = _get_yaml_set('_config/skips', 'phrases')
-    seq = [row for row in seq if row.en not in skip_phrases]
-
-    english_to_ids = _get_text_ids()
-    skip_text_ids = _get_yaml_set('_config/skips', 'text_ids')
-
-    manual = _get_yaml_node('_config/resolve', 'override')
-    # Dict from lang to dict of: text_id to translation.
-    lang_data = defaultdict(dict)
-    for row in seq:
-        english = row.en
-        text_id = english_to_ids[english]
-        _process_row(row, lang_data, skip_text_ids, manual=manual, langs=LANGS,
-                     text_id=text_id, attr_format="{0}")
-        short_text_id = "{0}_edge".format(text_id)
-        _process_row(row, lang_data, skip_text_ids, manual=manual, langs=LANGS_SHORT,
-                     text_id=short_text_id, attr_format="{0}_short")
-
-    en_translations = lang_data[LANG_EN]
+    en_translations = lang_data[LANG_ENGLISH]
     for lang in LANGS:
         yaml_texts = {}
         for text_id, text in lang_data[lang].items():
             entry = {lang: text}
-            if lang != LANG_EN:
+            if lang != LANG_ENGLISH:
                 # Add English to non-English files for readability.
-                entry['_{0}'.format(LANG_EN)] = en_translations[text_id]
+                entry['_{0}'.format(LANG_ENGLISH)] = en_translations[text_id]
             yaml_texts[text_id] = entry
         data = {'texts': yaml_texts}
         path = get_lang_path('auto/{0}'.format(lang))
