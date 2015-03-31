@@ -184,6 +184,30 @@
         }
     },
     "i18n": {
+        "text_body_ca_court_app": {
+            "en": "California Court of Appeal, First District",
+            "es": "Corte de Apelaci\u00f3n"
+        },
+        "text_body_ca_sc": {
+            "en": "Supreme Court of California",
+            "es": "Corte Suprema"
+        },
+        "text_body_sf_boe": {
+            "en": "Board of Education",
+            "es": "Consejo de Educaci\u00f3n"
+        },
+        "text_body_sf_bos": {
+            "en": "Board of Supervisors",
+            "es": "Consejo de Supervisores"
+        },
+        "text_body_sf_ccb": {
+            "en": "Community College Board",
+            "es": "Consejo del Colegio Comunitario"
+        },
+        "text_body_sf_sc": {
+            "en": "Superior Court of San Francisco",
+            "es": "Tribunal Superior"
+        },
         "text_category_city_county": {
             "en": "CITY AND COUNTY",
             "es": "CIUDAD Y CONDADO",
@@ -234,6 +258,17 @@
             "es": "DISTRITO",
             "zh": "\u5340"
         },
+        "text_district_assembly_format": {
+            "en": "ASSEMBLY DISTRICT {0}",
+            "es": "DISTRITO {0} DE LA ASAMBLEA",
+            "zh": "\u5dde\u773e\u8b70\u9662\u7b2c{0}\u9078\u5340"
+        },
+        "text_district_numbered_format": {
+            "en": "DISTRICT {0}",
+            "es": "DISTRITO {0}",
+            "fil": "Distrito {0}",
+            "zh": "\u7b2c{0}\u9078\u5340"
+        },
         "text_header_city_county_propositions": {
             "en": "CITY & COUNTY PROPOSITIONS",
             "es": "PROPOSICIONES DE LA CIUDAD Y EL CONDADO",
@@ -264,6 +299,27 @@
             "es": "CARGOS NOMINADOS POR LOS ELECTORES",
             "zh": "\u9078\u6c11\u63d0\u540d\u8077\u4f4d"
         },
+        "text_language_chinese": {
+            "en": "Chinese"
+        },
+        "text_language_english": {
+            "en": "English"
+        },
+        "text_language_filipino": {
+            "en": "Filipino"
+        },
+        "text_language_japanese": {
+            "en": "Japanese"
+        },
+        "text_language_korean": {
+            "en": "Korean"
+        },
+        "text_language_spanish": {
+            "en": "Spanish"
+        },
+        "text_language_vietnamese": {
+            "en": "Vietnamese"
+        },
         "text_office_assessor_recorder": {
             "en": "ASSESSOR-RECORDER",
             "es": "TASADOR-REGISTRADOR",
@@ -277,6 +333,9 @@
             "en": "BART DIRECTOR",
             "es": "DIRECTOR DE BART",
             "zh": "\u7063\u5340\u6377\u904b\u8463\u4e8b,"
+        },
+        "text_office_bart_director_edge_format": {
+            "en": "BART DIRECTOR DIST. {0}"
         },
         "text_office_city_attorney": {
             "en": "CITY ATTORNEY",
@@ -320,6 +379,10 @@
             "es": "JUEZ DEL TRIBUNAL SUPERIOR,",
             "zh": "\u9ad8\u7b49\u6cd5\u9662\u6cd5\u5b98\uff0c"
         },
+        "text_office_judge_of_the_superior_court_edge_format": {
+            "en": "SUPERIOR COURT JUDGE #{0}",
+            "es": "JUEZ, CORTE SUPERIOR {0}"
+        },
         "text_office_mayor": {
             "en": "MAYOR",
             "es": "ALCALDE",
@@ -342,6 +405,13 @@
             "en": "MEMBER, BOARD OF SUPERVISORS",
             "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
             "zh": "\u5e02\u53c3\u8b70\u54e1"
+        },
+        "text_office_member_board_of_supervisors_edge_format": {
+            "en": "BOARD OF SUPERVISORS D{0}"
+        },
+        "text_office_member_body_sf_sc": {
+            "en": "Judge of the Superior Court",
+            "es": "Juez del Tribunal Superior"
         },
         "text_office_member_community_college_board": {
             "en": "MEMBER, COMMUNITY COLLEGE BOARD",
@@ -468,6 +538,9 @@
             "en": "STATE SENATOR",
             "es": "SENADOR ESTATAL"
         },
+        "text_office_state_treasurer": {
+            "en": "TREASURER"
+        },
         "text_office_superintendent_of_public_instruction": {
             "en": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
             "es": "SUPERINTENDENTE DE INSTRUCCI\u00d3N P\u00daBLICA",
@@ -517,6 +590,11 @@
             "en": "UNITED STATES SENATOR",
             "es": "SENADOR DE EE.UU."
         },
+        "text_office_x_format": {
+            "en": "OFFICE NO. {0}",
+            "es": "OFICINA N\u00daM. X",
+            "zh": "\u7b2c{0}\u5e2d"
+        },
         "text_preference_party": {
             "en": "Party Preference:",
             "es": "Preferencia por partido:",
@@ -526,6 +604,16 @@
             "en": "Presidential Preference",
             "es": "Preferencia por un candidato presidencial",
             "zh": "\u9078\u64c7\u7e3d\u7d71\u5019\u9078\u4eba"
+        },
+        "text_proposition_x_format": {
+            "en": "PROPOSITION {0}",
+            "es": "PROPOSICI\u00d3N {0}",
+            "zh": "\u63d0\u6848{0}"
+        },
+        "text_vote_for_no_more_than_x_format": {
+            "en": "Vote for no more than {0}",
+            "es": "Vote por no m\u00e1s de {0}",
+            "zh": "\u9078\u4e0d\u8d85\u904e{0}\u540d"
         },
         "text_vote_for_one": {
             "en": "Vote for One",

@@ -47,8 +47,8 @@ KEY_TEXTS = 'texts'
 DIR_LANG = 'i18n'
 DIR_CONFIG = '_config'
 DIR_CSV_FILES = 'csv'
-DIR_TRANSLATIONS_CSV = 'translations_csv'
-DIR_TRANSLATIONS_EXTRA = 'translations_extra'
+_DIR_PHRASES_CSV = 'phrases_csv'
+_DIR_PHRASES_EXTRA = 'phrases_extra'
 
 FILE_NAME_CSV_SKIPS = 'csv_skips.yaml'
 FILE_TEXT_IDS_CSV = 'csv_text_ids.yaml'
@@ -100,7 +100,7 @@ def get_rel_path_text_ids_csv():
     return os.path.join(dir_path, FILE_TEXT_IDS_CSV)
 
 
-def get_rel_path_translations(dir_name, lang=None):
+def get_rel_path_phrases(dir_name, lang=None):
     """Returns a directory if lang is None."""
     lang_dir = get_rel_path_lang_dir()
     rel_dir = os.path.join(lang_dir, dir_name)
@@ -112,12 +112,12 @@ def get_rel_path_translations(dir_name, lang=None):
 
 def get_rel_path_translations_csv(lang=None):
     """Return the path to the file containing the extra phrases."""
-    return get_rel_path_translations(dir_name=DIR_TRANSLATIONS_CSV, lang=lang)
+    return get_rel_path_phrases(dir_name=_DIR_PHRASES_CSV, lang=lang)
 
 
 def get_rel_path_translations_extra(lang=None):
     """Return the path to the file containing the extra phrases."""
-    return get_rel_path_translations(dir_name=DIR_TRANSLATIONS_EXTRA, lang=lang)
+    return get_rel_path_phrases(dir_name=_DIR_PHRASES_EXTRA, lang=lang)
 
 
 def get_rel_path_phrases_extra():
@@ -315,9 +315,19 @@ def read_phrases_dir(rel_dir):
     return phrases
 
 
-def get_translations():
-    rel_dir = get_rel_path_translations_csv()
-    return read_phrases_dir(rel_dir)
+def get_phrases():
+    phrases_seq = []
+    for dir_name in (_DIR_PHRASES_CSV, _DIR_PHRASES_EXTRA):
+        rel_dir = get_rel_path_phrases(dir_name=dir_name)
+        phrases = read_phrases_dir(rel_dir)
+        phrases_seq.append(phrases)
+    phrases1, phrases2 = phrases_seq
+    text_ids1, text_ids2 = (set(p) for p in phrases_seq)
+    common_ids = set(text_ids1).intersection(set(text_ids2))
+    if common_ids:
+        raise Exception("should be empty: {0}".format(common_ids))
+    phrases1.update(phrases2)
+    return phrases1
 
 
 def get_lang_phrase(translations, lang):
@@ -347,7 +357,7 @@ def _make_translations_texts(phrases, lang):
 
 
 def write_translations_file(phrases, dir_name, file_type, lang, comments=None):
-    rel_path = get_rel_path_translations(dir_name, lang=lang)
+    rel_path = get_rel_path_phrases(dir_name, lang=lang)
     data = _make_translations_texts(phrases, lang)
     data = {'texts': data}
     utils.write_yaml_with_header(data, rel_path=rel_path, file_type=file_type,
@@ -356,7 +366,7 @@ def write_translations_file(phrases, dir_name, file_type, lang, comments=None):
 
 def write_translations_dir_csv(phrases):
     """Write the phrases to the extra translations directory."""
-    dir_name = DIR_TRANSLATIONS_CSV
+    dir_name = _DIR_PHRASES_CSV
     file_type = utils.FILE_AUTO_GENERATED
     for lang in LANGS:
         write_translations_file(phrases, dir_name=dir_name, file_type=file_type, lang=lang)
@@ -364,7 +374,7 @@ def write_translations_dir_csv(phrases):
 
 def write_translations_extra(phrases):
     """Write the phrases to the extra translations directory."""
-    dir_name = DIR_TRANSLATIONS_EXTRA
+    dir_name = _DIR_PHRASES_EXTRA
     file_type = utils.FILE_AUTO_UPDATED
     write_translations_file(phrases, dir_name=dir_name, file_type=file_type, lang=LANG_ENGLISH,
                             comments=COMMENT_TRANSLATIONS_EXTRA_ENGLISH)

@@ -7,22 +7,22 @@ _meta:
 texts:
   text_body_ca_court_app:
     _en: California Court of Appeal, First District
-    zh: ''
+    zh: null
   text_body_ca_sc:
     _en: Supreme Court of California
-    zh: ''
+    zh: null
   text_body_sf_boe:
     _en: Board of Education
-    zh: ''
+    zh: null
   text_body_sf_bos:
     _en: Board of Supervisors
-    zh: ''
+    zh: null
   text_body_sf_ccb:
     _en: Community College Board
-    zh: ''
+    zh: null
   text_body_sf_sc:
     _en: Superior Court of San Francisco
-    zh: ''
+    zh: null
   text_district_assembly_format:
     _en: ASSEMBLY DISTRICT {0}
     zh: 州眾議院第{0}選區
@@ -31,31 +31,31 @@ texts:
     zh: 第{0}選區
   text_language_chinese:
     _en: Chinese
-    zh: ''
+    zh: null
   text_language_english:
     _en: English
-    zh: ''
+    zh: null
   text_language_filipino:
     _en: Filipino
-    zh: ''
+    zh: null
   text_language_japanese:
     _en: Japanese
-    zh: ''
+    zh: null
   text_language_korean:
     _en: Korean
-    zh: ''
+    zh: null
   text_language_spanish:
     _en: Spanish
-    zh: ''
+    zh: null
   text_language_vietnamese:
     _en: Vietnamese
-    zh: ''
+    zh: null
   text_office_member_body_sf_sc:
     _en: Judge of the Superior Court
-    zh: ''
+    zh: null
   text_office_state_treasurer:
     _en: TREASURER
-    zh: ''
+    zh: null
   text_office_x_format:
     _en: OFFICE NO. {0}
     zh: 第{0}席

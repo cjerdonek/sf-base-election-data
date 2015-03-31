@@ -7,70 +7,70 @@ _meta:
 texts:
   text_body_ca_court_app:
     _en: California Court of Appeal, First District
-    fil: ''
+    fil: null
   text_body_ca_sc:
     _en: Supreme Court of California
-    fil: ''
+    fil: null
   text_body_sf_boe:
     _en: Board of Education
-    fil: ''
+    fil: null
   text_body_sf_bos:
     _en: Board of Supervisors
-    fil: ''
+    fil: null
   text_body_sf_ccb:
     _en: Community College Board
-    fil: ''
+    fil: null
   text_body_sf_sc:
     _en: Superior Court of San Francisco
-    fil: ''
+    fil: null
   text_district_assembly_format:
     _en: ASSEMBLY DISTRICT {0}
-    fil: ''
+    fil: null
   text_district_numbered_format:
     _en: DISTRICT {0}
     fil: Distrito {0}
   text_language_chinese:
     _en: Chinese
-    fil: ''
+    fil: null
   text_language_english:
     _en: English
-    fil: ''
+    fil: null
   text_language_filipino:
     _en: Filipino
-    fil: ''
+    fil: null
   text_language_japanese:
     _en: Japanese
-    fil: ''
+    fil: null
   text_language_korean:
     _en: Korean
-    fil: ''
+    fil: null
   text_language_spanish:
     _en: Spanish
-    fil: ''
+    fil: null
   text_language_vietnamese:
     _en: Vietnamese
-    fil: ''
+    fil: null
   text_office_bart_director_edge_format:
     _en: BART DIRECTOR DIST. {0}
-    fil: ''
+    fil: null
   text_office_judge_of_the_superior_court_edge_format:
     _en: 'SUPERIOR COURT JUDGE #{0}'
-    fil: ''
+    fil: null
   text_office_member_board_of_supervisors_edge_format:
     _en: BOARD OF SUPERVISORS D{0}
-    fil: ''
+    fil: null
   text_office_member_body_sf_sc:
     _en: Judge of the Superior Court
-    fil: ''
+    fil: null
   text_office_state_treasurer:
     _en: TREASURER
-    fil: ''
+    fil: null
   text_office_x_format:
     _en: OFFICE NO. {0}
-    fil: ''
+    fil: null
   text_proposition_x_format:
     _en: PROPOSITION {0}
-    fil: ''
+    fil: null
   text_vote_for_no_more_than_x_format:
     _en: Vote for no more than {0}
-    fil: ''
+    fil: null

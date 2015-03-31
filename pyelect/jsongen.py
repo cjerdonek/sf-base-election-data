@@ -47,7 +47,7 @@ def make_node_categories(objects, meta):
 
 def make_node_i18n():
     """Return the node containing internationalized data."""
-    data = lang.get_translations()
+    data = lang.get_phrases()
     return data
 
 
