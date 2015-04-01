@@ -243,6 +243,7 @@ def add_english_fields(json_data, phrases):
                                     .format(obj, node_name=node_name, object_id=object_id))
                 english = translations[LANG_ENGLISH]
 
+
 def make_template_data():
     """Return the context to use when rendering the template."""
     json_data = jsongen.get_json()

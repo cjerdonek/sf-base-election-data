@@ -54,8 +54,9 @@ def make_node_categories(objects, meta):
 
     node = {}
     for category_id, category in objects.items():
-        name_i18n = name_i18n_format.format(category_id)
-        category['name_i18n'] = name_i18n
+        if 'name' not in category and 'name_i18n' not in category:
+            name_i18n = name_i18n_format.format(category_id)
+            category['name_i18n'] = name_i18n
         node[category_id] = category
 
     return node

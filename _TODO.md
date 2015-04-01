@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Document categories.yaml.
 * Include an "edge" flag in the HTML and JSON?
 * Make sure all non-English extras are accounted for (e.g. after updates).
 * Add Languages object with notes attribute.

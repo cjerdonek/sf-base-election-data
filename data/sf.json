@@ -159,27 +159,25 @@
         }
     },
     "categories": {
-        "bart": {
-            "name": "BART",
-            "name_i18n": "text_category_bart"
+        "category_bart": {
+            "name": "BART"
         },
-        "city_county": {
+        "category_city_county": {
             "name_i18n": "text_category_city_county"
         },
-        "federal": {
+        "category_federal": {
             "name_i18n": "text_category_federal"
         },
-        "judicial": {
+        "category_judicial": {
             "name_i18n": "text_category_judicial"
         },
-        "party": {
-            "name": "PARTY",
-            "name_i18n": "text_category_party"
+        "category_party": {
+            "name": "PARTY"
         },
-        "school": {
+        "category_school": {
             "name_i18n": "text_category_school"
         },
-        "state": {
+        "category_state": {
             "name_i18n": "text_category_state"
         }
     },
