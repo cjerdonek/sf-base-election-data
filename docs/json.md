@@ -38,16 +38,18 @@ node.
 the word commonly used to describe making a web site or application render
 in multiple languages or countries.)
 
+### Translations node
+
 The internationalization node is a dictionary of translations.  The keys
 of the dictionary are text ID's, each of which corresponds to a word or
 phrase.  The values ...
 
 
-**Internationalized attributes.**  An object attribute whose name ends
-in `_i18n` is what we call an internationalized attribute.  The value of
-such an attribute corresponds to text that has been translated into
-possibly several languages.
+### Internationalized attributes
 
+An object attribute whose name ends in `_i18n` is what we call an
+internationalized attribute.  The value of such an attribute corresponds
+to text that has been translated into possibly several languages.
 
 In the JSON, the value of an internationalized attribute takes the form
 of a dictionary whose

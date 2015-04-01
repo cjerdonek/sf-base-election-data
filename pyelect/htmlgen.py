@@ -11,6 +11,7 @@ from django.template.loader import get_template
 
 from pyelect import jsongen
 from pyelect import lang
+from pyelect.lang import LANG_ENGLISH
 from pyelect import templateconfig
 from pyelect import utils
 
@@ -20,14 +21,6 @@ DIR_NAME_HTML_OUTPUT = 'html'
 NON_ENGLISH_ORDER = [lang.LANG_CHINESE, lang.LANG_SPANISH, lang.LANG_FILIPINO]
 
 
-def _get_translations(trans, text_id):
-    try:
-        dict_ = trans[text_id]
-    except KeyError:
-        raise Exception("json translations node does not have text_id: {0!r}".format(text_id))
-    return dict_
-
-
 # TODO: remove this function.
 def _get_i18n(trans, obj_json, key_base):
     key = '{0}_i18n'.format(key_base)
@@ -35,11 +28,11 @@ def _get_i18n(trans, obj_json, key_base):
     # TODO: remove this hack and insist that everything appear in the i18n dict.
     if text_id not in trans:
         english = utils.get_required(obj_json, 'name')
-        words = {lang.LANG_ENGLISH: english}
+        words = {LANG_ENGLISH: english}
         non_english = []
     else:
         words = utils.get_required(trans, text_id)
-        english = words[lang.LANG_ENGLISH]
+        english = words[LANG_ENGLISH]
         non_english = [words[lang] for lang in words.keys() if lang in NON_ENGLISH_ORDER]
     # Remove empty strings.
     non_english = list(filter(None, non_english))
@@ -61,7 +54,7 @@ def make_languages_one(lang_id, data):
 
 
 def make_translations_one(id_, json_data):
-    if not json_data[lang.LANG_ENGLISH]:
+    if not json_data[LANG_ENGLISH]:
         print(json_data)
         return None
     json_data['id'] = id_
@@ -229,16 +222,38 @@ def make_translations(json_data):
     translations = json_data['i18n']
     new_translations = {}
     for text_id, text in translations.items():
-        if not text[lang.LANG_ENGLISH]:
+        if not text[LANG_ENGLISH]:
             continue
         text['id'] = text_id
 
 
-def make_template_data(json_data):
+def add_english_fields(json_data, phrases):
+    """Add a simple field for each internationalized field."""
+    for node_name, objects in json_data.items():
+        for object_id, obj in objects.items():
+            i18n_attrs = ((field, value) for field, value in obj.items() if
+                          field.endswith(lang.I18N_SUFFIX))
+            for field_name, text_id in i18n_attrs:
+                simple_name = field_name.rstrip(lang.I18N_SUFFIX)
+                # TODO: make a general helper function out of this?
+                try:
+                    translations = phrases[text_id]
+                except KeyError:
+                    raise Exception("object (node={node_name!r}, id={object_id!r}): {0}"
+                                    .format(obj, node_name=node_name, object_id=object_id))
+                english = translations[LANG_ENGLISH]
+
+def make_template_data():
     """Return the context to use when rendering the template."""
+    json_data = jsongen.get_json()
+
     phrases = json_data['i18n']
-    for text_id, translations in phrases.items():
-        translations['id'] = text_id
+    add_english_fields(json_data, phrases)
+
+    print(json_data)
+    exit()
+
+    phrases = make_translations(json_data)
 
     data = {}
     bodies = add_objects(data, json_data, 'bodies')
@@ -300,15 +315,9 @@ def make_html(output_dir, page_name=None):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    # Load JSON data.
-    repo_dir = utils.get_repo_dir()
-    rel_path = jsongen.get_rel_path_json_data()
-    json_path = os.path.join(repo_dir, rel_path)
-    with open(json_path) as f:
-        json_data = json.load(f)
+    data = make_template_data()
 
     templateconfig.init_django()
-    data = make_template_data(json_data)
 
     for file_name in file_names:
         html = render_template(file_name, data=data)
