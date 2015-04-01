@@ -1,7 +1,7 @@
 {
     "bodies": {
         "body_bart": {
-            "category_id": "bart",
+            "category_id": "category_bart",
             "jurisdiction_id": "BART",
             "name": "BART Board of Directors",
             "office_name": "BART Director",
@@ -11,7 +11,7 @@
             "vote_method": "FPTP"
         },
         "body_ca_court_app": {
-            "category_id": "judicial",
+            "category_id": "category_judicial",
             "district_count": 5,
             "jurisdiction_id": "CA",
             "name_i18n": "text_body_ca_court_app",
@@ -24,7 +24,7 @@
             "wikipedia": "http://en.wikipedia.org/wiki/California_courts_of_appeal"
         },
         "body_ca_sa": {
-            "category_id": "state",
+            "category_id": "category_state",
             "jurisdiction_id": "CA",
             "name": "State Assembly",
             "office_name": "Member of the State Assembly",
@@ -35,7 +35,7 @@
             "wikipedia": "http://en.wikipedia.org/wiki/California_State_Assembly"
         },
         "body_ca_sboe": {
-            "category_id": "state",
+            "category_id": "category_state",
             "district_count": 4,
             "jurisdiction_id": "CA",
             "name": "State Board of Equalization",
@@ -48,7 +48,7 @@
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29"
         },
         "body_ca_sc": {
-            "category_id": "judicial",
+            "category_id": "category_judicial",
             "jurisdiction_id": "CA",
             "name_i18n": "text_body_ca_sc",
             "notes": "The Court has six Associate Justices and one Chief Justice. Each is appointed by the Governor and subject to retention elections.",
@@ -59,7 +59,7 @@
             "wikipedia": "http://en.wikipedia.org/wiki/Supreme_Court_of_California"
         },
         "body_ca_ss": {
-            "category_id": "state",
+            "category_id": "category_state",
             "jurisdiction_id": "CA",
             "name": "State Senate",
             "partisan": true,
@@ -69,7 +69,7 @@
             "wikipedia": "http://en.wikipedia.org/wiki/California_State_Senate"
         },
         "body_sf_boe": {
-            "category_id": "school",
+            "category_id": "category_school",
             "jurisdiction_id": "SF",
             "name_i18n": "text_body_sf_boe",
             "office_name_i18n": "text_office_member_board_of_education",
@@ -81,7 +81,7 @@
             "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_Board_of_Education"
         },
         "body_sf_bos": {
-            "category_id": "city_county",
+            "category_id": "category_city_county",
             "jurisdiction_id": "SF",
             "localwiki": "https://localwiki.org/sf/Board_of_Supervisors",
             "name_i18n": "text_body_sf_bos",
@@ -95,7 +95,7 @@
             "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_Board_of_Supervisors"
         },
         "body_sf_ccb": {
-            "category_id": "school",
+            "category_id": "category_school",
             "jurisdiction_id": "SFCC",
             "name_i18n": "text_body_sf_ccb",
             "office_name_i18n": "text_office_member_community_college_board",
@@ -105,31 +105,31 @@
             "vote_method": "FPTP"
         },
         "body_sf_dccc": {
-            "category_id": "party",
+            "category_id": "category_party",
             "jurisdiction_id": "SF",
             "name": "Democratic County Central Committee",
             "url": "http://www.sfdemocrats.org/"
         },
         "body_sf_gcc": {
-            "category_id": "party",
+            "category_id": "category_party",
             "jurisdiction_id": "SF",
             "name": "Green County Council",
             "url": "http://sfgreenparty.org/"
         },
         "body_sf_pfccc": {
-            "category_id": "party",
+            "category_id": "category_party",
             "jurisdiction_id": "SF",
             "name": "Peace and Freedom County Central Committee",
             "url": "http://www.peaceandfreedom.org"
         },
         "body_sf_rccc": {
-            "category_id": "party",
+            "category_id": "category_party",
             "jurisdiction_id": "SF",
             "name": "Republican County Central Committee",
             "url": "http://sfgop.org/"
         },
         "body_sf_sc": {
-            "category_id": "judicial",
+            "category_id": "category_judicial",
             "jurisdiction_id": "SF",
             "name_i18n": "text_body_sf_sc",
             "notes": "The San Francisco Superior Court Bench is comprised of 52 Judges and one Commissioner.",
@@ -139,7 +139,7 @@
             "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court"
         },
         "body_us_hr": {
-            "category_id": "federal",
+            "category_id": "category_federal",
             "jurisdiction_id": "US",
             "name": "United States House of Representatives",
             "office_name": "United States Representative",
@@ -149,7 +149,7 @@
             "wikipedia": "http://en.wikipedia.org/wiki/United_States_House_of_Representatives"
         },
         "body_us_s": {
-            "category_id": "federal",
+            "category_id": "category_federal",
             "jurisdiction_id": "US",
             "name": "United States Senate",
             "partisan": true,
@@ -922,7 +922,7 @@
             "district": 14
         },
         "office_usa_president_of_the_united_states": {
-            "category_id": "federal",
+            "category_id": "category_federal",
             "name_i18n": "text_office_usa_president_of_the_united_states",
             "seed_year": 2016,
             "term_length": 4,
