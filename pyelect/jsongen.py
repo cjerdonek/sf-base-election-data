@@ -18,6 +18,11 @@ KEY_ID = '_id'
 KEY_OFFICES = 'offices'
 
 DIR_NAME_OBJECTS = 'objects'
+_REL_PATH_JSON_DATA = "data/sf.json"
+
+
+def get_rel_path_json_data():
+    return _REL_PATH_JSON_DATA
 
 
 def get_rel_path_objects_dir():

@@ -2,12 +2,14 @@
 
 from collections import defaultdict
 from datetime import date
+import json
 import os
 from pprint import pprint
 
 from django.template import Context
 from django.template.loader import get_template
 
+from pyelect import jsongen
 from pyelect import lang
 from pyelect import templateconfig
 from pyelect import utils
@@ -288,11 +290,22 @@ def render_template(file_name, data):
     return template.render(context)
 
 
-def make_html(json_data, output_dir, page_name=None):
+def make_html(output_dir, page_name=None):
+
     if page_name is None:
         file_names = templateconfig.get_template_page_file_names()
     else:
         file_names = [page_name]
+
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    # Load JSON data.
+    repo_dir = utils.get_repo_dir()
+    rel_path = jsongen.get_rel_path_json_data()
+    json_path = os.path.join(repo_dir, rel_path)
+    with open(json_path) as f:
+        json_data = json.load(f)
 
     templateconfig.init_django()
     data = make_template_data(json_data)

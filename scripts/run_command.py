@@ -23,7 +23,6 @@ _log = logging.getLogger()
 
 _DEFAULT_OUTPUT_DIR_NAME = '_build'
 _FORMATTER_CLASS = argparse.RawDescriptionHelpFormatter
-_REL_PATH_JSON_DATA = "data/sf.json"
 
 
 def _wrap(text):
@@ -33,10 +32,6 @@ def _wrap(text):
     text = "\n\n".join(paras)
 
     return text
-
-def get_default_json_path():
-    repo_dir = utils.get_repo_dir()
-    return os.path.join(repo_dir, _REL_PATH_JSON_DATA)
 
 
 def get_sample_html_default_rel_dir():
@@ -70,24 +65,18 @@ def command_parse_csv(ns):
 
 
 def command_sample_html(ns):
-    page_name = ns.page_name
-
     dir_path = ns.output_dir
     open_browser = ns.open_browser
+    page_name = ns.page_name
 
     if dir_path is None:
-        dir_path = os.path.join(utils.get_repo_dir(), get_sample_html_default_rel_dir())
-        if not os.path.exists(dir_path):
-            os.makedirs(dir_path)
+        repo_dir = utils.get_repo_dir()
+        dir_path = os.path.join(repo_dir, get_sample_html_default_rel_dir())
 
-    # Load JSON data.
-    json_path = get_default_json_path()
-    with open(json_path) as f:
-        json_data = json.load(f)
     # Make and output HTML.
-    start_path = htmlgen.make_html(json_data, dir_path, page_name=page_name)
+    html_path = htmlgen.make_html(dir_path, page_name=page_name)
     if open_browser:
-        subprocess.call(["open", start_path])
+        subprocess.call(["open", html_path])
 
 
 def _get_all_files(dir_path):
@@ -192,12 +181,12 @@ def create_parser():
                 help='update the i18n files for the "extra" phrases.',
                 details=details)
 
-    default_output = _REL_PATH_JSON_DATA
+    rel_path_default = jsongen.get_rel_path_json_data()
     parser = make_subparser(sub, "make_json",
                 help="create or update a JSON data file.")
-    parser.add_argument('output_path', metavar='PATH', nargs="?", default=default_output,
+    parser.add_argument('output_path', metavar='PATH', nargs="?", default=rel_path_default,
         help=("the output path. Defaults to the following path relative to the "
-              "repo root: {0}.".format(default_output)))
+              "repo root: {0}.".format(rel_path_default)))
 
     parser = make_subparser(sub, "parse_csv",
                 help="parse a CSV language file from the Department.")
