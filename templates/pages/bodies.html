@@ -1,4 +1,5 @@
 {% extends "base/page.html" %}
+{% load custom_tags %}
 {% block title_head %}Bodies{% endblock %}
 {% block content_title %}
 San Francisco Bodies
@@ -11,7 +12,5 @@ can be on a San Francisco ballot.
 {{ bodies_count }} bodies
 {% endblock %}
 {% block content_body %}
-{% with objects_by_category=bodies_by_category %}
-{% include 'partials/bodies_list.html' %}
-{% endwith %}
+{% include "category_list.html" with objects_by_category=bodies_by_category template_name="show_body.html" %}
 {% endblock %}

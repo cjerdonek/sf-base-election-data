@@ -1,5 +1,14 @@
 <div class="row">
-  <div class="col-md-2{% block column_left_class %}{% endblock %}">{% block column_left %}{% endblock %}</div>
-  <div class="col-md-10">{% block column_right %}{% endblock %}
-  </div>
+<div class="col-md-2{% block column_left_class %}{% endblock %}">
+{% spaceless %}
+{% block column_left %}
+{% endblock %}
+{% endspaceless %}
+</div>
+<div class="col-md-10">
+{% spaceless %}
+{% block column_right %}
+{% endblock %}
+{% endspaceless %}
+</div>
 </div>

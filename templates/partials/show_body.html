@@ -1,0 +1,9 @@
+{% load custom_tags %}
+{% with body=object %}
+{% url_row 'Web' body.url %}
+{% info_row 'Districts' body.district_count %}
+{% info_row 'Seats' body.seat_count %}
+{% cond_include body.election_info 'partials/row_elections.html' body %}
+{% url_row 'Wikipedia' body.wikipedia %}
+{% info_row 'Notes' body.notes %}
+{% endwith %}

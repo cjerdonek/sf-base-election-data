@@ -1,24 +1,11 @@
-{% for category_id in category_ids %}
+{% load custom_tags %}
 
-{% with category_name_i18n=categories|get_item:category_id %}
-
-  <div class="row text-center">
-    <h3>{{ category_name_i18n.english }}
-      <a name="{{ category_id }}" href="#{{ category_id }}">¶</a>
-    {% if category_name_i18n.non_english %}<br>
-      ({{ category_name_i18n.non_english|join:' | ' }})
-    {% endif %}
-    </h3>
-  </div>
-  <p>
-
-  {% for object in objects_by_category|get_item:category_id %}
-
-    {% block show_category %}
-    {% endblock %}
-
-  <hr>
-  {% endfor %}
-{% endwith %}
-
+{% for category in categories %}
+{% header_section category 'name' category.id %}
+{% for object in objects_by_category|get_item:category.id %}
+{% header_item object 'name' object.id %}
+{% include template_name %}
+<p>
+{% endfor %}
+<hr>
 {% endfor %}

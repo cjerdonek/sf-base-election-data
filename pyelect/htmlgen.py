@@ -82,15 +82,18 @@ def make_districts(data):
     return districts
 
 
-def make_categories(all_json, trans):
+def make_category_map(all_json, phrases):
     categories_json = all_json['categories']
 
-    categories = {}
+    category_map = {}
     for category_id, category_json in categories_json.items():
-        name_i18n = _get_i18n(trans, category_json, 'name')
-        categories[category_id] = name_i18n
+        category = {
+            'id': category_id,
+        }
+        add_i18n_field(category, category_json, 'name', phrases=phrases)
+        category_map[category_id] = category
 
-    return categories
+    return category_map
 
 
 def _compute_next_election_year(office_json):
@@ -265,11 +268,11 @@ def make_template_data():
 
     phrases = make_translations(json_data)
 
+    category_map = make_category_map(json_data, phrases)
+    categories = [category_map[id_] for id_ in CATEGORY_ORDER]
+
     data = {}
     bodies = add_objects(data, json_data, 'bodies', phrases=phrases)
-
-    categories = make_categories(json_data, phrases)
-
 
     offices = add_objects(data, json_data, 'offices', trans=phrases)
     office_count = sum([o['seat_count'] for o in offices])
@@ -287,8 +290,8 @@ def make_template_data():
     data = {
         'bodies_count': len(bodies),
         'bodies_by_category': bodies_by_category,
+        'category_map': category_map,
         'categories': categories,
-        'category_ids': CATEGORY_ORDER,
         'offices_by_category': offices_by_category,
 #        'districts': make_districts(input_data),
         'office_count': office_count,
