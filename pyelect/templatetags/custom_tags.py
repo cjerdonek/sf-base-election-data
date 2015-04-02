@@ -32,25 +32,26 @@ def anchor(id_):
     }
 
 
-@register.inclusion_tag('item_header_small.html')
-def item_header_small(header, item_id):
-    return {
-        'title': header,
-        'item_id': item_id,
-    }
-
-
-@register.inclusion_tag('item_header_small.html')
-def item_header_small_languages(item_data, field_name, item_id):
+def _header_context(item_data, field_name, item_id):
     name = item_data[field_name]
     i18n_field_name = lang.get_i18n_field_name(field_name)
     translations = item_data.get(i18n_field_name, {})
     non_english = [translations[lang] for lang in NON_ENGLISH_ORDER if lang in translations]
     return {
-        'text': name,
-        'text_non_english': non_english,
-        'item_id': item_id,
+        'header': name,
+        'header_non_english': non_english,
+        'header_id': item_id,
     }
+
+
+@register.inclusion_tag('header_section.html')
+def header_section(item_data, field_name, item_id):
+    return _header_context(item_data, field_name, item_id)
+
+
+@register.inclusion_tag('header_item.html')
+def header_item(item_data, field_name, item_id):
+    return _header_context(item_data, field_name, item_id)
 
 
 @register.inclusion_tag('tags/cond_include.html')
