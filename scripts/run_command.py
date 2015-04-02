@@ -68,13 +68,15 @@ def command_sample_html(ns):
     dir_path = ns.output_dir
     open_browser = ns.open_browser
     page_name = ns.page_name
+    print_html = ns.print_html
 
     if dir_path is None:
         repo_dir = utils.get_repo_dir()
         dir_path = os.path.join(repo_dir, get_sample_html_default_rel_dir())
 
     # Make and output HTML.
-    html_path = htmlgen.make_html(dir_path, page_name=page_name)
+    html_path = htmlgen.make_html(dir_path, page_name=page_name,
+                                  print_html=print_html)
     if open_browser:
         subprocess.call(["open", html_path])
 
@@ -202,6 +204,8 @@ def create_parser():
               "to the repo: {0}".format(get_sample_html_default_rel_dir())))
     parser.add_argument('--no-browser', dest='open_browser', action='store_false',
         help='suppress opening the browser.')
+    parser.add_argument('--print-html', dest='print_html', action='store_true',
+        help='write the HTML to stdout.')
 
     parser = make_subparser(sub, "yaml_norm",
                 help="normalize one or more YAML files.")

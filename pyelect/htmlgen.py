@@ -39,7 +39,7 @@ def _get_i18n(trans, obj_json, key_base):
         words = {LANG_ENGLISH: english}
         non_english = []
     else:
-        field_name = '{0}{1}'.format(key_base, lang.I18N_SUFFIX)
+        field_name = lang.get_i18n_field_name(key_base)
         text_id = utils.get_required(obj_json, field_name, message="translation")
         words = utils.get_required(trans, text_id)
         non_english = [words[lang] for lang in words.keys() if lang in NON_ENGLISH_ORDER]
@@ -65,7 +65,6 @@ def make_languages_one(lang_id, data):
 
 def make_translations_one(id_, json_data):
     if not json_data[LANG_ENGLISH]:
-        print(json_data)
         return None
     json_data['id'] = id_
     return json_data
@@ -136,21 +135,21 @@ def _make_election_info(data):
     return list(filter(None, [term_length, next_election_text, vote_method, partisan_text]))
 
 
-def get_i18n_field_name(name):
-    return "{0}_i18n".format(name)
+def add_i18n_field(obj, json_data, field_name, phrases):
+    # We require that the simple field be present in the JSON.
+    english = json_data[field_name]
+    obj[field_name] = english
 
-def add_i18n_field(object_data, json_data, field_name):
-    i18n_field = get_i18n_field_name(field_name)
+    i18n_field_name = lang.get_i18n_field_name(field_name)
     try:
-        json_data[i18n_field]
+        text_id = json_data[i18n_field_name]
     except KeyError:
-        key_name = field_name
-    else:
-        key_name = i18n_field
-    object_data[key_name] = json_data[key_name]
+        return
+    translations = phrases[text_id]
+    obj[i18n_field_name] = translations
 
 
-def make_bodies_one(body_id, data, **kwargs):
+def make_bodies_one(body_id, data, phrases, **kwargs):
 
     category_id = utils.get_required(data, 'category_id')
 
@@ -165,7 +164,7 @@ def make_bodies_one(body_id, data, **kwargs):
         'wikipedia': data.get('wikipedia')
     }
 
-    add_i18n_field(body, data, 'name')
+    add_i18n_field(body, data, 'name', phrases=phrases)
 
     return body
 
@@ -267,7 +266,7 @@ def make_template_data():
     phrases = make_translations(json_data)
 
     data = {}
-    bodies = add_objects(data, json_data, 'bodies')
+    bodies = add_objects(data, json_data, 'bodies', phrases=phrases)
 
     categories = make_categories(json_data, phrases)
 
@@ -316,7 +315,7 @@ def render_template(file_name, data):
     return template.render(context)
 
 
-def make_html(output_dir, page_name=None):
+def make_html(output_dir, page_name=None, print_html=False):
 
     if page_name is None:
         file_names = templateconfig.get_template_page_file_names()
@@ -332,7 +331,8 @@ def make_html(output_dir, page_name=None):
 
     for file_name in file_names:
         html = render_template(file_name, data=data)
-        print(html)
+        if print_html:
+            print(html)
         output_path = os.path.join(output_dir, file_name)
         utils.write(output_path, html)
     if len(file_names) == 1:

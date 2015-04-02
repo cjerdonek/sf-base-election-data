@@ -21,6 +21,8 @@
   <p>
 
   {% load custom_tags %}
+  {% item_header_small_languages body 'name' body.id %}
+
   {% url_row 'Web' body.url %}
   {% info_row 'Districts' body.district_count %}
   {% info_row 'Seats' body.seat_count %}

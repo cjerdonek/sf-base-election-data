@@ -150,6 +150,10 @@ def read_csv_rows_contest():
     return seq
 
 
+def get_i18n_field_name(name):
+    return "{0}{1}".format(name, I18N_SUFFIX)
+
+
 def _make_text_id(text):
     # Remove non-ascii characters.
     bytes = text.encode('ascii', 'ignore')

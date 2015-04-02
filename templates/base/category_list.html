@@ -1,10 +1,7 @@
 {% for category_id in category_ids %}
 
-{{ category_id }}
-
 {% with category_name_i18n=categories|get_item:category_id %}
 
-  {{ category_name_i18n }}
   <div class="row text-center">
     <h3>{{ category_name_i18n.english }}
       <a name="{{ category_id }}" href="#{{ category_id }}">¶</a>

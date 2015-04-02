@@ -5,6 +5,7 @@
 {% block column_left %}&nbsp;{% endblock %}
 
 {% load custom_tags %}
-{% block column_right %}<h4>{{ title }}
-  {% anchor item_id %}
-  </h4>{% endblock %}
+{% block column_right %}
+    <b>{{ text }} {% anchor item_id %}{% if text_non_english %}<br/>
+      ({{ text_non_english|join:' | '  }})
+    {% endif %}</b>{% endblock %}
