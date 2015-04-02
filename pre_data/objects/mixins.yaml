@@ -3,9 +3,9 @@ _meta:
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
 mixins:
   ca_common:
-    category_id: state
+    category_id: category_state
     term_length: 4
   sf_common:
-    category_id: city_county
+    category_id: category_city_county
     term_length: 4
     vote_method: RCV

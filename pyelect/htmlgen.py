@@ -3,6 +3,7 @@
 from collections import defaultdict
 from datetime import date
 import json
+import logging
 import os
 from pprint import pprint
 
@@ -16,24 +17,33 @@ from pyelect import templateconfig
 from pyelect import utils
 
 
-CATEGORY_ORDER = ["federal", "state", "city_county", "school", "bart", "judicial", "party"]
+CATEGORY_ORDER = """\
+category_federal
+category_state
+category_city_county
+category_school
+category_bart
+category_judicial
+category_party
+""".strip().splitlines()
+
 DIR_NAME_HTML_OUTPUT = 'html'
 NON_ENGLISH_ORDER = [lang.LANG_CHINESE, lang.LANG_SPANISH, lang.LANG_FILIPINO]
 
+_log = logging.getLogger()
 
 # TODO: remove this function.
 def _get_i18n(trans, obj_json, key_base):
-    key = '{0}_i18n'.format(key_base)
-    text_id = utils.get_required(obj_json, key, message="translation")
-    # TODO: remove this hack and insist that everything appear in the i18n dict.
-    if text_id not in trans:
+    if key_base in obj_json:
         english = utils.get_required(obj_json, 'name')
         words = {LANG_ENGLISH: english}
         non_english = []
     else:
+        field_name = '{0}{1}'.format(key_base, lang.I18N_SUFFIX)
+        text_id = utils.get_required(obj_json, field_name, message="translation")
         words = utils.get_required(trans, text_id)
-        english = words[LANG_ENGLISH]
         non_english = [words[lang] for lang in words.keys() if lang in NON_ENGLISH_ORDER]
+    english = words[LANG_ENGLISH]
     # Remove empty strings.
     non_english = list(filter(None, non_english))
 
@@ -225,14 +235,15 @@ def make_translations(json_data):
         if not text[LANG_ENGLISH]:
             continue
         text['id'] = text_id
+    return translations
 
 
 def add_english_fields(json_data, phrases):
     """Add a simple field for each internationalized field."""
     for node_name, objects in json_data.items():
         for object_id, obj in objects.items():
-            i18n_attrs = ((field, value) for field, value in obj.items() if
-                          field.endswith(lang.I18N_SUFFIX))
+            i18n_attrs = [(field, value) for field, value in obj.items() if
+                          field.endswith(lang.I18N_SUFFIX)]
             for field_name, text_id in i18n_attrs:
                 simple_name = field_name.rstrip(lang.I18N_SUFFIX)
                 # TODO: make a general helper function out of this?
@@ -242,6 +253,8 @@ def add_english_fields(json_data, phrases):
                     raise Exception("object (node={node_name!r}, id={object_id!r}): {0}"
                                     .format(obj, node_name=node_name, object_id=object_id))
                 english = translations[LANG_ENGLISH]
+                _log.debug("Setting field: {0}.{1}={2}".format(object_id, simple_name, english))
+                obj[simple_name] = english
 
 
 def make_template_data():
@@ -250,9 +263,6 @@ def make_template_data():
 
     phrases = json_data['i18n']
     add_english_fields(json_data, phrases)
-
-    print(json_data)
-    exit()
 
     phrases = make_translations(json_data)
 
@@ -271,7 +281,7 @@ def make_template_data():
     all_categories = set()
     for d in (bodies_by_category, offices_by_category):
         all_categories.update(d.keys())
-    if all_categories > set(CATEGORY_ORDER):
+    if not all_categories <= set(CATEGORY_ORDER):
         extra = all_categories - set(CATEGORY_ORDER)
         raise Exception("unrecognized categories: {0}".format(extra))
 

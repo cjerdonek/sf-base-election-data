@@ -708,7 +708,7 @@
             "name": "Chief Justice"
         },
         "office_assessor_recorder": {
-            "category_id": "city_county",
+            "category_id": "category_city_county",
             "name_i18n": "text_office_assessor_recorder",
             "seed_year": 2014,
             "term_length": 4,
@@ -744,7 +744,7 @@
             "district": 11
         },
         "office_city_attorney": {
-            "category_id": "city_county",
+            "category_id": "category_city_county",
             "name_i18n": "text_office_city_attorney",
             "seed_year": 2015,
             "term_length": 4,
@@ -753,7 +753,7 @@
             "vote_method": "RCV"
         },
         "office_city_treasurer": {
-            "category_id": "city_county",
+            "category_id": "category_city_county",
             "name_i18n": "text_office_city_treasurer",
             "seed_year": 2015,
             "term_length": 4,
@@ -766,7 +766,7 @@
             "url": "http://www.sco.ca.gov/"
         },
         "office_district_attorney": {
-            "category_id": "city_county",
+            "category_id": "category_city_county",
             "name_i18n": "text_office_district_attorney",
             "seed_year": 2015,
             "term_length": 4,
@@ -779,7 +779,7 @@
             "url": "http://www.insurance.ca.gov/"
         },
         "office_mayor": {
-            "category_id": "city_county",
+            "category_id": "category_city_county",
             "name_i18n": "text_office_mayor",
             "seed_year": 2015,
             "term_length": 4,
@@ -787,7 +787,7 @@
             "vote_method": "RCV"
         },
         "office_public_defender": {
-            "category_id": "city_county",
+            "category_id": "category_city_county",
             "name_i18n": "text_office_public_defender",
             "seed_year": 2014,
             "term_length": 4,
@@ -871,7 +871,7 @@
             "seed_year": 2012
         },
         "office_sheriff": {
-            "category_id": "city_county",
+            "category_id": "category_city_county",
             "name_i18n": "text_office_sheriff",
             "seed_year": 2015,
             "term_length": 4,
@@ -880,21 +880,21 @@
             "vote_method": "RCV"
         },
         "office_state_governor": {
-            "category_id": "state",
+            "category_id": "category_state",
             "name_i18n": "text_office_state_governor",
             "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.gov.ca.gov"
         },
         "office_state_lieutenant_governor": {
-            "category_id": "state",
+            "category_id": "category_state",
             "name_i18n": "text_office_state_lieutenant_governor",
             "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.ltg.ca.gov/"
         },
         "office_state_secretary": {
-            "category_id": "state",
+            "category_id": "category_state",
             "name_i18n": "text_office_state_secretary",
             "seed_year": 2014,
             "term_length": 4,
@@ -902,7 +902,7 @@
             "url": "http://www.sos.ca.gov/"
         },
         "office_superintendent_of_public_instruction": {
-            "category_id": "state",
+            "category_id": "category_state",
             "name_i18n": "text_office_superintendent_of_public_instruction",
             "partisan": false,
             "seed_year": 2014,
