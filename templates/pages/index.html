@@ -11,7 +11,5 @@ ballot in a San Francisco election.
 {{ office_count }} seats
 {% endblock %}
 {% block content_body %}
-{% with objects_by_category=offices_by_category %}
-{% include 'partials/offices_list.html' %}
-{% endwith %}
+{% include "category_list.html" with objects_by_category=offices_by_category template_name="show_office.html" %}
 {% endblock %}

@@ -152,7 +152,7 @@ def add_i18n_field(obj, json_data, field_name, phrases):
     obj[i18n_field_name] = translations
 
 
-def make_bodies_one(body_id, data, phrases, **kwargs):
+def make_bodies_one(body_id, data, phrases):
 
     category_id = utils.get_required(data, 'category_id')
 
@@ -172,23 +172,21 @@ def make_bodies_one(body_id, data, phrases, **kwargs):
     return body
 
 
-def make_offices_one(office_id, data, trans):
+def make_offices_one(office_id, data, phrases):
     # TODO: remove this logic.
     if 'name_i18n' not in data:
         return None
-
-    name_i18n = _get_i18n(trans, data, 'name')
-
     office = {
         'category_id': data.get('category_id'),
         'election_info': _make_election_info(data),
         'id': office_id,
-        'name_i18n': name_i18n,
         # TODO: use a real seat count.
         'seat_count': 1,
         'twitter': data.get('twitter'),
         'url': data.get('url')
     }
+
+    add_i18n_field(office, data, 'name', phrases=phrases)
 
     return office
 
@@ -274,7 +272,7 @@ def make_template_data():
     data = {}
     bodies = add_objects(data, json_data, 'bodies', phrases=phrases)
 
-    offices = add_objects(data, json_data, 'offices', trans=phrases)
+    offices = add_objects(data, json_data, 'offices', phrases=phrases)
     office_count = sum([o['seat_count'] for o in offices])
 
     bodies_by_category = _group_by(bodies, 'category_id')

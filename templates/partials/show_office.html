@@ -1,0 +1,6 @@
+{% load custom_tags %}
+{% with office=object %}
+{% url_row 'Web' office.url %}
+{% cond_include office.twitter 'partials/row_twitter.html' office %}
+{% cond_include office.election_info 'partials/row_elections.html' office %}
+{% endwith %}
