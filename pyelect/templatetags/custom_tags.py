@@ -81,3 +81,12 @@ def info_row(header, value):
 @register.inclusion_tag('tags/cond_include.html')
 def url_row(header, value):
     return _cond_include_context('partials/row_url.html', header, value)
+
+
+@register.inclusion_tag('list_objects.html')
+def list_objects(objects, title_attr, template_name):
+    return {
+        'objects': objects,
+        'title_attr': title_attr,
+        'template_name': template_name
+    }

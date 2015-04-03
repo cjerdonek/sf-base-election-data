@@ -9,16 +9,3 @@
 {% block column_right %}
 {% include "header_item_text.html" %}
 {% endblock %}
-
-{% comment %}
-{% extends "header_base.html" %}
-
-{% block header_text %}<b>{{ block.super }}</b>{% endblock %}
-
-
-{% spaceless %}
-<div class="row text-center">
-<h3>{% include "header_text.html" %}</h3>
-{% endspaceless %}
-</div>
-{% endcomment %}

@@ -1,0 +1,4 @@
+{% load custom_tags %}{% with language=object %}
+{% info_row 'Code' language.code %}
+{% info_row 'Notes' language.notes %}
+{% endwith %}

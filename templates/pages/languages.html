@@ -1,5 +1,9 @@
 {% extends "base/page.html" %}
+
+{% load custom_tags %}
+
 {% block title_head %}Languages{% endblock %}
+
 {% block content_title %}
 Languages
 {% endblock %}
@@ -13,12 +17,5 @@ Below are the languages recognized in the JSON data.
 {% endblock %}
 
 {% block content_body %}
-{% load custom_tags %}
-{% for lang in languages %}
-
-{% item_header_small lang.name lang.id %}
-{% info_row 'Code' lang.code %}
-{% info_row 'Notes' lang.notes %}
-
-{% endfor %}
+{% list_objects languages 'name' 'show_language.html' %}
 {% endblock %}

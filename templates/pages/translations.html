@@ -17,7 +17,7 @@ translations.
 {% load custom_tags %}
 {% for translation in translations.values|dictsort:"en" %}
 
-  {% item_header_small translation.en text.id %}
+  {% header_item translation 'en' text.id %}
   {% for lang_code in non_english_codes %}
     {% with lang=language_map|get_item:lang_code %}
       {% info_row lang.name translation|get_item:lang_code %}
