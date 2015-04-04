@@ -14,6 +14,15 @@ from pyelect import utils
 
 _log = logging.getLogger()
 
+_PAGE_BASES = """\
+index
+bodies
+district_types
+jurisdictions
+phrases
+languages
+""".strip().splitlines()
+
 CATEGORY_ORDER = """\
 category_federal
 category_state
@@ -266,6 +275,7 @@ def make_template_data(json_data):
 #        'districts': make_districts(input_data),
         'office_count': office_count,
         'language_codes': [LANG_ENGLISH] + NON_ENGLISH_ORDER,
+        'page_bases': _PAGE_BASES,
         'phrases': phrases,
     }
 

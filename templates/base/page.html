@@ -40,22 +40,25 @@
         please file an issue in the
         <a href="https://github.com/cjerdonek/sf-base-election-data/issues">issue tracker</a>.
 
-      <h3 class="text-center">Site Contents</h3>
+<h3 class="text-center">Site Contents</h3>
 
-      {% page_nav 'index' %}
-      {% page_nav 'bodies' %}
-      {% page_nav 'phrases' %}
-      {% page_nav 'languages' %}
+{% for page_base in page_bases %}
+{% page_nav page_base %}
+{% endfor %}
 
       <h2 class="text-center">{% block content_title %}{% current_title %}{% endblock %}</h2>
 
-      {% block content_intro %}
-        <p>
-          {% block content_intro_para %}
-          {% endblock %}
-        <p>
-          Current count: {% block current_count_value %}{% endblock %}
-      {% endblock %}
+{% block content_intro %}
+<p>
+{% block content_intro_para %}
+{% comment %}
+TODO: replace current_title with "current_noun".
+{% endcomment %}
+Below are the {% current_title %} listed in the JSON data.
+{% endblock %}
+<p>
+Current count: {% block current_count_value %}{% endblock %}
+{% endblock %}
 
       {% block content_body %}
       {% endblock %}
@@ -64,7 +67,8 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <!-- Latest compiled and minified JavaScript -->
-      <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+      <!-- JS is needed for the collapsable navigation bar. -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </div>
 
   </body>

@@ -17,7 +17,10 @@ from pyelect import lang
 
 _PAGE_TITLES = {
     'bodies': 'Bodies',
+    'district_types': 'District Types',
     'index': 'Offices',
+    # TODO: should we use a better name (e.g. area)?
+    'jurisdictions': 'Jurisdictions',
     'languages': 'Languages',
     'phrases': 'Translated Phrases',
 }
