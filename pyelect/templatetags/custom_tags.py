@@ -10,26 +10,44 @@ django.template.Library().
 
 from django import template
 
+from pyelect.html.common import NON_ENGLISH_ORDER
 from pyelect import htmlgen
-from pyelect.htmlgen import NON_ENGLISH_ORDER, PAGE_TITLES
 from pyelect import lang
+
+
+_PAGE_TITLES = {
+    'bodies': 'Bodies',
+    'index': 'Offices',
+    'languages': 'Languages',
+    'phrases': 'Translated Phrases',
+}
 
 
 register = template.Library()
 
+
+def get_page_href(page_base):
+    return "{0}.html".format(page_base)
+
+
+def get_page_title(page_base):
+    return _PAGE_TITLES[page_base]
+
+
 @register.simple_tag(takes_context=True)
 def current_title(context):
-    page_base = context['current_page']
-    page_title = PAGE_TITLES[page_base]
+    current_page_base = context['current_page']
+    page_title = get_page_title(current_page_base)
     return page_title
 
 
-@register.inclusion_tag('tags/page_nav.html')
-def page_nav(current_page_base, page_base):
+@register.inclusion_tag('tags/page_nav.html', takes_context=True)
+def page_nav(context, page_base):
     """A tag to use in site navigation."""
+    current_page_base = context['current_page']
     data = {
-        'page_href': htmlgen.get_page_href(page_base),
-        'page_title': PAGE_TITLES[page_base],
+        'page_href': get_page_href(page_base),
+        'page_title': get_page_title(page_base),
         'same_page': page_base == current_page_base
     }
 

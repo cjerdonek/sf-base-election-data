@@ -4,14 +4,8 @@ TODO
 * Make a module for template context?
 * Include an "edge" flag in the HTML and JSON?
 * Make sure all non-English extras are accounted for (e.g. after updates).
-* Make a page to display all translations:
-  id
-    - en
-    - sp
-    - ch
-    - notes
 * Add a source for each translation.
-* Settle the language stuff.
+  - Allow for translation notes?
 * Review `office_bart_director` id.
 * Add a `seat_name` attribute to Office that distinguishes members from
   one another (and `office_name` is the more generic name).
