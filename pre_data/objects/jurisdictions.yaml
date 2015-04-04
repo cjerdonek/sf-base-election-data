@@ -2,13 +2,13 @@ _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
 jurisdictions:
-- id: US
-  name: United States of America
-- id: CA
-  name: State of California
-- id: BART
-  name: Bay Area Rapid Transit
-- id: SFCC
-  name: San Francisco Community College District
-- id: SF
-  name: City and County of San Francisco
+  jurisdiction_bart:
+    name: Bay Area Rapid Transit (BART)
+  jurisdiction_ca:
+    name: State of California
+  jurisdiction_sf:
+    name: City and County of San Francisco
+  jurisdiction_sfcc:
+    name: San Francisco Community College District
+  jurisdiction_us:
+    name: United States of America

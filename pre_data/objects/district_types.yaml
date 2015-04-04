@@ -2,8 +2,12 @@ _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
 district_types:
-- _id: ca_court_app_d1
-  body_id: ca_court_app
-  district_name_format: Division {0}
-  geographic: false
-  parent_area_name: First District
+  district_type_ca_court_app_d1:
+    body_id: body_ca_court_app
+    district_name_format: Division {0}
+    geographic: false
+    parent_area_name: First District
+  district_type_sf_bos:
+    body_id: body_sf_bos
+    district_name_format: text_district_numbered_format
+    jurisdiction_id: jurisdiction_sf
