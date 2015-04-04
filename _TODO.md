@@ -1,12 +1,12 @@
 TODO
 ====
 
-* Hamburger nav
 * Add page for district type (requires area/jurisdiction).
 * Body should display the district type (and info about it?)
   - and link to it
 * Include an "edge" flag in the HTML and JSON?
 * Make sure all non-English extras are accounted for (e.g. after updates).
+* Hamburger nav
 * Add a source for each translation.
   - Allow for translation notes?
 * Review `office_bart_director` id.

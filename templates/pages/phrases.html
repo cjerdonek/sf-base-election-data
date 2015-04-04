@@ -5,11 +5,7 @@ Below is the list of phrases in the JSON file that have one or more
 translations.
 {% endblock %}
 
-{% block object_count_text %}
-{{ phrases|length }} phrases
-{% endblock %}
-
 {% block content_body %}
 {% load custom_tags %}
-{% list_objects phrases.values|dictsort:"id" "id" "show_phrase.html" %}
+{% list_objects current_objects.values|dictsort:"id" "id" current_show_template %}
 {% endblock %}
