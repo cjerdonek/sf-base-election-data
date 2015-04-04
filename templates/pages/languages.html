@@ -6,10 +6,6 @@
 Below are the languages recognized in the JSON data.
 {% endblock %}
 
-{% block current_count_value %}
-{{ languages|length }} languages
-{% endblock %}
-
 {% block content_body %}
 {% list_objects languages 'name' 'show_language.html' %}
 {% endblock %}

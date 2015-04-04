@@ -11,34 +11,28 @@ django.template.Library().
 from django import template
 
 from pyelect.html.common import NON_ENGLISH_ORDER
+from pyelect.html import pages
 from pyelect import htmlgen
 from pyelect import lang
-
-
-_PAGE_TITLES = {
-    'bodies': 'Bodies',
-    'district_types': 'District Types',
-    'index': 'Offices',
-    # TODO: should we use a better name (e.g. area)?
-    'jurisdictions': 'Jurisdictions',
-    'languages': 'Languages',
-    'phrases': 'Translated Phrases',
-}
 
 
 register = template.Library()
 
 
 def get_page_href(page_base):
-    return "{0}.html".format(page_base)
+    page = pages.get_page_object(page_base)
+    href = page.make_href()
+    return href
 
 
 def get_page_title(page_base):
-    return _PAGE_TITLES[page_base]
+    page = pages.get_page_object(page_base)
+    title = page.title
+    return title
 
 
 @register.simple_tag(takes_context=True)
-def current_title(context):
+def current_object_count(context):
     current_page_base = context['current_page']
     page_title = get_page_title(current_page_base)
     return page_title

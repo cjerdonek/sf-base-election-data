@@ -7,6 +7,7 @@ import os
 from django.template import Context
 
 from pyelect.html.common import NON_ENGLISH_ORDER
+from pyelect.html import pages
 from pyelect import lang
 from pyelect.lang import LANG_ENGLISH
 from pyelect import utils
@@ -34,10 +35,11 @@ category_party
 """.strip().splitlines()
 
 
-def make_template_context(data, file_name):
+def make_template_context(data, page_base):
+    page = pages.get_page_object(page_base)
     context = Context(data)
-    current_base, ext = os.path.splitext(file_name)
-    context['current_page'] = current_base
+    context['current_page'] = page_base
+    context['current_title'] = page.title
 
     return context
 

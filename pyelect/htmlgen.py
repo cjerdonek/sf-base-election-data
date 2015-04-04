@@ -49,7 +49,8 @@ def make_html(output_dir, page_name=None, print_html=False):
     templateconfig.init_django()
 
     for file_name in file_names:
-        context_ = context.make_template_context(data, file_name)
+        page_base, ext = os.path.splitext(file_name)
+        context_ = context.make_template_context(data, page_base)
         html = render_template(file_name, context=context_)
         if print_html:
             print(html)
