@@ -44,6 +44,9 @@ texts:
   text_language_korean:
     _en: Korean
     zh: null
+  text_language_notes_facsimile:
+    _en: Available on translated "facsimile" ballots by request.
+    zh: null
   text_language_spanish:
     _en: Spanish
     zh: null
