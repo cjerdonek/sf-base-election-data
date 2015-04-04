@@ -10,7 +10,7 @@ from pyelect import utils
 
 _DIR_NAME_TEMPLATE_PAGE = 'pages'
 
-_TEMPLATE_DIR_NAMES = ('base', 'partials')
+_TEMPLATE_DIR_NAMES = ('base', 'objects', 'partials')
 
 
 def _get_templates_dir():
