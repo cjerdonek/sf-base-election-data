@@ -10,19 +10,30 @@ django.template.Library().
 
 from django import template
 
+from pyelect import htmlgen
+from pyelect.htmlgen import NON_ENGLISH_ORDER, PAGE_TITLES
 from pyelect import lang
-from pyelect.htmlgen import NON_ENGLISH_ORDER
+
 
 register = template.Library()
 
+@register.simple_tag(takes_context=True)
+def current_title(context):
+    page_base = context['current_page']
+    page_title = PAGE_TITLES[page_base]
+    return page_title
+
+
 @register.inclusion_tag('tags/page_nav.html')
-def page_nav(current_file_name, file_name, display_name):
+def page_nav(current_page_base, page_base):
     """A tag to use in site navigation."""
-    return {
-        'current_file_name': current_file_name,
-        'file_name': file_name,
-        'display_name': display_name,
+    data = {
+        'page_href': htmlgen.get_page_href(page_base),
+        'page_title': PAGE_TITLES[page_base],
+        'same_page': page_base == current_page_base
     }
+
+    return data
 
 
 @register.inclusion_tag('anchor.html')
@@ -83,9 +94,10 @@ def url_row(header, value):
     return _cond_include_context('partials/row_url.html', header, value)
 
 
-@register.inclusion_tag('list_objects.html')
-def list_objects(objects, title_attr, template_name):
+@register.inclusion_tag('list_objects.html', takes_context=True)
+def list_objects(context, objects, title_attr, template_name):
     return {
+        'context': context,
         'objects': objects,
         'title_attr': title_attr,
         'template_name': template_name

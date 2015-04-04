@@ -1,0 +1,15 @@
+{% extends "base/page.html" %}
+
+{% block content_intro_para %}
+Below is the list of phrases in the JSON file that have one or more
+translations.
+{% endblock %}
+
+{% block current_count_value %}
+{{ phrases|length }} phrases
+{% endblock %}
+
+{% block content_body %}
+{% load custom_tags %}
+{% list_objects phrases.values|dictsort:"id" "id" "show_phrase.html" %}
+{% endblock %}

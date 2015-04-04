@@ -18,6 +18,15 @@ from pyelect import templateconfig
 from pyelect import utils
 
 
+_log = logging.getLogger()
+
+PAGE_TITLES = {
+    'bodies': 'Bodies',
+    'index': 'Offices',
+    'languages': 'Languages',
+    'phrases': 'Translated Phrases',
+}
+
 CATEGORY_ORDER = """\
 category_federal
 category_state
@@ -31,29 +40,9 @@ category_party
 DIR_NAME_HTML_OUTPUT = 'html'
 NON_ENGLISH_ORDER = [lang.LANG_CHINESE, lang.LANG_SPANISH, lang.LANG_FILIPINO]
 
-_log = logging.getLogger()
 
-# TODO: remove this function.
-def _get_i18n(trans, obj_json, key_base):
-    if key_base in obj_json:
-        english = utils.get_required(obj_json, 'name')
-        words = {LANG_ENGLISH: english}
-        non_english = []
-    else:
-        field_name = lang.get_i18n_field_name(key_base)
-        text_id = utils.get_required(obj_json, field_name, message="translation")
-        words = utils.get_required(trans, text_id)
-        non_english = [words[lang] for lang in words.keys() if lang in NON_ENGLISH_ORDER]
-    english = words[LANG_ENGLISH]
-    # Remove empty strings.
-    non_english = list(filter(None, non_english))
-
-    i18n = {
-        'english': english,
-        'non_english': non_english
-    }
-
-    return i18n
+def get_page_href(page_base):
+    return "{0}.html".format(page_base)
 
 
 def make_languages_one(lang_id, data):
@@ -64,7 +53,7 @@ def make_languages_one(lang_id, data):
     return lang
 
 
-def make_translations_one(id_, json_data):
+def make_phrases_one(id_, json_data):
     if not json_data[LANG_ENGLISH]:
         return None
     json_data['id'] = id_
@@ -229,14 +218,12 @@ def _group_by(objects, key):
     return grouped
 
 
-def make_translations(json_data):
-    translations = json_data['i18n']
-    new_translations = {}
-    for text_id, text in translations.items():
-        if not text[LANG_ENGLISH]:
-            continue
-        text['id'] = text_id
-    return translations
+def make_phrases(json_data):
+    """Return the phrases dict for the context."""
+    phrases = json_data['phrases']
+    for text_id, phrase in phrases.items():
+        phrase['id'] = text_id
+    return phrases
 
 
 def add_english_fields(json_data, phrases):
@@ -262,10 +249,8 @@ def make_template_data():
     """Return the context to use when rendering the template."""
     json_data = jsongen.get_json()
 
-    phrases = json_data['i18n']
+    phrases = make_phrases(json_data)
     add_english_fields(json_data, phrases)
-
-    phrases = make_translations(json_data)
 
     category_map = make_category_map(json_data, phrases)
     categories = [category_map[id_] for id_ in CATEGORY_ORDER]
@@ -294,8 +279,8 @@ def make_template_data():
         'offices_by_category': offices_by_category,
 #        'districts': make_districts(input_data),
         'office_count': office_count,
-        'non_english_codes': lang.LANGS_NON_ENGLISH,
-        'translations': phrases,
+        'language_codes': [LANG_ENGLISH] + NON_ENGLISH_ORDER,
+        'phrases': phrases,
     }
 
     language_list = add_objects(data, json_data, 'languages')
@@ -314,11 +299,11 @@ def render_template(file_name, data):
     try:
         template = get_template(template_name)
     except TemplateDoesNotExist:
-        dir_path = templateconfig._get_template_page_dir()
-        paths = os.listdir(dir_path)
+        paths = templateconfig.get_template_page_file_names()
         raise Exception("possible file names:\n  {0}".format("\n  ".join(paths)))
     context = Context(data)
-    context['current_page'] = os.path.basename(template_name)
+    current_base, ext = os.path.splitext(file_name)
+    context['current_page'] = current_base
     return template.render(context)
 
 

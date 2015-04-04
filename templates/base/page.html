@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE html>{% load custom_tags %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>SFBED Sample - {% block title_head %}{% endblock %}</title>
+    <title>SFBED - {% block title_head %}{% current_title %}{% endblock %}</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -42,13 +42,12 @@
 
       <h3 class="text-center">Site Contents</h3>
 
-      {% load custom_tags %}
-      {% page_nav current_page 'index.html' 'Offices' %}
-      {% page_nav current_page 'bodies.html' 'Bodies' %}
-      {% page_nav current_page 'translations.html' 'Translations' %}
-      {% page_nav current_page 'languages.html' 'Languages' %}
+      {% page_nav current_page 'index' %}
+      {% page_nav current_page 'bodies' %}
+      {% page_nav current_page 'phrases' %}
+      {% page_nav current_page 'languages' %}
 
-      <h2 class="text-center">{% block content_title %}{% endblock %}</h2>
+      <h2 class="text-center">{% block content_title %}{% current_title %}{% endblock %}</h2>
 
       {% block content_intro %}
         <p>

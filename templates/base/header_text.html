@@ -1,4 +1,6 @@
 {% load custom_tags %}
-{% block header_text %}{{ header }}{% endblock %}
+{% block header_text %}
+{{ header }}
+{% endblock %}
 {% anchor header_id %}{% if header_non_english %}<br/>
 ({{ header_non_english|join:' | '  }}){% endif %}

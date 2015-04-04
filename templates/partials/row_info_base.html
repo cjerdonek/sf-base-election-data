@@ -3,6 +3,9 @@
 {% block column_left_class %} bg-info{% endblock %}
 
 {% block column_left %}
-<b>{% block row_header %}{{ block.super }}{% endblock %}</b>{% endblock %}
+<b>{% block row_header %}{{ block.super }}{% endblock %}</b>
+{% endblock %}
 
-{% block column_right %}{% block row_value %}{% endblock %}{% endblock %}
+{% block column_right %}
+{% block row_value %}{% endblock %}
+{% endblock %}

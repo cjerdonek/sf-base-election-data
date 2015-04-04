@@ -228,7 +228,7 @@ def add_node_object(json_data, node_name, **kwargs):
 
 def add_node_i18n(json_data):
     node = make_node_i18n()
-    _add_node_base(json_data, node, 'i18n')
+    _add_node_base(json_data, node, 'phrases')
 
 
 def make_all_data():

@@ -11,7 +11,10 @@ Arguments:
   template_name: the name of the template to use for displaying
     the object.
 
-{% endcomment %}{% load custom_tags %}{% for object in objects %}
-{% header_item object 'name' object.id %}
+{% endcomment %}{% load custom_tags %}
+{% for object in objects %}
+{% spaceless %}
+{% header_item object title_attr object.id %}
 {% include template_name %}<p>
+{% endspaceless %}
 {% endfor %}

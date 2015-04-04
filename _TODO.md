@@ -1,6 +1,7 @@
 TODO
 ====
 
+* Make a module for template context?
 * Include an "edge" flag in the HTML and JSON?
 * Make sure all non-English extras are accounted for (e.g. after updates).
 * Make a page to display all translations:
