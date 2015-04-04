@@ -40,6 +40,8 @@ def make_template_context(data, page_base):
     context = Context(data)
     context['current_page'] = page_base
     context['current_title'] = page.title
+    context['current_objects'] = page.get_objects(data)
+    context['current_show_template'] = page.get_show_template()
 
     return context
 
@@ -270,11 +272,12 @@ def make_template_data(json_data):
 
     data = {
         'bodies_count': len(bodies),
-        'bodies_by_category': bodies_by_category,
+        'bodies': bodies_by_category,
         'category_map': category_map,
         'categories': categories,
-        'offices_by_category': offices_by_category,
-#        'districts': make_districts(input_data),
+        'offices': offices_by_category,
+        'district_types': [],
+        'jurisdictions': [],
         'office_count': office_count,
         'language_codes': [LANG_ENGLISH] + NON_ENGLISH_ORDER,
         'page_bases': _PAGE_BASES,

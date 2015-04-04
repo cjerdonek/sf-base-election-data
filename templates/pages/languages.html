@@ -1,11 +1,1 @@
 {% extends "base/page.html" %}
-
-{% load custom_tags %}
-
-{% block content_intro_para %}
-Below are the languages recognized in the JSON data.
-{% endblock %}
-
-{% block content_body %}
-{% list_objects languages 'name' 'show_language.html' %}
-{% endblock %}

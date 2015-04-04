@@ -12,14 +12,35 @@ def get_page_object(page_base):
 
 class _Page(object):
 
+    object_name = None
+    singular = None
+
     def __init__(self, base_name):
         self.base_name = base_name
 
     def make_href(self):
         return "{0}.html".format(self.base_name)
 
+    def get_singular(self):
+        if self.singular is not None:
+            return self.singular
+        return self.base_name[:-1]
+
+    def get_objects(self, data):
+        if self.object_name is None:
+            key = self.base_name
+        else:
+            key = self.object_name
+        return data[key]
+
+    def get_show_template(self):
+        """Return the name of the template that shows one instance."""
+        singular = self.get_singular()
+        return "show_{0}.html".format(singular)
+
 
 class BodiesPage(_Page):
+    singular = 'body'
     title = "Bodies"
 
 
@@ -28,6 +49,7 @@ class DistrictTypesPage(_Page):
 
 
 class IndexPage(_Page):
+    object_name = 'offices'
     title = "Offices"
 
 
