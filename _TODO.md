@@ -1,7 +1,7 @@
 TODO
 ====
 
-* Make a module for template context?
+* Add page for district type (requires area/jurisdiction).
 * Include an "edge" flag in the HTML and JSON?
 * Make sure all non-English extras are accounted for (e.g. after updates).
 * Add a source for each translation.
@@ -24,13 +24,8 @@ TODO
 * Change seats to SF seats, e.g. 2 of 80.
 
 * Add vote method object (to spell it out)
-* Make command to generate a translation file from the English.
-  - And start work on manual..
-* Clean up en.yaml, and add Spanish and Chinese in the cleaned-up format.
 * Prioritize listing the offices as they appear in sf.json.
   - Different groupings and filters can happen later.
-  - Come up with a DRY pattern to display each language labeled
-    with the language name (try using a macro).
   - Also note when language is missing
   - Document the JSON objects as I go.
 * Document Court of Appeals.
