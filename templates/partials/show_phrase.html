@@ -1,0 +1,8 @@
+{% load custom_tags %}
+{% with phrase=object language_map=context.language_map %}
+{% for lang_code in context.language_codes %}
+{% with language=language_map|get_item:lang_code %}
+{% info_row language.name phrase|get_item:lang_code %}
+{% endwith %}
+{% endfor %}
+{% endwith %}
