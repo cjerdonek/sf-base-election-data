@@ -5,22 +5,28 @@ languages:
   language_chinese:
     code: zh
     name: Chinese
-    notes: Test
+    notes: Available on the default official ballot.
   language_english:
     code: en
     name: English
+    notes: Available on all official ballots.
   language_filipino:
     code: fil
     name: Filipino
+    notes: Available on an official ballot by request starting November 2015.
   language_japanese:
     code: jp
     name: Japanese
+    notes_i18n: text_language_notes_facsimile
   language_korean:
     code: ko
     name: Korean
+    notes_i18n: text_language_notes_facsimile
   language_spanish:
     code: es
     name: Spanish
+    notes: Available on an official ballot by request.
   language_vietnamese:
     code: vi
     name: Vietnamese
+    notes_i18n: text_language_notes_facsimile

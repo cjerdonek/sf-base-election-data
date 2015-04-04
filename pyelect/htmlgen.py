@@ -8,6 +8,7 @@ import os
 from pprint import pprint
 
 from django.template import Context
+from django.template.base import TemplateDoesNotExist
 from django.template.loader import get_template
 
 from pyelect import jsongen
@@ -310,7 +311,12 @@ def render_template(file_name, data):
       data: a dict of template variables.
     """
     template_name = templateconfig.get_page_template_name(file_name)
-    template = get_template(template_name)
+    try:
+        template = get_template(template_name)
+    except TemplateDoesNotExist:
+        dir_path = templateconfig._get_template_page_dir()
+        paths = os.listdir(dir_path)
+        raise Exception("possible file names:\n  {0}".format("\n  ".join(paths)))
     context = Context(data)
     context['current_page'] = os.path.basename(template_name)
     return template.render(context)

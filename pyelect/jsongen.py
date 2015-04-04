@@ -25,7 +25,7 @@ def get_rel_path_json_data():
     return _REL_PATH_JSON_DATA
 
 
-def get_rel_path_objects_dir():
+def _get_rel_path_objects_dir():
     return os.path.join(utils.DIR_PRE_DATA, DIR_NAME_OBJECTS)
 
 
@@ -40,13 +40,23 @@ def get_json():
     return data
 
 
-def get_object_data(base_name):
-    rel_path = get_rel_path_objects_dir()
+def _get_object_data(base_name):
+    """Return the object data from a YAML file."""
+    rel_path = _get_rel_path_objects_dir()
     data = utils.read_yaml_rel(rel_path, file_base=base_name)
     meta = utils.get_yaml_meta(data)
     objects = utils.get_required(data, base_name)
 
     return objects, meta
+
+
+def yaml_to_json(yaml_data, fields):
+    # TODO: construct these fields once per run instead of once per entry.
+    fields = list(fields)
+    fields += ["{0}_i18n".format(f) for f in fields]
+    fields = set(fields)
+    json_data = {f: v for f, v in yaml_data.items() if f in fields}
+    return json_data
 
 
 def make_node_categories(objects, meta):
@@ -79,7 +89,7 @@ def make_node_bodies(objects, meta):
 
 def make_node_offices(objects, meta, mixins):
     """Return the node containing internationalized data."""
-    offices, meta = get_object_data('offices')
+    offices, meta = _get_object_data('offices')
 
     node = {}
     for office_id, office in offices.items():
@@ -99,13 +109,22 @@ def make_node_offices(objects, meta, mixins):
     return node
 
 
-def make_node_languages(objects, meta):
+def make_json_language(yaml_data):
+    """
+    Arguments:
+      yaml_data: YAML data for the language.
+    """
     fields = ('name', 'code', 'notes')
+    lang = yaml_to_json(yaml_data, fields=fields)
+    return lang
+
+
+def make_node_languages(objects, meta):
 
     node = {}
-    for lang_id, lang in objects.items():
-        node_obj = {k: v for k, v in lang.items() if k in fields}
-        node[lang_id] = node_obj
+    for lang_id, yaml_lang in objects.items():
+        json_lang = make_json_language(yaml_lang)
+        node[lang_id] = json_lang
 
     return node
 
@@ -202,7 +221,7 @@ def _add_node_base(json_data, node, node_name):
 def add_node_object(json_data, node_name, **kwargs):
     make_node_function_name = "make_node_{0}".format(node_name)
     make_node_func = globals()[make_node_function_name]
-    objects, meta = get_object_data(node_name)
+    objects, meta = _get_object_data(node_name)
     node = make_node_func(objects, meta=meta, **kwargs)
     _add_node_base(json_data, node, node_name)
 
@@ -213,7 +232,7 @@ def add_node_i18n(json_data):
 
 
 def make_all_data():
-    mixins, meta = get_object_data('mixins')
+    mixins, meta = _get_object_data('mixins')
 
     data ={}
 
