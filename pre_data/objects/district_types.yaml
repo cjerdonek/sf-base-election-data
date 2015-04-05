@@ -4,11 +4,14 @@ _meta:
 district_types:
   district_type_ca_court_app_d1:
     body_id: body_ca_court_app
+    district_count: 5
     district_name_format: Division {0}
     geographic: false
+    name: Courts of Appeal Division
     parent_area_name: First District
   district_type_sf_bos:
-    name: Supervisorial Districts
     body_id: body_sf_bos
+    district_count: 11
     district_name_format: text_district_numbered_format
-    jurisdiction_id: jurisdiction_sf
+    name: Supervisorial Districts
+    parent_area_name: San Francisco

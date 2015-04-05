@@ -8,6 +8,10 @@ django.template.Library().
 
 """
 
+import logging
+from pprint import pprint
+import sys
+
 from django import template
 
 from pyelect.html.common import NON_ENGLISH_ORDER
@@ -15,7 +19,13 @@ from pyelect.html import pages
 from pyelect import lang
 
 
+_log = logging.getLogger()
+
 register = template.Library()
+
+
+def _pprint(text):
+    pprint(text, stream=sys.stderr)
 
 
 def get_page_href(page_base):
@@ -98,6 +108,18 @@ def _cond_include_context(template_name, header, value):
     }
 
 
+def _cond_include_context_url(label, href, href_text=None):
+    if href_text is None:
+        href_text = href
+    return {
+        'header': label,
+        'should_include': href is not None,
+        'template_name': 'partials/row_url.html',
+        'href': href,
+        'href_text': href_text,
+    }
+
+
 @register.inclusion_tag('tags/cond_include.html')
 def info_row(header, value):
     return _cond_include_context('partials/row_simple.html', header, value)
@@ -105,13 +127,32 @@ def info_row(header, value):
 
 @register.inclusion_tag('tags/cond_include.html')
 def url_row(header, value):
-    return _cond_include_context('partials/row_url.html', header, value)
+    return _cond_include_context_url(header, value)
+
+
+@register.inclusion_tag('tags/cond_include.html', takes_context=True)
+def url_row_object(context, label, object_id, type_name):
+    """
+    Arguments:
+      type_name: for example, "languages".
+    """
+    if object_id is not None:
+        context = context['_context']
+        objects = context[type_name]
+        obj = objects[object_id]
+        name = obj['name']
+        page = pages.get_page_object(type_name)
+        href = page.make_href(object_id)
+    else:
+        href = None
+
+    return _cond_include_context_url(label, href, href_text=name)
 
 
 @register.inclusion_tag('list_objects.html', takes_context=True)
 def list_objects(context, objects, title_attr, template_name):
     return {
-        'context': context,
+        '_context': context,
         'objects': objects,
         'title_attr': title_attr,
         'template_name': template_name

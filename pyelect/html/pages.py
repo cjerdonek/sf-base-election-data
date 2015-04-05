@@ -20,12 +20,16 @@ class _Page(object):
     def __init__(self, base_name):
         self.base_name = base_name
 
-    def make_href(self):
-        return "{0}.html".format(self.base_name)
+    def make_href(self, object_id=None):
+        url = "{0}.html".format(self.base_name)
+        if object_id is not None:
+            url += "#{0}".format(object_id)
+        return url
 
     def get_singular(self):
         if self.singular is not None:
             return self.singular
+        # Otherwise, remove the final "s".
         return self.base_name[:-1]
 
     def get_objects(self, data):

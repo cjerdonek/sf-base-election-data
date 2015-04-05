@@ -203,9 +203,12 @@ def _json_to_context(json_data, keys, object_id):
     return context
 
 
-def make_one_district_types(object_id, json_data):
+def make_one_district_types(object_id, json_data, bodies):
     keys = ('name', )
     context = _json_to_context(json_data, keys, object_id)
+    body_id = json_data['body_id']
+    body = bodies[body_id]
+    context['body'] = body
     if not context['name']:
         raise Exception("name is required: {0}".format(context))
     return context
@@ -239,7 +242,7 @@ def add_english_fields(json_data, phrases):
 def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
     if json_key is None:
         json_key = node_name
-    make_object_func_name = "make_one_{0}".format(node_name)
+    make_object_func_name = "make_one_{0}".format(node_name, **kwargs)
     make_object = globals()[make_object_func_name]
 
     json_node = json_data[json_key]
@@ -265,11 +268,21 @@ def make_template_data(json_data):
     phrases = make_phrases(json_data)
     add_english_fields(json_data, phrases)
 
+    context = {}
+
+    bodies = add_context_node(context, json_data, 'bodies', phrases=phrases)
+
+    add_context_node(context, json_data, 'district_types', bodies=bodies)
+    languages = add_context_node(context, json_data, 'languages')
+
+    context['language_map'] = {lang['code']: lang for lang in languages.values()}
+
+    return context
+
     category_map = make_category_map(json_data, phrases)
     categories = [category_map[id_] for id_ in CATEGORY_ORDER]
 
     data = {}
-    bodies = add_context_node(data, json_data, 'bodies', phrases=phrases)
 
     offices = add_context_node(data, json_data, 'offices', phrases=phrases)
     office_count = sum([o['seat_count'] for o in offices.values()])
@@ -285,8 +298,6 @@ def make_template_data(json_data):
         raise Exception("unrecognized categories: {0}".format(extra))
 
     context = {
-        'bodies_count': len(bodies),
-        'bodies': bodies_by_category,
         'category_map': category_map,
         'categories': categories,
         'offices': offices_by_category,
@@ -297,8 +308,3 @@ def make_template_data(json_data):
         'phrases': phrases,
     }
 
-    add_context_node(context, json_data, 'district_types')
-    languages = add_context_node(context, json_data, 'languages')
-    context['language_map'] = {lang['code']: lang for lang in languages.values()}
-
-    return context

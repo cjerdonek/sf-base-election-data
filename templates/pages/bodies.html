@@ -12,5 +12,5 @@ can be on a San Francisco ballot.
 {% endblock %}
 
 {% block content_body %}
-{% include "category_list.html" with objects_by_category=bodies_by_category template_name="show_body.html" %}
+{% include "category_list.html" with objects_by_category=bodies template_name=current_show_template %}
 {% endblock %}
