@@ -1,5 +1,7 @@
 """Supports per-page template context."""
 
+from pprint import pprint
+
 
 def get_page_object(page_base):
     parts = page_base.split('_')
@@ -31,7 +33,8 @@ class _Page(object):
             key = self.base_name
         else:
             key = self.object_name
-        return data[key]
+        objects = data[key]
+        return objects
 
     def get_show_template(self):
         """Return the name of the template that shows one instance."""

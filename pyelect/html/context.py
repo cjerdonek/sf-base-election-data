@@ -46,15 +46,7 @@ def make_template_context(data, page_base):
     return context
 
 
-def make_languages_one(lang_id, data):
-    keys = ('name', 'code', 'notes')
-    # TODO: make this into a helper function.
-    lang = {k: data.setdefault(k, None) for k in keys}
-    lang['id'] = lang_id
-    return lang
-
-
-def make_phrases_one(id_, json_data):
+def make_phrases(id_, json_data):
     if not json_data[LANG_ENGLISH]:
         return None
     json_data['id'] = id_
@@ -143,7 +135,7 @@ def add_i18n_field(obj, json_data, field_name, phrases):
     obj[i18n_field_name] = translations
 
 
-def make_bodies_one(body_id, data, phrases):
+def make_one_bodies(body_id, data, phrases):
 
     category_id = utils.get_required(data, 'category_id')
 
@@ -163,7 +155,7 @@ def make_bodies_one(body_id, data, phrases):
     return body
 
 
-def make_offices_one(office_id, data, phrases):
+def make_one_offices(office_id, data, phrases):
     # TODO: remove this logic.
     if 'name_i18n' not in data:
         return None
@@ -182,34 +174,9 @@ def make_offices_one(office_id, data, phrases):
     return office
 
 
-def add_objects(template_data, json_data, node_name, json_key=None, **kwargs):
-    if json_key is None:
-        json_key = node_name
-    make_object_func_name = "make_{0}_one".format(node_name)
-    make_object = globals()[make_object_func_name]
-
-    json_node = json_data[json_key]
-
-    objects = []
-    object_ids = sorted(json_node.keys())
-    for object_id in object_ids:
-        data = json_node[object_id]
-        obj = make_object(object_id, data, **kwargs)
-        # TODO: remove this hack (used to skip offices).
-        if not obj:
-            continue
-        obj['id'] = object_id
-        objects.append(obj)
-
-    template_data[node_name] = objects
-
-    # Return it in case the caller wants to do something more with it.
-    return objects
-
-
 def _group_by(objects, key):
     grouped = defaultdict(list)
-    for obj in objects:
+    for obj in objects.values():
         try:
             value = obj[key]
         except KeyError:
@@ -225,6 +192,14 @@ def make_phrases(json_data):
     for text_id, phrase in phrases.items():
         phrase['id'] = text_id
     return phrases
+
+
+def make_one_languages(lang_id, data):
+    keys = ('name', 'code', 'notes')
+    # TODO: make this into a helper function.
+    lang = {k: data.setdefault(k, None) for k in keys}
+    lang['id'] = lang_id
+    return lang
 
 
 def add_english_fields(json_data, phrases):
@@ -246,6 +221,29 @@ def add_english_fields(json_data, phrases):
                 obj[simple_name] = english
 
 
+def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
+    if json_key is None:
+        json_key = node_name
+    make_object_func_name = "make_one_{0}".format(node_name)
+    make_object = globals()[make_object_func_name]
+
+    json_node = json_data[json_key]
+
+    objects = {}
+    for object_id, json_object in json_node.items():
+        obj = make_object(object_id, json_object, **kwargs)
+        # TODO: remove this hack (used to skip offices).
+        if not obj:
+            continue
+        obj['id'] = object_id
+        objects[object_id] = obj
+
+    context[node_name] = objects
+
+    # Return it in case the caller wants to do something more with it.
+    return objects
+
+
 def make_template_data(json_data):
     """Return the context to use when rendering the template."""
     phrases = make_phrases(json_data)
@@ -255,10 +253,10 @@ def make_template_data(json_data):
     categories = [category_map[id_] for id_ in CATEGORY_ORDER]
 
     data = {}
-    bodies = add_objects(data, json_data, 'bodies', phrases=phrases)
+    bodies = add_context_node(data, json_data, 'bodies', phrases=phrases)
 
-    offices = add_objects(data, json_data, 'offices', phrases=phrases)
-    office_count = sum([o['seat_count'] for o in offices])
+    offices = add_context_node(data, json_data, 'offices', phrases=phrases)
+    office_count = sum([o['seat_count'] for o in offices.values()])
 
     bodies_by_category = _group_by(bodies, 'category_id')
     offices_by_category = _group_by(offices, 'category_id')
@@ -270,7 +268,7 @@ def make_template_data(json_data):
         extra = all_categories - set(CATEGORY_ORDER)
         raise Exception("unrecognized categories: {0}".format(extra))
 
-    data = {
+    context = {
         'bodies_count': len(bodies),
         'bodies': bodies_by_category,
         'category_map': category_map,
@@ -284,7 +282,7 @@ def make_template_data(json_data):
         'phrases': phrases,
     }
 
-    language_list = add_objects(data, json_data, 'languages')
-    data['language_map'] = {lang['code']: lang for lang in language_list}
+    languages = add_context_node(context, json_data, 'languages')
+    context['language_map'] = {lang['code']: lang for lang in languages.values()}
 
-    return data
+    return context
