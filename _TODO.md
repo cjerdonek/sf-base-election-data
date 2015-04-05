@@ -1,7 +1,9 @@
 TODO
 ====
 
-* Add area page?
+* Change area id's.
+* Add links to areas in district types.
+* Group the district types by category.
 * Body should display the district type (and info about it?)
   - and link to it
 * Include an "edge" flag in the HTML and JSON?

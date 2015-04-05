@@ -3,8 +3,19 @@
 from pprint import pprint
 
 
-def get_page_object(page_base):
+def get_page_name_parts(page_base):
     parts = page_base.split('_')
+    return parts
+
+
+def get_default_page_title(page_base):
+    parts = get_page_name_parts(page_base)
+    title = " ".join(p.title() for p in parts)
+    return title
+
+
+def get_page_object(page_base):
+    parts = get_page_name_parts(page_base)
     prefix = "".join(p.title() for p in parts)
     cls_name = "{0}Page".format(prefix)
     page_class = globals()[cls_name]
@@ -14,8 +25,16 @@ def get_page_object(page_base):
 
 class _Page(object):
 
+    _title = None
     object_name = None
     singular = None
+
+    @property
+    def title(self):
+        title = self._title
+        if title is None:
+            title = get_default_page_title(self.base_name)
+        return title
 
     def __init__(self, base_name):
         self.base_name = base_name
@@ -44,6 +63,10 @@ class _Page(object):
         """Return the name of the template that shows one instance."""
         singular = self.get_singular()
         return "show_{0}.html".format(singular)
+
+
+class AreasPage(_Page):
+    pass
 
 
 class BodiesPage(_Page):

@@ -59,6 +59,10 @@ def yaml_to_json(yaml_data, fields):
     return json_data
 
 
+def make_object_areas(yaml_data):
+    return yaml_data
+
+
 def make_object_district_types(yaml_data):
     yaml_data.setdefault('geographic', True)
     return yaml_data
@@ -260,6 +264,7 @@ def make_json_data():
 
     json_data ={}
 
+    add_json_node_simple(json_data, 'areas')
     add_json_node_simple(json_data, 'district_types')
     add_json_node_simple(json_data, 'languages')
 

@@ -4,14 +4,20 @@ _meta:
 areas:
   area_bart:
     name: San Francisco Bay Area Rapid Transit District
+    notes: This district was formed in 1957 and comprises Alameda County, Contra Costa
+      County, and the City and County of San Francisco.
   area_ca:
     name: State of California
+    wikipedia: http://en.wikipedia.org/wiki/California
   area_ca_court_app_d1:
     name: California Court of Appeal, First District
     wikipedia: http://en.wikipedia.org/wiki/California_courts_of_appeal#First_District
   area_sf:
     name: City and County of San Francisco
+    wikipedia: http://en.wikipedia.org/wiki/San_Francisco
   area_sfcc:
     name: San Francisco Community College District
+    wikipedia: http://en.wikipedia.org/wiki/City_College_of_San_Francisco
   area_us:
     name: United States of America
+    wikipedia: http://en.wikipedia.org/wiki/United_States

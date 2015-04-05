@@ -15,13 +15,13 @@ from pyelect import utils
 
 _log = logging.getLogger()
 
-_PAGE_BASES = """\
+_TABLE_OF_CONTENTS = """\
 index
 bodies
 district_types
-jurisdictions
 phrases
 languages
+areas
 """.strip().splitlines()
 
 CATEGORY_ORDER = """\
@@ -203,6 +203,12 @@ def _json_to_context(json_data, keys, object_id):
     return context
 
 
+def make_one_areas(object_id, json_data):
+    keys = ('name', 'notes', 'wikipedia')
+    context = _json_to_context(json_data, keys, object_id)
+    return context
+
+
 def make_one_district_types(object_id, json_data, bodies):
     keys = ('district_count', 'geographic', 'name', 'parent_area_name')
     context = _json_to_context(json_data, keys, object_id)
@@ -268,8 +274,11 @@ def make_template_data(json_data):
     phrases = make_phrases(json_data)
     add_english_fields(json_data, phrases)
 
-    context = {}
+    context = {
+        'page_bases': _TABLE_OF_CONTENTS,
+    }
 
+    areas = add_context_node(context, json_data, 'areas')
     bodies = add_context_node(context, json_data, 'bodies', phrases=phrases)
 
     add_context_node(context, json_data, 'district_types', bodies=bodies)
@@ -304,7 +313,6 @@ def make_template_data(json_data):
         'jurisdictions': [],
         'office_count': office_count,
         'language_codes': [LANG_ENGLISH] + NON_ENGLISH_ORDER,
-        'page_bases': _PAGE_BASES,
         'phrases': phrases,
     }
 

@@ -68,6 +68,7 @@ def make_html(output_dir, page_name=None, print_html=False):
     json_data = jsongen.get_json()
     data = context.make_template_data(json_data)
 
+    page_bases = get_template_page_bases()
     templateconfig.init_django()
 
     for file_name in file_names:

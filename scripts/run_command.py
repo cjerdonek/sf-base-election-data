@@ -99,15 +99,15 @@ def _get_all_files(dir_path):
 
 
 def command_yaml_norm(ns):
-    if ns.all:
-        data_dir = utils.get_pre_data_dir()
-        paths = _get_all_files(data_dir)
-        paths = [p for p in paths if os.path.splitext(p)[1] == '.yaml']
-    else:
-        path = ns.path
+    path = ns.path
+    if path:
         if not utils.is_yaml_file_normalizable(path):
             raise Exception("not normalizable: {0}".format(path))
         paths = [path]
+    else:
+        data_dir = utils.get_pre_data_dir()
+        paths = _get_all_files(data_dir)
+        paths = [p for p in paths if os.path.splitext(p)[1] == '.yaml']
     for path in paths:
         utils.normalize_yaml(path, stdout=True)
 

@@ -6,8 +6,6 @@ district_types:
     body_id: body_bart
     district_count: 9
     name: BART Districts
-    notes: The parent district comprises Alameda County, Contra Costa County, and
-      the City and County of San Francisco.
     parent_area_name: San Francisco Bay Area Rapid Transit District
   district_type_ca_court_app_d1:
     body_id: body_ca_court_app
