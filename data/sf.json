@@ -1,4 +1,25 @@
 {
+    "areas": {
+        "area_bart": {
+            "name": "San Francisco Bay Area Rapid Transit District"
+        },
+        "area_ca": {
+            "name": "State of California"
+        },
+        "area_ca_court_app_d1": {
+            "name": "California Court of Appeal, First District",
+            "wikipedia": "http://en.wikipedia.org/wiki/California_courts_of_appeal#First_District"
+        },
+        "area_sf": {
+            "name": "City and County of San Francisco"
+        },
+        "area_sfcc": {
+            "name": "San Francisco Community College District"
+        },
+        "area_us": {
+            "name": "United States of America"
+        }
+    },
     "bodies": {
         "body_bart": {
             "category_id": "category_bart",
