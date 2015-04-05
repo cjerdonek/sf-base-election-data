@@ -60,6 +60,7 @@ def yaml_to_json(yaml_data, fields):
 
 
 def make_object_district_types(yaml_data):
+    yaml_data.setdefault('geographic', True)
     return yaml_data
 
 
@@ -246,7 +247,6 @@ def add_json_node_simple(json_data, base_name, **kwargs):
 
 
 # TODO
-# add_source(data, 'district_types')
 # add_source(data, 'office_types')
 #
 # # Make districts.
@@ -263,8 +263,7 @@ def make_json_data():
     add_json_node_simple(json_data, 'district_types')
     add_json_node_simple(json_data, 'languages')
 
-    # TODO: DRY up the object types so far when doing district_type.
-    #  Perhaps start out by trying to get just two to use the same function.
+    # TODO: DRY up the remaining object types.
     add_json_node(json_data, 'categories')
     add_json_node(json_data, 'bodies')
     add_json_node(json_data, 'offices', mixins=mixins)

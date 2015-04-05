@@ -182,20 +182,50 @@
         }
     },
     "district_types": {
+        "district_type_bart": {
+            "body_id": "body_bart",
+            "district_count": 9,
+            "geographic": true,
+            "name": "BART Districts",
+            "notes": "The parent district comprises Alameda County, Contra Costa County, and the City and County of San Francisco.",
+            "parent_area_name": "San Francisco Bay Area Rapid Transit District"
+        },
         "district_type_ca_court_app_d1": {
             "body_id": "body_ca_court_app",
             "district_count": 5,
             "district_name_format": "Division {0}",
             "geographic": false,
-            "name": "Courts of Appeal Division",
+            "name": "Courts of Appeal Divisions",
             "parent_area_name": "First District"
+        },
+        "district_type_ca_sa": {
+            "body_id": "body_ca_sa",
+            "district_count": 80,
+            "geographic": true,
+            "name": "State Assembly Districts",
+            "parent_area_name": "California"
+        },
+        "district_type_ca_ss": {
+            "body_id": "body_ca_ss",
+            "district_count": 40,
+            "geographic": true,
+            "name": "State Senate Districts",
+            "parent_area_name": "California"
         },
         "district_type_sf_bos": {
             "body_id": "body_sf_bos",
             "district_count": 11,
             "district_name_format": "text_district_numbered_format",
+            "geographic": true,
             "name": "Supervisorial Districts",
             "parent_area_name": "San Francisco"
+        },
+        "district_type_us_hr": {
+            "body_id": "body_us_hr",
+            "district_count": 435,
+            "geographic": true,
+            "name": "Congressional Districts",
+            "parent_area_name": "United States"
         }
     },
     "languages": {

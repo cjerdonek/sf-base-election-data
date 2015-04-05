@@ -1,7 +1,7 @@
 TODO
 ====
 
-* Add page for district type (requires area/jurisdiction).
+* Add area page?
 * Body should display the district type (and info about it?)
   - and link to it
 * Include an "edge" flag in the HTML and JSON?
