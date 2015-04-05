@@ -40,7 +40,7 @@ def get_json():
     return data
 
 
-def _get_object_data(base_name):
+def _get_yaml_data(base_name):
     """Return the object data from a YAML file."""
     rel_path = _get_rel_path_objects_dir()
     data = utils.read_yaml_rel(rel_path, file_base=base_name)
@@ -57,6 +57,24 @@ def yaml_to_json(yaml_data, fields):
     fields = set(fields)
     json_data = {f: v for f, v in yaml_data.items() if f in fields}
     return json_data
+
+
+def make_object_district_types(yaml_data):
+    return yaml_data
+
+
+def make_object_languages(yaml_data):
+    return yaml_data
+
+
+def make_node_languages(objects, meta):
+
+    node = {}
+    for lang_id, yaml_lang in objects.items():
+        json_lang = make_json_language(yaml_lang)
+        node[lang_id] = json_lang
+
+    return node
 
 
 def make_node_categories(objects, meta):
@@ -89,7 +107,7 @@ def make_node_bodies(objects, meta):
 
 def make_node_offices(objects, meta, mixins):
     """Return the node containing internationalized data."""
-    offices, meta = _get_object_data('offices')
+    offices, meta = _get_yaml_data('offices')
 
     node = {}
     for office_id, office in offices.items():
@@ -105,26 +123,6 @@ def make_node_offices(objects, meta, mixins):
             office = office_new
 
         node[office_id] = office
-
-    return node
-
-
-def make_json_language(yaml_data):
-    """
-    Arguments:
-      yaml_data: YAML data for the language.
-    """
-    fields = ('name', 'code', 'notes')
-    lang = yaml_to_json(yaml_data, fields=fields)
-    return lang
-
-
-def make_node_languages(objects, meta):
-
-    node = {}
-    for lang_id, yaml_lang in objects.items():
-        json_lang = make_json_language(yaml_lang)
-        node[lang_id] = json_lang
 
     return node
 
@@ -195,6 +193,11 @@ def add_source(data, source_name):
         data[key] = value
 
 
+def add_json_node_i18n(json_data):
+    node = make_node_i18n()
+    _add_json_node_base(json_data, node, 'phrases')
+
+
 def check_node(node, node_name):
     allowed_types = (bool, int, str)
     for object_id, obj in node.items():
@@ -213,46 +216,58 @@ def check_node(node, node_name):
                 raise Exception(err)
 
 
-def _add_node_base(json_data, node, node_name):
+def _add_json_node_base(json_data, node, node_name):
     check_node(node, node_name)
     json_data[node_name] = node
 
 
-def add_node_object(json_data, node_name, **kwargs):
-    make_node_function_name = "make_node_{0}".format(node_name)
+# TODO: remove this function?
+def add_json_node(json_data, base_name, **kwargs):
+    """Add the node with key base_name."""
+    make_node_function_name = "make_node_{0}".format(base_name)
     make_node_func = globals()[make_node_function_name]
-    objects, meta = _get_object_data(node_name)
+    objects, meta = _get_yaml_data(base_name)
     node = make_node_func(objects, meta=meta, **kwargs)
-    _add_node_base(json_data, node, node_name)
+    _add_json_node_base(json_data, node, base_name)
 
 
-def add_node_i18n(json_data):
-    node = make_node_i18n()
-    _add_node_base(json_data, node, 'phrases')
+def add_json_node_simple(json_data, base_name, **kwargs):
+    """Add the node with key base_name."""
+    objects, meta = _get_yaml_data(base_name)
+    make_object_function_name = "make_object_{0}".format(base_name)
+    make_object = globals()[make_object_function_name]
+
+    json_node = {}
+    for object_id, yaml_data in objects.items():
+        json_object = make_object(yaml_data)
+        json_node[object_id] = json_object
+
+    _add_json_node_base(json_data, json_node, base_name)
 
 
-def make_all_data():
-    mixins, meta = _get_object_data('mixins')
+# TODO
+# add_source(data, 'district_types')
+# add_source(data, 'office_types')
+#
+# # Make districts.
+# districts = make_court_of_appeals_districts()
+# data['districts'] = districts
+#
+# offices = make_court_of_appeals()
+# data['court_offices'] = offices
+def make_json_data():
+    mixins, meta = _get_yaml_data('mixins')
 
-    data ={}
+    json_data ={}
 
-    add_node_object(data, 'categories')
-    add_node_i18n(data)
-    add_node_object(data, 'languages')
-    add_node_object(data, 'bodies')
-    add_node_object(data, 'offices', mixins=mixins)
+    add_json_node_simple(json_data, 'district_types')
+    add_json_node_simple(json_data, 'languages')
 
-    return data
+    # TODO: DRY up the object types so far when doing district_type.
+    #  Perhaps start out by trying to get just two to use the same function.
+    add_json_node(json_data, 'categories')
+    add_json_node(json_data, 'bodies')
+    add_json_node(json_data, 'offices', mixins=mixins)
+    add_json_node_i18n(json_data)
 
-    # TODO
-    add_source(data, 'district_types')
-    add_source(data, 'office_types')
-
-    # Make districts.
-    districts = make_court_of_appeals_districts()
-    data['districts'] = districts
-
-    offices = make_court_of_appeals()
-    data['court_offices'] = offices
-
-    return data
+    return json_data

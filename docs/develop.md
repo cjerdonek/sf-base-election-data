@@ -68,7 +68,7 @@ of files:
 1. **Manual.**  Manual files are maintained by hand and are never
    recreated by an automated script.  In the case of YAML files, they can
    contain YAML comments (e.g. lines that begin with a `#`).
-2. **Normalizable.**  Normalizable files are also maintained by hand.
+2. **Auto-updated.**  Auto-updated files are also maintained by hand.
    However, we use scripts to "normalize" them (i.e. put them into a
    standard or canonical form, e.g. by alphabetizing the key values).
    Because the normalization process is automated and strips YAML comments,

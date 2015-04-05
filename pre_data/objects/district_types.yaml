@@ -8,6 +8,7 @@ district_types:
     geographic: false
     parent_area_name: First District
   district_type_sf_bos:
+    name: Supervisorial Districts
     body_id: body_sf_bos
     district_name_format: text_district_numbered_format
     jurisdiction_id: jurisdiction_sf

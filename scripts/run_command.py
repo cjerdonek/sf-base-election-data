@@ -53,8 +53,8 @@ def command_lang_text_extras(ns):
 
 def command_make_json(ns):
     path = ns.output_path
-    data = jsongen.make_all_data()
-    text = json.dumps(data, indent=4, sort_keys=True)
+    json_data = jsongen.make_json_data()
+    text = json.dumps(json_data, indent=4, sort_keys=True)
     utils.write(path, text)
 
 

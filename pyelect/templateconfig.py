@@ -41,7 +41,7 @@ def init_django():
     settings.configure(
         INSTALLED_APPS=('pyelect', ),
         TEMPLATE_DIRS=search_dirs,
-        TEMPLATE_STRING_IF_INVALID="$$$_%s_$$$",
+        TEMPLATE_STRING_IF_INVALID="**%s**",
         # The default setting contains this:
         #   'django.template.loaders.app_directories.Loader'
         # See this issue for more information:
