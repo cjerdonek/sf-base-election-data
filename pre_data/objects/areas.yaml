@@ -2,22 +2,22 @@ _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
 areas:
-  area_bart:
+  area_country_us:
+    name: United States of America
+    wikipedia: http://en.wikipedia.org/wiki/United_States
+  area_county_sf:
+    name: City and County of San Francisco
+    wikipedia: http://en.wikipedia.org/wiki/San_Francisco
+  area_state_ca:
+    name: State of California
+    wikipedia: http://en.wikipedia.org/wiki/California
+  area_state_ca_bart:
     name: San Francisco Bay Area Rapid Transit District
     notes: This district was formed in 1957 and comprises Alameda County, Contra Costa
       County, and the City and County of San Francisco.
-  area_ca:
-    name: State of California
-    wikipedia: http://en.wikipedia.org/wiki/California
-  area_ca_court_app_d1:
+  area_state_ca_court_app_d1:
     name: California Court of Appeal, First District
+    notes: 'This district includes the following counties: Alameda, Contra Costa,
+      Del Norte, Humboldt, Lake, Marin, Mendocino, Napa, San Francisco, San Mateo,
+      Solano, and Sonoma.'
     wikipedia: http://en.wikipedia.org/wiki/California_courts_of_appeal#First_District
-  area_sf:
-    name: City and County of San Francisco
-    wikipedia: http://en.wikipedia.org/wiki/San_Francisco
-  area_sfcc:
-    name: San Francisco Community College District
-    wikipedia: http://en.wikipedia.org/wiki/City_College_of_San_Francisco
-  area_us:
-    name: United States of America
-    wikipedia: http://en.wikipedia.org/wiki/United_States
