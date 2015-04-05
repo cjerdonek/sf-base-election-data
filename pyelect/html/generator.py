@@ -8,15 +8,37 @@ from pprint import pprint
 from django.template.base import TemplateDoesNotExist
 from django.template.loader import get_template
 
-from pyelect.html import context
+from pyelect.html import context, templateconfig
 from pyelect import jsongen
-from pyelect import templateconfig
 from pyelect import utils
 
 
 _log = logging.getLogger()
 
+_DIR_NAME_TEMPLATE_PAGE = 'pages'
 DIR_NAME_HTML_OUTPUT = 'html'
+
+
+def get_page_template_name(file_name):
+    return os.path.join(_DIR_NAME_TEMPLATE_PAGE, file_name)
+
+
+def _get_template_page_dir():
+    templates_dir = templateconfig.get_templates_dir()
+    return os.path.join(templates_dir, _DIR_NAME_TEMPLATE_PAGE)
+
+
+def get_template_page_file_names():
+    dir_path = _get_template_page_dir()
+    file_names = os.listdir(dir_path)
+    return file_names
+
+
+def get_template_page_bases():
+    file_names = get_template_page_file_names()
+    bases = sorted([os.path.splitext(name)[0] for name in file_names])
+    return bases
+
 
 def render_template(file_name, context):
     """Render the sample template as a Unicode string.
@@ -24,7 +46,7 @@ def render_template(file_name, context):
     Argument:
       data: a dict of template variables.
     """
-    template_name = templateconfig.get_page_template_name(file_name)
+    template_name = get_page_template_name(file_name)
     try:
         template = get_template(template_name)
     except TemplateDoesNotExist:

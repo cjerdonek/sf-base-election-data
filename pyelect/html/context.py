@@ -40,7 +40,10 @@ def make_template_context(data, page_base):
     context = Context(data)
     context['current_page'] = page_base
     context['current_title'] = page.title
-    context['current_objects'] = page.get_objects(data)
+    objects = page.get_objects(data)
+    if not objects:
+        raise Exception("no objects for: {0}".format(page_base))
+    context['current_objects'] = objects
     context['current_show_template'] = page.get_show_template()
 
     return context
@@ -194,12 +197,24 @@ def make_phrases(json_data):
     return phrases
 
 
-def make_one_languages(lang_id, data):
+def _json_to_context(json_data, keys, object_id):
+    context = {k: json_data.setdefault(k, None) for k in keys}
+    context['id'] = object_id
+    return context
+
+
+def make_one_district_types(object_id, json_data):
+    keys = ('name', )
+    context = _json_to_context(json_data, keys, object_id)
+    if not context['name']:
+        raise Exception("name is required: {0}".format(context))
+    return context
+
+
+def make_one_languages(object_id, json_data):
     keys = ('name', 'code', 'notes')
-    # TODO: make this into a helper function.
-    lang = {k: data.setdefault(k, None) for k in keys}
-    lang['id'] = lang_id
-    return lang
+    context = _json_to_context(json_data, keys, object_id)
+    return context
 
 
 def add_english_fields(json_data, phrases):
@@ -244,6 +259,7 @@ def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
     return objects
 
 
+# TODO: switch this to use add_context_node() everywhere possible.
 def make_template_data(json_data):
     """Return the context to use when rendering the template."""
     phrases = make_phrases(json_data)
@@ -274,7 +290,6 @@ def make_template_data(json_data):
         'category_map': category_map,
         'categories': categories,
         'offices': offices_by_category,
-        'district_types': [],
         'jurisdictions': [],
         'office_count': office_count,
         'language_codes': [LANG_ENGLISH] + NON_ENGLISH_ORDER,
@@ -282,6 +297,7 @@ def make_template_data(json_data):
         'phrases': phrases,
     }
 
+    add_context_node(context, json_data, 'district_types')
     languages = add_context_node(context, json_data, 'languages')
     context['language_map'] = {lang['code']: lang for lang in languages.values()}
 

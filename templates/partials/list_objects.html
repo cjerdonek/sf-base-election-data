@@ -12,7 +12,7 @@ Arguments:
     the object.
 
 {% endcomment %}{% load custom_tags %}
-{% for object in objects.values|dictsort:'name' %}
+{% for object in objects.values|dictsort:'id' %}
 {% spaceless %}
 {% header_item object title_attr object.id %}
 {% include template_name %}<p>

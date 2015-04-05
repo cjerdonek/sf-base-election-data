@@ -12,7 +12,6 @@ from django import template
 
 from pyelect.html.common import NON_ENGLISH_ORDER
 from pyelect.html import pages
-from pyelect import htmlgen
 from pyelect import lang
 
 

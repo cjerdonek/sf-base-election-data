@@ -13,7 +13,7 @@ import sys
 import textwrap
 
 import init_path
-from pyelect import htmlgen
+from pyelect.html import generator as htmlgen
 from pyelect import jsongen
 from pyelect import lang
 from pyelect import utils
@@ -69,6 +69,13 @@ def command_sample_html(ns):
     open_browser = ns.open_browser
     page_name = ns.page_name
     print_html = ns.print_html
+
+    if page_name:
+        # Only require that the user type a matching prefix.
+        names = htmlgen.get_template_page_file_names()
+        for name in names:
+            if name.startswith(page_name):
+                page_name = name
 
     if dir_path is None:
         repo_dir = utils.get_repo_dir()
@@ -194,11 +201,13 @@ def create_parser():
                 help="parse a CSV language file from the Department.")
     parser.add_argument('path', metavar='PATH', help="a path to a CSV file.")
 
+    page_bases = htmlgen.get_template_page_bases()
     parser = make_subparser(sub, "sample_html",
                 help="make sample HTML from the JSON data.",
                 details="Uses the repo JSON file as input.")
     parser.add_argument('--page', dest='page_name',
-        help='the page to generate (e.g. "bodies.html").  Defaults to all pages.')
+        help=('the page to generate (from: {0}).  Defaults to all pages.'
+              .format(", ".join(page_bases))))
     parser.add_argument('--output_dir', metavar='OUTPUT_DIR',
         help=("the output directory.  Defaults to the following directory relative "
               "to the repo: {0}".format(get_sample_html_default_rel_dir())))
