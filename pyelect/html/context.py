@@ -3,6 +3,7 @@ from collections import defaultdict
 from datetime import date
 import logging
 import os
+from pprint import pprint
 
 from django.template import Context
 
@@ -29,7 +30,7 @@ category_federal
 category_state
 category_city_county
 category_school
-category_bart
+category_transit
 category_judicial
 category_party
 """.strip().splitlines()
@@ -124,6 +125,8 @@ def _make_election_info(data):
     return list(filter(None, [term_length, next_election_text, vote_method, partisan_text]))
 
 
+# TODO: the only the phrase ID should be stored on the object.  Also, the
+#   template should be responsible for fetching and rendering the i18n.
 def add_i18n_field(obj, json_data, field_name, phrases):
     # We require that the simple field be present in the JSON.
     english = json_data[field_name]
@@ -136,26 +139,6 @@ def add_i18n_field(obj, json_data, field_name, phrases):
         return
     translations = phrases[text_id]
     obj[i18n_field_name] = translations
-
-
-def make_one_bodies(body_id, data, phrases):
-
-    category_id = utils.get_required(data, 'category_id')
-
-    body = {
-        'category_id': category_id,
-        'district_count': data.get('district_count'),
-        'election_info': _make_election_info(data),
-        'notes': data.get('notes'),
-        'seat_count': data.get('seat_count'),
-        'twitter': data.get('twitter'),
-        'url': data.get('url'),
-        'wikipedia': data.get('wikipedia')
-    }
-
-    add_i18n_field(body, data, 'name', phrases=phrases)
-
-    return body
 
 
 def make_one_offices(office_id, data, phrases):
@@ -209,12 +192,23 @@ def make_one_areas(object_id, json_data):
     return context
 
 
+def make_one_bodies(object_id, json_data, phrases):
+    keys = ('category_id', 'district_count', 'notes', 'seat_count', 'twitter',
+            'url', 'wikipedia')
+    context = _json_to_context(json_data, keys, object_id)
+    context['election_info'] = _make_election_info(json_data)
+    # TODO: remove this call.
+    add_i18n_field(context, json_data, 'name', phrases=phrases)
+    return context
+
+
 def make_one_district_types(object_id, json_data, bodies):
     keys = ('district_count', 'geographic', 'name', 'parent_area_id')
     context = _json_to_context(json_data, keys, object_id)
     body_id = json_data['body_id']
     body = bodies[body_id]
     context['body'] = body
+    context['category_id'] = body['category_id']
     if not context['name']:
         raise Exception("name is required: {0}".format(context))
     return context
@@ -245,7 +239,8 @@ def add_english_fields(json_data, phrases):
                 obj[simple_name] = english
 
 
-def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
+def add_context_node(context, json_data, node_name, json_key=None,
+                     with_category=False, **kwargs):
     if json_key is None:
         json_key = node_name
     make_object_func_name = "make_one_{0}".format(node_name, **kwargs)
@@ -264,6 +259,15 @@ def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
 
     context[node_name] = objects
 
+    if with_category:
+        by_category = {c: [] for c in CATEGORY_ORDER}
+        for obj in objects.values():
+            category_id = obj['category_id']
+            group = by_category[category_id]
+            group.append(obj)
+        key = "{0}_by_category".format(node_name)
+        context[key] = by_category
+
     # Return it in case the caller wants to do something more with it.
     return objects
 
@@ -274,22 +278,25 @@ def make_template_data(json_data):
     phrases = make_phrases(json_data)
     add_english_fields(json_data, phrases)
 
+    # TODO: can we use add_context_node() here?
+    category_map = make_category_map(json_data, phrases)
+    categories = [category_map[id_] for id_ in CATEGORY_ORDER]
+
     context = {
         'page_bases': _TABLE_OF_CONTENTS,
+        'categories': categories,
     }
 
     areas = add_context_node(context, json_data, 'areas')
     bodies = add_context_node(context, json_data, 'bodies', phrases=phrases)
 
-    add_context_node(context, json_data, 'district_types', bodies=bodies)
+    add_context_node(context, json_data, 'district_types', bodies=bodies, with_category=True)
     languages = add_context_node(context, json_data, 'languages')
 
     context['language_map'] = {lang['code']: lang for lang in languages.values()}
 
     return context
 
-    category_map = make_category_map(json_data, phrases)
-    categories = [category_map[id_] for id_ in CATEGORY_ORDER]
 
     data = {}
 
@@ -308,7 +315,6 @@ def make_template_data(json_data):
 
     context = {
         'category_map': category_map,
-        'categories': categories,
         'offices': offices_by_category,
         'jurisdictions': [],
         'office_count': office_count,

@@ -141,11 +141,9 @@ def url_row(header, value):
     return _cond_include_context_url(header, value)
 
 
-
 # The name argument is necessary because of this issue:
 #   https://code.djangoproject.com/ticket/24586
-@register.inclusion_tag('tags/cond_include.html', takes_context=True,
-                        name='url_row_object')
+@register.inclusion_tag('tags/cond_include.html', takes_context=True, name='url_row_object')
 @log_errors
 def url_row_object(context, label, object_id, type_name):
     """
@@ -166,10 +164,10 @@ def url_row_object(context, label, object_id, type_name):
 
 
 @register.inclusion_tag('list_objects.html', takes_context=True)
-def list_objects(context, objects, title_attr, template_name):
+def list_objects(context, objects, title_attr):
     return {
         '_context': context,
+        'current_show_template': context['current_show_template'],
         'objects': objects,
-        'title_attr': title_attr,
-        'template_name': template_name
+        'title_attr': title_attr
     }

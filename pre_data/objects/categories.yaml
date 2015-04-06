@@ -8,7 +8,7 @@ _meta:
     has a "name" or "name_i18n" field.
     TODO: should this field be used to auto-update the YAML file itself?
 categories:
-  category_bart:
+  category_transit:
     name: BART
   category_city_county: {}
   category_federal: {}

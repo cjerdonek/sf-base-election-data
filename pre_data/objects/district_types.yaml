@@ -12,7 +12,7 @@ district_types:
     district_count: 5
     district_name_format: Division {0}
     geographic: false
-    name: Courts of Appeal, First District Divisions
+    name: Courts of Appeal Divisions, First District
     parent_area_id: area_state_ca_court_app_d1
   district_type_ca_sa:
     body_id: body_ca_sa
