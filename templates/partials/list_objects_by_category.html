@@ -1,6 +1,7 @@
 {% load custom_tags %}
+
 {% for category in categories %}
-{% with objects=by_category|get_item:category.id %}
+{% with objects=current_objects_by_category|get_item:category.id %}
 {% if objects %}
 {% header_section category 'name' category.id %}
 {% list_objects objects 'name' %}

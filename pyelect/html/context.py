@@ -45,10 +45,15 @@ def make_template_context(data, page_base):
     context = Context(data)
     context['current_page'] = page_base
     context['current_title'] = page.title
+
     objects = page.get_objects(data)
     if not objects:
         raise Exception("no objects for: {0}".format(page_base))
     context['current_objects'] = objects
+
+    objects_by_category = page.get_objects_by_category(data, categories=CATEGORY_ORDER)
+    context['current_objects_by_category'] = objects_by_category
+
     context['current_show_template'] = page.get_show_template()
 
     return context
@@ -245,8 +250,7 @@ def add_english_fields(json_data, phrases):
                 obj[simple_name] = english
 
 
-def add_context_node(context, json_data, node_name, json_key=None,
-                     with_category=False, **kwargs):
+def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
     if json_key is None:
         json_key = node_name
     make_object_func_name = "make_one_{0}".format(node_name, **kwargs)
@@ -264,15 +268,6 @@ def add_context_node(context, json_data, node_name, json_key=None,
         objects[object_id] = obj
 
     context[node_name] = objects
-
-    if with_category:
-        by_category = {c: [] for c in CATEGORY_ORDER}
-        for obj in objects.values():
-            category_id = obj['category_id']
-            group = by_category[category_id]
-            group.append(obj)
-        key = "{0}_by_category".format(node_name)
-        context[key] = by_category
 
     # Return it in case the caller wants to do something more with it.
     return objects
@@ -301,35 +296,15 @@ def make_template_data(json_data, local_assets=False):
     }
 
     areas = add_context_node(context, json_data, 'areas')
-    bodies = add_context_node(context, json_data, 'bodies', phrases=phrases, with_category=True)
+    bodies = add_context_node(context, json_data, 'bodies', phrases=phrases)
 
-    add_context_node(context, json_data, 'district_types', bodies=bodies, with_category=True)
+    offices = add_context_node(context, json_data, 'offices', phrases=phrases)
+    office_count = sum([o['seat_count'] for o in offices.values()])
+    context['office_count'] = office_count
+
+    add_context_node(context, json_data, 'district_types', bodies=bodies)
     languages = add_context_node(context, json_data, 'languages')
 
     context['language_map'] = {lang['code']: lang for lang in languages.values()}
 
     return context
-
-
-    data = {}
-
-    offices = add_context_node(data, json_data, 'offices', phrases=phrases)
-    office_count = sum([o['seat_count'] for o in offices.values()])
-
-    bodies_by_category = _group_by(bodies, 'category_id')
-    offices_by_category = _group_by(offices, 'category_id')
-
-    all_categories = set()
-    for d in (bodies_by_category, offices_by_category):
-        all_categories.update(d.keys())
-    if not all_categories <= set(CATEGORY_ORDER):
-        extra = all_categories - set(CATEGORY_ORDER)
-        raise Exception("unrecognized categories: {0}".format(extra))
-
-    context = {
-        'category_map': category_map,
-        'offices': offices_by_category,
-        'jurisdictions': [],
-        'office_count': office_count,
-    }
-

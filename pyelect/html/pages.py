@@ -26,21 +26,26 @@ def get_page_object(page_base):
 class _Page(object):
 
     _title = None
-    object_name = None
+    _objects_name = None
+    by_category = False
     singular = None
+
+    @property
+    def objects_name(self):
+        return self._objects_name or self.page_base_name
 
     @property
     def title(self):
         title = self._title
         if title is None:
-            title = get_default_page_title(self.base_name)
+            title = get_default_page_title(self.page_base_name)
         return title
 
-    def __init__(self, base_name):
-        self.base_name = base_name
+    def __init__(self, page_base):
+        self.page_base_name = page_base
 
     def make_href(self, object_id=None):
-        url = "{0}.html".format(self.base_name)
+        url = "{0}.html".format(self.page_base_name)
         if object_id is not None:
             url += "#{0}".format(object_id)
         return url
@@ -49,15 +54,25 @@ class _Page(object):
         if self.singular is not None:
             return self.singular
         # Otherwise, remove the final "s".
-        return self.base_name[:-1]
+        return self.objects_name[:-1]
 
     def get_objects(self, data):
-        if self.object_name is None:
-            key = self.base_name
-        else:
-            key = self.object_name
-        objects = data[key]
+        objects_name = self.objects_name
+        objects = data[objects_name]
         return objects
+
+    def get_objects_by_category(self, data, categories):
+        if not self.by_category:
+            return {}
+        objects_name = self.objects_name
+        objects = self.get_objects(data)
+        by_category = {c: [] for c in categories}
+        for obj in objects.values():
+            category_id = obj['category_id']
+            # Raises an exception if the object has an unrecognized category.
+            group = by_category[category_id]
+            group.append(obj)
+        return by_category
 
     def get_show_template(self):
         """Return the name of the template that shows one instance."""
@@ -70,16 +85,19 @@ class AreasPage(_Page):
 
 
 class BodiesPage(_Page):
+    by_category = True
     singular = 'body'
     title = "Bodies"
 
 
 class DistrictTypesPage(_Page):
+    by_category = True
     title = "District Types"
 
 
 class IndexPage(_Page):
-    object_name = 'offices'
+    _objects_name = 'offices'
+    by_category = True
     title = "Offices"
 
 

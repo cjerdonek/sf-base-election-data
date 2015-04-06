@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Get all pages working again, and DRY up while noticing..
 * Edit notes for body: California Court of Appeal, First District
 * Add jurisdiction to body (inherit from district type)?
 * Change the i18n fields on body from the translations to the ID.
