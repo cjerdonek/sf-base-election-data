@@ -55,6 +55,7 @@
             "office_name": "Member of the State Assembly",
             "partisan": true,
             "seat_count": 80,
+            "term_length": 2,
             "url": "http://assembly.ca.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/California_State_Assembly"
         },
@@ -89,6 +90,7 @@
             "name": "California State Senate",
             "partisan": true,
             "seat_count": 40,
+            "term_length": 4,
             "url": "http://senate.ca.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/California_State_Senate"
         },
@@ -168,9 +170,11 @@
             "district_type_id": "district_type_us_hr",
             "jurisdiction_id": "US",
             "name": "United States House of Representatives",
+            "notes": "There are also 6 non-voting members.",
             "office_name": "United States Representative",
             "partisan": true,
             "seat_count": 435,
+            "term_length": 2,
             "url": "http://www.house.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/United_States_House_of_Representatives"
         },
@@ -179,9 +183,9 @@
             "district_type_id": "district_type_us_states",
             "jurisdiction_id": "US",
             "name": "United States Senate",
-            "notes": "There are also 6 non-voting members.",
             "partisan": true,
             "seat_count": 100,
+            "term_length": 6,
             "url": "http://www.senate.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/United_States_Senate"
         }
