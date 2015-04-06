@@ -24,7 +24,7 @@
     },
     "bodies": {
         "body_bart": {
-            "category_id": "category_bart",
+            "category_id": "category_transit",
             "jurisdiction_id": "BART",
             "name": "BART Board of Directors",
             "office_name": "BART Director",
@@ -180,9 +180,6 @@
         }
     },
     "categories": {
-        "category_bart": {
-            "name": "BART"
-        },
         "category_city_county": {
             "name_i18n": "text_category_city_county"
         },
@@ -200,6 +197,9 @@
         },
         "category_state": {
             "name_i18n": "text_category_state"
+        },
+        "category_transit": {
+            "name": "TRANSIT"
         }
     },
     "district_types": {
@@ -215,7 +215,7 @@
             "district_count": 5,
             "district_name_format": "Division {0}",
             "geographic": false,
-            "name": "Courts of Appeal, First District Divisions",
+            "name": "Courts of Appeal Divisions, First District",
             "parent_area_id": "area_state_ca_court_app_d1"
         },
         "district_type_ca_sa": {
