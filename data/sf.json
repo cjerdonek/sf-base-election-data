@@ -25,6 +25,7 @@
     "bodies": {
         "body_bart": {
             "category_id": "category_transit",
+            "district_type_id": "district_type_bart",
             "jurisdiction_id": "BART",
             "name": "BART Board of Directors",
             "office_name": "BART Director",
@@ -35,7 +36,7 @@
         },
         "body_ca_court_app": {
             "category_id": "category_judicial",
-            "district_count": 5,
+            "district_type_id": "district_type_ca_court_app_d1",
             "jurisdiction_id": "CA",
             "name_i18n": "text_body_ca_court_app",
             "notes": "The state has six geographic appellate districts. The first district, which covers San Francisco, is divided into five non-geographical divisions with four justices each.",
@@ -48,6 +49,7 @@
         },
         "body_ca_sa": {
             "category_id": "category_state",
+            "district_type_id": "district_type_ca_sa",
             "jurisdiction_id": "CA",
             "name": "California State Assembly",
             "office_name": "Member of the State Assembly",
@@ -58,7 +60,7 @@
         },
         "body_ca_sboe": {
             "category_id": "category_state",
-            "district_count": 4,
+            "district_type_id": "district_type_ca_sboe",
             "jurisdiction_id": "CA",
             "name": "State Board of Equalization",
             "notes": "The State Controller is the fifth member of this body.",
@@ -82,6 +84,7 @@
         },
         "body_ca_ss": {
             "category_id": "category_state",
+            "district_type_id": "district_type_ca_ss",
             "jurisdiction_id": "CA",
             "name": "California State Senate",
             "partisan": true,
@@ -103,6 +106,7 @@
         },
         "body_sf_bos": {
             "category_id": "category_city_county",
+            "district_type_id": "district_type_sf_bos",
             "jurisdiction_id": "SF",
             "localwiki": "https://localwiki.org/sf/Board_of_Supervisors",
             "name_i18n": "text_body_sf_bos",
@@ -161,6 +165,7 @@
         },
         "body_us_hr": {
             "category_id": "category_federal",
+            "district_type_id": "district_type_us_hr",
             "jurisdiction_id": "US",
             "name": "United States House of Representatives",
             "office_name": "United States Representative",
@@ -171,8 +176,10 @@
         },
         "body_us_s": {
             "category_id": "category_federal",
+            "district_type_id": "district_type_us_states",
             "jurisdiction_id": "US",
             "name": "United States Senate",
+            "notes": "There are also 6 non-voting members.",
             "partisan": true,
             "seat_count": 100,
             "url": "http://www.senate.gov/",
@@ -215,7 +222,7 @@
             "district_count": 5,
             "district_name_format": "Division {0}",
             "geographic": false,
-            "name": "Courts of Appeal Divisions, First District",
+            "name": "Court of Appeal Divisions, First District",
             "parent_area_id": "area_state_ca_court_app_d1"
         },
         "district_type_ca_sa": {
@@ -224,6 +231,14 @@
             "geographic": true,
             "name": "State Assembly Districts",
             "parent_area_id": "area_state_ca"
+        },
+        "district_type_ca_sboe": {
+            "body_id": "body_ca_sboe",
+            "district_count": 4,
+            "geographic": true,
+            "name": "Board of Equalization Districts",
+            "parent_area_id": "area_state_ca",
+            "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts"
         },
         "district_type_ca_ss": {
             "body_id": "body_ca_ss",
@@ -235,7 +250,7 @@
         "district_type_sf_bos": {
             "body_id": "body_sf_bos",
             "district_count": 11,
-            "district_name_format": "text_district_numbered_format",
+            "district_name_format_i18n": "text_district_numbered_format",
             "geographic": true,
             "name": "Supervisorial Districts",
             "parent_area_id": "area_county_sf"
@@ -244,7 +259,13 @@
             "body_id": "body_us_hr",
             "district_count": 435,
             "geographic": true,
-            "name": "Congressional Districts",
+            "name": "US Congressional Districts",
+            "parent_area_id": "area_country_us"
+        },
+        "district_type_us_states": {
+            "district_count": 50,
+            "geographic": true,
+            "name": "US States",
             "parent_area_id": "area_country_us"
         }
     },

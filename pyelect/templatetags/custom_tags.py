@@ -150,6 +150,8 @@ def url_row_object(context, label, object_id, type_name):
     Arguments:
       type_name: for example, "languages".
     """
+    href = None
+    name = None
     if object_id is not None:
         context = context['_context']
         objects = context[type_name]
@@ -157,8 +159,6 @@ def url_row_object(context, label, object_id, type_name):
         name = obj['name']
         page = pages.get_page_object(type_name)
         href = page.make_href(object_id)
-    else:
-        href = None
 
     return _cond_include_context_url(label, href, href_text=name)
 

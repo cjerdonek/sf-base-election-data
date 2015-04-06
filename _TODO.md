@@ -1,11 +1,12 @@
 TODO
 ====
 
-* Change area id's.
-* Add links to areas in district types.
-* Group the district types by category.
-* Body should display the district type (and info about it?)
-  - and link to it
+* Add jurisdiction to body (inherit from district type)?
+* Change the i18n fields on body from the translations to the ID.
+* Should `district_type` store the body or body ID?
+* Add the following to SF Community College:
+    name: San Francisco Community College District
+    wikipedia: http://en.wikipedia.org/wiki/City_College_of_San_Francisco
 * Include an "edge" flag in the HTML and JSON?
 * Make sure all non-English extras are accounted for (e.g. after updates).
 * Hamburger nav

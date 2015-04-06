@@ -12,7 +12,7 @@ district_types:
     district_count: 5
     district_name_format: Division {0}
     geographic: false
-    name: Courts of Appeal Divisions, First District
+    name: Court of Appeal Divisions, First District
     parent_area_id: area_state_ca_court_app_d1
   district_type_ca_sa:
     body_id: body_ca_sa
@@ -33,11 +33,15 @@ district_types:
   district_type_sf_bos:
     body_id: body_sf_bos
     district_count: 11
-    district_name_format: text_district_numbered_format
+    district_name_format_i18n: text_district_numbered_format
     name: Supervisorial Districts
     parent_area_id: area_county_sf
   district_type_us_hr:
     body_id: body_us_hr
     district_count: 435
-    name: Congressional Districts
+    name: US Congressional Districts
+    parent_area_id: area_country_us
+  district_type_us_states:
+    district_count: 50
+    name: US States
     parent_area_id: area_country_us

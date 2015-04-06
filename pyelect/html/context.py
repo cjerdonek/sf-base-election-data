@@ -10,7 +10,7 @@ from django.template import Context
 from pyelect.html.common import NON_ENGLISH_ORDER
 from pyelect.html import pages
 from pyelect import lang
-from pyelect.lang import LANG_ENGLISH
+from pyelect.lang import I18N_SUFFIX, LANG_ENGLISH
 from pyelect import utils
 
 
@@ -193,7 +193,7 @@ def make_one_areas(object_id, json_data):
 
 
 def make_one_bodies(object_id, json_data, phrases):
-    keys = ('category_id', 'district_count', 'notes', 'seat_count', 'twitter',
+    keys = ('category_id', 'district_type_id', 'notes', 'seat_count', 'twitter',
             'url', 'wikipedia')
     context = _json_to_context(json_data, keys, object_id)
     context['election_info'] = _make_election_info(json_data)
@@ -203,7 +203,8 @@ def make_one_bodies(object_id, json_data, phrases):
 
 
 def make_one_district_types(object_id, json_data, bodies):
-    keys = ('district_count', 'geographic', 'name', 'parent_area_id')
+    keys = ('district_count', 'district_name_format', 'geographic', 'name',
+            'parent_area_id', 'wikipedia')
     context = _json_to_context(json_data, keys, object_id)
     body_id = json_data['body_id']
     body = bodies[body_id]
@@ -225,9 +226,9 @@ def add_english_fields(json_data, phrases):
     for node_name, objects in json_data.items():
         for object_id, obj in objects.items():
             i18n_attrs = [(field, value) for field, value in obj.items() if
-                          field.endswith(lang.I18N_SUFFIX)]
+                          field.endswith(I18N_SUFFIX)]
             for field_name, text_id in i18n_attrs:
-                simple_name = field_name.rstrip(lang.I18N_SUFFIX)
+                simple_name = field_name.rstrip(I18N_SUFFIX)
                 # TODO: make a general helper function out of this?
                 try:
                     translations = phrases[text_id]
@@ -288,7 +289,7 @@ def make_template_data(json_data):
     }
 
     areas = add_context_node(context, json_data, 'areas')
-    bodies = add_context_node(context, json_data, 'bodies', phrases=phrases)
+    bodies = add_context_node(context, json_data, 'bodies', phrases=phrases, with_category=True)
 
     add_context_node(context, json_data, 'district_types', bodies=bodies, with_category=True)
     languages = add_context_node(context, json_data, 'languages')

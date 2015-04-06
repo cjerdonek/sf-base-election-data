@@ -144,8 +144,10 @@ bodies:
     wikipedia: http://en.wikipedia.org/wiki/United_States_House_of_Representatives
   body_us_s:
     category_id: category_federal
+    district_type_id: district_type_us_states
     jurisdiction_id: US
     name: United States Senate
+    notes: There are also 6 non-voting members.
     partisan: true
     seat_count: 100
     url: http://www.senate.gov/

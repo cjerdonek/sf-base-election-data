@@ -7,10 +7,6 @@ Below is a list of government bodies having at least one seat who
 can be on a San Francisco ballot.
 {% endblock %}
 
-{% block object_count_text %}
-{{ bodies_count }} bodies
-{% endblock %}
-
 {% block content_body %}
-{% include "category_list.html" with objects_by_category=bodies template_name=current_show_template %}
+{% include 'list_objects_by_category.html' with by_category=bodies_by_category %}
 {% endblock %}
