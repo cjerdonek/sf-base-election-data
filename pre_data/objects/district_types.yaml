@@ -19,6 +19,12 @@ district_types:
     district_count: 80
     name: State Assembly Districts
     parent_area_id: area_state_ca
+  district_type_ca_sboe:
+    body_id: body_ca_sboe
+    district_count: 4
+    name: Board of Equalization Districts
+    parent_area_id: area_state_ca
+    wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts
   district_type_ca_ss:
     body_id: body_ca_ss
     district_count: 40
