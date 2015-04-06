@@ -66,12 +66,15 @@ class _Page(object):
             return {}
         objects_name = self.objects_name
         objects = self.get_objects(data)
-        by_category = {c: [] for c in categories}
+        # We store the objects in each category as a dict for easier
+        # sorting within the Django template (i.e. using "dictsort").
+        by_category = {c: {} for c in categories}
         for obj in objects.values():
             category_id = obj['category_id']
             # Raises an exception if the object has an unrecognized category.
             group = by_category[category_id]
-            group.append(obj)
+            object_id = obj['id']
+            group[object_id] = obj
         return by_category
 
     def get_show_template(self):

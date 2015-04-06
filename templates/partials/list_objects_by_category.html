@@ -1,11 +1,13 @@
 {% load custom_tags %}
 
 {% for category in categories %}
-{% with objects=current_objects_by_category|get_item:category.id %}
-{% if objects %}
+{% with objects_map=current_objects_by_category|get_item:category.id %}
+{% if objects_map %}
+{% with objects=objects_map.values|dictsort:"name" %}
 {% header_section category 'name' category.id %}
 {% list_objects objects 'name' %}
 <hr>
+{% endwith %}
 {% endif %}
 {% endwith %}
 {% endfor %}
