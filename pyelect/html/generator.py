@@ -55,10 +55,10 @@ def render_template(file_name, context):
     return template.render(context)
 
 
-def make_html(output_dir, page_name=None, print_html=False):
-
+def make_html(output_dir, page_name=None, print_html=False, local_assets=False):
+    """Generate the HTML from the JSON."""
     if page_name is None:
-        file_names = templateconfig.get_template_page_file_names()
+        file_names = get_template_page_file_names()
     else:
         file_names = [page_name]
 
@@ -66,12 +66,13 @@ def make_html(output_dir, page_name=None, print_html=False):
         os.makedirs(output_dir)
 
     json_data = jsongen.get_json()
-    data = context.make_template_data(json_data)
+    data = context.make_template_data(json_data, local_assets=local_assets)
 
     page_bases = get_template_page_bases()
     templateconfig.init_django()
 
     for file_name in file_names:
+        _log.info('processing: {0}'.format(file_name))
         page_base, ext = os.path.splitext(file_name)
         context_ = context.make_template_context(data, page_base)
         html = render_template(file_name, context=context_)

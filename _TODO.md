@@ -1,9 +1,10 @@
 TODO
 ====
 
+* Get all pages working again, and DRY up while noticing..
+* Edit notes for body: California Court of Appeal, First District
 * Add jurisdiction to body (inherit from district type)?
 * Change the i18n fields on body from the translations to the ID.
-* Should `district_type` store the body or body ID?
 * Add the following to SF Community College:
     name: San Francisco Community College District
     wikipedia: http://en.wikipedia.org/wiki/City_College_of_San_Francisco

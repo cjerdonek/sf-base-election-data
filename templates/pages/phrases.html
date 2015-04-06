@@ -1,11 +1,12 @@
 {% extends "base/page.html" %}
 
+{% load custom_tags %}
+
 {% block content_intro_para %}
 Below is the list of phrases in the JSON file that have one or more
 translations.
 {% endblock %}
 
 {% block content_body %}
-{% load custom_tags %}
-{% list_objects current_objects.values|dictsort:"id" "id" current_show_template %}
+{% list_objects current_objects.values|dictsort:"id" "id" %}
 {% endblock %}

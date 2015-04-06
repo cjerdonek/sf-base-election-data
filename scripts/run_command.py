@@ -65,6 +65,7 @@ def command_parse_csv(ns):
 
 
 def command_sample_html(ns):
+    local = ns.local
     dir_path = ns.output_dir
     open_browser = ns.open_browser
     page_name = ns.page_name
@@ -83,7 +84,7 @@ def command_sample_html(ns):
 
     # Make and output HTML.
     html_path = htmlgen.make_html(dir_path, page_name=page_name,
-                                  print_html=print_html)
+                                  print_html=print_html, local_assets=local)
     if open_browser:
         subprocess.call(["open", html_path])
 
@@ -211,6 +212,9 @@ def create_parser():
     parser.add_argument('--output_dir', metavar='OUTPUT_DIR',
         help=("the output directory.  Defaults to the following directory relative "
               "to the repo: {0}".format(get_sample_html_default_rel_dir())))
+    parser.add_argument('--local', action='store_true',
+        help=('link to assets locally rather than via a CDN.  This is useful '
+              'for developing locally without internet access.'))
     parser.add_argument('--no-browser', dest='open_browser', action='store_false',
         help='suppress opening the browser.')
     parser.add_argument('--print-html', dest='print_html', action='store_true',

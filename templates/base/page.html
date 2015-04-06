@@ -8,10 +8,10 @@
     <title>SFBED - {% block title_head %}{{ current_title }}{% endblock %}</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ bootstrap_prefix }}css/bootstrap.min.css">
     <!-- Optional theme -->
     <!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{{ bootstrap_prefix }}css/bootstrap-theme.min.css">
     -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -64,15 +64,15 @@ Current count: {% block object_count_text %}
 {% endblock %}
 
 {% block content_body %}
-{% list_objects current_objects 'name' %}
+{% list_objects current_objects.values|dictsort:'name' 'name' %}
 {% endblock %}
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="{{ jquery_prefix }}jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!-- Latest compiled and minified JavaScript -->
 <!-- JS is needed for the collapsable navigation bar. -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="{{ bootstrap_prefix }}js/bootstrap.min.js"></script>
 </div>
 
 </body>

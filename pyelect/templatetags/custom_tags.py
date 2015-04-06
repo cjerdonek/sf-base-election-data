@@ -79,7 +79,11 @@ def anchor(id_):
 
 
 def _header_context(item_data, field_name, item_id):
-    name = item_data[field_name]
+    try:
+        name = item_data[field_name]
+    except Exception as err:
+        _log.warn("error: key={0}, item_data={1}".format(field_name, item_data))
+        raise
     i18n_field_name = lang.get_i18n_field_name(field_name)
     translations = item_data.get(i18n_field_name, {})
     non_english = [translations[lang] for lang in NON_ENGLISH_ORDER if lang in translations]
@@ -153,7 +157,7 @@ def url_row_object(context, label, object_id, type_name):
     href = None
     name = None
     if object_id is not None:
-        context = context['_context']
+        context = context['context']
         objects = context[type_name]
         obj = objects[object_id]
         name = obj['name']
@@ -166,7 +170,7 @@ def url_row_object(context, label, object_id, type_name):
 @register.inclusion_tag('list_objects.html', takes_context=True)
 def list_objects(context, objects, title_attr):
     return {
-        '_context': context,
+        'context': context,
         'current_show_template': context['current_show_template'],
         'objects': objects,
         'title_attr': title_attr

@@ -16,6 +16,10 @@ from pyelect import utils
 
 _log = logging.getLogger()
 
+_JQUERY_REMOTE = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/"
+_BOOTSTRAP_REMOTE = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/"
+_BOOTSTRAP_LOCAL = 'bootstrap/'
+
 _TABLE_OF_CONTENTS = """\
 index
 bodies
@@ -50,7 +54,7 @@ def make_template_context(data, page_base):
     return context
 
 
-def make_phrases(id_, json_data):
+def make_translations(id_, json_data):
     if not json_data[LANG_ENGLISH]:
         return None
     json_data['id'] = id_
@@ -275,7 +279,7 @@ def add_context_node(context, json_data, node_name, json_key=None,
 
 
 # TODO: switch this to use add_context_node() everywhere possible.
-def make_template_data(json_data):
+def make_template_data(json_data, local_assets=False):
     """Return the context to use when rendering the template."""
     phrases = make_phrases(json_data)
     add_english_fields(json_data, phrases)
@@ -284,9 +288,16 @@ def make_template_data(json_data):
     category_map = make_category_map(json_data, phrases)
     categories = [category_map[id_] for id_ in CATEGORY_ORDER]
 
+    bootstrap_prefix = _BOOTSTRAP_LOCAL if local_assets else _BOOTSTRAP_REMOTE
+    jquery_prefix = "" if local_assets else _JQUERY_REMOTE
+
     context = {
-        'page_bases': _TABLE_OF_CONTENTS,
         'categories': categories,
+        'jquery_prefix': jquery_prefix,
+        'language_codes': [LANG_ENGLISH] + NON_ENGLISH_ORDER,
+        'bootstrap_prefix': bootstrap_prefix,
+        'page_bases': _TABLE_OF_CONTENTS,
+        'phrases': phrases,
     }
 
     areas = add_context_node(context, json_data, 'areas')
@@ -320,7 +331,5 @@ def make_template_data(json_data):
         'offices': offices_by_category,
         'jurisdictions': [],
         'office_count': office_count,
-        'language_codes': [LANG_ENGLISH] + NON_ENGLISH_ORDER,
-        'phrases': phrases,
     }
 
