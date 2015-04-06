@@ -28,10 +28,9 @@ bodies:
   body_ca_sa:
     category_id: category_state
     jurisdiction_id: CA
-    name: State Assembly
+    name: California State Assembly
     office_name: Member of the State Assembly
     partisan: true
-    qualified_name: California State Assembly
     seat_count: 80
     url: http://assembly.ca.gov/
     wikipedia: http://en.wikipedia.org/wiki/California_State_Assembly
@@ -61,9 +60,8 @@ bodies:
   body_ca_ss:
     category_id: category_state
     jurisdiction_id: CA
-    name: State Senate
+    name: California State Senate
     partisan: true
-    qualified_name: California State Senate
     seat_count: 40
     url: http://senate.ca.gov/
     wikipedia: http://en.wikipedia.org/wiki/California_State_Senate

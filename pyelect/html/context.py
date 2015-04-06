@@ -210,7 +210,7 @@ def make_one_areas(object_id, json_data):
 
 
 def make_one_district_types(object_id, json_data, bodies):
-    keys = ('district_count', 'geographic', 'name', 'parent_area_name')
+    keys = ('district_count', 'geographic', 'name', 'parent_area_id')
     context = _json_to_context(json_data, keys, object_id)
     body_id = json_data['body_id']
     body = bodies[body_id]

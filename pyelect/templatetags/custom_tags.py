@@ -24,6 +24,17 @@ _log = logging.getLogger()
 register = template.Library()
 
 
+# This is a decorator to deal with the fact that by default Django silently
+# swallows exceptions.
+def log_errors(func):
+    def wrapper(context, label, object_id, type_name):
+        try:
+            return func(context, label, object_id, type_name)
+        except Exception as err:
+            _log.warn("exception: {0}".format(err))
+            raise
+    return wrapper
+
 def _pprint(text):
     pprint(text, stream=sys.stderr)
 
@@ -130,7 +141,12 @@ def url_row(header, value):
     return _cond_include_context_url(header, value)
 
 
-@register.inclusion_tag('tags/cond_include.html', takes_context=True)
+
+# The name argument is necessary because of this issue:
+#   https://code.djangoproject.com/ticket/24586
+@register.inclusion_tag('tags/cond_include.html', takes_context=True,
+                        name='url_row_object')
+@log_errors
 def url_row_object(context, label, object_id, type_name):
     """
     Arguments:

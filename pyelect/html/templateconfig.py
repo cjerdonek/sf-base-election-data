@@ -33,6 +33,7 @@ def init_django():
     search_dirs = _get_template_search_dirs()
     settings.configure(
         INSTALLED_APPS=('pyelect', ),
+        # TEMPLATE_DEBUG=True,
         TEMPLATE_DIRS=search_dirs,
         TEMPLATE_STRING_IF_INVALID="**%s**",
         # The default setting contains this:
