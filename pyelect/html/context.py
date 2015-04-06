@@ -203,15 +203,16 @@ def make_one_bodies(object_id, json_data, phrases):
 
 
 def make_one_district_types(object_id, json_data, bodies):
-    keys = ('district_count', 'district_name_format', 'geographic', 'name',
-            'parent_area_id', 'wikipedia')
+    keys = ('body_id', 'category_id', 'district_count', 'district_name_format', 'geographic',
+            'name', 'parent_area_id', 'wikipedia')
     context = _json_to_context(json_data, keys, object_id)
-    body_id = json_data['body_id']
-    body = bodies[body_id]
-    context['body'] = body
-    context['category_id'] = body['category_id']
-    if not context['name']:
-        raise Exception("name is required: {0}".format(context))
+    if not context['category_id']:
+        body_id = context.get('body_id')
+        body = bodies[body_id]
+        category_id = body['category_id']
+        context['category_id'] = category_id
+    if 'name' not in context:
+        raise Exception("name and category_id required: {0}".format(context))
     return context
 
 

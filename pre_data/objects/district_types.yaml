@@ -42,6 +42,7 @@ district_types:
     name: US Congressional Districts
     parent_area_id: area_country_us
   district_type_us_states:
+    category_id: category_federal
     district_count: 50
     name: US States
     parent_area_id: area_country_us
