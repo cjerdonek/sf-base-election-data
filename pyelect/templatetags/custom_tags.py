@@ -8,9 +8,11 @@ django.template.Library().
 
 """
 
+from functools import wraps
 import logging
 from pprint import pprint
 import sys
+import traceback
 
 from django import template
 
@@ -25,13 +27,19 @@ register = template.Library()
 
 
 # This is a decorator to deal with the fact that by default Django silently
-# swallows exceptions.
+# swallows exceptions when rendering templates.  This default behavior
+# can be changed by setting TEMPLATE_DEBUG to True.
 def log_errors(func):
+    # We need to decorate with functools.wraps() so as not to break tag
+    # registration, for example when using @register.inclusion_tag().
+    # See also: https://code.djangoproject.com/ticket/24586
+    @wraps(func)
     def wrapper(context, label, object_id, type_name):
         try:
             return func(context, label, object_id, type_name)
         except Exception as err:
             _log.warn("exception: {0}".format(err))
+            traceback.print_exc()
             raise
     return wrapper
 
@@ -145,9 +153,7 @@ def url_row(header, value):
     return _cond_include_context_url(header, value)
 
 
-# The name argument is necessary because of this issue:
-#   https://code.djangoproject.com/ticket/24586
-@register.inclusion_tag('tags/cond_include.html', takes_context=True, name='url_row_object')
+@register.inclusion_tag('tags/cond_include.html', takes_context=True)
 @log_errors
 def url_row_object(context, label, object_id, type_name):
     """
