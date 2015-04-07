@@ -13,8 +13,8 @@ areas:
     wikipedia: http://en.wikipedia.org/wiki/California
   area_state_ca_bart:
     name: San Francisco Bay Area Rapid Transit District
-    notes: This district was formed in 1957 and comprises the following counties:
-      Alameda, Contra Costa, and San Francisco.
+    notes: 'This district was formed in 1957 and comprises the following counties:
+      Alameda, Contra Costa, and San Francisco.'
   area_state_ca_court_app_d1:
     name: California Court of Appeal, First District
     notes: 'This district comprises the following counties: Alameda, Contra Costa,
