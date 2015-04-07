@@ -267,11 +267,8 @@ def make_json_data():
     mixins, meta = _get_yaml_data('mixins')
 
     json_data ={}
-
-    add_json_node_simple(json_data, 'areas')
-    add_json_node_simple(json_data, 'district_types')
-    add_json_node_simple(json_data, 'election_methods')
-    add_json_node_simple(json_data, 'languages')
+    for base_name in ('areas', 'district_types', 'election_methods', 'languages'):
+        add_json_node_simple(json_data, base_name)
 
     # TODO: DRY up the remaining object types.
     add_json_node(json_data, 'categories')

@@ -24,6 +24,16 @@ _log = logging.getLogger()
 _DEFAULT_OUTPUT_DIR_NAME = '_build'
 _FORMATTER_CLASS = argparse.RawDescriptionHelpFormatter
 
+DESCRIPTION = """\
+Helper script for repository contributors.
+
+The normal workflow is--
+
+1. TODO
+2. Run `make_json` to update the JSON from the YAML.
+3. Run `sample_html` to generate HTML from the JSON.
+
+"""
 
 def _wrap(text):
     """Format text for help outuput."""
@@ -77,6 +87,10 @@ def command_sample_html(ns):
         for name in names:
             if name.startswith(page_name):
                 page_name = name
+                break
+        else:
+            raise Exception("no page begins with: {0!r} (choose from: {1})"
+                            .format(page_name, ", ".join(names)))
 
     if dir_path is None:
         repo_dir = utils.get_repo_dir()
@@ -163,7 +177,7 @@ def make_subparser(sub, command_name, help, command_func=None, details=None, **k
 def create_parser():
     """Return an ArgumentParser object."""
     root_parser = argparse.ArgumentParser(formatter_class=_FORMATTER_CLASS,
-            description="command script for repo contributors")
+            description=DESCRIPTION)
     sub = root_parser.add_subparsers(help='sub-command help')
 
     parser = make_subparser(sub, "lang_csv_ids",
