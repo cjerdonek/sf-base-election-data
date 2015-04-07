@@ -28,12 +28,12 @@ def get_item(dict_, key):
     return dict_.get(key)
 
 
-def init_django():
+def init_django(debug=False):
     """Initialize Django."""
     search_dirs = _get_template_search_dirs()
     settings.configure(
         INSTALLED_APPS=('pyelect', ),
-        # TEMPLATE_DEBUG=True,
+        TEMPLATE_DEBUG=debug,
         TEMPLATE_DIRS=search_dirs,
         TEMPLATE_STRING_IF_INVALID="**%s**",
         # The default setting contains this:

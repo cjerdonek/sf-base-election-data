@@ -75,6 +75,7 @@ def command_parse_csv(ns):
 
 
 def command_sample_html(ns):
+    debug = ns.debug
     local = ns.local
     dir_path = ns.output_dir
     open_browser = ns.open_browser
@@ -98,7 +99,8 @@ def command_sample_html(ns):
 
     # Make and output HTML.
     html_path = htmlgen.make_html(dir_path, page_name=page_name,
-                                  print_html=print_html, local_assets=local)
+                                  print_html=print_html, local_assets=local,
+                                  debug=debug)
     if open_browser:
         subprocess.call(["open", html_path])
 
@@ -233,6 +235,8 @@ def create_parser():
         help='suppress opening the browser.')
     parser.add_argument('--print-html', dest='print_html', action='store_true',
         help='write the HTML to stdout.')
+    parser.add_argument('--debug', action='store_true',
+        help="set Django's TEMPLATE_DEBUG to True.")
 
     parser = make_subparser(sub, "yaml_norm",
                 help="normalize one or more YAML files.")
