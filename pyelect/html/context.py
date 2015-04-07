@@ -27,6 +27,7 @@ district_types
 phrases
 languages
 areas
+election_methods
 """.strip().splitlines()
 
 CATEGORY_ORDER = """\
@@ -225,6 +226,12 @@ def make_one_district_types(object_id, json_data, bodies):
     return context
 
 
+def make_one_election_methods(object_id, json_data):
+    keys = ('name', )
+    context = _json_to_context(json_data, keys, object_id)
+    return context
+
+
 def make_one_languages(object_id, json_data):
     keys = ('name', 'code', 'notes')
     context = _json_to_context(json_data, keys, object_id)
@@ -295,7 +302,9 @@ def make_template_data(json_data, local_assets=False):
         'phrases': phrases,
     }
 
-    areas = add_context_node(context, json_data, 'areas')
+    for base_name in ('areas', 'election_methods'):
+        add_context_node(context, json_data, base_name)
+
     bodies = add_context_node(context, json_data, 'bodies', phrases=phrases)
 
     offices = add_context_node(context, json_data, 'offices', phrases=phrases)

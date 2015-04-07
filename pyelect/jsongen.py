@@ -68,6 +68,10 @@ def make_object_district_types(yaml_data):
     return yaml_data
 
 
+def make_object_election_methods(yaml_data):
+    return yaml_data
+
+
 def make_object_languages(yaml_data):
     return yaml_data
 
@@ -266,6 +270,7 @@ def make_json_data():
 
     add_json_node_simple(json_data, 'areas')
     add_json_node_simple(json_data, 'district_types')
+    add_json_node_simple(json_data, 'election_methods')
     add_json_node_simple(json_data, 'languages')
 
     # TODO: DRY up the remaining object types.

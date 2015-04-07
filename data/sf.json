@@ -276,7 +276,8 @@
     },
     "election_methods": {
         "election_method_presidential": {
-            "name": "Presidential Primary"
+            "name": "Presidential Primary",
+            "notes": "There is a Presidential Primary followed by a General Election in November.  The winner in November receives all 55 of California's electoral votes."
         }
     },
     "languages": {
@@ -564,6 +565,7 @@
         },
         "office_usa_president_of_the_united_states": {
             "category_id": "category_federal",
+            "election_method": "election_method_presidential",
             "name_i18n": "text_office_usa_president_of_the_united_states",
             "seed_year": 2016,
             "term_length": 4,

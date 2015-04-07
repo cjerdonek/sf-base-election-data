@@ -4,3 +4,6 @@ _meta:
 election_methods:
   election_method_presidential:
     name: Presidential Primary
+    notes: "There is a Presidential Primary followed by a General Election
+      in November.  The winner in November receives all 55 of California's
+      electoral votes."

@@ -1,6 +1,7 @@
 TODO
 ====
 
+* Flesh out President and then US Senate (with districts and election method).
 * Edit notes for body: California Court of Appeal, First District
 * Add jurisdiction to body (inherit from district type)?
 * Change the i18n fields on body from the translations to the ID.

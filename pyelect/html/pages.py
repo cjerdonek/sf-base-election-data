@@ -38,7 +38,7 @@ class _Page(object):
     def title(self):
         title = self._title
         if title is None:
-            title = get_default_page_title(self.page_base_name)
+            title = get_default_page_title(self.objects_name)
         return title
 
     def __init__(self, page_base):
@@ -95,23 +95,20 @@ class BodiesPage(_Page):
 
 class DistrictTypesPage(_Page):
     by_category = True
-    title = "District Types"
+
+
+class ElectionMethodsPage(_Page):
+    pass
 
 
 class IndexPage(_Page):
     _objects_name = 'offices'
     by_category = True
-    title = "Offices"
-
-
-# TODO: should we use a better name (e.g. area)?
-class JurisdictionsPage(_Page):
-    title = "Jurisdictions"
 
 
 class LanguagesPage(_Page):
-    title = "Languages"
+    pass
 
 
 class PhrasesPage(_Page):
-    title = "Translated Phrases"
+    _title = "Translated Phrases"
