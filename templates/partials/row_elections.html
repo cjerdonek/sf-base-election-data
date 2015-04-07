@@ -1,7 +1,0 @@
-{% extends "row_info_base.html" %}
-{% block row_header %}Elections{% endblock %}
-{% block row_value %}
-  {% with object=data %}
-  {{ object.election_info|join:', ' }}
-  {% endwith %}
-{% endblock %}

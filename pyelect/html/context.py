@@ -41,6 +41,12 @@ category_party
 """.strip().splitlines()
 
 
+class NodeNames(object):
+
+    election_methods = 'election_methods'
+    phrases = 'phrases'
+
+
 def make_template_context(data, page_base):
     page = pages.get_page_object(page_base)
     context = Context(data)
@@ -112,30 +118,7 @@ def _compute_next_election_year(office_json):
     return seed_year
 
 
-def _make_election_info(data):
-
-    vote_method = data.get('vote_method')
-
-    next_election_year = _compute_next_election_year(data)
-    if next_election_year is not None:
-        next_election_text = "{0} next".format(next_election_year)
-    else:
-        next_election_text = None
-
-    term_length = data.get('term_length')
-    if term_length:
-        term_length = "{0} year term".format(term_length)
-
-    partisan = data.get('partisan')
-    if partisan is not None:
-        partisan_text = "{0}partisan".format("" if partisan else "non-")
-    else:
-        partisan_text = None
-
-    return list(filter(None, [term_length, next_election_text, vote_method, partisan_text]))
-
-
-# TODO: the only the phrase ID should be stored on the object.  Also, the
+# TODO: only the phrase ID should be stored on the object.  Also, the
 #   template should be responsible for fetching and rendering the i18n.
 def add_i18n_field(obj, json_data, field_name, phrases):
     # We require that the simple field be present in the JSON.
@@ -149,25 +132,6 @@ def add_i18n_field(obj, json_data, field_name, phrases):
         return
     translations = phrases[text_id]
     obj[i18n_field_name] = translations
-
-
-def make_one_offices(office_id, data, phrases):
-    # TODO: remove this logic.
-    if 'name_i18n' not in data:
-        return None
-    office = {
-        'category_id': data.get('category_id'),
-        'election_info': _make_election_info(data),
-        'id': office_id,
-        # TODO: use a real seat count.
-        'seat_count': 1,
-        'twitter': data.get('twitter'),
-        'url': data.get('url')
-    }
-
-    add_i18n_field(office, data, 'name', phrases=phrases)
-
-    return office
 
 
 def _group_by(objects, key):
@@ -190,23 +154,47 @@ def make_phrases(json_data):
     return phrases
 
 
-def _json_to_context(json_data, keys, object_id):
-    context = {k: json_data.setdefault(k, None) for k in keys}
-    context['id'] = object_id
+def _set_context(context, json_data, keys):
+    for k in keys:
+        context[k] = json_data.get(k, None)
+
+
+def _init_context(json_data, keys, object_id):
+    context = {'id': object_id}
+    _set_context(context, json_data, keys)
     return context
+
+
+def _set_context_election_info(context, json_data):
+    keys = [
+        'election_method_id',
+        'partisan',
+        'term_length',  # "* year term"
+        'vote_method',  # TODO: remove this.
+    ]
+    _set_context(context, json_data, keys)
+    context['next_election_year'] = _compute_next_election_year(json_data)
 
 
 def make_one_areas(object_id, json_data):
     keys = ('name', 'notes', 'wikipedia')
-    context = _json_to_context(json_data, keys, object_id)
+    context = _init_context(json_data, keys, object_id)
     return context
 
 
 def make_one_bodies(object_id, json_data, phrases):
-    keys = ('category_id', 'district_type_id', 'notes', 'seat_count', 'twitter',
-            'url', 'wikipedia')
-    context = _json_to_context(json_data, keys, object_id)
-    context['election_info'] = _make_election_info(json_data)
+    keys = [
+        'category_id',
+        'district_type_id',
+        'notes',
+        'seat_count',
+        'twitter',
+        'url',
+        'wikipedia'
+    ]
+    context = _init_context(json_data, keys, object_id)
+    _set_context_election_info(context, json_data)
+
     # TODO: remove this call.
     add_i18n_field(context, json_data, 'name', phrases=phrases)
     return context
@@ -215,7 +203,7 @@ def make_one_bodies(object_id, json_data, phrases):
 def make_one_district_types(object_id, json_data, bodies):
     keys = ('body_id', 'category_id', 'district_count', 'district_name_format', 'geographic',
             'name', 'parent_area_id', 'wikipedia')
-    context = _json_to_context(json_data, keys, object_id)
+    context = _init_context(json_data, keys, object_id)
     if not context['category_id']:
         body_id = context.get('body_id')
         body = bodies[body_id]
@@ -227,14 +215,39 @@ def make_one_district_types(object_id, json_data, bodies):
 
 
 def make_one_election_methods(object_id, json_data):
-    keys = ('name', )
-    context = _json_to_context(json_data, keys, object_id)
+    keys = ('name', 'notes')
+    context = _init_context(json_data, keys, object_id)
     return context
 
 
 def make_one_languages(object_id, json_data):
     keys = ('name', 'code', 'notes')
-    context = _json_to_context(json_data, keys, object_id)
+    context = _init_context(json_data, keys, object_id)
+    return context
+
+
+def make_one_offices(object_id, json_data, phrases):
+    # TODO: remove this logic.
+    if 'name_i18n' not in json_data:
+        return None
+
+    keys = (
+        'category_id',
+        'election_method_id',
+        'notes',
+        'twitter',
+        'url',
+        'wikipedia'
+    )
+    context = _init_context(json_data, keys, object_id)
+    _set_context_election_info(context, json_data)
+
+    # TODO: use a real seat count.
+    context['seat_count'] = 1
+
+    # TODO: remove this.
+    add_i18n_field(context, json_data, 'name', phrases=phrases)
+
     return context
 
 
@@ -299,10 +312,10 @@ def make_template_data(json_data, local_assets=False):
         'language_codes': [LANG_ENGLISH] + NON_ENGLISH_ORDER,
         'bootstrap_prefix': bootstrap_prefix,
         'page_bases': _TABLE_OF_CONTENTS,
-        'phrases': phrases,
+        NodeNames.phrases: phrases,
     }
 
-    for base_name in ('areas', 'election_methods'):
+    for base_name in ('areas', NodeNames.election_methods):
         add_context_node(context, json_data, base_name)
 
     bodies = add_context_node(context, json_data, 'bodies', phrases=phrases)
