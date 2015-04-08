@@ -21,11 +21,11 @@ offices:
     division: 2
     office_type_id: CA_CourtApp_PJ
   CA_SC_AJ:
-    body_id: CA_SC
+    body_id: body_ca_court_supreme
     name: Associate Justice
     seat_count: 6
   CA_SC_CJ:
-    body_id: CA_SC
+    body_id: body_ca_court_supreme
     name: Chief Justice
   office_assessor_recorder:
     mixin_id: sf_common
@@ -194,10 +194,10 @@ offices:
     twitter: WhiteHouse
     url: https://www.whitehouse.gov/
   office_usa_senate_1:
-    body_id: USA_S
+    body_id: body_us_senate
     district: CA
     seed_year: 2014
   office_usa_senate_2:
-    body_id: USA_S
+    body_id: body_us_senate
     district: CA
     seed_year: 2012

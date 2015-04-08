@@ -8,7 +8,7 @@ texts:
   text_body_ca_court_app:
     _en: California Court of Appeal, First District
     fil: null
-  text_body_ca_sc:
+  text_body_ca_court_supreme:
     _en: Supreme Court of California
     fil: null
   text_body_sf_boe:

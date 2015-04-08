@@ -26,6 +26,17 @@ bodies:
     url: http://www.courts.ca.gov/courtsofappeal.htm
     vote_method: retention
     wikipedia: http://en.wikipedia.org/wiki/California_courts_of_appeal
+  body_ca_court_supreme:
+    category_id: category_judicial
+    jurisdiction_id: CA
+    name_i18n: text_body_ca_court_supreme
+    notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
+      by the Governor and subject to retention elections.
+    seat_count: 7
+    term_length: 12
+    url: http://www.courts.ca.gov/supremecourt.htm
+    vote_method: retention
+    wikipedia: http://en.wikipedia.org/wiki/Supreme_Court_of_California
   body_ca_sa:
     category_id: category_state
     district_type_id: district_type_ca_sa
@@ -49,17 +60,6 @@ bodies:
     term_length: 4
     url: http://www.boe.ca.gov/
     wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29
-  body_ca_sc:
-    category_id: category_judicial
-    jurisdiction_id: CA
-    name_i18n: text_body_ca_sc
-    notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
-      by the Governor and subject to retention elections.
-    seat_count: 7
-    term_length: 12
-    url: http://www.courts.ca.gov/supremecourt.htm
-    vote_method: retention
-    wikipedia: http://en.wikipedia.org/wiki/Supreme_Court_of_California
   body_ca_ss:
     category_id: category_state
     district_type_id: district_type_ca_ss
@@ -146,7 +146,7 @@ bodies:
     term_length: 2
     url: http://www.house.gov/
     wikipedia: http://en.wikipedia.org/wiki/United_States_House_of_Representatives
-  body_us_s:
+  body_us_senate:
     category_id: category_federal
     district_type_id: district_type_us_states
     jurisdiction_id: US
