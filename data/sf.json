@@ -47,17 +47,16 @@
             "vote_method": "retention",
             "wikipedia": "http://en.wikipedia.org/wiki/California_courts_of_appeal"
         },
-        "body_ca_sa": {
-            "category_id": "category_state",
-            "district_type_id": "district_type_ca_sa",
+        "body_ca_court_supreme": {
+            "category_id": "category_judicial",
             "jurisdiction_id": "CA",
-            "name": "California State Assembly",
-            "office_name": "Member of the State Assembly",
-            "partisan": true,
-            "seat_count": 80,
-            "term_length": 2,
-            "url": "http://assembly.ca.gov/",
-            "wikipedia": "http://en.wikipedia.org/wiki/California_State_Assembly"
+            "name_i18n": "text_body_ca_court_supreme",
+            "notes": "The Court has six Associate Justices and one Chief Justice. Each is appointed by the Governor and subject to retention elections.",
+            "seat_count": 7,
+            "term_length": 12,
+            "url": "http://www.courts.ca.gov/supremecourt.htm",
+            "vote_method": "retention",
+            "wikipedia": "http://en.wikipedia.org/wiki/Supreme_Court_of_California"
         },
         "body_ca_sboe": {
             "category_id": "category_state",
@@ -72,17 +71,6 @@
             "url": "http://www.boe.ca.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29"
         },
-        "body_ca_sc": {
-            "category_id": "category_judicial",
-            "jurisdiction_id": "CA",
-            "name_i18n": "text_body_ca_sc",
-            "notes": "The Court has six Associate Justices and one Chief Justice. Each is appointed by the Governor and subject to retention elections.",
-            "seat_count": 7,
-            "term_length": 12,
-            "url": "http://www.courts.ca.gov/supremecourt.htm",
-            "vote_method": "retention",
-            "wikipedia": "http://en.wikipedia.org/wiki/Supreme_Court_of_California"
-        },
         "body_ca_ss": {
             "category_id": "category_state",
             "district_type_id": "district_type_ca_ss",
@@ -93,6 +81,18 @@
             "term_length": 4,
             "url": "http://senate.ca.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/California_State_Senate"
+        },
+        "body_ca_state_assembly": {
+            "category_id": "category_state",
+            "district_type_id": "district_type_ca_sa",
+            "jurisdiction_id": "CA",
+            "name": "California State Assembly",
+            "office_name": "Member of the State Assembly",
+            "partisan": true,
+            "seat_count": 80,
+            "term_length": 2,
+            "url": "http://assembly.ca.gov/",
+            "wikipedia": "http://en.wikipedia.org/wiki/California_State_Assembly"
         },
         "body_sf_boe": {
             "category_id": "category_school",
@@ -121,10 +121,10 @@
             "vote_method": "RCV",
             "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_Board_of_Supervisors"
         },
-        "body_sf_ccb": {
+        "body_sf_college_board": {
             "category_id": "category_school",
             "jurisdiction_id": "SFCC",
-            "name_i18n": "text_body_sf_ccb",
+            "name_i18n": "text_body_sf_college_board",
             "office_name_i18n": "text_office_member_community_college_board",
             "seat_count": 7,
             "term_length": 4,
@@ -165,7 +165,7 @@
             "url": "http://www.sfsuperiorcourt.org/",
             "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court"
         },
-        "body_us_hr": {
+        "body_us_house": {
             "category_id": "category_federal",
             "district_type_id": "district_type_us_hr",
             "jurisdiction_id": "US",
@@ -178,7 +178,7 @@
             "url": "http://www.house.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/United_States_House_of_Representatives"
         },
-        "body_us_s": {
+        "body_us_senate": {
             "category_id": "category_federal",
             "district_type_id": "district_type_us_states",
             "jurisdiction_id": "US",
@@ -230,7 +230,7 @@
             "parent_area_id": "area_state_ca_court_app_d1"
         },
         "district_type_ca_sa": {
-            "body_id": "body_ca_sa",
+            "body_id": "body_ca_state_assembly",
             "district_count": 80,
             "geographic": true,
             "name": "State Assembly Districts",
@@ -260,7 +260,7 @@
             "parent_area_id": "area_county_sf"
         },
         "district_type_us_hr": {
-            "body_id": "body_us_hr",
+            "body_id": "body_us_house",
             "district_count": 435,
             "geographic": true,
             "name": "US Congressional Districts",
@@ -341,12 +341,12 @@
             "office_type_id": "CA_CourtApp_PJ"
         },
         "CA_SC_AJ": {
-            "body_id": "CA_SC",
+            "body_id": "body_ca_court_supreme",
             "name": "Associate Justice",
             "seat_count": 6
         },
         "CA_SC_CJ": {
-            "body_id": "CA_SC",
+            "body_id": "body_ca_court_supreme",
             "name": "Chief Justice"
         },
         "office_assessor_recorder": {
@@ -362,23 +362,23 @@
             "url": "http://www.oag.ca.gov/"
         },
         "office_bart_7": {
-            "body_id": "BART",
+            "body_id": "body_bart",
             "district": 7
         },
         "office_bart_8": {
-            "body_id": "BART",
+            "body_id": "body_bart",
             "district": 8
         },
         "office_bart_9": {
-            "body_id": "BART",
+            "body_id": "body_bart",
             "district": 9
         },
         "office_ca_sa_17": {
-            "body_id": "CA_SA",
+            "body_id": "body_ca_state_assembly",
             "district": 17
         },
         "office_ca_sa_19": {
-            "body_id": "CA_SA",
+            "body_id": "body_ca_state_assembly",
             "district": 19
         },
         "office_ca_ss_11": {
@@ -438,67 +438,67 @@
             "vote_method": "RCV"
         },
         "office_sf_boe_seats_3": {
-            "body_id": "SF_BOE",
+            "body_id": "body_sf_boe",
             "seat_count": 3,
             "seed_year": 2014
         },
         "office_sf_boe_seats_4": {
-            "body_id": "SF_BOE",
+            "body_id": "body_sf_boe",
             "seat_count": 4,
             "seed_year": 2012
         },
         "office_sf_bos_1": {
-            "body_id": "SF_BOS",
+            "body_id": "body_sf_bos",
             "district": 1,
             "seed_year": 2012
         },
         "office_sf_bos_10": {
-            "body_id": "SF_BOS",
+            "body_id": "body_sf_bos",
             "district": 10,
             "seed_year": 2014
         },
         "office_sf_bos_11": {
-            "body_id": "SF_BOS",
+            "body_id": "body_sf_bos",
             "district": 11,
             "seed_year": 2012
         },
         "office_sf_bos_2": {
-            "body_id": "SF_BOS",
+            "body_id": "body_sf_bos",
             "district": 2,
             "seed_year": 2014
         },
         "office_sf_bos_3": {
-            "body_id": "SF_BOS",
+            "body_id": "body_sf_bos",
             "district": 3,
             "seed_year": 2012
         },
         "office_sf_bos_4": {
-            "body_id": "SF_BOS",
+            "body_id": "body_sf_bos",
             "district": 4,
             "seed_year": 2014
         },
         "office_sf_bos_5": {
-            "body_id": "SF_BOS",
+            "body_id": "body_sf_bos",
             "district": 5,
             "seed_year": 2012
         },
         "office_sf_bos_6": {
-            "body_id": "SF_BOS",
+            "body_id": "body_sf_bos",
             "district": 6,
             "seed_year": 2014
         },
         "office_sf_bos_7": {
-            "body_id": "SF_BOS",
+            "body_id": "body_sf_bos",
             "district": 7,
             "seed_year": 2012
         },
         "office_sf_bos_8": {
-            "body_id": "SF_BOS",
+            "body_id": "body_sf_bos",
             "district": 8,
             "seed_year": 2014
         },
         "office_sf_bos_9": {
-            "body_id": "SF_BOS",
+            "body_id": "body_sf_bos",
             "district": 9,
             "seed_year": 2012
         },
@@ -556,11 +556,11 @@
             "url": "http://www.treasurer.ca.gov/"
         },
         "office_us_hr_12": {
-            "body_id": "US_HR",
+            "body_id": "body_us_house",
             "district": 12
         },
         "office_us_hr_14": {
-            "body_id": "US_HR",
+            "body_id": "body_us_house",
             "district": 14
         },
         "office_usa_president_of_the_united_states": {
@@ -573,12 +573,12 @@
             "url": "https://www.whitehouse.gov/"
         },
         "office_usa_senate_1": {
-            "body_id": "USA_S",
+            "body_id": "body_us_senate",
             "district": "CA",
             "seed_year": 2014
         },
         "office_usa_senate_2": {
-            "body_id": "USA_S",
+            "body_id": "body_us_senate",
             "district": "CA",
             "seed_year": 2012
         }
@@ -588,7 +588,7 @@
             "en": "California Court of Appeal, First District",
             "es": "Corte de Apelaci\u00f3n"
         },
-        "text_body_ca_sc": {
+        "text_body_ca_court_supreme": {
             "en": "Supreme Court of California",
             "es": "Corte Suprema"
         },
@@ -600,7 +600,7 @@
             "en": "Board of Supervisors",
             "es": "Consejo de Supervisores"
         },
-        "text_body_sf_ccb": {
+        "text_body_sf_college_board": {
             "en": "Community College Board",
             "es": "Consejo del Colegio Comunitario"
         },

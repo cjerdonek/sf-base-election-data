@@ -95,10 +95,10 @@ bodies:
     url: http://www.sfbos.org
     vote_method: RCV
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_Board_of_Supervisors
-  body_sf_ccb:
+  body_sf_college_board:
     category_id: category_school
     jurisdiction_id: SFCC
-    name_i18n: text_body_sf_ccb
+    name_i18n: text_body_sf_college_board
     office_name_i18n: text_office_member_community_college_board
     seat_count: 7
     term_length: 4
@@ -134,7 +134,7 @@ bodies:
     term_length: 6
     url: http://www.sfsuperiorcourt.org/
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court
-  body_us_hr:
+  body_us_house:
     category_id: category_federal
     district_type_id: district_type_us_hr
     jurisdiction_id: US

@@ -89,55 +89,55 @@ offices:
     twitter: sfdefender
     url: http://sfpublicdefender.org
   office_sf_boe_seats_3:
-    body_id: SF_BOE
+    body_id: body_sf_boe
     seat_count: 3
     seed_year: 2014
   office_sf_boe_seats_4:
-    body_id: SF_BOE
+    body_id: body_sf_boe
     seat_count: 4
     seed_year: 2012
   office_sf_bos_1:
-    body_id: SF_BOS
+    body_id: body_sf_bos
     district: 1
     seed_year: 2012
   office_sf_bos_10:
-    body_id: SF_BOS
+    body_id: body_sf_bos
     district: 10
     seed_year: 2014
   office_sf_bos_11:
-    body_id: SF_BOS
+    body_id: body_sf_bos
     district: 11
     seed_year: 2012
   office_sf_bos_2:
-    body_id: SF_BOS
+    body_id: body_sf_bos
     district: 2
     seed_year: 2014
   office_sf_bos_3:
-    body_id: SF_BOS
+    body_id: body_sf_bos
     district: 3
     seed_year: 2012
   office_sf_bos_4:
-    body_id: SF_BOS
+    body_id: body_sf_bos
     district: 4
     seed_year: 2014
   office_sf_bos_5:
-    body_id: SF_BOS
+    body_id: body_sf_bos
     district: 5
     seed_year: 2012
   office_sf_bos_6:
-    body_id: SF_BOS
+    body_id: body_sf_bos
     district: 6
     seed_year: 2014
   office_sf_bos_7:
-    body_id: SF_BOS
+    body_id: body_sf_bos
     district: 7
     seed_year: 2012
   office_sf_bos_8:
-    body_id: SF_BOS
+    body_id: body_sf_bos
     district: 8
     seed_year: 2014
   office_sf_bos_9:
-    body_id: SF_BOS
+    body_id: body_sf_bos
     district: 9
     seed_year: 2012
   office_sf_ccb_seats_3:
@@ -180,10 +180,10 @@ offices:
     name: Treasurer
     url: http://www.treasurer.ca.gov/
   office_us_hr_12:
-    body_id: US_HR
+    body_id: body_us_house
     district: 12
   office_us_hr_14:
-    body_id: US_HR
+    body_id: body_us_house
     district: 14
   office_usa_president_of_the_united_states:
     category_id: category_federal

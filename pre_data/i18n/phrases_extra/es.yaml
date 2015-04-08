@@ -17,7 +17,7 @@ texts:
   text_body_sf_bos:
     _en: Board of Supervisors
     es: Consejo de Supervisores
-  text_body_sf_ccb:
+  text_body_sf_college_board:
     _en: Community College Board
     es: Consejo del Colegio Comunitario
   text_body_sf_sc:

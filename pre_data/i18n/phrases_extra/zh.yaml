@@ -17,7 +17,7 @@ texts:
   text_body_sf_bos:
     _en: Board of Supervisors
     zh: null
-  text_body_sf_ccb:
+  text_body_sf_college_board:
     _en: Community College Board
     zh: null
   text_body_sf_sc:
