@@ -15,7 +15,7 @@ district_types:
     name: Court of Appeal Divisions, First District
     parent_area_id: area_state_ca_court_app_d1
   district_type_ca_sa:
-    body_id: body_ca_sa
+    body_id: body_ca_state_assembly
     district_count: 80
     name: State Assembly Districts
     parent_area_id: area_state_ca

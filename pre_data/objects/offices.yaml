@@ -36,19 +36,19 @@ offices:
     name: Attorney General
     url: http://www.oag.ca.gov/
   office_bart_7:
-    body_id: BART
+    body_id: body_bart
     district: 7
   office_bart_8:
-    body_id: BART
+    body_id: body_bart
     district: 8
   office_bart_9:
-    body_id: BART
+    body_id: body_bart
     district: 9
   office_ca_sa_17:
-    body_id: CA_SA
+    body_id: body_ca_state_assembly
     district: 17
   office_ca_sa_19:
-    body_id: CA_SA
+    body_id: body_ca_state_assembly
     district: 19
   office_ca_ss_11:
     body_id: CA_SS
