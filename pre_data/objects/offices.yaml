@@ -51,7 +51,7 @@ offices:
     body_id: body_ca_state_assembly
     district: 19
   office_ca_ss_11:
-    body_id: CA_SS
+    body_id: body_ca_state_senate
     district: 11
   office_city_attorney:
     mixin_id: sf_common
@@ -141,11 +141,11 @@ offices:
     district: 9
     seed_year: 2012
   office_sf_ccb_seats_3:
-    body_id: SF_CCB
+    body_id: body_sf_college_board
     seat_count: 3
     seed_year: 2014
   office_sf_ccb_seats_4:
-    body_id: SF_CCB
+    body_id: body_sf_college_board
     seat_count: 4
     seed_year: 2012
   office_sheriff:

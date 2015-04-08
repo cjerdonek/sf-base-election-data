@@ -26,7 +26,7 @@ district_types:
     parent_area_id: area_state_ca
     wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts
   district_type_ca_ss:
-    body_id: body_ca_ss
+    body_id: body_ca_state_senate
     district_count: 40
     name: State Senate Districts
     parent_area_id: area_state_ca

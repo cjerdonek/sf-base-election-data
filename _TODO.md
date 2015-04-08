@@ -1,7 +1,7 @@
 TODO
 ====
 
-* Experiment with passing context along via custom tag.
+* Get both senators showing up on "Offices" page and in a DRY way.
 * Clean up & simplify the office HTML and JSON generation.
 * Move "row" templates to a rows directory.
 * Add jurisdiction to office & body (inherit from district type)?

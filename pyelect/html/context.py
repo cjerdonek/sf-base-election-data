@@ -166,13 +166,13 @@ def _set_context_election_info(context, json_data):
     context['next_election_year'] = _compute_next_election_year(json_data)
 
 
-def make_one_areas(object_id, json_data):
+def make_one_areas(object_id, json_data, html_data=None):
     keys = ('name', 'notes', 'wikipedia')
     context = _init_context(json_data, keys, object_id)
     return context
 
 
-def make_one_bodies(object_id, json_data, phrases):
+def make_one_bodies(object_id, json_data, phrases, html_data=None):
     keys = [
         'category_id',
         'district_type_id',
@@ -189,7 +189,7 @@ def make_one_bodies(object_id, json_data, phrases):
     return context
 
 
-def make_one_district_types(object_id, json_data, bodies):
+def make_one_district_types(object_id, json_data, bodies, html_data=None):
     keys = ('body_id', 'category_id', 'district_count', 'district_name_format', 'geographic',
             'name', 'parent_area_id', 'wikipedia')
     context = _init_context(json_data, keys, object_id)
@@ -203,23 +203,19 @@ def make_one_district_types(object_id, json_data, bodies):
     return context
 
 
-def make_one_election_methods(object_id, json_data):
+def make_one_election_methods(object_id, json_data, html_data=None):
     keys = ('name', 'notes')
     context = _init_context(json_data, keys, object_id)
     return context
 
 
-def make_one_languages(object_id, json_data):
+def make_one_languages(object_id, json_data, html_data=None):
     keys = ('name', 'code', 'notes')
     context = _init_context(json_data, keys, object_id)
     return context
 
 
-def make_one_offices(object_id, json_data, phrases):
-    # TODO: remove this logic.
-    if 'name_i18n' not in json_data:
-        return None
-
+def make_one_offices(object_id, json_data, html_data=None):
     keys = (
         'category_id',
         'election_method_id',
@@ -229,13 +225,26 @@ def make_one_offices(object_id, json_data, phrases):
         'url',
         'wikipedia'
     )
-    context = _init_context(json_data, keys, object_id)
-    _set_context_election_info(context, json_data)
+    html_item = _init_context(json_data, keys, object_id)
+    _set_context_election_info(html_item, json_data)
+
+    phrases = html_data[NodeNames.phrases]
+    if 'body_id' in json_data:
+        body_id = json_data['body_id']
+        bodies = html_data['bodies']
+        body = utils.get_required(bodies, body_id)
+        html_item['category_id'] = body['category_id']
+        html_item['name'] = body['name']
+
+    # TODO: remove these temporary measure.
+    if not html_item['category_id']:
+        return None
+    assert html_item['name']
 
     # TODO: use a real seat count.
-    context['seat_count'] = 1
+    html_item['seat_count'] = 1
 
-    return context
+    return html_item
 
 
 def add_english_fields(json_data, phrases):
@@ -267,7 +276,7 @@ def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
 
     objects = {}
     for object_id, json_object in json_node.items():
-        obj = make_object(object_id, json_object, **kwargs)
+        obj = make_object(object_id, json_object, html_data=context, **kwargs)
         # TODO: remove this hack (used to skip offices).
         if not obj:
             continue
@@ -307,7 +316,7 @@ def make_template_data(json_data, local_assets=False):
 
     bodies = add_context_node(context, json_data, 'bodies', phrases=phrases)
 
-    offices = add_context_node(context, json_data, 'offices', phrases=phrases)
+    offices = add_context_node(context, json_data, 'offices')
     office_count = sum([o['seat_count'] for o in offices.values()])
     context['office_count'] = office_count
 

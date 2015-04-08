@@ -49,7 +49,7 @@ bodies:
     term_length: 4
     url: http://www.boe.ca.gov/
     wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29
-  body_ca_ss:
+  body_ca_state_senate:
     category_id: category_state
     district_type_id: district_type_ca_ss
     jurisdiction_id: CA

@@ -71,17 +71,6 @@
             "url": "http://www.boe.ca.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29"
         },
-        "body_ca_ss": {
-            "category_id": "category_state",
-            "district_type_id": "district_type_ca_ss",
-            "jurisdiction_id": "CA",
-            "name": "California State Senate",
-            "partisan": true,
-            "seat_count": 40,
-            "term_length": 4,
-            "url": "http://senate.ca.gov/",
-            "wikipedia": "http://en.wikipedia.org/wiki/California_State_Senate"
-        },
         "body_ca_state_assembly": {
             "category_id": "category_state",
             "district_type_id": "district_type_ca_sa",
@@ -93,6 +82,17 @@
             "term_length": 2,
             "url": "http://assembly.ca.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/California_State_Assembly"
+        },
+        "body_ca_state_senate": {
+            "category_id": "category_state",
+            "district_type_id": "district_type_ca_ss",
+            "jurisdiction_id": "CA",
+            "name": "California State Senate",
+            "partisan": true,
+            "seat_count": 40,
+            "term_length": 4,
+            "url": "http://senate.ca.gov/",
+            "wikipedia": "http://en.wikipedia.org/wiki/California_State_Senate"
         },
         "body_sf_boe": {
             "category_id": "category_school",
@@ -245,7 +245,7 @@
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts"
         },
         "district_type_ca_ss": {
-            "body_id": "body_ca_ss",
+            "body_id": "body_ca_state_senate",
             "district_count": 40,
             "geographic": true,
             "name": "State Senate Districts",
@@ -382,7 +382,7 @@
             "district": 19
         },
         "office_ca_ss_11": {
-            "body_id": "CA_SS",
+            "body_id": "body_ca_state_senate",
             "district": 11
         },
         "office_city_attorney": {
@@ -503,12 +503,12 @@
             "seed_year": 2012
         },
         "office_sf_ccb_seats_3": {
-            "body_id": "SF_CCB",
+            "body_id": "body_sf_college_board",
             "seat_count": 3,
             "seed_year": 2014
         },
         "office_sf_ccb_seats_4": {
-            "body_id": "SF_CCB",
+            "body_id": "body_sf_college_board",
             "seat_count": 4,
             "seed_year": 2012
         },
