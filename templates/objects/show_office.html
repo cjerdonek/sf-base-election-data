@@ -1,6 +1,6 @@
 {% load custom_tags %}
-{% with office=object %}
-{% url_row 'Web' office.url %}
-{% cond_include office.twitter 'partials/row_twitter.html' office %}
-{% cond_include office.election_info 'partials/row_elections.html' office %}
-{% endwith %}
+{% info_row 'Partisan' object.partisan %}
+{% url_row_object 'Election Method' object.election_method_id 'election_methods' %}
+{% cond_include object.term_length 'rows/term_length.html' object %}
+{% info_row 'Next Election' object.next_election_year %}
+{% include 'rows_general_info.html' %}

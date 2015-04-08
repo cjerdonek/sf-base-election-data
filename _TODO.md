@@ -1,9 +1,12 @@
 TODO
 ====
 
+* Experiment with passing context along via custom tag.
+* Clean up & simplify the office HTML and JSON generation.
+* Move "row" templates to a rows directory.
+* Add jurisdiction to office & body (inherit from district type)?
 * Flesh out President and then US Senate (with districts and election method).
 * Edit notes for body: California Court of Appeal, First District
-* Add jurisdiction to body (inherit from district type)?
 * Change the i18n fields on body from the translations to the ID.
 * Add the following to SF Community College:
     name: San Francisco Community College District

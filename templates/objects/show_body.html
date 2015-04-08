@@ -2,7 +2,6 @@
 {% with body=object %}
 {% url_row_object 'District Type' object.district_type_id 'district_types' %}
 {% info_row 'Seats' body.seat_count %}
-{% cond_include body.election_info 'partials/row_elections.html' body %}
 {% url_row 'Web' body.url %}
 {% url_row 'Wikipedia' body.wikipedia %}
 {% info_row 'Notes' body.notes %}

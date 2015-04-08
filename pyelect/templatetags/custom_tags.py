@@ -34,9 +34,9 @@ def log_errors(func):
     # registration, for example when using @register.inclusion_tag().
     # See also: https://code.djangoproject.com/ticket/24586
     @wraps(func)
-    def wrapper(context, label, object_id, type_name):
+    def wrapper(context, *args, **kwargs):
         try:
-            return func(context, label, object_id, type_name)
+            return func(context, *args, **kwargs)
         except Exception as err:
             _log.warn("exception: {0}".format(err))
             traceback.print_exc()
@@ -86,30 +86,47 @@ def anchor(id_):
     }
 
 
-def _header_context(item_data, field_name, item_id):
+def update_context(context, extra):
+    # We do not use context.update() since that pushes onto the contest stack.
+    for key, value in extra.items():
+        context[key] = value
+    return context
+
+
+def _header_context(context, item_data, field_name, item_id):
+    assert 'phrases' in context
     try:
         name = item_data[field_name]
     except Exception as err:
         _log.warn("error: key={0}, item_data={1}".format(field_name, item_data))
         raise
     i18n_field_name = lang.get_i18n_field_name(field_name)
-    translations = item_data.get(i18n_field_name, {})
-    non_english = [translations[lang] for lang in NON_ENGLISH_ORDER if lang in translations]
-    return {
+    phrase_id = item_data.get(i18n_field_name)
+    non_english = []
+    if phrase_id:
+        phrases = context.get('phrases')
+        phrase = phrases[phrase_id]
+        non_english = [phrase[lang] for lang in NON_ENGLISH_ORDER if lang in phrase]
+
+    extra = {
         'header': name,
         'header_non_english': non_english,
         'header_id': item_id,
     }
+    update_context(context, extra)
+    return context
 
 
-@register.inclusion_tag('header_section.html')
-def header_section(item_data, field_name, item_id):
-    return _header_context(item_data, field_name, item_id)
+@register.inclusion_tag('header_section.html', takes_context=True)
+@log_errors
+def header_section(context, item_data, field_name, item_id):
+    return _header_context(context, item_data, field_name, item_id)
 
 
-@register.inclusion_tag('header_item.html')
-def header_item(item_data, field_name, item_id):
-    return _header_context(item_data, field_name, item_id)
+@register.inclusion_tag('header_item.html', takes_context=True)
+@log_errors
+def header_item(context, item_data, field_name, item_id):
+    return _header_context(context, item_data, field_name, item_id)
 
 
 @register.inclusion_tag('tags/cond_include.html')
@@ -174,10 +191,15 @@ def url_row_object(context, label, object_id, type_name):
 
 
 @register.inclusion_tag('list_objects.html', takes_context=True)
+@log_errors
 def list_objects(context, objects, title_attr):
-    return {
+    assert 'phrases' in context
+    extra = {
+        # TODO: do not pass context like this.
         'context': context,
         'current_show_template': context['current_show_template'],
         'objects': objects,
         'title_attr': title_attr
     }
+    update_context(context, extra)
+    return context
