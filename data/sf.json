@@ -1,6 +1,6 @@
 {
     "areas": {
-        "area_country_us": {
+        "area_country_usa": {
             "name": "United States of America",
             "wikipedia": "http://en.wikipedia.org/wiki/United_States"
         },
@@ -165,7 +165,7 @@
             "url": "http://www.sfsuperiorcourt.org/",
             "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court"
         },
-        "body_us_house": {
+        "body_usa_house": {
             "category_id": "category_federal",
             "district_type_id": "district_type_us_hr",
             "jurisdiction_id": "US",
@@ -178,13 +178,15 @@
             "url": "http://www.house.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/United_States_House_of_Representatives"
         },
-        "body_us_senate": {
+        "body_usa_senate": {
             "category_id": "category_federal",
             "district_type_id": "district_type_us_states",
             "jurisdiction_id": "US",
             "name": "United States Senate",
+            "office_name": "US Senator",
             "partisan": true,
             "seat_count": 100,
+            "seat_name_format": "{office_name}, {district_name} ({seed_year} election cycle)",
             "term_length": 6,
             "url": "http://www.senate.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/United_States_Senate"
@@ -260,18 +262,18 @@
             "parent_area_id": "area_county_sf"
         },
         "district_type_us_hr": {
-            "body_id": "body_us_house",
+            "body_id": "body_usa_house",
             "district_count": 435,
             "geographic": true,
             "name": "US Congressional Districts",
-            "parent_area_id": "area_country_us"
+            "parent_area_id": "area_country_usa"
         },
         "district_type_us_states": {
             "category_id": "category_federal",
             "district_count": 50,
             "geographic": true,
             "name": "US States",
-            "parent_area_id": "area_country_us"
+            "parent_area_id": "area_country_usa"
         }
     },
     "election_methods": {
@@ -556,11 +558,11 @@
             "url": "http://www.treasurer.ca.gov/"
         },
         "office_us_hr_12": {
-            "body_id": "body_us_house",
+            "body_id": "body_usa_house",
             "district": 12
         },
         "office_us_hr_14": {
-            "body_id": "body_us_house",
+            "body_id": "body_usa_house",
             "district": 14
         },
         "office_usa_president_of_the_united_states": {
@@ -573,13 +575,13 @@
             "url": "https://www.whitehouse.gov/"
         },
         "office_usa_senate_1": {
-            "body_id": "body_us_senate",
-            "district": "CA",
+            "body_id": "body_usa_senate",
+            "district_id": "CA",
             "seed_year": 2014
         },
         "office_usa_senate_2": {
-            "body_id": "body_us_senate",
-            "district": "CA",
+            "body_id": "body_usa_senate",
+            "district_id": "CA",
             "seed_year": 2012
         }
     },
