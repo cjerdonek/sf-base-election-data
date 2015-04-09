@@ -1,6 +1,9 @@
 TODO
 ====
 
+* Get district working for US Senate (with district that references area).
+* Switch Court district and remove geographic label.
+* Seat count for school board.
 * Clean up & simplify the office HTML and JSON generation.
 * Move "row" templates to a rows directory.
 * Add jurisdiction to office & body (inherit from district type)?

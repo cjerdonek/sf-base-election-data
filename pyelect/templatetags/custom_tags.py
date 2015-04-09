@@ -16,7 +16,7 @@ import traceback
 
 from django import template
 
-from pyelect.html.common import NON_ENGLISH_ORDER
+from pyelect.html.common import CATEGORY_ORDER, NON_ENGLISH_ORDER
 from pyelect.html import pages
 from pyelect import lang
 
@@ -200,6 +200,74 @@ def list_objects(context, objects, title_attr):
         'current_show_template': context['current_show_template'],
         'objects': objects,
         'title_attr': title_attr
+    }
+    update_context(context, extra)
+    return context
+
+
+def _group_by_category(objects):
+    by_category = {c: {} for c in CATEGORY_ORDER}
+    for obj in objects.values():
+        category_id = obj['category_id']
+        # Raises an exception if the object has an unrecognized category.
+        group = by_category[category_id]
+        object_id = obj['id']
+        group[object_id] = obj
+    return by_category
+
+
+@register.inclusion_tag('list_offices.html', takes_context=True)
+@log_errors
+def list_offices(context, offices):
+    assert 'phrases' in context
+    by_category = _group_by_category(offices)
+    extra = {
+        'current_show_template': context['current_show_template'],
+        'objects_by_category': by_category,
+    }
+    update_context(context, extra)
+    return context
+
+
+def _group_by_member_name(offices):
+    by_member_name = {}
+    for office in offices.values():
+        member_name = office.get('member_name', None)
+        group = by_member_name.setdefault(member_name, [])
+        group.append(office)
+    return by_member_name
+
+
+@register.inclusion_tag('show_offices_category.html', takes_context=True)
+@log_errors
+def show_offices_category(context, category_info):
+    """
+    Arguments:
+      category_info: a map from office_id to office object.
+    """
+    assert 'phrases' in context
+    by_member_name = _group_by_member_name(category_info)
+    member_names = list(by_member_name.keys())
+
+    sorted_member_names = []
+    if None in member_names:
+        member_names.remove(None)
+        sorted_member_names.append(None)
+    sorted_member_names.extend(sorted(member_names))
+
+    bodies = []
+    for member_name in sorted_member_names:
+        offices = by_member_name[member_name]
+        sample_office = offices[0]
+        body = {
+            'body_id': sample_office['body_id'],
+            'member_name': member_name,
+            'offices': offices,
+        }
+        bodies.append(body)
+
+    extra = {
+        'grouped_offices': bodies
     }
     update_context(context, extra)
     return context

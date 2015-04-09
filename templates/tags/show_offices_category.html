@@ -1,0 +1,14 @@
+{% load custom_tags %}
+
+{% block show_category %}
+{% for body in grouped_offices %}
+{% with header=body.member_name header_id=body.body_id %}
+{% if header %}
+<h4>{% include "header_text.html" %}</h4>
+{% endif %}
+{% list_objects body.offices|dictsort:'name' 'name' %}
+{% endwith %}
+{% endfor %}
+{% comment %}
+{% endcomment %}
+{% endblock %}
