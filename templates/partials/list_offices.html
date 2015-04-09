@@ -1,0 +1,9 @@
+{% extends "list_objects_by_category.html" %}
+
+{% load custom_tags %}
+
+{% block show_category %}
+{% with objects=objects_map.values|dictsort:"name" %}
+{% list_objects objects 'name' %}
+{% endwith %}
+{% endblock %}
