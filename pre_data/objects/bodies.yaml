@@ -49,16 +49,6 @@ bodies:
     term_length: 4
     url: http://www.boe.ca.gov/
     wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29
-  body_ca_state_senate:
-    category_id: category_state
-    district_type_id: district_type_ca_ss
-    jurisdiction_id: CA
-    name: California State Senate
-    partisan: true
-    seat_count: 40
-    term_length: 4
-    url: http://senate.ca.gov/
-    wikipedia: http://en.wikipedia.org/wiki/California_State_Senate
   body_ca_state_assembly:
     category_id: category_state
     district_type_id: district_type_ca_sa
@@ -70,6 +60,16 @@ bodies:
     term_length: 2
     url: http://assembly.ca.gov/
     wikipedia: http://en.wikipedia.org/wiki/California_State_Assembly
+  body_ca_state_senate:
+    category_id: category_state
+    district_type_id: district_type_ca_ss
+    jurisdiction_id: CA
+    name: California State Senate
+    partisan: true
+    seat_count: 40
+    term_length: 4
+    url: http://senate.ca.gov/
+    wikipedia: http://en.wikipedia.org/wiki/California_State_Senate
   body_sf_boe:
     category_id: category_school
     jurisdiction_id: SF
@@ -134,7 +134,7 @@ bodies:
     term_length: 6
     url: http://www.sfsuperiorcourt.org/
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court
-  body_us_house:
+  body_usa_house:
     category_id: category_federal
     district_type_id: district_type_us_hr
     jurisdiction_id: US
@@ -146,13 +146,15 @@ bodies:
     term_length: 2
     url: http://www.house.gov/
     wikipedia: http://en.wikipedia.org/wiki/United_States_House_of_Representatives
-  body_us_senate:
+  body_usa_senate:
     category_id: category_federal
     district_type_id: district_type_us_states
     jurisdiction_id: US
     name: United States Senate
+    office_name: US Senator
     partisan: true
     seat_count: 100
+    seat_name_format: '{office_name} ({seed_year} election cycle)'
     term_length: 6
     url: http://www.senate.gov/
     wikipedia: http://en.wikipedia.org/wiki/United_States_Senate

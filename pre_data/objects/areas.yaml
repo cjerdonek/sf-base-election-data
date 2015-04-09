@@ -2,7 +2,7 @@ _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
 areas:
-  area_country_us:
+  area_country_usa:
     name: United States of America
     wikipedia: http://en.wikipedia.org/wiki/United_States
   area_county_sf:

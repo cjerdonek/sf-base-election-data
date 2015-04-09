@@ -180,10 +180,10 @@ offices:
     name: Treasurer
     url: http://www.treasurer.ca.gov/
   office_us_hr_12:
-    body_id: body_us_house
+    body_id: body_usa_house
     district: 12
   office_us_hr_14:
-    body_id: body_us_house
+    body_id: body_usa_house
     district: 14
   office_usa_president_of_the_united_states:
     category_id: category_federal
@@ -194,10 +194,10 @@ offices:
     twitter: WhiteHouse
     url: https://www.whitehouse.gov/
   office_usa_senate_1:
-    body_id: body_us_senate
-    district: CA
+    body_id: body_usa_senate
+    district_id: CA
     seed_year: 2014
   office_usa_senate_2:
-    body_id: body_us_senate
-    district: CA
+    body_id: body_usa_senate
+    district_id: CA
     seed_year: 2012
