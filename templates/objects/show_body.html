@@ -5,7 +5,5 @@
 {% info_row 'Seats' body.seat_count %}
 {% info_row 'Seat Name' body.seat_name_format %}
 {% include 'office_info.html' %}
-{% url_row 'Web' body.url %}
-{% url_row 'Wikipedia' body.wikipedia %}
-{% info_row 'Notes' body.notes %}
+{% include 'rows_general_info.html' %}
 {% endwith %}

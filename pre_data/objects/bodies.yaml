@@ -154,7 +154,7 @@ bodies:
     office_name: US Senator
     partisan: true
     seat_count: 100
-    seat_name_format: '{office_name}, {district_name} ({seed_year} election cycle)'
+    seat_name_format: '{office_name}, {district_name} ({seat_value})'
     term_length: 6
     url: http://www.senate.gov/
     wikipedia: http://en.wikipedia.org/wiki/United_States_Senate

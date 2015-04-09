@@ -223,9 +223,11 @@ def make_one_offices(object_id, json_data, html_data=None):
     keys = [
         'body_id',
         'district_id',
+        'seat_value',
     ]
     keys.extend(OFFICE_BODY_COMMON_KEYS)
     html_item = _init_html_object_data(json_data, keys, object_id)
+    html_item['district_name'] = html_item['district_id']
 
     inherited_keys = ('seed_year', 'term_length')
     effective = {k: html_item[k] for k in inherited_keys}
@@ -236,7 +238,13 @@ def make_one_offices(object_id, json_data, html_data=None):
         bodies = html_data['bodies']
         body = utils.get_required(bodies, body_id)
         html_item['category_id'] = body['category_id']
-        html_item['name'] = body['office_name']
+        html_item['office_name'] = body['office_name']
+        seat_name_format = body['seat_name_format']
+        if seat_name_format is None:
+            seat_name = html_item['office_name']
+        else:
+            seat_name = seat_name_format.format(**html_item)
+        html_item['name'] = seat_name
         for k in inherited_keys:
             if effective[k] is None:
                 effective[k] = body[k]
