@@ -210,8 +210,13 @@ def make_one_district_types(object_id, json_data, bodies, html_data=None):
 
 
 def make_one_election_methods(object_id, json_data, html_data=None):
-    keys = ('name', 'notes')
+    keys = [
+        'name',
+        'notes',
+        'wikipedia',
+    ]
     context = _init_html_object_data(json_data, keys, object_id)
+    print(context)
     return context
 
 
