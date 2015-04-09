@@ -40,6 +40,20 @@ category_judicial
 category_party
 """.strip().splitlines()
 
+OFFICE_BODY_COMMON_KEYS = [
+    'category_id',
+    'election_method_id',
+    'jurisdiction_id',
+    'name',
+    'notes',
+    'partisan',
+    'seed_year',
+    'term_length',
+    'twitter',
+    'url',
+    'wikipedia'
+]
+
 
 class NodeNames(object):
 
@@ -95,19 +109,18 @@ def make_category_map(all_json, phrases):
 
     category_map = {}
     for category_id, category_json in categories_json.items():
-        category = _init_context(category_json, keys, category_id)
-        _set_context_election_info(category, category_json)
+        category = _init_html_object_data(category_json, keys, category_id)
         category_map[category_id] = category
 
     return category_map
 
 
-def _compute_next_election_year(office_json):
-    term_length = office_json.get('term_length')
+def _compute_next_election_year(json_data):
+    term_length = json_data.get('term_length')
     # TODO: make this required.
     if not term_length:
         return None
-    seed_year = office_json.get('seed_year')
+    seed_year = json_data.get('seed_year')
     if seed_year is None:
         return None
 
@@ -141,58 +154,49 @@ def make_phrases(json_data):
     return phrases
 
 
-def _set_context(context, json_data, keys):
+def _set_html_object_data(html_data, json_data, keys):
     for key in keys:
-        context[key] = json_data.get(key, None)
+        value = json_data.get(key, None)
+        html_data[key] = value
         # Include internationalized values when they are available, for all fields.
         i18n_key = lang.get_i18n_field_name(key)
-        context[i18n_key] = json_data.get(i18n_key, None)
+        html_data[i18n_key] = json_data.get(i18n_key, None)
 
 
-def _init_context(json_data, keys, object_id):
+def _init_html_object_data(json_data, keys, object_id):
     context = {'id': object_id}
-    _set_context(context, json_data, keys)
+    _set_html_object_data(context, json_data, keys)
     return context
 
 
-def _set_context_election_info(context, json_data):
-    keys = [
-        'election_method_id',
-        'partisan',
-        'term_length',  # "* year term"
-        'vote_method',  # TODO: remove this.
-    ]
-    _set_context(context, json_data, keys)
-    context['next_election_year'] = _compute_next_election_year(json_data)
+def _set_html_election_data(html_data, json_data):
+    html_data['next_election_year'] = _compute_next_election_year(json_data)
 
 
 def make_one_areas(object_id, json_data, html_data=None):
     keys = ('name', 'notes', 'wikipedia')
-    context = _init_context(json_data, keys, object_id)
+    context = _init_html_object_data(json_data, keys, object_id)
     return context
 
 
 def make_one_bodies(object_id, json_data, phrases, html_data=None):
     keys = [
-        'category_id',
         'district_type_id',
-        'name',
-        'notes',
+        'office_name',
         'seat_count',
-        'twitter',
-        'url',
-        'wikipedia'
+        'seat_name_format',
     ]
-    context = _init_context(json_data, keys, object_id)
-    _set_context_election_info(context, json_data)
+    keys.extend(OFFICE_BODY_COMMON_KEYS)
+    html_data = _init_html_object_data(json_data, keys, object_id)
+    _set_html_election_data(html_data, json_data)
 
-    return context
+    return html_data
 
 
 def make_one_district_types(object_id, json_data, bodies, html_data=None):
     keys = ('body_id', 'category_id', 'district_count', 'district_name_format', 'geographic',
             'name', 'parent_area_id', 'wikipedia')
-    context = _init_context(json_data, keys, object_id)
+    context = _init_html_object_data(json_data, keys, object_id)
     if not context['category_id']:
         body_id = context.get('body_id')
         body = bodies[body_id]
@@ -205,28 +209,26 @@ def make_one_district_types(object_id, json_data, bodies, html_data=None):
 
 def make_one_election_methods(object_id, json_data, html_data=None):
     keys = ('name', 'notes')
-    context = _init_context(json_data, keys, object_id)
+    context = _init_html_object_data(json_data, keys, object_id)
     return context
 
 
 def make_one_languages(object_id, json_data, html_data=None):
     keys = ('name', 'code', 'notes')
-    context = _init_context(json_data, keys, object_id)
+    context = _init_html_object_data(json_data, keys, object_id)
     return context
 
 
 def make_one_offices(object_id, json_data, html_data=None):
-    keys = (
-        'category_id',
-        'election_method_id',
-        'name',
-        'notes',
-        'twitter',
-        'url',
-        'wikipedia'
-    )
-    html_item = _init_context(json_data, keys, object_id)
-    _set_context_election_info(html_item, json_data)
+    keys = [
+        'body_id',
+        'district_id',
+    ]
+    keys.extend(OFFICE_BODY_COMMON_KEYS)
+    html_item = _init_html_object_data(json_data, keys, object_id)
+
+    inherited_keys = ('seed_year', 'term_length')
+    effective = {k: html_item[k] for k in inherited_keys}
 
     phrases = html_data[NodeNames.phrases]
     if 'body_id' in json_data:
@@ -234,16 +236,21 @@ def make_one_offices(object_id, json_data, html_data=None):
         bodies = html_data['bodies']
         body = utils.get_required(bodies, body_id)
         html_item['category_id'] = body['category_id']
-        html_item['name'] = body['name']
+        html_item['name'] = body['office_name']
+        for k in inherited_keys:
+            if effective[k] is None:
+                effective[k] = body[k]
+
+    _set_html_election_data(html_item, effective)
 
     # TODO: remove these temporary measure.
-    if not html_item['category_id']:
+    if not html_item['category_id'] or not html_item['name']:
         return None
-    assert html_item['name']
 
     # TODO: use a real seat count.
     html_item['seat_count'] = 1
 
+    assert html_item['name']
     return html_item
 
 

@@ -1,0 +1,4 @@
+{% load custom_tags %}
+{% info_row 'Partisan' object.partisan %}
+{% url_row_object 'Election Method' object.election_method_id 'election_methods' %}
+{% cond_include object.term_length 'rows/term_length.html' object %}

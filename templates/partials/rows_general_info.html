@@ -1,0 +1,5 @@
+{% load custom_tags %}
+{% url_row 'Web' object.url %}
+{% cond_include object.twitter 'partials/row_twitter.html' object %}
+{% url_row 'Wikipedia' object.wikipedia %}
+{% info_row 'Notes' object.notes %}

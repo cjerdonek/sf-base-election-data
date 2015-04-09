@@ -576,12 +576,12 @@
         },
         "office_usa_senate_1": {
             "body_id": "body_usa_senate",
-            "district_id": "CA",
-            "seed_year": 2014
+            "district_id": "district_state_ca",
+            "seed_year": 2010
         },
         "office_usa_senate_2": {
             "body_id": "body_usa_senate",
-            "district_id": "CA",
+            "district_id": "district_state_ca",
             "seed_year": 2012
         }
     },
