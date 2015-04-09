@@ -196,10 +196,10 @@ offices:
   office_usa_senate_1:
     body_id: body_usa_senate
     district_id: district_state_ca
-    seat_value: Class 1
+    seat: 1
     seed_year: 2012
   office_usa_senate_2:
     body_id: body_usa_senate
     district_id: district_state_ca
-    seat_value: Class 3
+    seat: 3
     seed_year: 2010

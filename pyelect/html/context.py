@@ -182,7 +182,9 @@ def make_one_areas(object_id, json_data, html_data=None):
 def make_one_bodies(object_id, json_data, phrases, html_data=None):
     keys = [
         'district_type_id',
+        'member_name',
         'office_name',
+        'office_name_format',
         'seat_count',
         'seat_name_format',
     ]
@@ -223,7 +225,8 @@ def make_one_offices(object_id, json_data, html_data=None):
     keys = [
         'body_id',
         'district_id',
-        'seat_value',
+        'seat',
+        'seat_name',
     ]
     keys.extend(OFFICE_BODY_COMMON_KEYS)
     html_item = _init_html_object_data(json_data, keys, object_id)
@@ -238,13 +241,20 @@ def make_one_offices(object_id, json_data, html_data=None):
         bodies = html_data['bodies']
         body = utils.get_required(bodies, body_id)
         html_item['category_id'] = body['category_id']
-        html_item['office_name'] = body['office_name']
+        member_name = body['member_name']
+        html_item['member_name'] = member_name
+
         seat_name_format = body['seat_name_format']
-        if seat_name_format is None:
-            seat_name = html_item['office_name']
-        else:
+        if seat_name_format is not None:
             seat_name = seat_name_format.format(**html_item)
-        html_item['name'] = seat_name
+            html_item['seat_name'] = seat_name
+
+        office_name_format = body['office_name_format']
+        if office_name_format is None:
+            html_item['name'] = member_name
+        else:
+            office_name = office_name_format.format(**html_item)
+            html_item['name'] = office_name
         for k in inherited_keys:
             if effective[k] is None:
                 effective[k] = body[k]

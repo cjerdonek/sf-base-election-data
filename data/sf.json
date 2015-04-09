@@ -169,9 +169,9 @@
             "category_id": "category_federal",
             "district_type_id": "district_type_us_hr",
             "jurisdiction_id": "US",
+            "member_name": "United States Representative",
             "name": "United States House of Representatives",
             "notes": "There are also 6 non-voting members.",
-            "office_name": "United States Representative",
             "partisan": true,
             "seat_count": 435,
             "term_length": 2,
@@ -182,11 +182,12 @@
             "category_id": "category_federal",
             "district_type_id": "district_type_us_states",
             "jurisdiction_id": "US",
+            "member_name": "US Senator",
             "name": "United States Senate",
-            "office_name": "US Senator",
+            "office_name_format": "{member_name}, {district_name} ({seat_name})",
             "partisan": true,
             "seat_count": 100,
-            "seat_name_format": "{office_name}, {district_name} ({seat_value})",
+            "seat_name_format": "Class {seat}",
             "term_length": 6,
             "url": "http://www.senate.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/United_States_Senate"
@@ -577,13 +578,13 @@
         "office_usa_senate_1": {
             "body_id": "body_usa_senate",
             "district_id": "district_state_ca",
-            "seat_value": "Class 1",
+            "seat": 1,
             "seed_year": 2012
         },
         "office_usa_senate_2": {
             "body_id": "body_usa_senate",
             "district_id": "district_state_ca",
-            "seat_value": "Class 3",
+            "seat": 3,
             "seed_year": 2010
         }
     },

@@ -1,9 +1,8 @@
 {% load custom_tags %}
 {% with body=object %}
-{% info_row 'Office' body.office_name %}
 {% url_row_object 'District Type' object.district_type_id 'district_types' %}
+{% info_row 'Member' body.member_name %}
 {% info_row 'Seats' body.seat_count %}
-{% info_row 'Seat Name' body.seat_name_format %}
 {% include 'office_info.html' %}
 {% include 'rows_general_info.html' %}
 {% endwith %}

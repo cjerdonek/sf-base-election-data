@@ -3,11 +3,13 @@
 {% for category in categories %}
 {% with objects_map=current_objects_by_category|get_item:category.id %}
 {% if objects_map %}
-{% with objects=objects_map.values|dictsort:"name" %}
 {% header_section category 'name' category.id %}
+{% block show_category %}
+{% with objects=objects_map.values|dictsort:"name" %}
 {% list_objects objects 'name' %}
-<hr>
 {% endwith %}
+{% endblock %}
+<hr>
 {% endif %}
 {% endwith %}
 {% endfor %}
