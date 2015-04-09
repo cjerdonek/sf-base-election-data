@@ -2,7 +2,7 @@
 
 {% block show_category %}
 {% for body in grouped_offices %}
-{% with header=body.member_name header_id=body.body_id %}
+{% with header=body.member_name header_id=body.body_id header_non_english='' %}
 {% if header %}
 <h4>{% include "header_text.html" %}</h4>
 {% endif %}
