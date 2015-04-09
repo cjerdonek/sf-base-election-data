@@ -1,5 +1,5 @@
 {% extends "base/page.html" %}
 
 {% block content_body %}
-{% include 'list_objects_by_category.html' with by_category=district_types_by_category %}
+{% list_offices current_objects %}
 {% endblock %}

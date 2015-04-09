@@ -1,5 +1,7 @@
 {% extends "base/page.html" %}
 
+{% load custom_tags %}
+
 {% block content_intro_para %}
 Below is an incomplete list of offices that can appear on the
 ballot in a San Francisco election.
@@ -10,5 +12,5 @@ ballot in a San Francisco election.
 {% endblock %}
 
 {% block content_body %}
-{% include 'list_offices.html' %}
+{% list_offices current_objects %}
 {% endblock %}

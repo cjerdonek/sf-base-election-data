@@ -7,7 +7,7 @@ from pprint import pprint
 
 from django.template import Context
 
-from pyelect.html.common import NON_ENGLISH_ORDER
+from pyelect.html.common import CATEGORY_ORDER, NON_ENGLISH_ORDER
 from pyelect.html import pages
 from pyelect import lang
 from pyelect.lang import I18N_SUFFIX, LANG_ENGLISH
@@ -28,16 +28,6 @@ phrases
 languages
 areas
 election_methods
-""".strip().splitlines()
-
-CATEGORY_ORDER = """\
-category_federal
-category_state
-category_city_county
-category_school
-category_transit
-category_judicial
-category_party
 """.strip().splitlines()
 
 OFFICE_BODY_COMMON_KEYS = [
@@ -71,9 +61,6 @@ def make_template_context(data, page_base):
     if not objects:
         raise Exception("no objects for: {0}".format(page_base))
     context['current_objects'] = objects
-
-    objects_by_category = page.get_objects_by_category(data, categories=CATEGORY_ORDER)
-    context['current_objects_by_category'] = objects_by_category
 
     context['current_show_template'] = page.get_show_template()
 
@@ -216,7 +203,6 @@ def make_one_election_methods(object_id, json_data, html_data=None):
         'wikipedia',
     ]
     context = _init_html_object_data(json_data, keys, object_id)
-    print(context)
     return context
 
 
@@ -226,6 +212,7 @@ def make_one_languages(object_id, json_data, html_data=None):
     return context
 
 
+# TODO: simplify this and DRY up with make_one_bodies().
 def make_one_offices(object_id, json_data, html_data=None):
     keys = [
         'body_id',

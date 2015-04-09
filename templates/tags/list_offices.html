@@ -3,7 +3,5 @@
 {% load custom_tags %}
 
 {% block show_category %}
-{% with objects=objects_map.values|dictsort:"name" %}
-{% list_objects objects 'name' %}
-{% endwith %}
+{% show_offices_category category_info %}
 {% endblock %}
