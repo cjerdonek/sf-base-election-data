@@ -64,7 +64,6 @@ def make_object_areas(yaml_data):
 
 
 def make_object_district_types(yaml_data):
-    yaml_data.setdefault('geographic', True)
     return yaml_data
 
 

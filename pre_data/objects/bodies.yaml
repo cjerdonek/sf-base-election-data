@@ -14,7 +14,7 @@ bodies:
     vote_method: FPTP
   body_ca_court_app:
     category_id: category_judicial
-    district_type_id: district_type_ca_court_app_d1
+    district_type_id: district_type_ca_court_appeal
     jurisdiction_id: CA
     name_i18n: text_body_ca_court_app
     notes: The state has six geographic appellate districts. The first district, which

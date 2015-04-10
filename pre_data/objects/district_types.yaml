@@ -7,13 +7,12 @@ district_types:
     district_count: 9
     name: BART Districts
     parent_area_id: area_state_ca_bart
-  district_type_ca_court_app_d1:
+  district_type_ca_court_appeal:
     body_id: body_ca_court_app
-    district_count: 5
-    district_name_format: Division {0}
-    geographic: false
-    name: Court of Appeal Divisions, First District
-    parent_area_id: area_state_ca_court_app_d1
+    district_count: 6
+    district_name_format: '{district_code} District'
+    name: Courts of Appeal Districts
+    parent_area_id: area_state_ca
   district_type_ca_sa:
     body_id: body_ca_state_assembly
     district_count: 80
