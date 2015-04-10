@@ -27,7 +27,6 @@ class _Page(object):
 
     _title = None
     _objects_name = None
-    by_category = False
     singular = None
 
     @property
@@ -61,22 +60,6 @@ class _Page(object):
         objects = data[objects_name]
         return objects
 
-    def get_objects_by_category(self, data, categories):
-        if not self.by_category:
-            return {}
-        objects_name = self.objects_name
-        objects = self.get_objects(data)
-        # We store the objects in each category as a dict for easier
-        # sorting within the Django template (i.e. using "dictsort").
-        by_category = {c: {} for c in categories}
-        for obj in objects.values():
-            category_id = obj['category_id']
-            # Raises an exception if the object has an unrecognized category.
-            group = by_category[category_id]
-            object_id = obj['id']
-            group[object_id] = obj
-        return by_category
-
     def get_show_template(self):
         """Return the name of the template that shows one instance."""
         singular = self.get_singular()
@@ -88,13 +71,12 @@ class AreasPage(_Page):
 
 
 class BodiesPage(_Page):
-    by_category = True
     singular = 'body'
     title = "Bodies"
 
 
 class DistrictTypesPage(_Page):
-    by_category = True
+    pass
 
 
 class ElectionMethodsPage(_Page):
@@ -103,7 +85,6 @@ class ElectionMethodsPage(_Page):
 
 class IndexPage(_Page):
     _objects_name = 'offices'
-    by_category = True
 
 
 class LanguagesPage(_Page):

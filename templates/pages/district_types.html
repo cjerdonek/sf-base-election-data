@@ -1,5 +1,7 @@
 {% extends "base/page.html" %}
 
+{% load custom_tags %}
+
 {% block content_body %}
-{% list_offices current_objects %}
+{% show_by_category current_objects %}
 {% endblock %}

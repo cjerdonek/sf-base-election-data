@@ -216,17 +216,26 @@ def _group_by_category(objects):
     return by_category
 
 
-@register.inclusion_tag('list_offices.html', takes_context=True)
-@log_errors
-def list_offices(context, offices):
+def _by_category_context(context, objects):
     assert 'phrases' in context
-    by_category = _group_by_category(offices)
+    by_category = _group_by_category(objects)
     extra = {
         'current_show_template': context['current_show_template'],
         'objects_by_category': by_category,
     }
     update_context(context, extra)
     return context
+
+@register.inclusion_tag('list_objects_by_category.html', takes_context=True)
+@log_errors
+def show_by_category(context, objects):
+    return _by_category_context(context, objects)
+
+
+@register.inclusion_tag('list_offices.html', takes_context=True)
+@log_errors
+def list_offices(context, offices):
+    return _by_category_context(context, offices)
 
 
 def _group_by_member_name(offices):
