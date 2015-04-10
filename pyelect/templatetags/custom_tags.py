@@ -95,10 +95,12 @@ def update_context(context, extra):
 
 def _header_context(context, item_data, field_name, item_id):
     assert 'phrases' in context
+    if isinstance(item_data, str):
+        raise Exception("item_data cannot be str: {0!r}".format(item_data))
     try:
         name = item_data[field_name]
-    except Exception as err:
-        _log.warn("error: key={0}, item_data={1}".format(field_name, item_data))
+    except KeyError as err:
+        _log.warn("error: key={0!r}, item_data={1}".format(field_name, repr(item_data)))
         raise
     i18n_field_name = lang.get_i18n_field_name(field_name)
     phrase_id = item_data.get(i18n_field_name)
@@ -238,13 +240,13 @@ def list_offices(context, offices):
     return _by_category_context(context, offices)
 
 
-def _group_by_member_name(offices):
-    by_member_name = {}
-    for office in offices.values():
-        member_name = office.get('member_name', None)
-        group = by_member_name.setdefault(member_name, [])
-        group.append(office)
-    return by_member_name
+def _group_by_attribute(objects, attr_name):
+    by_attr = {}
+    for obj in objects:
+        attr_value = obj.get(attr_name)
+        group = by_attr.setdefault(attr_value, [])
+        group.append(obj)
+    return by_attr
 
 
 @register.inclusion_tag('show_offices_category.html', takes_context=True)
@@ -255,28 +257,40 @@ def show_offices_category(context, category_info):
       category_info: a map from office_id to office object.
     """
     assert 'phrases' in context
-    by_member_name = _group_by_member_name(category_info)
-    member_names = list(by_member_name.keys())
+    bodies = context['bodies']
+    offices = category_info.values()
+    # Map from body_id to list of offices.
+    by_body_id = _group_by_attribute(offices, 'body_id')
+    body_ids = by_body_id.keys()
 
-    sorted_member_names = []
-    if None in member_names:
-        member_names.remove(None)
-        sorted_member_names.append(None)
-    sorted_member_names.extend(sorted(member_names))
+    def body_cmp_key(body_id):
+        """Sort by body name."""
+        if body_id is None:
+            return ""
+        body = bodies[body_id]
+        body_name = body['name']
+        return body_name
 
-    bodies = []
-    for member_name in sorted_member_names:
-        offices = by_member_name[member_name]
-        sample_office = offices[0]
-        body = {
-            'body_id': sample_office['body_id'],
-            'member_name': member_name,
+    body_ids = sorted(body_ids, key=body_cmp_key)
+
+    groups = []
+    for body_id in body_ids:
+        offices = by_body_id[body_id]
+        try:
+            body = bodies[body_id]
+        except KeyError:
+            body_name = None
+        else:
+            body_name = body['name']
+        group = {
+            'body_id': body_id,
+            'body_name': body_name,
             'offices': offices,
         }
-        bodies.append(body)
+        groups.append(group)
 
     extra = {
-        'grouped_offices': bodies
+        'grouped_offices': groups
     }
     update_context(context, extra)
     return context
