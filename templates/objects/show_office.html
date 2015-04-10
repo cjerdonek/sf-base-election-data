@@ -1,7 +1,6 @@
 {% load custom_tags %}
 {% url_row_object 'Body' object.body_id 'bodies' %}
 {% include 'office_info.html' %}
-{% info_row 'Next Election' object.next_election_year %}
 {% info_row 'District ID' object.district_id %}
 {% info_row 'Seat' object.seat_name %}
 {% include 'rows_general_info.html' %}

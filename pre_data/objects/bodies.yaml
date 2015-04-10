@@ -137,12 +137,15 @@ bodies:
   body_usa_house:
     category_id: category_federal
     district_type_id: district_type_us_hr
+    election_method_id: election_method_top_two
     jurisdiction_id: US
-    member_name: United States Representative
+    member_name: U.S. Representative
     name: United States House of Representatives
     notes: There are also 6 non-voting members.
+    office_name_format: '{member_name}, {district_name}'
     partisan: true
     seat_count: 435
+    seed_year: 2010
     term_length: 2
     url: http://www.house.gov/
     wikipedia: http://en.wikipedia.org/wiki/United_States_House_of_Representatives
@@ -151,7 +154,7 @@ bodies:
     district_type_id: district_type_us_states
     election_method_id: election_method_top_two
     jurisdiction_id: US
-    member_name: US Senator
+    member_name: U.S. Senator
     name: United States Senate
     office_name_format: '{member_name}, {district_name} ({seat_name})'
     partisan: true

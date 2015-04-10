@@ -16,6 +16,7 @@ Variables:
 {% for object in objects %}
 {% spaceless %}
 {% header_item object title_attr object.id %}
-{% include current_show_template %}<p>
+{% include current_show_template %}
+<p>
 {% endspaceless %}
 {% endfor %}

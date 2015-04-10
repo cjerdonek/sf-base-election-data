@@ -181,15 +181,15 @@ offices:
     url: http://www.treasurer.ca.gov/
   office_us_hr_12:
     body_id: body_usa_house
-    district: 12
+    district_id: district_usa_house_12
   office_us_hr_14:
     body_id: body_usa_house
-    district: 14
+    district_id: district_usa_house_14
   office_usa_president_of_the_united_states:
     category_id: category_federal
     election_method_id: election_method_presidential
     name_i18n: text_office_usa_president_of_the_united_states
-    seed_year: 2016
+    seed_year: 2000
     term_length: 4
     twitter: WhiteHouse
     url: https://www.whitehouse.gov/
@@ -197,9 +197,9 @@ offices:
     body_id: body_usa_senate
     district_id: district_state_ca
     seat: 1
-    seed_year: 2012
+    seed_year: 2000
   office_usa_senate_2:
     body_id: body_usa_senate
     district_id: district_state_ca
     seat: 3
-    seed_year: 2010
+    seed_year: 2004
