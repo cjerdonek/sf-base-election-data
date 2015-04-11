@@ -27,14 +27,6 @@ offices:
   CA_SC_CJ:
     body_id: body_ca_court_supreme
     name: Chief Justice
-  office_assessor_recorder:
-    mixin_id: sf_common
-    name_i18n: text_office_assessor_recorder
-    seed_year: 2014
-    url: http://www.sfassessor.org
-  office_attorney_general:
-    name: Attorney General
-    url: http://www.oag.ca.gov/
   office_bart_7:
     body_id: body_bart
     district: 7
@@ -44,147 +36,157 @@ offices:
   office_bart_9:
     body_id: body_bart
     district: 9
+  office_ca_attorney_general:
+    mixin_id: ca_common
+    name: Attorney General
+    url: http://www.oag.ca.gov/
   office_ca_controller:
     mixin_id: ca_common
     name: Controller
     url: http://www.sco.ca.gov/
-  office_ca_sa_17:
-    body_id: body_ca_state_assembly
-    district: 17
-  office_ca_sa_19:
-    body_id: body_ca_state_assembly
-    district: 19
-  office_ca_ss_11:
-    body_id: body_ca_state_senate
-    district: 11
-  office_city_attorney:
-    mixin_id: sf_common
-    name_i18n: text_office_city_attorney
-    seed_year: 2015
-    twitter: SFCityAttorney
-    url: http://www.sfcityattorney.org
-  office_city_district_attorney:
-    mixin_id: sf_common
-    name_i18n: text_office_city_district_attorney
-    seed_year: 2015
-    twitter: SFDAOffice
-    url: http://www.sfdistrictattorney.org
-  office_city_treasurer:
-    mixin_id: sf_common
-    name_i18n: text_office_city_treasurer
-    seed_year: 2015
-    twitter: TreasurerSF
-    url: http://sftreasurer.org
-  office_ca_insurance_commissioner:
-    mixin_id: ca_common
-    name: Insurance Commissioner
-    url: http://www.insurance.ca.gov/
-  office_mayor:
-    mixin_id: sf_common
-    name_i18n: text_office_mayor
-    seed_year: 2015
-    url: http://www.sfmayor.org
-  office_public_defender:
-    mixin_id: sf_common
-    name_i18n: text_office_public_defender
-    seed_year: 2014
-    twitter: sfdefender
-    url: http://sfpublicdefender.org
-  office_sf_boe_seats_3:
-    body_id: body_sf_boe
-    seat_count: 3
-    seed_year: 2014
-  office_sf_boe_seats_4:
-    body_id: body_sf_boe
-    seat_count: 4
-    seed_year: 2012
-  office_sf_bos_1:
-    body_id: body_sf_bos
-    district: 1
-    seed_year: 2012
-  office_sf_bos_10:
-    body_id: body_sf_bos
-    district: 10
-    seed_year: 2014
-  office_sf_bos_11:
-    body_id: body_sf_bos
-    district: 11
-    seed_year: 2012
-  office_sf_bos_2:
-    body_id: body_sf_bos
-    district: 2
-    seed_year: 2014
-  office_sf_bos_3:
-    body_id: body_sf_bos
-    district: 3
-    seed_year: 2012
-  office_sf_bos_4:
-    body_id: body_sf_bos
-    district: 4
-    seed_year: 2014
-  office_sf_bos_5:
-    body_id: body_sf_bos
-    district: 5
-    seed_year: 2012
-  office_sf_bos_6:
-    body_id: body_sf_bos
-    district: 6
-    seed_year: 2014
-  office_sf_bos_7:
-    body_id: body_sf_bos
-    district: 7
-    seed_year: 2012
-  office_sf_bos_8:
-    body_id: body_sf_bos
-    district: 8
-    seed_year: 2014
-  office_sf_bos_9:
-    body_id: body_sf_bos
-    district: 9
-    seed_year: 2012
-  office_sf_ccb_seats_3:
-    body_id: body_sf_college_board
-    seat_count: 3
-    seed_year: 2014
-  office_sf_ccb_seats_4:
-    body_id: body_sf_college_board
-    seat_count: 4
-    seed_year: 2012
-  office_sheriff:
-    mixin_id: sf_common
-    name_i18n: text_office_sheriff
-    seed_year: 2015
-    twitter: SheriffSF
-    url: http://www.sfsheriff.com
-  office_state_governor:
+  office_ca_governor:
     mixin_id: ca_common
     name_i18n: text_office_state_governor
     seed_year: 2014
     url: http://www.gov.ca.gov
-  office_state_lieutenant_governor:
+  office_ca_insurance_commissioner:
+    mixin_id: ca_common
+    name: Insurance Commissioner
+    url: http://www.insurance.ca.gov/
+  office_ca_lieutenant_governor:
     mixin_id: ca_common
     name_i18n: text_office_state_lieutenant_governor
     seed_year: 2014
     url: http://www.ltg.ca.gov/
-  office_state_secretary:
+  office_ca_secretary:
     mixin_id: ca_common
     name_i18n: text_office_state_secretary
     seed_year: 2014
     twitter: sosnews
     url: http://www.sos.ca.gov/
-  office_superintendent_of_public_instruction:
+  office_ca_state_assembly_17:
+    body_id: body_ca_state_assembly
+    district: 17
+  office_ca_state_assembly_19:
+    body_id: body_ca_state_assembly
+    district: 19
+  office_ca_state_senate_11:
+    body_id: body_ca_state_senate
+    district: 11
+  office_ca_superintendent_of_public_instruction:
     mixin_id: ca_common
-    name_i18n: text_office_superintendent_of_public_instruction
+    name_i18n: text_office_state_superintendent_of_public_instruction
     partisan: false
     seed_year: 2014
     url: http://www.cde.ca.gov/eo
-  office_treasurer:
+  office_ca_treasurer:
+    mixin_id: ca_common
     name: Treasurer
     url: http://www.treasurer.ca.gov/
-  office_us_hr_12:
+  office_sf_assessor_recorder:
+    mixin_id: sf_common
+    name_i18n: text_office_city_assessor_recorder
+    seed_year: 2014
+    url: http://www.sfassessor.org
+  office_sf_board_of_education_seats_3:
+    body_id: body_sf_board_of_education
+    seat_count: 3
+    seed_year: 2014
+  office_sf_board_of_education_seats_4:
+    body_id: body_sf_board_of_education
+    seat_count: 4
+    seed_year: 2012
+  office_sf_board_of_supervisors_1:
+    body_id: body_sf_board_of_supervisors
+    district: 1
+    seed_year: 2012
+  office_sf_board_of_supervisors_10:
+    body_id: body_sf_board_of_supervisors
+    district: 10
+    seed_year: 2014
+  office_sf_board_of_supervisors_11:
+    body_id: body_sf_board_of_supervisors
+    district: 11
+    seed_year: 2012
+  office_sf_board_of_supervisors_2:
+    body_id: body_sf_board_of_supervisors
+    district: 2
+    seed_year: 2014
+  office_sf_board_of_supervisors_3:
+    body_id: body_sf_board_of_supervisors
+    district: 3
+    seed_year: 2012
+  office_sf_board_of_supervisors_4:
+    body_id: body_sf_board_of_supervisors
+    district: 4
+    seed_year: 2014
+  office_sf_board_of_supervisors_5:
+    body_id: body_sf_board_of_supervisors
+    district: 5
+    seed_year: 2012
+  office_sf_board_of_supervisors_6:
+    body_id: body_sf_board_of_supervisors
+    district: 6
+    seed_year: 2014
+  office_sf_board_of_supervisors_7:
+    body_id: body_sf_board_of_supervisors
+    district: 7
+    seed_year: 2012
+  office_sf_board_of_supervisors_8:
+    body_id: body_sf_board_of_supervisors
+    district: 8
+    seed_year: 2014
+  office_sf_board_of_supervisors_9:
+    body_id: body_sf_board_of_supervisors
+    district: 9
+    seed_year: 2012
+  office_sf_city_attorney:
+    mixin_id: sf_common
+    name_i18n: text_office_city_attorney
+    seed_year: 2015
+    twitter: SFCityAttorney
+    url: http://www.sfcityattorney.org
+  office_sf_college_board_seats_3:
+    body_id: body_sf_college_board
+    seat_count: 3
+    seed_year: 2014
+  office_sf_college_board_seats_4:
+    body_id: body_sf_college_board
+    seat_count: 4
+    seed_year: 2012
+  office_sf_district_attorney:
+    mixin_id: sf_common
+    name_i18n: text_office_city_district_attorney
+    seed_year: 2015
+    twitter: SFDAOffice
+    url: http://www.sfdistrictattorney.org
+  office_sf_mayor:
+    mixin_id: sf_common
+    name_i18n: text_office_city_mayor
+    seed_year: 2015
+    url: http://www.sfmayor.org
+  office_sf_public_defender:
+    mixin_id: sf_common
+    name_i18n: text_office_city_public_defender
+    seed_year: 2014
+    twitter: sfdefender
+    url: http://sfpublicdefender.org
+  office_sf_sheriff:
+    mixin_id: sf_common
+    name_i18n: text_office_city_sheriff
+    seed_year: 2015
+    twitter: SheriffSF
+    url: http://www.sfsheriff.com
+  office_sf_treasurer:
+    mixin_id: sf_common
+    name_i18n: text_office_city_treasurer
+    seed_year: 2015
+    twitter: TreasurerSF
+    url: http://sftreasurer.org
+  office_usa_house_12:
     body_id: body_usa_house
     district_id: district_usa_house_12
-  office_us_hr_14:
+  office_usa_house_14:
     body_id: body_usa_house
     district_id: district_usa_house_14
   office_usa_president_of_the_united_states:

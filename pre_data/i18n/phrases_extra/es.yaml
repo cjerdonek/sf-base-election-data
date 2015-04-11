@@ -11,16 +11,16 @@ texts:
   text_body_ca_court_supreme:
     _en: Supreme Court of California
     es: Corte Suprema
-  text_body_sf_boe:
+  text_body_city_board_of_education:
     _en: Board of Education
     es: Consejo de Educación
-  text_body_sf_bos:
+  text_body_city_board_of_supervisors:
     _en: Board of Supervisors
     es: Consejo de Supervisores
-  text_body_sf_college_board:
+  text_body_city_college_board:
     _en: Community College Board
     es: Consejo del Colegio Comunitario
-  text_body_sf_sc:
+  text_body_city_sc:
     _en: Superior Court of San Francisco
     es: Tribunal Superior
   text_district_assembly_format:

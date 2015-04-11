@@ -65,15 +65,16 @@ bodies:
     district_type_id: district_type_ca_ss
     jurisdiction_id: CA
     name: California State Senate
+    office_name_format: State Senator
     partisan: true
     seat_count: 40
     term_length: 4
     url: http://senate.ca.gov/
     wikipedia: http://en.wikipedia.org/wiki/California_State_Senate
-  body_sf_boe:
+  body_sf_board_of_education:
     category_id: category_school
     jurisdiction_id: SF
-    name_i18n: text_body_sf_boe
+    name_i18n: text_body_city_board_of_education
     office_name_i18n: text_office_member_board_of_education
     partisan: false
     seat_count: 7
@@ -81,12 +82,12 @@ bodies:
     url: http://www.sfusd.edu/en/about-sfusd/board-of-education
     vote_method: FPTP
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_Board_of_Education
-  body_sf_bos:
+  body_sf_board_of_supervisors:
     category_id: category_city_county
-    district_type_id: district_type_sf_bos
+    district_type_id: district_type_sf_board_of_supervisors
     jurisdiction_id: SF
     localwiki: https://localwiki.org/sf/Board_of_Supervisors
-    name_i18n: text_body_sf_bos
+    name_i18n: text_body_city_board_of_supervisors
     office_name_i18n: text_office_member_board_of_supervisors
     partisan: false
     qualified_name: San Francisco Board of Supervisors
@@ -98,7 +99,7 @@ bodies:
   body_sf_college_board:
     category_id: category_school
     jurisdiction_id: SFCC
-    name_i18n: text_body_sf_college_board
+    name_i18n: text_body_city_college_board
     office_name_i18n: text_office_member_community_college_board
     seat_count: 7
     term_length: 4
@@ -127,7 +128,7 @@ bodies:
   body_sf_sc:
     category_id: category_judicial
     jurisdiction_id: SF
-    name_i18n: text_body_sf_sc
+    name_i18n: text_body_city_sc
     notes: The San Francisco Superior Court Bench is comprised of 52 Judges and one
       Commissioner.
     office_name_i18n: text_office_member_body_sf_sc

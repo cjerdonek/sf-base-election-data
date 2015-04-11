@@ -34,16 +34,12 @@ texts:
     en: STATE PROPOSITIONS
   text_header_voter_nominated_offices:
     en: VOTER-NOMINATED OFFICES
-  text_office_assessor_recorder:
-    en: ASSESSOR-RECORDER
-  text_office_assessor_recorder_edge:
-    en: ASSESSOR-RECORDER
   text_office_bart_director:
     en: BART DIRECTOR
-  text_office_ca_controller:
-    en: CONTROLLER
-  text_office_ca_controller_edge:
-    en: CONTROLLER
+  text_office_city_assessor_recorder:
+    en: ASSESSOR-RECORDER
+  text_office_city_assessor_recorder_edge:
+    en: ASSESSOR-RECORDER
   text_office_city_attorney:
     en: CITY ATTORNEY
   text_office_city_attorney_edge:
@@ -52,16 +48,24 @@ texts:
     en: DISTRICT ATTORNEY
   text_office_city_district_attorney_edge:
     en: DISTRICT ATTORNEY
+  text_office_city_mayor:
+    en: MAYOR
+  text_office_city_mayor_edge:
+    en: MAYOR
+  text_office_city_public_defender:
+    en: PUBLIC DEFENDER
+  text_office_city_public_defender_edge:
+    en: PUBLIC DEFENDER
+  text_office_city_sheriff:
+    en: SHERIFF
+  text_office_city_sheriff_edge:
+    en: SHERIFF
   text_office_city_treasurer:
     en: TREASURER
   text_office_city_treasurer_edge:
     en: TREASURER
   text_office_judge_of_the_superior_court:
     en: JUDGE OF THE SUPERIOR COURT,
-  text_office_mayor:
-    en: MAYOR
-  text_office_mayor_edge:
-    en: MAYOR
   text_office_member_board_of_education:
     en: MEMBER, BOARD OF EDUCATION
   text_office_member_board_of_education_edge:
@@ -88,18 +92,14 @@ texts:
     en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
   text_office_member_state_board_of_eq_d2_edge:
     en: BOARD OF EQUALIZATION D2
-  text_office_public_defender:
-    en: PUBLIC DEFENDER
-  text_office_public_defender_edge:
-    en: PUBLIC DEFENDER
-  text_office_sheriff:
-    en: SHERIFF
-  text_office_sheriff_edge:
-    en: SHERIFF
   text_office_state_attorney_general:
     en: ATTORNEY GENERAL
   text_office_state_attorney_general_edge:
     en: ATTORNEY GENERAL
+  text_office_state_controller:
+    en: CONTROLLER
+  text_office_state_controller_edge:
+    en: CONTROLLER
   text_office_state_governor:
     en: GOVERNOR
   text_office_state_governor_edge:
@@ -120,9 +120,9 @@ texts:
     en: STATE SENATOR
   text_office_state_senator_edge:
     en: STATE SENATOR
-  text_office_superintendent_of_public_instruction:
+  text_office_state_superintendent_of_public_instruction:
     en: SUPERINTENDENT OF PUBLIC INSTRUCTION
-  text_office_superintendent_of_public_instruction_edge:
+  text_office_state_superintendent_of_public_instruction_edge:
     en: SUP OF PUBLIC INSTRUCTN
   text_office_usa_president_and_vice_president:
     en: PRESIDENT AND VICE PRESIDENT

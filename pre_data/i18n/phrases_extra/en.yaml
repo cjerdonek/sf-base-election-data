@@ -9,13 +9,13 @@ texts:
     en: California Court of Appeal, First District
   text_body_ca_court_supreme:
     en: Supreme Court of California
-  text_body_sf_boe:
+  text_body_city_board_of_education:
     en: Board of Education
-  text_body_sf_bos:
+  text_body_city_board_of_supervisors:
     en: Board of Supervisors
-  text_body_sf_college_board:
+  text_body_city_college_board:
     en: Community College Board
-  text_body_sf_sc:
+  text_body_city_sc:
     en: Superior Court of San Francisco
   text_district_assembly_format:
     en: ASSEMBLY DISTRICT {0}

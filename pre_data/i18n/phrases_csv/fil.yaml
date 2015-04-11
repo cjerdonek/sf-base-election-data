@@ -50,20 +50,14 @@ texts:
   text_header_voter_nominated_offices:
     _en: VOTER-NOMINATED OFFICES
     fil: null
-  text_office_assessor_recorder:
-    _en: ASSESSOR-RECORDER
-    fil: null
-  text_office_assessor_recorder_edge:
-    _en: ASSESSOR-RECORDER
-    fil: null
   text_office_bart_director:
     _en: BART DIRECTOR
     fil: null
-  text_office_ca_controller:
-    _en: CONTROLLER
-    fil: Kontroler
-  text_office_ca_controller_edge:
-    _en: CONTROLLER
+  text_office_city_assessor_recorder:
+    _en: ASSESSOR-RECORDER
+    fil: null
+  text_office_city_assessor_recorder_edge:
+    _en: ASSESSOR-RECORDER
     fil: null
   text_office_city_attorney:
     _en: CITY ATTORNEY
@@ -77,6 +71,24 @@ texts:
   text_office_city_district_attorney_edge:
     _en: DISTRICT ATTORNEY
     fil: null
+  text_office_city_mayor:
+    _en: MAYOR
+    fil: null
+  text_office_city_mayor_edge:
+    _en: MAYOR
+    fil: null
+  text_office_city_public_defender:
+    _en: PUBLIC DEFENDER
+    fil: null
+  text_office_city_public_defender_edge:
+    _en: PUBLIC DEFENDER
+    fil: null
+  text_office_city_sheriff:
+    _en: SHERIFF
+    fil: null
+  text_office_city_sheriff_edge:
+    _en: SHERIFF
+    fil: null
   text_office_city_treasurer:
     _en: TREASURER
     fil: null
@@ -85,12 +97,6 @@ texts:
     fil: null
   text_office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
-    fil: null
-  text_office_mayor:
-    _en: MAYOR
-    fil: null
-  text_office_mayor_edge:
-    _en: MAYOR
     fil: null
   text_office_member_board_of_education:
     _en: MEMBER, BOARD OF EDUCATION
@@ -131,23 +137,17 @@ texts:
   text_office_member_state_board_of_eq_d2_edge:
     _en: BOARD OF EQUALIZATION D2
     fil: null
-  text_office_public_defender:
-    _en: PUBLIC DEFENDER
-    fil: null
-  text_office_public_defender_edge:
-    _en: PUBLIC DEFENDER
-    fil: null
-  text_office_sheriff:
-    _en: SHERIFF
-    fil: null
-  text_office_sheriff_edge:
-    _en: SHERIFF
-    fil: null
   text_office_state_attorney_general:
     _en: ATTORNEY GENERAL
     fil: Pangkalahatang Abugado
   text_office_state_attorney_general_edge:
     _en: ATTORNEY GENERAL
+    fil: null
+  text_office_state_controller:
+    _en: CONTROLLER
+    fil: Kontroler
+  text_office_state_controller_edge:
+    _en: CONTROLLER
     fil: null
   text_office_state_governor:
     _en: GOVERNOR
@@ -179,10 +179,10 @@ texts:
   text_office_state_senator_edge:
     _en: STATE SENATOR
     fil: null
-  text_office_superintendent_of_public_instruction:
+  text_office_state_superintendent_of_public_instruction:
     _en: SUPERINTENDENT OF PUBLIC INSTRUCTION
     fil: Superintendente ng Pampublikong Pagtuturo
-  text_office_superintendent_of_public_instruction_edge:
+  text_office_state_superintendent_of_public_instruction_edge:
     _en: SUP OF PUBLIC INSTRUCTN
     fil: null
   text_office_usa_president_and_vice_president:

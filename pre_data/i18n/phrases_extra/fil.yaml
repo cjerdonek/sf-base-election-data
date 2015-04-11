@@ -11,16 +11,16 @@ texts:
   text_body_ca_court_supreme:
     _en: Supreme Court of California
     fil: null
-  text_body_sf_boe:
+  text_body_city_board_of_education:
     _en: Board of Education
     fil: null
-  text_body_sf_bos:
+  text_body_city_board_of_supervisors:
     _en: Board of Supervisors
     fil: null
-  text_body_sf_college_board:
+  text_body_city_college_board:
     _en: Community College Board
     fil: null
-  text_body_sf_sc:
+  text_body_city_sc:
     _en: Superior Court of San Francisco
     fil: null
   text_district_assembly_format:

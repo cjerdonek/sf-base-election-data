@@ -50,30 +50,33 @@ texts:
   text_header_voter_nominated_offices:
     _en: VOTER-NOMINATED OFFICES
     zh: 選民提名職位
-  text_office_assessor_recorder:
-    _en: ASSESSOR-RECORDER
-    zh: 估值官-記錄官
   text_office_bart_director:
     _en: BART DIRECTOR
     zh: 灣區捷運董事,
-  text_office_ca_controller:
-    _en: CONTROLLER
-    zh: 主計長
+  text_office_city_assessor_recorder:
+    _en: ASSESSOR-RECORDER
+    zh: 估值官-記錄官
   text_office_city_attorney:
     _en: CITY ATTORNEY
     zh: 市府律師
   text_office_city_district_attorney:
     _en: DISTRICT ATTORNEY
     zh: 地方檢察官
+  text_office_city_mayor:
+    _en: MAYOR
+    zh: 市長
+  text_office_city_public_defender:
+    _en: PUBLIC DEFENDER
+    zh: 公共辯護律師
+  text_office_city_sheriff:
+    _en: SHERIFF
+    zh: 縣警長
   text_office_city_treasurer:
     _en: TREASURER
     zh: 財政官
   text_office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
     zh: 高等法院法官，
-  text_office_mayor:
-    _en: MAYOR
-    zh: 市長
   text_office_member_board_of_education:
     _en: MEMBER, BOARD OF EDUCATION
     zh: 教育委員會成員
@@ -95,15 +98,12 @@ texts:
   text_office_member_state_board_of_eq_d2:
     _en: MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2
     zh: 州平稅局第2選區成員
-  text_office_public_defender:
-    _en: PUBLIC DEFENDER
-    zh: 公共辯護律師
-  text_office_sheriff:
-    _en: SHERIFF
-    zh: 縣警長
   text_office_state_attorney_general:
     _en: ATTORNEY GENERAL
     zh: 司法部長
+  text_office_state_controller:
+    _en: CONTROLLER
+    zh: 主計長
   text_office_state_governor:
     _en: GOVERNOR
     zh: 州長
@@ -119,7 +119,7 @@ texts:
   text_office_state_senator:
     _en: STATE SENATOR
     zh: 州參議員
-  text_office_superintendent_of_public_instruction:
+  text_office_state_superintendent_of_public_instruction:
     _en: SUPERINTENDENT OF PUBLIC INSTRUCTION
     zh: 教育部長
   text_office_usa_president_and_vice_president:
