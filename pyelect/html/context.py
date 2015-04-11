@@ -137,6 +137,8 @@ def make_phrases(json_data):
     """Return the phrases dict for the context."""
     phrases = json_data['phrases']
     for text_id, phrase in phrases.items():
+        if " " in text_id:
+            raise Exception("white space: {0}".format(text_id))
         phrase['id'] = text_id
     return phrases
 
@@ -243,7 +245,7 @@ def make_one_offices(object_id, json_data, html_data=None):
 
         office_name_format = body['office_name_format']
         if office_name_format is None:
-            html_item['name'] = member_name
+            html_item['name'] = body['office_name']
         else:
             office_name = office_name_format.format(**html_item)
             html_item['name'] = office_name
@@ -253,7 +255,7 @@ def make_one_offices(object_id, json_data, html_data=None):
 
     _set_html_election_data(html_item, effective)
 
-    # TODO: remove these temporary measure.
+    # TODO: remove this temporary check.
     if not html_item['category_id'] or not html_item['name']:
         return None
 
@@ -268,6 +270,8 @@ def add_english_fields(json_data, phrases):
     """Add a simple field for each internationalized field."""
     for node_name, objects in json_data.items():
         for object_id, obj in objects.items():
+            if " " in object_id:
+                raise Exception("white space: {0}".format(object_id))
             i18n_attrs = [(field, value) for field, value in obj.items() if
                           field.endswith(I18N_SUFFIX)]
             for field_name, text_id in i18n_attrs:
