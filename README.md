@@ -12,13 +12,14 @@ See the [License](#license) section below for details.
 The JSON file provides in a structured format information about San
 Francisco elections that tends to remain the same from election to election.
 This includes things like information about the offices and government
-bodies that appear on the ballot, and what districts they cover.
+bodies that appear on the ballot, and what precincts and districts they
+cover.
 
 Anyone can use this information, for example by [mashing it up][mash_up]
 with other election data for your own purposes (e.g. media pieces, research
 projects, campaign finance reports, election results, ballot information,
-etc.).  This eliminates the need to manually compile this information
-on your own.
+etc.).  This project eliminates the need to manually compile this
+information on your own.
 
 See [here][SFBED_gh_page] for a sample web page created from this data.
 If you notice any issues with the project data or have other suggestions,
@@ -121,8 +122,9 @@ for details.
 The database consisting of the JSON file located at
 [`data/sf.json`](data/sf.json) in this repository is made available under
 the Public Domain Dedication and License v1.0 whose full text can be
-found [here][pddl_v1.0] and also at [`data/LICENSE.txt`](data/LICENSE.txt)
-in this repository.
+found at the file [`data/LICENSE.txt`](data/LICENSE.txt) in this repository,
+as well as at the following location:
+[http://opendatacommons.org/licenses/pddl/1.0/](http://opendatacommons.org/licenses/pddl/1.0/).
 
 
 ## Author
