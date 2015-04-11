@@ -1,4 +1,7 @@
 {
+    "_meta": {
+        "license": "The database consisting of this file is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: http://www.opendatacommons.org/licenses/pddl/1.0/ ."
+    },
     "areas": {
         "area_country_usa": {
             "name": "United States of America",
@@ -34,18 +37,12 @@
             "url": "http://www.bart.gov/about/bod",
             "vote_method": "FPTP"
         },
-        "body_ca_court_app": {
+        "body_ca_court_of_appeal_d1": {
             "category_id": "category_judicial",
-            "district_type_id": "district_type_ca_court_appeal",
-            "jurisdiction_id": "CA",
-            "name_i18n": "text_body_ca_court_app",
-            "notes": "The state has six geographic appellate districts. The first district, which covers San Francisco, is divided into five non-geographical divisions with four justices each.",
+            "name_i18n": "text_body_ca_court_of_appeal_d1",
+            "notes": "The district covers San Francisco and is divided into five non-geographical divisions with four justices each.",
             "partisan": false,
-            "seat_count": 20,
-            "term_length": 12,
-            "url": "http://www.courts.ca.gov/courtsofappeal.htm",
-            "vote_method": "retention",
-            "wikipedia": "http://en.wikipedia.org/wiki/California_courts_of_appeal"
+            "seat_count": 20
         },
         "body_ca_court_supreme": {
             "category_id": "category_judicial",
@@ -57,6 +54,17 @@
             "url": "http://www.courts.ca.gov/supremecourt.htm",
             "vote_method": "retention",
             "wikipedia": "http://en.wikipedia.org/wiki/Supreme_Court_of_California"
+        },
+        "body_ca_courts_of_appeal": {
+            "category_id": "category_judicial",
+            "district_type_id": "district_type_ca_court_appeal",
+            "jurisdiction_id": "CA",
+            "name_i18n": "text_body_ca_courts_of_appeal",
+            "partisan": false,
+            "term_length": 12,
+            "url": "http://www.courts.ca.gov/courtsofappeal.htm",
+            "vote_method": "retention",
+            "wikipedia": "http://en.wikipedia.org/wiki/California_courts_of_appeal"
         },
         "body_ca_sboe": {
             "category_id": "category_state",
@@ -229,7 +237,7 @@
             "parent_area_id": "area_state_ca_bart"
         },
         "district_type_ca_court_appeal": {
-            "body_id": "body_ca_court_app",
+            "body_id": "body_ca_courts_of_appeal",
             "district_count": 6,
             "district_name_format": "{district_code} District",
             "name": "Courts of Appeal Districts",
@@ -281,7 +289,7 @@
         },
         "election_method_top_two": {
             "name": "Top-Two Primary",
-            "notes": "All candidates run against each other.  Then the top two advance to the general election in November.",
+            "notes": "All candidates run against each other in a primary election.  Then the top two advance to the general election in November.",
             "wikipedia": "http://en.wikipedia.org/wiki/Nonpartisan_blanket_primary"
         }
     },
@@ -600,13 +608,16 @@
         }
     },
     "phrases": {
-        "text_body_ca_court_app": {
-            "en": "California Court of Appeal, First District",
-            "es": "Corte de Apelaci\u00f3n"
+        "text_body_ca_court_of_appeal_d1": {
+            "en": "California Court of Appeal, First District"
         },
         "text_body_ca_court_supreme": {
             "en": "Supreme Court of California",
             "es": "Corte Suprema"
+        },
+        "text_body_ca_courts_of_appeal": {
+            "en": "California Courts of Appeal",
+            "es": "Corte de Apelaci\u00f3n"
         },
         "text_body_city_board_of_education": {
             "en": "Board of Education",
