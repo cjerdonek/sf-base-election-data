@@ -113,8 +113,15 @@ for additional information.
 
 ## License
 
-This project is licensed under the BSD 3-clause license.  See the
-[`LICENSE`](LICENSE) file for details.
+This project (with the exception of the JSON file as described below) is
+licensed under the BSD 3-clause license.  See the [`LICENSE`](LICENSE) file
+for details.
+
+The database consisting of the JSON file located at
+[`data/sf.json`](data/LICENSE.txt) in this repository is made available under
+the Public Domain Dedication and License v1.0 whose full text can be
+found [here][pddl_v1.0] and also at [`data/LICENSE.txt`](data/LICENSE.txt)
+in this repository.
 
 
 ## Author
@@ -127,6 +134,7 @@ Chris Jerdonek (<chris.jerdonek@gmail.com>)
 [issue_tracker]: https://github.com/cjerdonek/sf-base-election-data/issues
 [json]: http://json.org/
 [mash_up]: http://en.wikipedia.org/wiki/Mashup_%28web_application_hybrid%29
+[pddl_v1.0]: http://www.opendatacommons.org/licenses/pddl/1.0/
 [sf_elections_data]: http://cjerdonek.github.io/sf-elections-data/
 [SFBED_gh_page]: http://cjerdonek.github.io/sf-base-election-data
 [SFDOE]: http://sfelections.org
