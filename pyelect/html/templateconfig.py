@@ -1,3 +1,7 @@
+"""Configures Django template settings.
+
+Also contains definitions for custom filters.
+"""
 
 import os
 
