@@ -336,7 +336,7 @@ def make_template_data(json_data, local_assets=False):
     categories = [category_map[id_] for id_ in CATEGORY_ORDER]
 
     bootstrap_prefix = _BOOTSTRAP_LOCAL if local_assets else _BOOTSTRAP_REMOTE
-    jquery_prefix = "" if local_assets else _JQUERY_REMOTE
+    jquery_prefix = _JQUERY_LOCAL if local_assets else _JQUERY_REMOTE
 
     context = {
         'categories': categories,
