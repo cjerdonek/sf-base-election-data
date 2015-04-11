@@ -1,18 +1,22 @@
 TODO
 ====
 
+* Fix COURTS OF APPEAL DISTRICTS body.
+* Add jurisdiction to office and body (for the national ).
 * Get district working for US Senate (with district that references area).
+  - include wiki links for House districts
+* Flesh out President and then US Senate (with districts and election method).
+* Add a way to check that all info is present on each object.
 * Switch Court district and remove geographic label.
 * Seat count for school board.
 * Clean up & simplify the office HTML and JSON generation.
 * Move "row" templates to a rows directory.
 * Add jurisdiction to office & body (inherit from district type)?
-* Flesh out President and then US Senate (with districts and election method).
 * Edit notes for body: California Court of Appeal, First District
 * Change the i18n fields on body from the translations to the ID.
 * Add the following to SF Community College:
     name: San Francisco Community College District
-    wikipedia: http://en.wikipedia.org/wiki/City_College_of_San_Francisco
+    wikipedia: `http://en.wikipedia.org/wiki/City_College_of_San_Francisco`
 * Include an "edge" flag in the HTML and JSON?
 * Make sure all non-English extras are accounted for (e.g. after updates).
 * Hamburger nav
@@ -27,19 +31,12 @@ TODO
   - This way people will be able to add translations.
   - Also clean things up in this regard (will simplify things going forward).
   - Move extra i18n values into the manual section.
-* Show the body name when there is a body (or else None).
-  - Work on BOS first.
-* Link to the body in each office section.
 * Show the seat name (that distinguishes among body members)
   - at the top, but below the overall name.
 * Add voting method enum (with Wikipedia link).
 * Change seats to SF seats, e.g. 2 of 80.
-
-* Add vote method object (to spell it out)
-* Prioritize listing the offices as they appear in sf.json.
-  - Different groupings and filters can happen later.
-  - Also note when language is missing
-  - Document the JSON objects as I go.
+* Have a way to note when translations are missing.
+* Document the JSON objects as I go.
 * Document Court of Appeals.
 * Do Supreme Court.
 * Mark partisan.
