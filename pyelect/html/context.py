@@ -137,6 +137,7 @@ def make_phrases(json_data):
     """Return the phrases dict for the context."""
     phrases = json_data['phrases']
     for text_id, phrase in phrases.items():
+        # TODO: put this validation logic elsewhere.
         if " " in text_id:
             raise Exception("white space: {0}".format(text_id))
         phrase['id'] = text_id
@@ -270,6 +271,7 @@ def add_english_fields(json_data, phrases):
     """Add a simple field for each internationalized field."""
     for node_name, objects in json_data.items():
         for object_id, obj in objects.items():
+            # TODO: put this validation logic elsewhere.
             if " " in object_id:
                 raise Exception("white space: {0}".format(object_id))
             i18n_attrs = [(field, value) for field, value in obj.items() if

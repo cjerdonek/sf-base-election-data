@@ -1,2 +1,6 @@
 {% extends "_header_lang.html" %}
-{% block header %}<b>{{ block.super }}</b>{% endblock %}
+{% block header %}
+{% with header=header|upper %}
+<b>{{ block.super }}</b>
+{% endwith %}
+{% endblock %}

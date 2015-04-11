@@ -81,7 +81,7 @@ offices:
     url: http://www.cde.ca.gov/eo
   office_ca_treasurer:
     mixin_id: ca_common
-    name: Treasurer
+    name: State Treasurer
     url: http://www.treasurer.ca.gov/
   office_sf_assessor_recorder:
     mixin_id: sf_common
