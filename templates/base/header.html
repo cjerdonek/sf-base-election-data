@@ -1,0 +1,8 @@
+{% load custom_tags %}
+{% block header %}
+{{ header }}
+{% endblock %}
+{% anchor header_id %}{% if show_subheader %}<br/>{% block subheader %}
+{{ subheader }}
+{% endblock %}
+{% endif %}
