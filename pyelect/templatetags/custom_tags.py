@@ -43,8 +43,52 @@ def log_errors(func):
             raise
     return wrapper
 
+
 def _pprint(text):
     pprint(text, stream=sys.stderr)
+
+
+# TODO: update the return value to what is documented.
+@register.assignment_tag(takes_context=True)
+@log_errors
+def translations(context, item, attr_name):
+    """Returns i18n info for an object attribute.
+
+    Usage:
+
+        {% translations office 'name' as text %}
+
+    Returns (for example):
+
+        {
+            "en": "Mayor",
+            "non_english": [
+                {
+                    "lang": "zh",
+                    "text": "Alcalde",
+                },
+                {
+                    "lang": "es",
+                    "text": "Alcalde",
+                }
+            ]
+        }
+    """
+    assert 'phrases' in context
+    if isinstance(item, str):
+        raise Exception("item cannot be str: {0!r}".format(item))
+    i18n_field_name = lang.get_i18n_field_name(attr_name)
+    phrase_id = item.get(i18n_field_name)
+    non_english = []
+    if phrase_id:
+        phrases = context.get('phrases')
+        phrase = phrases[phrase_id]
+        non_english = [phrase[lang] for lang in NON_ENGLISH_ORDER if lang in phrase]
+    text = {
+        "en": "bar",
+        "non_english": non_english,
+    }
+    return text
 
 
 def get_page_href(page_base):
@@ -86,6 +130,13 @@ def anchor(id_):
     }
 
 
+def _init_cond_include_context(template_name, should_include):
+    return {
+        'should_include': should_include,
+        'template_name': template_name,
+    }
+
+
 def update_context(context, extra):
     # We do not use context.update() since that pushes onto the contest stack.
     for key, value in extra.items():
@@ -93,44 +144,22 @@ def update_context(context, extra):
     return context
 
 
-def _header_context(context, item_data, field_name, item_id):
-    assert 'phrases' in context
-    if isinstance(item_data, str):
-        raise Exception("item_data cannot be str: {0!r}".format(item_data))
-    try:
-        name = item_data[field_name]
-    except KeyError as err:
-        _log.warn("error: key={0!r}, item_data={1}".format(field_name, repr(item_data)))
-        raise
-    i18n_field_name = lang.get_i18n_field_name(field_name)
-    phrase_id = item_data.get(i18n_field_name)
-    non_english = []
-    if phrase_id:
-        phrases = context.get('phrases')
-        phrase = phrases[phrase_id]
-        non_english = [phrase[lang] for lang in NON_ENGLISH_ORDER if lang in phrase]
-
-    extra = {
-        'header': name,
-        'header_non_english': non_english,
-        'header_id': item_id,
-    }
+@register.inclusion_tag('cond_include.html', takes_context=True)
+@log_errors
+def lang_object_header(context, template_name, item, attr_name, header_id):
+    extra = _init_cond_include_context(template_name, should_include=True)
+    header = item.get(attr_name)
+    extra.update({
+        'header': header,
+        'header_id': header_id,
+        'item': item,
+        'attr_name': attr_name,
+    })
     update_context(context, extra)
     return context
 
 
-@register.inclusion_tag('header_section.html', takes_context=True)
-@log_errors
-def header_section(context, item_data, field_name, item_id):
-    return _header_context(context, item_data, field_name, item_id)
-
-
-@register.inclusion_tag('header_item.html', takes_context=True)
-@log_errors
-def header_item(context, item_data, field_name, item_id):
-    return _header_context(context, item_data, field_name, item_id)
-
-
+# TODO: DRY up with _init_cond_include_context().
 @register.inclusion_tag('tags/cond_include.html')
 def cond_include(should_include, template_name, data):
     """A tag to conditionally include a template."""
@@ -141,6 +170,7 @@ def cond_include(should_include, template_name, data):
     }
 
 
+# TODO: DRY up with _init_cond_include_context().
 def _cond_include_context(template_name, header, value):
     return {
         'header': header,
@@ -150,6 +180,7 @@ def _cond_include_context(template_name, header, value):
     }
 
 
+# TODO: DRY up with _init_cond_include_context().
 def _cond_include_context_url(label, href, href_text=None):
     if href_text is None:
         href_text = href

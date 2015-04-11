@@ -13,6 +13,6 @@ Variables:
 {% anchor header_id %}
 {% block subheader %}
 {% if subheader %}<br/>
-{{ subheader }}
+{% block subheader_contents %}{{ subheader }}{% endblock %}
 {% endif %}
 {% endblock %}

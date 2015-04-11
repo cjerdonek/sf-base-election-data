@@ -2,12 +2,14 @@
 
 {% block show_category %}
 {% for group in grouped_offices %}
-{% with header=group.body_name header_id=group.body_id header_non_english='' %}
-{% if header %}
-<h4>{% include "header_text.html" %}</h4>
-{% endif %}
-{% list_objects group.offices|dictsort:'name' 'name' %}
+{% with body_id=group.body_id %}
+{% if body_id %}
+{% with body=bodies|get_item:body_id %}
+{% lang_object_header 'header_section_sub.html' body 'name' body_id %}
 {% endwith %}
+{% endif %}
+{% endwith %}
+{% list_objects group.offices|dictsort:'name' 'name' %}
 {% comment %}
 {% endcomment %}
 {% endfor %}
