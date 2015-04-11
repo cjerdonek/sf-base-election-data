@@ -40,22 +40,22 @@ texts:
     en: ASSESSOR-RECORDER
   text_office_bart_director:
     en: BART DIRECTOR
+  text_office_ca_controller:
+    en: CONTROLLER
+  text_office_ca_controller_edge:
+    en: CONTROLLER
   text_office_city_attorney:
     en: CITY ATTORNEY
   text_office_city_attorney_edge:
     en: CITY ATTORNEY
+  text_office_city_district_attorney:
+    en: DISTRICT ATTORNEY
+  text_office_city_district_attorney_edge:
+    en: DISTRICT ATTORNEY
   text_office_city_treasurer:
     en: TREASURER
   text_office_city_treasurer_edge:
     en: TREASURER
-  text_office_controller:
-    en: CONTROLLER
-  text_office_controller_edge:
-    en: CONTROLLER
-  text_office_district_attorney:
-    en: DISTRICT ATTORNEY
-  text_office_district_attorney_edge:
-    en: DISTRICT ATTORNEY
   text_office_judge_of_the_superior_court:
     en: JUDGE OF THE SUPERIOR COURT,
   text_office_mayor:

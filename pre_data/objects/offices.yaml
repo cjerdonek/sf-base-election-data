@@ -32,7 +32,7 @@ offices:
     name_i18n: text_office_assessor_recorder
     seed_year: 2014
     url: http://www.sfassessor.org
-  office_attorney general:
+  office_attorney_general:
     name: Attorney General
     url: http://www.oag.ca.gov/
   office_bart_7:
@@ -44,6 +44,10 @@ offices:
   office_bart_9:
     body_id: body_bart
     district: 9
+  office_ca_controller:
+    mixin_id: ca_common
+    name: Controller
+    url: http://www.sco.ca.gov/
   office_ca_sa_17:
     body_id: body_ca_state_assembly
     district: 17
@@ -59,22 +63,20 @@ offices:
     seed_year: 2015
     twitter: SFCityAttorney
     url: http://www.sfcityattorney.org
+  office_city_district_attorney:
+    mixin_id: sf_common
+    name_i18n: text_office_city_district_attorney
+    seed_year: 2015
+    twitter: SFDAOffice
+    url: http://www.sfdistrictattorney.org
   office_city_treasurer:
     mixin_id: sf_common
     name_i18n: text_office_city_treasurer
     seed_year: 2015
     twitter: TreasurerSF
     url: http://sftreasurer.org
-  office_controller:
-    name: Controller
-    url: http://www.sco.ca.gov/
-  office_district_attorney:
-    mixin_id: sf_common
-    name_i18n: text_office_district_attorney
-    seed_year: 2015
-    twitter: SFDAOffice
-    url: http://www.sfdistrictattorney.org
-  office_insurance commissioner:
+  office_ca_insurance_commissioner:
+    mixin_id: ca_common
     name: Insurance Commissioner
     url: http://www.insurance.ca.gov/
   office_mayor:

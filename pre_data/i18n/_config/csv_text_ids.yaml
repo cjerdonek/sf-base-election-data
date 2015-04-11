@@ -26,10 +26,10 @@ text_ids:
   text_header_voter_nominated_offices: VOTER-NOMINATED OFFICES
   text_office_assessor_recorder: ASSESSOR-RECORDER
   text_office_bart_director: BART DIRECTOR
+  text_office_ca_controller: CONTROLLER
   text_office_city_attorney: CITY ATTORNEY
+  text_office_city_district_attorney: DISTRICT ATTORNEY
   text_office_city_treasurer: TREASURER
-  text_office_controller: CONTROLLER
-  text_office_district_attorney: DISTRICT ATTORNEY
   text_office_judge_of_the_superior_court: JUDGE OF THE SUPERIOR COURT,
   text_office_mayor: MAYOR
   text_office_member_board_of_education: MEMBER, BOARD OF EDUCATION

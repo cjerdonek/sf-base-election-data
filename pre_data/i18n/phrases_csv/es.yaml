@@ -59,30 +59,30 @@ texts:
   text_office_bart_director:
     _en: BART DIRECTOR
     es: DIRECTOR DE BART
+  text_office_ca_controller:
+    _en: CONTROLLER
+    es: CONTRALOR
+  text_office_ca_controller_edge:
+    _en: CONTROLLER
+    es: CONTRALOR
   text_office_city_attorney:
     _en: CITY ATTORNEY
     es: ABOGADO DE LA CIUDAD
   text_office_city_attorney_edge:
     _en: CITY ATTORNEY
     es: ABOGADO DE LA CIUDAD
+  text_office_city_district_attorney:
+    _en: DISTRICT ATTORNEY
+    es: FISCAL DEL DISTRITO
+  text_office_city_district_attorney_edge:
+    _en: DISTRICT ATTORNEY
+    es: FISCAL DEL DISTRITO
   text_office_city_treasurer:
     _en: TREASURER
     es: TESORERO
   text_office_city_treasurer_edge:
     _en: TREASURER
     es: TESORERO
-  text_office_controller:
-    _en: CONTROLLER
-    es: CONTRALOR
-  text_office_controller_edge:
-    _en: CONTROLLER
-    es: CONTRALOR
-  text_office_district_attorney:
-    _en: DISTRICT ATTORNEY
-    es: FISCAL DEL DISTRITO
-  text_office_district_attorney_edge:
-    _en: DISTRICT ATTORNEY
-    es: FISCAL DEL DISTRITO
   text_office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
     es: JUEZ DEL TRIBUNAL SUPERIOR,

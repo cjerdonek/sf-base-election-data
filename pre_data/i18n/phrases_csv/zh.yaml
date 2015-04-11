@@ -56,18 +56,18 @@ texts:
   text_office_bart_director:
     _en: BART DIRECTOR
     zh: 灣區捷運董事,
+  text_office_ca_controller:
+    _en: CONTROLLER
+    zh: 主計長
   text_office_city_attorney:
     _en: CITY ATTORNEY
     zh: 市府律師
+  text_office_city_district_attorney:
+    _en: DISTRICT ATTORNEY
+    zh: 地方檢察官
   text_office_city_treasurer:
     _en: TREASURER
     zh: 財政官
-  text_office_controller:
-    _en: CONTROLLER
-    zh: 主計長
-  text_office_district_attorney:
-    _en: DISTRICT ATTORNEY
-    zh: 地方檢察官
   text_office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
     zh: 高等法院法官，

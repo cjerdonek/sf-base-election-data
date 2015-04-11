@@ -59,29 +59,29 @@ texts:
   text_office_bart_director:
     _en: BART DIRECTOR
     fil: null
+  text_office_ca_controller:
+    _en: CONTROLLER
+    fil: Kontroler
+  text_office_ca_controller_edge:
+    _en: CONTROLLER
+    fil: null
   text_office_city_attorney:
     _en: CITY ATTORNEY
     fil: null
   text_office_city_attorney_edge:
     _en: CITY ATTORNEY
     fil: null
+  text_office_city_district_attorney:
+    _en: DISTRICT ATTORNEY
+    fil: null
+  text_office_city_district_attorney_edge:
+    _en: DISTRICT ATTORNEY
+    fil: null
   text_office_city_treasurer:
     _en: TREASURER
     fil: null
   text_office_city_treasurer_edge:
     _en: TREASURER
-    fil: null
-  text_office_controller:
-    _en: CONTROLLER
-    fil: Kontroler
-  text_office_controller_edge:
-    _en: CONTROLLER
-    fil: null
-  text_office_district_attorney:
-    _en: DISTRICT ATTORNEY
-    fil: null
-  text_office_district_attorney_edge:
-    _en: DISTRICT ATTORNEY
     fil: null
   text_office_judge_of_the_superior_court:
     _en: JUDGE OF THE SUPERIOR COURT,
