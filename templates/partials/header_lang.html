@@ -1,5 +1,16 @@
 {% extends "header.html" %}
+{% load custom_tags %}
+{% comment %}
 
+Variables:
+  header:
+  item:
+  attr_name:
+
+{% endcomment %}
 {% block subheader %}
-({{ header_non_english|join:' | '  }})
+{% translations item attr_name as text %}
+{% with subheader=text.non_english|join:' | ' %}
+{{ block.super }}
+{% endwith %}
 {% endblock %}

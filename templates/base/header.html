@@ -1,8 +1,18 @@
 {% load custom_tags %}
+{% comment %}
+
+Variables:
+  header:
+  header_id:
+  subheader:
+
+{% endcomment %}
 {% block header %}
 {{ header }}
 {% endblock %}
-{% anchor header_id %}{% if show_subheader %}<br/>{% block subheader %}
+{% anchor header_id %}
+{% block subheader %}
+{% if subheader %}<br/>
 {{ subheader }}
-{% endblock %}
 {% endif %}
+{% endblock %}
