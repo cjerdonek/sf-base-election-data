@@ -197,6 +197,7 @@ offices:
     term_length: 4
     twitter: WhiteHouse
     url: https://www.whitehouse.gov/
+    wikipedia: http://en.wikipedia.org/wiki/President_of_the_United_States
   office_usa_senate_1:
     body_id: body_usa_senate
     district_id: district_state_ca

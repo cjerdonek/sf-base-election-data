@@ -29,11 +29,16 @@ def _get_rel_path_objects_dir():
     return os.path.join(utils.DIR_PRE_DATA, DIR_NAME_OBJECTS)
 
 
-def get_json():
-    """Read and return the JSON data."""
+def get_json_path():
     repo_dir = utils.get_repo_dir()
     rel_path = get_rel_path_json_data()
     json_path = os.path.join(repo_dir, rel_path)
+    return json_path
+
+
+def get_json():
+    """Read and return the JSON data."""
+    json_path = get_json_path()
     with open(json_path) as f:
         data = json.load(f)
 

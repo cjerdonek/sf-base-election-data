@@ -21,7 +21,7 @@ from pyelect import utils
 
 _log = logging.getLogger()
 
-_DEFAULT_OUTPUT_DIR_NAME = '_build'
+DEFAULT_BUILD_DIR_NAME = '_build'
 _FORMATTER_CLASS = argparse.RawDescriptionHelpFormatter
 
 DESCRIPTION = """\
@@ -44,8 +44,8 @@ def _wrap(text):
     return text
 
 
-def get_sample_html_default_rel_dir():
-    return os.path.join(utils.DIR_NAME_OUTPUT, htmlgen.DIR_NAME_HTML_OUTPUT)
+def get_default_output_dir_rel():
+    return os.path.join(DEFAULT_BUILD_DIR_NAME, htmlgen.HTML_OUTPUT_DIRNAME)
 
 
 def command_lang_csv_ids(ns):
@@ -95,7 +95,7 @@ def command_sample_html(ns):
 
     if dir_path is None:
         repo_dir = utils.get_repo_dir()
-        dir_path = os.path.join(repo_dir, get_sample_html_default_rel_dir())
+        dir_path = os.path.join(repo_dir, get_default_output_dir_rel())
 
     # Make and output HTML.
     html_path = htmlgen.make_html(dir_path, page_name=page_name,
@@ -227,7 +227,7 @@ def create_parser():
               .format(", ".join(page_bases))))
     parser.add_argument('--output_dir', metavar='OUTPUT_DIR',
         help=("the output directory.  Defaults to the following directory relative "
-              "to the repo: {0}".format(get_sample_html_default_rel_dir())))
+              "to the repo: {0}".format(get_default_output_dir_rel())))
     parser.add_argument('--local', action='store_true',
         help=('link to assets locally rather than via a CDN.  This is useful '
               'for developing locally without internet access.'))

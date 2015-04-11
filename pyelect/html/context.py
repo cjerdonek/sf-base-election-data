@@ -16,9 +16,12 @@ from pyelect import utils
 
 _log = logging.getLogger()
 
+_JQUERY_LOCAL = 'js/'
 _JQUERY_REMOTE = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/"
 _BOOTSTRAP_REMOTE = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/"
 _BOOTSTRAP_LOCAL = 'bootstrap/'
+
+JSON_OUTPUT_PATH = 'data/sf.json'
 
 _TABLE_OF_CONTENTS = """\
 index
@@ -328,6 +331,7 @@ def make_template_data(json_data, local_assets=False):
     context = {
         'categories': categories,
         'jquery_prefix': jquery_prefix,
+        'json_path': JSON_OUTPUT_PATH,
         'language_codes': [LANG_ENGLISH] + NON_ENGLISH_ORDER,
         'bootstrap_prefix': bootstrap_prefix,
         'page_bases': _TABLE_OF_CONTENTS,

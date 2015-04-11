@@ -8,6 +8,6 @@ election_methods:
       winner in November receives all 55 of California's electoral votes.
   election_method_top_two:
     name: Top-Two Primary
-    notes: All candidates run against each other.  Then the top two advance to the
-      general election in November.
+    notes: All candidates run against each other in a primary election.  Then the
+      top two advance to the general election in November.
     wikipedia: http://en.wikipedia.org/wiki/Nonpartisan_blanket_primary
