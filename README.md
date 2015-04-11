@@ -6,7 +6,8 @@ structured form.
 
 The end product of this project is a single, static, publicly available
 [JSON][json] file (maintained at [`data/sf.json`](data/sf.json)), along
-with supporting documentation.
+with supporting documentation.  This file is placed in the public domain.
+See the [License](#license) section below for details.
 
 The JSON file provides in a structured format information about San
 Francisco elections that tends to remain the same from election to election.

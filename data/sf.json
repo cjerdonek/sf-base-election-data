@@ -1,4 +1,7 @@
 {
+    "_meta": {
+        "license": "The database consisting of this file is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: http://www.opendatacommons.org/licenses/pddl/1.0/ ."
+    },
     "areas": {
         "area_country_usa": {
             "name": "United States of America",
