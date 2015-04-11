@@ -118,7 +118,7 @@ licensed under the BSD 3-clause license.  See the [`LICENSE`](LICENSE) file
 for details.
 
 The database consisting of the JSON file located at
-[`data/sf.json`](data/LICENSE.txt) in this repository is made available under
+[`data/sf.json`](data/sf.json) in this repository is made available under
 the Public Domain Dedication and License v1.0 whose full text can be
 found [here][pddl_v1.0] and also at [`data/LICENSE.txt`](data/LICENSE.txt)
 in this repository.
