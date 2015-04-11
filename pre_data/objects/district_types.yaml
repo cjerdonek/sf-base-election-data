@@ -8,7 +8,7 @@ district_types:
     name: BART Districts
     parent_area_id: area_state_ca_bart
   district_type_ca_court_appeal:
-    body_id: body_ca_court_app
+    body_id: body_ca_courts_of_appeal
     district_count: 6
     district_name_format: '{district_code} District'
     name: Courts of Appeal Districts

@@ -67,7 +67,8 @@ TODO
 
 ## Objects
 
-TODO
+This section describes each type of object and its attributes.  The
+object types are listed in alphabetical order.
 
 
 ### Categories
@@ -81,6 +82,10 @@ Attributes:
 * `name_i18n`: the display name.
 
 
+### District Type
+
+District type answers the question: given a district, what type of
+district is it (e.g. )
 ### Offices
 
 Attributes:

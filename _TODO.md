@@ -1,12 +1,11 @@
 TODO
 ====
 
-* Fix COURTS OF APPEAL DISTRICTS body.
-* Add jurisdiction to office and body (for the national ).
+* Add jurisdiction to office and body (at least for national to start out).
 * Get district working for US Senate (with district that references area).
   - include wiki links for House districts
 * Flesh out President and then US Senate (with districts and election method).
-* Add a way to check that all info is present on each object.
+* Should CALIFORNIA COURTS OF APPEAL be made an office type?
 * Switch Court district and remove geographic label.
 * Seat count for school board.
 * Clean up & simplify the office HTML and JSON generation.
@@ -14,6 +13,7 @@ TODO
 * Add jurisdiction to office & body (inherit from district type)?
 * Edit notes for body: California Court of Appeal, First District
 * Change the i18n fields on body from the translations to the ID.
+* Add a way to check that all info is present on each object.
 * Add the following to SF Community College:
     name: San Francisco Community College District
     wikipedia: `http://en.wikipedia.org/wiki/City_College_of_San_Francisco`

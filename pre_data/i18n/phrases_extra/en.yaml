@@ -5,10 +5,12 @@ _meta:
     This file contains a list of phrases to add to the phrases already
     covered by the various CSV files.
 texts:
-  text_body_ca_court_app:
+  text_body_ca_court_of_appeal_d1:
     en: California Court of Appeal, First District
   text_body_ca_court_supreme:
     en: Supreme Court of California
+  text_body_ca_courts_of_appeal:
+    en: California Courts of Appeal
   text_body_city_board_of_education:
     en: Board of Education
   text_body_city_board_of_supervisors:

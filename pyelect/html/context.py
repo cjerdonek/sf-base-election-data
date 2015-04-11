@@ -270,26 +270,36 @@ def make_one_offices(object_id, json_data, html_data=None):
     return html_item
 
 
+def _add_english_fields_object(phrases, object_id, obj):
+    # TODO: put this validation logic elsewhere.
+    if " " in object_id:
+        raise Exception("white space: {0}".format(object_id))
+    i18n_attrs = [(field, value) for field, value in obj.items() if
+                  field.endswith(I18N_SUFFIX)]
+    for field_name, text_id in i18n_attrs:
+        simple_name = field_name.rstrip(I18N_SUFFIX)
+        # TODO: make a general helper function out of this?
+        try:
+            translations = phrases[text_id]
+        except KeyError:
+            raise Exception("object (node={node_name!r}, id={object_id!r}): {0}"
+                            .format(obj, node_name=node_name, object_id=object_id))
+        english = translations[LANG_ENGLISH]
+        _log.debug("Setting field: {0}.{1}={2}".format(object_id, simple_name, english))
+        obj[simple_name] = english
+
+
 def add_english_fields(json_data, phrases):
     """Add a simple field for each internationalized field."""
     for node_name, objects in json_data.items():
+        if node_name.startswith("_"):
+            # Skip metadata.
+            continue
         for object_id, obj in objects.items():
-            # TODO: put this validation logic elsewhere.
-            if " " in object_id:
-                raise Exception("white space: {0}".format(object_id))
-            i18n_attrs = [(field, value) for field, value in obj.items() if
-                          field.endswith(I18N_SUFFIX)]
-            for field_name, text_id in i18n_attrs:
-                simple_name = field_name.rstrip(I18N_SUFFIX)
-                # TODO: make a general helper function out of this?
-                try:
-                    translations = phrases[text_id]
-                except KeyError:
-                    raise Exception("object (node={node_name!r}, id={object_id!r}): {0}"
-                                    .format(obj, node_name=node_name, object_id=object_id))
-                english = translations[LANG_ENGLISH]
-                _log.debug("Setting field: {0}.{1}={2}".format(object_id, simple_name, english))
-                obj[simple_name] = english
+            try:
+                _add_english_fields_object(phrases, object_id, obj)
+            except:
+                raise Exception("object (id={0}): {1}".format(object_id, obj))
 
 
 def add_context_node(context, json_data, node_name, json_key=None, **kwargs):

@@ -5,11 +5,11 @@ _meta:
     The non-English translations in this file are meant to be updated
     by hand.
 texts:
-  text_body_ca_court_app:
-    _en: California Court of Appeal, First District
-    zh: null
   text_body_ca_court_supreme:
     _en: Supreme Court of California
+    zh: null
+  text_body_ca_courts_of_appeal:
+    _en: California Court of Appeal, First District
     zh: null
   text_body_city_board_of_education:
     _en: Board of Education

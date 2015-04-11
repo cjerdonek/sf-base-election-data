@@ -12,20 +12,13 @@ bodies:
     term_length: 4
     url: http://www.bart.gov/about/bod
     vote_method: FPTP
-  body_ca_court_app:
+  body_ca_court_of_appeal_d1:
     category_id: category_judicial
-    district_type_id: district_type_ca_court_appeal
-    jurisdiction_id: CA
-    name_i18n: text_body_ca_court_app
-    notes: The state has six geographic appellate districts. The first district, which
-      covers San Francisco, is divided into five non-geographical divisions with four
-      justices each.
+    name_i18n: text_body_ca_court_of_appeal_d1
+    notes: The district covers San Francisco and is divided into five non-geographical
+      divisions with four justices each.
     partisan: false
     seat_count: 20
-    term_length: 12
-    url: http://www.courts.ca.gov/courtsofappeal.htm
-    vote_method: retention
-    wikipedia: http://en.wikipedia.org/wiki/California_courts_of_appeal
   body_ca_court_supreme:
     category_id: category_judicial
     jurisdiction_id: CA
@@ -37,6 +30,16 @@ bodies:
     url: http://www.courts.ca.gov/supremecourt.htm
     vote_method: retention
     wikipedia: http://en.wikipedia.org/wiki/Supreme_Court_of_California
+  body_ca_courts_of_appeal:
+    category_id: category_judicial
+    district_type_id: district_type_ca_court_appeal
+    jurisdiction_id: CA
+    name_i18n: text_body_ca_courts_of_appeal
+    partisan: false
+    term_length: 12
+    url: http://www.courts.ca.gov/courtsofappeal.htm
+    vote_method: retention
+    wikipedia: http://en.wikipedia.org/wiki/California_courts_of_appeal
   body_ca_sboe:
     category_id: category_state
     district_type_id: district_type_ca_sboe
