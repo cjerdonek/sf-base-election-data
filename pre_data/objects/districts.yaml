@@ -1,0 +1,10 @@
+_meta:
+  _type: auto_updated
+  _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
+districts:
+  district_usa_house_12:
+    district_type_id: district_type_usa_house
+    number: 12
+  district_usa_house_14:
+    district_type_id: district_type_usa_house
+    number: 14
