@@ -1,9 +1,10 @@
 TODO
 ====
 
-* Add jurisdiction to office and body (at least for national to start out).
 * Get district working for US Senate (with district that references area).
   - include wiki links for House districts
+* Add jurisdiction to body and office (at least for national to start out).
+  - Maybe a jurisdiction is a name paired with a geographic area?
 * Flesh out President and then US Senate (with districts and election method).
 * Should CALIFORNIA COURTS OF APPEAL be made an office type?
 * Switch Court district and remove geographic label.

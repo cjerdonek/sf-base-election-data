@@ -35,12 +35,13 @@ district_types:
     district_name_format_i18n: text_district_numbered_format
     name: Supervisorial Districts
     parent_area_id: area_county_sf
-  district_type_us_hr:
+  district_type_usa_house:
     body_id: body_usa_house
     district_count: 435
+    district_name_format: District {number}
     name: US Congressional Districts
     parent_area_id: area_country_usa
-  district_type_us_states:
+  district_type_usa_states:
     category_id: category_federal
     district_count: 50
     name: US States

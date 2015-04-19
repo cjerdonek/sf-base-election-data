@@ -140,7 +140,7 @@ bodies:
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court
   body_usa_house:
     category_id: category_federal
-    district_type_id: district_type_us_hr
+    district_type_id: district_type_usa_house
     election_method_id: election_method_top_two
     jurisdiction_id: US
     member_name: U.S. Representative
@@ -155,7 +155,7 @@ bodies:
     wikipedia: http://en.wikipedia.org/wiki/United_States_House_of_Representatives
   body_usa_senate:
     category_id: category_federal
-    district_type_id: district_type_us_states
+    district_type_id: district_type_usa_states
     election_method_id: election_method_top_two
     jurisdiction_id: US
     member_name: U.S. Senator
