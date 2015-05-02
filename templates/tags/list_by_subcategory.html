@@ -7,6 +7,9 @@ Variables:
   sub_group_attr: the attribute to group by subcategory.
   sub_group_map: a dict for the subcategory mapping id to object.
 
+TODO: skip the category if it has no entries, or does regroup already
+  take care of this?
+
 {% endcomment %}{% regroup items by category_id as main_list %}
 {% for group in main_list %}
 {% with category=categories|get_item:group.grouper %}
@@ -23,4 +26,5 @@ Variables:
 {% endwith %}
 {% list_objects sub_group.list 'name' %}
 {% endfor %}
+<hr>
 {% endfor %}

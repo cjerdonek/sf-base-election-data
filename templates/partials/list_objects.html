@@ -1,4 +1,4 @@
-{% comment %}
+{% load custom_tags %}{% comment %}
 Display a list of objects.
 
 This template is meant to be included with the `include` tag with the
@@ -9,14 +9,17 @@ Variables:
   objects: an iterable of objects to display.
   title_attr: the attribute name to access for the title.
 
-{% endcomment %}{% load custom_tags %}
-{% comment %}
+{% endcomment %}{% comment %}
 {% for object in objects.values|dictsort:title_attr %}
 {% endcomment %}
 {% for object in objects %}
 {% spaceless %}
-{% lang_object_header 'header_item.html' object title_attr object.id %}
+{% header_with_translation 'header_item.html' object title_attr %}
 {% include current_show_template %}
+{% if object.debug %}
+<p>
+Debug: {{ object }}
+{% endif %}
 <p>
 {% endspaceless %}
 {% endfor %}
