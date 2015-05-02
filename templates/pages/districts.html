@@ -1,0 +1,7 @@
+{% extends "base/page.html" %}
+
+{% load custom_tags %}
+
+{% block content_body %}
+{% list_by_subcategory current_objects %}
+{% endblock %}
