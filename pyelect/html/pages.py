@@ -70,7 +70,8 @@ class _Page(object):
         if self.sorter is not None:
             # Sort the objects for the Django template regroup tag.
             def key(obj):
-                return tuple(obj[attr] for attr in self.sorter)
+                # Convert None to empty string so it occurs first when sorting.
+                return tuple(obj[attr] or '' for attr in self.sorter)
             objects = objects.values()
             objects = sorted(objects, key=key)
             return objects
@@ -106,6 +107,7 @@ class ElectionMethodsPage(_Page):
 
 class IndexPage(_Page):
     _objects_name = 'offices'
+    sorter = ('category_id', 'body_id', 'name')
 
 
 class LanguagesPage(_Page):

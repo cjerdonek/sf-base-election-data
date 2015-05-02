@@ -32,6 +32,13 @@ def get_item(dict_, key):
     return dict_.get(key)
 
 
+@defaulttags.register.filter
+def copy_order_attr(seq, attr):
+    for element in seq:
+        element['order'] = element[attr]
+    return seq
+
+
 def init_django(debug=False):
     """Initialize Django."""
     search_dirs = _get_template_search_dirs()
