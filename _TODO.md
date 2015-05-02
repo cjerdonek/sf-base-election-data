@@ -1,6 +1,11 @@
 TODO
 ====
 
+* Flesh out Body more
+  - Use same list by category tag and template?
+  - Jurisdiction, election method, district type, etc.
+  - Try documenting it.
+  - Should the district "object" be a property?
 * Compute translations in header tag code?
 * Add jurisdiction to body and office (at least for national to start out).
   - Maybe a jurisdiction is a name paired with a geographic area?

@@ -182,7 +182,7 @@
             "member_name": "U.S. Representative",
             "name": "United States House of Representatives",
             "notes": "There are also 6 non-voting members.",
-            "office_name_format": "{member_name}, {district_name}",
+            "office_name_format": "{member_name}, {district_name_short}",
             "partisan": true,
             "seat_count": 435,
             "seed_year": 2010,
@@ -197,7 +197,7 @@
             "jurisdiction_id": "US",
             "member_name": "U.S. Senator",
             "name": "United States Senate",
-            "office_name_format": "{member_name}, {district_name} ({seat_name})",
+            "office_name_format": "{member_name}, {district_name_short} ({seat_name})",
             "partisan": true,
             "seat_count": 100,
             "seat_name_format": "Class {seat}",
@@ -239,7 +239,7 @@
         "district_type_ca_court_appeal": {
             "body_id": "body_ca_courts_of_appeal",
             "district_count": 6,
-            "district_name_format": "{district_code} District",
+            "district_name_short_format": "{district_code} District",
             "name": "Courts of Appeal Districts",
             "parent_area_id": "area_state_ca"
         },
@@ -253,31 +253,31 @@
         "district_type_ca_state_assembly": {
             "body_id": "body_ca_state_assembly",
             "district_count": 80,
-            "district_name_format": "District {number}",
-            "district_name_format_full": "State Assembly District {number}",
+            "district_name_full_format": "State Assembly District {number}",
+            "district_name_short_format": "District {number}",
             "name": "State Assembly Districts",
             "parent_area_id": "area_state_ca"
         },
         "district_type_ca_state_senate": {
             "body_id": "body_ca_state_senate",
             "district_count": 40,
-            "district_name_format": "District {number}",
-            "district_name_format_full": "State Senate District {number}",
+            "district_name_full_format": "State Senate District {number}",
+            "district_name_short_format": "District {number}",
             "name": "State Senate Districts",
             "parent_area_id": "area_state_ca"
         },
         "district_type_sf_board_of_supervisors": {
             "body_id": "body_sf_board_of_supervisors",
             "district_count": 11,
-            "district_name_format_i18n": "text_district_numbered_format",
+            "district_name_short_format_i18n": "text_district_numbered_format",
             "name": "Supervisorial Districts",
             "parent_area_id": "area_county_sf"
         },
         "district_type_usa_house": {
             "body_id": "body_usa_house",
             "district_count": 435,
-            "district_name_format": "District {number}",
-            "district_name_format_full": "US Congressional District {number}",
+            "district_name_full_format": "US Congressional District {number}",
+            "district_name_short_format": "District {number}",
             "name": "US Congressional Districts",
             "parent_area_id": "area_country_usa"
         },

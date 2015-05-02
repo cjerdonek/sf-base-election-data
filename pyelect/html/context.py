@@ -261,7 +261,9 @@ def get_node_name(type_name):
 def get_from_html_data(html_data, json_obj, id_attr_name):
     """Retrieve an object by ID from the given template data."""
     assert id_attr_name.endswith('_id')
-    object_id = json_obj[id_attr_name]
+    object_id = json_obj.get(id_attr_name)
+    if object_id is None:
+        return None
 
     type_name = id_attr_name[:-3]
     node_name = get_node_name(type_name)
@@ -306,8 +308,8 @@ def make_one_categories2(html_data, html_obj, json_obj, ordering):
 
 
 def make_one_district_types(object_id, json_data, html_data=None):
-    keys = ('body_id', 'category_id', 'district_count', 'district_name_format',
-            'district_name_format_full', 'geographic',
+    keys = ('body_id', 'category_id', 'district_count', 'district_name_short_format',
+            'district_name_full_format', 'geographic',
             'name', 'parent_area_id', 'wikipedia')
     context = _make_html_object(json_data, keys, object_id)
     if not context['category_id']:
@@ -326,17 +328,21 @@ def make_one_districts2(html_data, html_obj, json_obj):
     district_type = get_from_html_data(html_data, json_obj, 'district_type_id')
     category_id = district_type['category_id']
 
-    name_format = district_type['district_name_format_full']
+    name_format = district_type['district_name_full_format']
     if name_format is not None:
         name = name_format.format(number=district_number)
         html_obj['name'] = name
+
+    name_short_format = district_type['district_name_short_format']
+    if name_short_format is not None:
+        name_short = name_short_format.format(number=district_number)
+        html_obj['name_short'] = name_short
 
     html_obj['category_id'] = category_id
 
     # TODO: figure out a DRY way to add this check (e.g. config-driven).
     if 'name' not in html_obj:
         raise Exception("name and category_id required: {0}".format(html_obj))
-    pprint(html_obj)
     return html_obj
 
 
@@ -369,16 +375,19 @@ def _set_category_order(html_data, html_obj):
 
 # TODO: simplify this and DRY up with make_one_bodies().
 def make_one_offices2(html_data, html_obj, json_obj):
-    html_obj['district_name'] = html_obj['district_id']
-
     inherited_keys = ('seed_year', 'term_length')
     effective = {k: html_obj[k] for k in inherited_keys}
 
     phrases = html_data[NodeNames.phrases]
     if 'body_id' in json_obj:
-        body_id = json_obj['body_id']
-        bodies = html_data['bodies']
-        body = utils.get_required(bodies, body_id)
+        district = get_from_html_data(html_data, json_obj, 'district_id')
+        if district is None:
+            short_name = None
+        else:
+            short_name = district.get('name_short') or district['name']
+        html_obj['district_name_short'] = short_name
+
+        body = get_from_html_data(html_data, json_obj, 'body_id')
         html_obj['category_id'] = body['category_id']
         member_name = body['member_name']
         html_obj['member_name'] = member_name
@@ -408,7 +417,6 @@ def make_one_offices2(html_data, html_obj, json_obj):
     # TODO: use a real seat count.
     html_obj['seat_count'] = 1
 
-    assert html_obj['name']
     return html_obj
 
 

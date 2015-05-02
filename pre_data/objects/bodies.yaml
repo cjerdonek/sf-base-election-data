@@ -146,7 +146,7 @@ bodies:
     member_name: U.S. Representative
     name: United States House of Representatives
     notes: There are also 6 non-voting members.
-    office_name_format: '{member_name}, {district_name}'
+    office_name_format: '{member_name}, {district_name_short}'
     partisan: true
     seat_count: 435
     seed_year: 2010
@@ -160,7 +160,7 @@ bodies:
     jurisdiction_id: US
     member_name: U.S. Senator
     name: United States Senate
-    office_name_format: '{member_name}, {district_name} ({seat_name})'
+    office_name_format: '{member_name}, {district_name_short} ({seat_name})'
     partisan: true
     seat_count: 100
     seat_name_format: Class {seat}
