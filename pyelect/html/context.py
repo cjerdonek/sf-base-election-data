@@ -147,22 +147,6 @@ def make_districts(data):
     return districts
 
 
-# TODO: remove this function.
-def make_category_map(all_json, phrases):
-    keys = [
-        'name',
-    ]
-
-    categories_json = all_json['categories']
-
-    category_map = {}
-    for category_id, category_json in categories_json.items():
-        category = _make_html_object(category_json, keys, category_id)
-        category_map[category_id] = category
-
-    return category_map
-
-
 def _compute_next_election_year(json_data):
     term_length = json_data.get('term_length')
     # TODO: make this required.
@@ -479,10 +463,6 @@ def make_html_data(json_data, local_assets=False):
     phrases = make_phrases(json_data)
     add_english_fields(json_data, phrases)
 
-    # TODO: can we use add_context_node() here?
-    category_map = make_category_map(json_data, phrases)
-    categories = [category_map[id_] for id_ in CATEGORY_ORDER]
-
     bootstrap_prefix = _BOOTSTRAP_LOCAL if local_assets else _BOOTSTRAP_REMOTE
     jquery_prefix = _JQUERY_LOCAL if local_assets else _JQUERY_REMOTE
 
@@ -517,8 +497,7 @@ def make_html_data(json_data, local_assets=False):
     offices = html_data['offices']
     office_count = 0
     for office in offices.values():
-      pprint(office)
-      office_count += office['seat_count']
+        office_count += office['seat_count']
     html_data['office_count'] = office_count
 
     languages = add_context_node(html_data, json_data, 'languages')

@@ -161,7 +161,6 @@ def _init_cond_include_context(template_name, should_include):
 @log_errors
 def header_with_translation(context, template_name, item, attr_name):
     extra = _init_cond_include_context(template_name, should_include=True)
-    pprint(item)
     header = item.get(attr_name)
     header_id = item['id']
     extra.update({
