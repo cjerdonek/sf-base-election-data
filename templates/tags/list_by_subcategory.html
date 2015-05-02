@@ -1,0 +1,24 @@
+{% load custom_tags %}
+
+{% regroup current_objects by category_id as object_list %}
+{% for group in object_list %}
+<p>
+{% with category=categories|get_item:group.grouper %}
+{% header_with_translation 'header_section.html' category 'name' category.id %}
+{% endwith %}
+{% for item in group.list %}
+{{ item }}
+<p>
+{% endfor %}
+{% endfor %}
+
+{% comment %}
+{% with body_id=group.body_id %}
+{% if body_id %}
+{% with body=bodies|get_item:body_id %}
+{% header_with_translation 'header_section_sub.html' body 'name' body_id %}
+{% endwith %}
+{% endif %}
+{% endwith %}
+{% list_objects group.offices|dictsort:'name' 'name' %}
+{% endcomment %}
