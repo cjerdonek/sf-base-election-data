@@ -146,7 +146,7 @@ def update_context(context, extra):
 
 @register.inclusion_tag('cond_include.html', takes_context=True)
 @log_errors
-def lang_object_header(context, template_name, item, attr_name, header_id):
+def header_with_translation(context, template_name, item, attr_name, header_id):
     extra = _init_cond_include_context(template_name, should_include=True)
     header = item.get(attr_name)
     extra.update({
@@ -259,7 +259,14 @@ def _by_category_context(context, objects):
     update_context(context, extra)
     return context
 
-@register.inclusion_tag('list_objects_by_category.html', takes_context=True)
+
+@register.inclusion_tag('list_by_subcategory.html', takes_context=True)
+@log_errors
+def list_by_subcategory(context, objects):
+    return context
+
+
+@register.inclusion_tag('list_by_category.html', takes_context=True)
 @log_errors
 def show_by_category(context, objects):
     return _by_category_context(context, objects)

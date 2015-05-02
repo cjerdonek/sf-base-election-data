@@ -88,7 +88,7 @@ def make_html(output_dir, page_name=None, print_html=False, local_assets=False,
     shutil.copyfile(json_path_source, json_path_target)
 
     json_data = jsongen.get_json()
-    data = context.make_template_data(json_data, local_assets=local_assets)
+    data = context.make_html_data(json_data, local_assets=local_assets)
 
     page_bases = get_template_page_bases()
     templateconfig.init_django(debug=debug)
