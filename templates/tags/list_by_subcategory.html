@@ -1,24 +1,26 @@
-{% load custom_tags %}
+{% load custom_tags %}{% comment %}
+List objects grouped by category and sub-category.
 
-{% regroup current_objects by category_id as object_list %}
-{% for group in object_list %}
-<p>
+Variables:
+
+  items: an iterable of objects to display.
+  sub_group_attr: the attribute to group by subcategory.
+  sub_group_map: a dict for the subcategory mapping id to object.
+
+{% endcomment %}{% regroup items by category_id as main_list %}
+{% for group in main_list %}
 {% with category=categories|get_item:group.grouper %}
-{% header_with_translation 'header_section.html' category 'name' category.id %}
-{% endwith %}
-{% for item in group.list %}
-{{ item }}
-<p>
-{% endfor %}
-{% endfor %}
-
-{% comment %}
-{% with body_id=group.body_id %}
-{% if body_id %}
-{% with body=bodies|get_item:body_id %}
-{% header_with_translation 'header_section_sub.html' body 'name' body_id %}
-{% endwith %}
+{% if category %}
+{% header_with_translation 'header_section.html' category 'name' %}
 {% endif %}
 {% endwith %}
-{% list_objects group.offices|dictsort:'name' 'name' %}
-{% endcomment %}
+{% regroup group.list|copy_order_attr:sub_group_attr by order as sub_list %}
+{% for sub_group in sub_list %}
+{% with sub_category_object=sub_group_map|get_item:sub_group.grouper %}
+{% if sub_category_object %}
+{% header_with_translation 'header_section_sub.html' sub_category_object 'name' %}
+{% endif %}
+{% endwith %}
+{% list_objects sub_group.list 'name' %}
+{% endfor %}
+{% endfor %}
