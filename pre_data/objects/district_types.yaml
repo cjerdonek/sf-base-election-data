@@ -13,18 +13,18 @@ district_types:
     district_name_format: '{district_code} District'
     name: Courts of Appeal Districts
     parent_area_id: area_state_ca
-  district_type_ca_sa:
-    body_id: body_ca_state_assembly
-    district_count: 80
-    name: State Assembly Districts
-    parent_area_id: area_state_ca
   district_type_ca_sboe:
     body_id: body_ca_sboe
     district_count: 4
     name: Board of Equalization Districts
     parent_area_id: area_state_ca
     wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts
-  district_type_ca_ss:
+  district_type_ca_state_assembly:
+    body_id: body_ca_state_assembly
+    district_count: 80
+    name: State Assembly Districts
+    parent_area_id: area_state_ca
+  district_type_ca_state_senate:
     body_id: body_ca_state_senate
     district_count: 40
     name: State Senate Districts
