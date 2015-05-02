@@ -5,15 +5,20 @@ districts:
   district_ca_state_assembly_17:
     district_type_id: district_type_ca_state_assembly
     number: 17
+    wikipedia: http://en.wikipedia.org/wiki/California%27s_17th_State_Assembly_district
   district_ca_state_assembly_19:
     district_type_id: district_type_ca_state_assembly
     number: 19
+    wikipedia: http://en.wikipedia.org/wiki/California%27s_19th_State_Assembly_district
   district_ca_state_senate_11:
     district_type_id: district_type_ca_state_senate
     number: 11
+    wikipedia: http://en.wikipedia.org/wiki/California%27s_11th_State_Senate_district
   district_usa_house_12:
     district_type_id: district_type_usa_house
     number: 12
+    wikipedia: http://en.wikipedia.org/wiki/California%27s_12th_congressional_district
   district_usa_house_14:
     district_type_id: district_type_usa_house
     number: 14
+    wikipedia: http://en.wikipedia.org/wiki/California%27s_14th_congressional_district

@@ -1,13 +1,11 @@
 TODO
 ====
 
-* Add order_number to HTML category object.
-* Implement sub-category using a new sorting pattern that is more in line
-  with Django idioms (e.g. regroup).
-  - Design the pattern
+* Link to district in each office.
 * Work out a DRY pattern for category/sub-category display, maybe
   by adding more parameters to the tag currently used for the index page.
 * Address `_set_html_object_data()` setting all fields to be internationalizable.
+* Add order_number to HTML category object.
 * Contemplate generating more of the HTML via config, specifically
   the keys that should be copied from JSON.
 * Get district working for US Senate (with district that references area).

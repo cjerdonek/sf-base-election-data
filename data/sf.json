@@ -254,6 +254,7 @@
             "body_id": "body_ca_state_assembly",
             "district_count": 80,
             "district_name_format": "District {number}",
+            "district_name_format_full": "State Assembly District {number}",
             "name": "State Assembly Districts",
             "parent_area_id": "area_state_ca"
         },
@@ -261,6 +262,7 @@
             "body_id": "body_ca_state_senate",
             "district_count": 40,
             "district_name_format": "District {number}",
+            "district_name_format_full": "State Senate District {number}",
             "name": "State Senate Districts",
             "parent_area_id": "area_state_ca"
         },
@@ -275,6 +277,7 @@
             "body_id": "body_usa_house",
             "district_count": 435,
             "district_name_format": "District {number}",
+            "district_name_format_full": "US Congressional District {number}",
             "name": "US Congressional Districts",
             "parent_area_id": "area_country_usa"
         },
@@ -288,23 +291,28 @@
     "districts": {
         "district_ca_state_assembly_17": {
             "district_type_id": "district_type_ca_state_assembly",
-            "number": 17
+            "number": 17,
+            "wikipedia": "http://en.wikipedia.org/wiki/California%27s_17th_State_Assembly_district"
         },
         "district_ca_state_assembly_19": {
             "district_type_id": "district_type_ca_state_assembly",
-            "number": 19
+            "number": 19,
+            "wikipedia": "http://en.wikipedia.org/wiki/California%27s_19th_State_Assembly_district"
         },
         "district_ca_state_senate_11": {
             "district_type_id": "district_type_ca_state_senate",
-            "number": 11
+            "number": 11,
+            "wikipedia": "http://en.wikipedia.org/wiki/California%27s_11th_State_Senate_district"
         },
         "district_usa_house_12": {
             "district_type_id": "district_type_usa_house",
-            "number": 12
+            "number": 12,
+            "wikipedia": "http://en.wikipedia.org/wiki/California%27s_12th_congressional_district"
         },
         "district_usa_house_14": {
             "district_type_id": "district_type_usa_house",
-            "number": 14
+            "number": 14,
+            "wikipedia": "http://en.wikipedia.org/wiki/California%27s_14th_congressional_district"
         }
     },
     "election_methods": {
