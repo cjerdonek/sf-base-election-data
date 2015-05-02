@@ -3,5 +3,5 @@
 {% load custom_tags %}
 
 {% block content_body %}
-{% list_by_subcategory current_objects %}
+{% list_by_subcategory current_objects 'district_type_id' district_types %}
 {% endblock %}
