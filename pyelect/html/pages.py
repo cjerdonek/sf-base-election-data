@@ -15,6 +15,10 @@ def get_default_page_title(page_base):
 
 
 def get_page_object(page_base):
+    """
+    Arguments:
+      page_base: the plural, lower-case noun for the page.
+    """
     parts = get_page_name_parts(page_base)
     prefix = "".join(p.title() for p in parts)
     cls_name = "{0}Page".format(prefix)
@@ -28,6 +32,14 @@ class _Page(object):
     _title = None
     _objects_name = None
     singular = None
+    sorter = None
+
+    def __init__(self, page_base):
+        """
+        Arguments:
+          page_base: the plural, lower-case noun for the page.
+        """
+        self.page_base_name = page_base
 
     @property
     def objects_name(self):
@@ -39,9 +51,6 @@ class _Page(object):
         if title is None:
             title = get_default_page_title(self.objects_name)
         return title
-
-    def __init__(self, page_base):
-        self.page_base_name = page_base
 
     def make_href(self, object_id=None):
         url = "{0}.html".format(self.page_base_name)
@@ -58,6 +67,13 @@ class _Page(object):
     def get_objects(self, data):
         objects_name = self.objects_name
         objects = data[objects_name]
+        if self.sorter is not None:
+            # Sort the objects for the Django template regroup tag.
+            def key(obj):
+                return tuple(obj[attr] for attr in self.sorter)
+            objects = objects.values()
+            objects = sorted(objects, key=key)
+            return objects
         return objects
 
     def get_show_template(self):
@@ -73,6 +89,11 @@ class AreasPage(_Page):
 class BodiesPage(_Page):
     singular = 'body'
     title = "Bodies"
+
+
+class DistrictsPage(_Page):
+    # TODO: sort by category sequence number, then district_type sequence.
+    sorter = ('category_id', 'district_type_id')
 
 
 class DistrictTypesPage(_Page):

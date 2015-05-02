@@ -253,12 +253,14 @@
         "district_type_ca_state_assembly": {
             "body_id": "body_ca_state_assembly",
             "district_count": 80,
+            "district_name_format": "District {number}",
             "name": "State Assembly Districts",
             "parent_area_id": "area_state_ca"
         },
         "district_type_ca_state_senate": {
             "body_id": "body_ca_state_senate",
             "district_count": 40,
+            "district_name_format": "District {number}",
             "name": "State Senate Districts",
             "parent_area_id": "area_state_ca"
         },
