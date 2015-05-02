@@ -8,7 +8,7 @@ from pprint import pprint
 from django.template import Context
 import yaml
 
-from pyelect.html.common import CATEGORY_ORDER, NON_ENGLISH_ORDER
+from pyelect.html.common import NON_ENGLISH_ORDER
 from pyelect.html import pages
 from pyelect import lang
 from pyelect.lang import I18N_SUFFIX, LANG_ENGLISH
@@ -36,6 +36,16 @@ languages
 areas
 election_methods
 """.strip().splitlines()
+
+CATEGORY_ORDER = """\
+category_federal
+category_state
+category_city_county
+category_school
+category_transit
+category_judicial
+category_party
+""".splitlines()
 
 TYPE_NAME_TO_NODE_NAME = {
     'body': 'bodies',
@@ -110,6 +120,13 @@ class NodeNames(object):
 
     election_methods = 'election_methods'
     phrases = 'phrases'
+
+
+def _make_category_ordering():
+    ordering = {}
+    for i, category_id in enumerate(CATEGORY_ORDER, start=1):
+        ordering[category_id] = i
+    return ordering
 
 
 def make_template_context(html_data, page_base):
@@ -279,7 +296,10 @@ def make_one_bodies(object_id, json_data, html_data=None):
     return html_data
 
 
-def make_one_categories2(html_data, html_obj, json_obj):
+def make_one_categories2(html_data, html_obj, json_obj, ordering):
+    category_id = html_obj['id']
+    order = ordering[category_id]
+    html_obj['order'] = order
     return html_obj
 
 
@@ -332,6 +352,17 @@ def make_one_languages(object_id, json_data, html_data=None):
     return context
 
 
+def _set_category_order(html_data, html_obj):
+    category_id = html_obj['category_id']
+    if category_id is None:
+        category_order = 0
+    else:
+        categories = html_data['categories']
+        category = categories[category_id]
+        category_order = category['order']
+    html_obj['category_order'] = category_order
+
+
 # TODO: simplify this and DRY up with make_one_bodies().
 def make_one_offices2(html_data, html_obj, json_obj):
     html_obj['district_name'] = html_obj['district_id']
@@ -364,6 +395,8 @@ def make_one_offices2(html_data, html_obj, json_obj):
                 effective[k] = body[k]
 
     _set_html_election_data(html_obj, effective)
+    _set_category_order(html_data, html_obj)
+    pprint(html_obj)
 
     # TODO: remove this temporary check.
     if not html_obj['category_id'] or not html_obj['name']:
@@ -460,6 +493,8 @@ def add_html_node(html_data, json_data, field_data, base_name, json_key=None, **
 # TODO: switch this to use add_context_node() everywhere possible.
 def make_html_data(json_data, local_assets=False):
     """Return the template data that will be used to create the context."""
+    category_ordering = _make_category_ordering()
+
     phrases = make_phrases(json_data)
     add_english_fields(json_data, phrases)
 
@@ -486,13 +521,18 @@ def make_html_data(json_data, local_assets=False):
         add_context_node(html_data, json_data, base_name)
 
     field_data = yaml.load(TYPE_FIELDS_YAML)
+
+    def _add_node(base_name, **kwargs):
+        add_html_node(html_data, json_data, field_data, base_name, **kwargs)
+
+    _add_node('categories', ordering=category_ordering)
+
     base_names = [
-        'categories',
         'districts',
         'offices',
     ]
     for base_name in base_names:
-        add_html_node(html_data, json_data, field_data, base_name)
+        _add_node(base_name)
 
     offices = html_data['offices']
     office_count = 0

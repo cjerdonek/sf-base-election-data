@@ -94,7 +94,7 @@ class BodiesPage(_Page):
 
 class DistrictsPage(_Page):
     # TODO: sort by category sequence number, then district_type sequence.
-    sorter = ('category_id', 'district_type_id', 'number')
+    sorter = ('category_order', 'district_type_id', 'number')
 
 
 class DistrictTypesPage(_Page):
@@ -107,7 +107,7 @@ class ElectionMethodsPage(_Page):
 
 class IndexPage(_Page):
     _objects_name = 'offices'
-    sorter = ('category_id', 'body_id', 'name')
+    sorter = ('category_order', 'body_id', 'name')
 
 
 class LanguagesPage(_Page):

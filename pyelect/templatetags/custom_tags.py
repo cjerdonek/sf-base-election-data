@@ -16,7 +16,7 @@ import traceback
 
 from django import template
 
-from pyelect.html.common import CATEGORY_ORDER, NON_ENGLISH_ORDER
+from pyelect.html.common import NON_ENGLISH_ORDER
 from pyelect.html import pages
 from pyelect import lang
 
@@ -246,17 +246,6 @@ def list_objects(context, objects, title_attr):
     }
     _update_context(context, extra)
     return context
-
-
-def _group_by_category(objects):
-    by_category = {c: {} for c in CATEGORY_ORDER}
-    for obj in objects.values():
-        category_id = obj['category_id']
-        # Raises an exception if the object has an unrecognized category.
-        group = by_category[category_id]
-        object_id = obj['id']
-        group[object_id] = obj
-    return by_category
 
 
 @register.inclusion_tag('list_by_subcategory.html', takes_context=True)
