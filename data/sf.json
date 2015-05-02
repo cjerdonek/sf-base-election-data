@@ -409,13 +409,13 @@
         },
         "office_ca_attorney_general": {
             "category_id": "category_state",
-            "name": "Attorney General",
+            "name_i18n": "text_office_state_attorney_general",
             "term_length": 4,
             "url": "http://www.oag.ca.gov/"
         },
         "office_ca_controller": {
             "category_id": "category_state",
-            "name": "Controller",
+            "name_i18n": "text_office_state_controller",
             "term_length": 4,
             "url": "http://www.sco.ca.gov/"
         },
@@ -428,7 +428,7 @@
         },
         "office_ca_insurance_commissioner": {
             "category_id": "category_state",
-            "name": "Insurance Commissioner",
+            "name_i18n": "text_office_state_insurance_commissioner",
             "term_length": 4,
             "url": "http://www.insurance.ca.gov/"
         },

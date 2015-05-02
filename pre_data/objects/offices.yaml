@@ -38,11 +38,11 @@ offices:
     district: 9
   office_ca_attorney_general:
     mixin_id: ca_common
-    name: Attorney General
+    name_i18n: text_office_state_attorney_general
     url: http://www.oag.ca.gov/
   office_ca_controller:
     mixin_id: ca_common
-    name: Controller
+    name_i18n: text_office_state_controller
     url: http://www.sco.ca.gov/
   office_ca_governor:
     mixin_id: ca_common
@@ -51,7 +51,7 @@ offices:
     url: http://www.gov.ca.gov
   office_ca_insurance_commissioner:
     mixin_id: ca_common
-    name: Insurance Commissioner
+    name_i18n: text_office_state_insurance_commissioner
     url: http://www.insurance.ca.gov/
   office_ca_lieutenant_governor:
     mixin_id: ca_common
