@@ -1,17 +1,7 @@
 TODO
 ====
 
-* Order categories.
 * Compute translations in header tag code?
-* Link to district in each office.
-* Work out a DRY pattern for category/sub-category display, maybe
-  by adding more parameters to the tag currently used for the index page.
-* Address `_set_html_object_data()` setting all fields to be internationalizable.
-* Add order_number to HTML category object.
-* Contemplate generating more of the HTML via config, specifically
-  the keys that should be copied from JSON.
-* Get district working for US Senate (with district that references area).
-  - include wiki links for House districts
 * Add jurisdiction to body and office (at least for national to start out).
   - Maybe a jurisdiction is a name paired with a geographic area?
 * Flesh out President and then US Senate (with districts and election method).

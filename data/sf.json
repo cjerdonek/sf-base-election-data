@@ -304,6 +304,10 @@
             "number": 11,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_11th_State_Senate_district"
         },
+        "district_state_ca": {
+            "district_type_id": "district_type_usa_states",
+            "name": "California"
+        },
         "district_usa_house_12": {
             "district_type_id": "district_type_usa_house",
             "number": 12,

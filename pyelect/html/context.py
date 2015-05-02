@@ -100,6 +100,8 @@ districts:
   -
     name: district_type_id
   -
+    name: name
+  -
     name: number
   -
     name: wikipedia
@@ -325,14 +327,16 @@ def make_one_districts2(html_data, html_obj, json_obj):
     category_id = district_type['category_id']
 
     name_format = district_type['district_name_format_full']
-    name = name_format.format(number=district_number)
+    if name_format is not None:
+        name = name_format.format(number=district_number)
+        html_obj['name'] = name
 
     html_obj['category_id'] = category_id
-    html_obj['name'] = name
 
     # TODO: figure out a DRY way to add this check (e.g. config-driven).
     if 'name' not in html_obj:
         raise Exception("name and category_id required: {0}".format(html_obj))
+    pprint(html_obj)
     return html_obj
 
 
@@ -396,7 +400,6 @@ def make_one_offices2(html_data, html_obj, json_obj):
 
     _set_html_election_data(html_obj, effective)
     _set_category_order(html_data, html_obj)
-    pprint(html_obj)
 
     # TODO: remove this temporary check.
     if not html_obj['category_id'] or not html_obj['name']:

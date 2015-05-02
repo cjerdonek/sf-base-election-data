@@ -238,14 +238,13 @@ def url_row_object(context, label, object_id, type_name):
 
 @register.inclusion_tag('list_objects.html', takes_context=True)
 @log_errors
+@pass_context
 def list_objects(context, objects, title_attr):
-    assert 'phrases' in context
     extra = {
         'objects': objects,
         'title_attr': title_attr
     }
-    _update_context(context, extra)
-    return context
+    return extra
 
 
 @register.inclusion_tag('list_by_subcategory.html', takes_context=True)
@@ -258,9 +257,3 @@ def list_by_subcategory(context, items, sub_group_attr, sub_group_map):
         'sub_group_map': sub_group_map,
     }
     return extra
-
-
-@register.inclusion_tag('list_by_category.html', takes_context=True)
-@log_errors
-def show_by_category(context, objects):
-    return _by_category_context(context, objects)
