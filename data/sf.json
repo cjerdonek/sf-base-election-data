@@ -81,7 +81,7 @@
         },
         "body_ca_state_assembly": {
             "category_id": "category_state",
-            "district_type_id": "district_type_ca_sa",
+            "district_type_id": "district_type_ca_state_assembly",
             "jurisdiction_id": "CA",
             "name": "California State Assembly",
             "office_name": "Member of the State Assembly",
@@ -93,7 +93,7 @@
         },
         "body_ca_state_senate": {
             "category_id": "category_state",
-            "district_type_id": "district_type_ca_ss",
+            "district_type_id": "district_type_ca_state_senate",
             "jurisdiction_id": "CA",
             "name": "California State Senate",
             "office_name_format": "State Senator",
@@ -243,12 +243,6 @@
             "name": "Courts of Appeal Districts",
             "parent_area_id": "area_state_ca"
         },
-        "district_type_ca_sa": {
-            "body_id": "body_ca_state_assembly",
-            "district_count": 80,
-            "name": "State Assembly Districts",
-            "parent_area_id": "area_state_ca"
-        },
         "district_type_ca_sboe": {
             "body_id": "body_ca_sboe",
             "district_count": 4,
@@ -256,7 +250,13 @@
             "parent_area_id": "area_state_ca",
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts"
         },
-        "district_type_ca_ss": {
+        "district_type_ca_state_assembly": {
+            "body_id": "body_ca_state_assembly",
+            "district_count": 80,
+            "name": "State Assembly Districts",
+            "parent_area_id": "area_state_ca"
+        },
+        "district_type_ca_state_senate": {
             "body_id": "body_ca_state_senate",
             "district_count": 40,
             "name": "State Senate Districts",
@@ -284,6 +284,18 @@
         }
     },
     "districts": {
+        "district_ca_state_assembly_17": {
+            "district_type_id": "district_type_ca_state_assembly",
+            "number": 17
+        },
+        "district_ca_state_assembly_19": {
+            "district_type_id": "district_type_ca_state_assembly",
+            "number": 19
+        },
+        "district_ca_state_senate_11": {
+            "district_type_id": "district_type_ca_state_senate",
+            "number": 11
+        },
         "district_usa_house_12": {
             "district_type_id": "district_type_usa_house",
             "number": 12
