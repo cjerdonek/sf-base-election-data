@@ -1,6 +1,8 @@
 TODO
 ====
 
+* Order categories.
+* Compute translations in header tag code?
 * Link to district in each office.
 * Work out a DRY pattern for category/sub-category display, maybe
   by adding more parameters to the tag currently used for the index page.

@@ -93,7 +93,7 @@ class BodiesPage(_Page):
 
 class DistrictsPage(_Page):
     # TODO: sort by category sequence number, then district_type sequence.
-    sorter = ('category_id', 'district_type_id')
+    sorter = ('category_id', 'district_type_id', 'number')
 
 
 class DistrictTypesPage(_Page):
