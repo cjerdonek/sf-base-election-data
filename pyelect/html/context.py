@@ -292,6 +292,7 @@ def make_one_areas(object_id, json_data, html_data=None):
 
 
 def make_one_bodies2(html_data, html_obj, json_obj):
+    _set_category_order(html_data, html_obj)
     return html_obj
 
 
@@ -306,7 +307,6 @@ def make_one_categories2(html_data, html_obj, json_obj, ordering):
 def make_one_district_types2(html_data, html_obj, json_obj):
     if not html_obj['category_id']:
         body = get_from_html_data(html_data, json_obj, 'body_id')
-        pprint(body)
         category_id = body.get('category_id')
         html_obj['category_id'] = category_id
     # TODO: revisit message re: category_id.
@@ -382,7 +382,6 @@ def make_one_offices2(html_data, html_obj, json_obj):
         html_obj['district_name_short'] = short_name
 
         body = get_from_html_data(html_data, json_obj, 'body_id')
-        pprint(body)
         html_obj['category_id'] = body['category_id']
         member_name = body['member_name']
         html_obj['member_name'] = member_name

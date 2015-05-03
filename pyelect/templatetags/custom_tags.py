@@ -159,8 +159,10 @@ def _init_cond_include_context(template_name, should_include):
 
 @register.inclusion_tag('cond_include.html', takes_context=True)
 @log_errors
+@pass_context
 def header_with_translation(context, template_name, item, attr_name):
     extra = _init_cond_include_context(template_name, should_include=True)
+    pprint(item)
     header = item.get(attr_name)
     header_id = item['id']
     extra.update({
@@ -169,8 +171,7 @@ def header_with_translation(context, template_name, item, attr_name):
         'item': item,
         'attr_name': attr_name,
     })
-    _update_context(context, extra)
-    return context
+    return extra
 
 
 # TODO: DRY up with _init_cond_include_context().
@@ -240,6 +241,7 @@ def url_row_object(context, label, object_id, type_name):
 @log_errors
 @pass_context
 def list_objects(context, objects, title_attr):
+    pprint(objects)
     extra = {
         'objects': objects,
         'title_attr': title_attr
@@ -247,10 +249,20 @@ def list_objects(context, objects, title_attr):
     return extra
 
 
+@register.inclusion_tag('list_by_category.html', takes_context=True)
+@log_errors
+@pass_context
+def list_by_category(context, items):
+    extra = {
+        'items': items,
+    }
+    return extra
+
+
 @register.inclusion_tag('list_by_subcategory.html', takes_context=True)
 @log_errors
 @pass_context
-def list_by_subcategory(context, items, sub_group_attr, sub_group_map):
+def list_by_subcategory(context, items, sub_group_attr=None, sub_group_map=None):
     extra = {
         'items': items,
         'sub_group_attr': sub_group_attr,

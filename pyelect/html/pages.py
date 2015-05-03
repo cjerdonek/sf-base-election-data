@@ -90,6 +90,7 @@ class AreasPage(_Page):
 class BodiesPage(_Page):
     singular = 'body'
     title = "Bodies"
+    sorter = ('category_order', 'name')
 
 
 class DistrictsPage(_Page):

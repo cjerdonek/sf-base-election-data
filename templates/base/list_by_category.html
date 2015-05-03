@@ -4,8 +4,6 @@ List objects grouped by category and sub-category.
 Variables:
 
   items: an iterable of objects to display.
-  sub_group_attr: the attribute to group by subcategory.
-  sub_group_map: a dict for the subcategory mapping id to object.
 
 TODO: skip the category if it has no entries, or does regroup already
   take care of this?
@@ -17,14 +15,10 @@ TODO: skip the category if it has no entries, or does regroup already
 {% header_with_translation 'header_section.html' category 'name' %}
 {% endif %}
 {% endwith %}
-{% regroup group.list|copy_order_attr:sub_group_attr by order as sub_list %}
-{% for sub_group in sub_list %}
-  {% with sub_category_object=sub_group_map|get_item:sub_group.grouper %}
-    {% if sub_category_object %}
-    {% header_with_translation 'header_section_sub.html' sub_category_object 'name' %}
-    {% endif %}
-  {% endwith %}
+{% with sub_group=group %}
+{% block show_category %}
 {% list_objects sub_group.list 'name' %}
-{% endfor %}
+{% endblock %}
+{% endwith %}
 <hr>
 {% endfor %}
