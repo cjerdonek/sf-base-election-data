@@ -26,13 +26,6 @@ bodies:
     term_length: 4
     url: http://www.boe.ca.gov/
     wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29
-  body_ca_court_of_appeal_d1:
-    category_id: category_judicial
-    name_i18n: text_body_ca_court_of_appeal_d1
-    notes: The district covers San Francisco and is divided into five non-geographical
-      divisions with four justices each.
-    partisan: false
-    seat_count: 20
   body_ca_court_supreme:
     category_id: category_judicial
     jurisdiction_id: CA
@@ -55,6 +48,14 @@ bodies:
     url: http://www.courts.ca.gov/courtsofappeal.htm
     vote_method: retention
     wikipedia: http://en.wikipedia.org/wiki/California_courts_of_appeal
+  body_ca_courts_of_appeal_d1:
+    category_id: category_judicial
+    district_type_id: =none
+    name_i18n: text_body_ca_courts_of_appeal_d1
+    notes: The district covers San Francisco and is divided into five non-geographical
+      divisions with four justices each.
+    partisan: false
+    seat_count: 20
   body_ca_state_assembly:
     category_id: category_state
     district_type_id: district_type_ca_state_assembly

@@ -68,6 +68,16 @@ def _pprint(text):
     pprint(text, stream=sys.stderr)
 
 
+@register.assignment_tag()
+@log_errors
+def ternary(value, true, false):
+    if value is None:
+        return None
+    if value:
+        return true
+    return false
+
+
 # TODO: update the return value to what is documented.
 @register.assignment_tag(takes_context=True)
 @log_errors

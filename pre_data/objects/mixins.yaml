@@ -4,6 +4,7 @@ _meta:
 mixins:
   ca_common:
     category_id: category_state
+    partisan: true
     term_length: 4
   sf_common:
     category_id: category_city_county

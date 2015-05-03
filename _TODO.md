@@ -2,6 +2,8 @@ TODO
 ====
 
 * Flesh out Body more
+  - Make partisan required in Office only if no Body
+    (and must be different).
   - Mark fields as required / not required and check automatically.
   - Jurisdiction, election method, district type, etc.
   - Try documenting it.

@@ -52,9 +52,9 @@
             "url": "http://www.boe.ca.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29"
         },
-        "body_ca_court_of_appeal_d1": {
+        "body_ca_courts_of_appeal_d1": {
             "category_id": "category_judicial",
-            "name_i18n": "text_body_ca_court_of_appeal_d1",
+            "name_i18n": "text_body_ca_courts_of_appeal_d1",
             "notes": "The district covers San Francisco and is divided into five non-geographical divisions with four justices each.",
             "partisan": false,
             "seat_count": 20
@@ -423,18 +423,21 @@
         "office_ca_attorney_general": {
             "category_id": "category_state",
             "name_i18n": "text_office_state_attorney_general",
+            "partisan": true,
             "term_length": 4,
             "url": "http://www.oag.ca.gov/"
         },
         "office_ca_controller": {
             "category_id": "category_state",
             "name_i18n": "text_office_state_controller",
+            "partisan": true,
             "term_length": 4,
             "url": "http://www.sco.ca.gov/"
         },
         "office_ca_governor": {
             "category_id": "category_state",
             "name_i18n": "text_office_state_governor",
+            "partisan": true,
             "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.gov.ca.gov"
@@ -442,12 +445,14 @@
         "office_ca_insurance_commissioner": {
             "category_id": "category_state",
             "name_i18n": "text_office_state_insurance_commissioner",
+            "partisan": true,
             "term_length": 4,
             "url": "http://www.insurance.ca.gov/"
         },
         "office_ca_lieutenant_governor": {
             "category_id": "category_state",
             "name_i18n": "text_office_state_lieutenant_governor",
+            "partisan": true,
             "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.ltg.ca.gov/"
@@ -455,6 +460,7 @@
         "office_ca_secretary": {
             "category_id": "category_state",
             "name_i18n": "text_office_state_secretary",
+            "partisan": true,
             "seed_year": 2014,
             "term_length": 4,
             "twitter": "sosnews",
@@ -483,6 +489,7 @@
         "office_ca_treasurer": {
             "category_id": "category_state",
             "name": "State Treasurer",
+            "partisan": true,
             "term_length": 4,
             "url": "http://www.treasurer.ca.gov/"
         },
@@ -661,7 +668,7 @@
         }
     },
     "phrases": {
-        "text_body_ca_court_of_appeal_d1": {
+        "text_body_ca_courts_of_appeal_d1": {
             "en": "California Court of Appeal, First District"
         },
         "text_body_ca_court_supreme": {

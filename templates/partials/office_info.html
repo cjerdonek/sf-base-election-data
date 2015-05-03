@@ -1,5 +1,6 @@
 {% load custom_tags %}
+{% cond_include object.term_length 'rows/term_length.html' object %}
 {% url_row_object 'Election Method' object.election_method_id 'election_methods' %}
 {% info_row 'Next Election' object.next_election_year %}
-{% cond_include object.term_length 'rows/term_length.html' object %}
-{% info_row 'Partisan' object.partisan %}
+{% ternary object.partisan "Partisan" "Nonpartisan" as partisan %}
+{% info_row 'Partisan' partisan %}

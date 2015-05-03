@@ -63,9 +63,6 @@ OFFICE_BODY_COMMON_FIELDS_YAML = """\
   -
     name: notes
   -
-    name: partisan
-    required: true
-  -
     name: seed_year
   -
     name: term_length
@@ -82,12 +79,16 @@ body:
 {office_body_yaml}
   -
     name: district_type_id
+    required: true
   -
     name: member_name
   -
     name: office_name
   -
     name: office_name_format
+  -
+    name: partisan
+    required: true
   -
     name: seat_count
   -
@@ -130,6 +131,8 @@ office:
     name: body_id
   -
     name: district_id
+  -
+    name: partisan
   -
     name: seat
   -
@@ -202,18 +205,6 @@ def _compute_next_election_year(json_data):
     while seed_year < year:
         seed_year += term_length
     return seed_year
-
-
-def _group_by(objects, key):
-    grouped = defaultdict(list)
-    for obj in objects.values():
-        try:
-            value = obj[key]
-        except KeyError:
-            raise Exception(repr(obj))
-        seq = grouped[value]
-        seq.append(obj)
-    return grouped
 
 
 def make_phrases(json_data):
@@ -373,7 +364,9 @@ def _set_category_order(html_data, html_obj):
 
 # TODO: simplify this and DRY up with make_one_bodies().
 def make_one_offices2(html_obj, html_data, json_obj):
-    inherited_keys = ('seed_year', 'term_length')
+    # TODO: come up with a pattern for inheriting properties between
+    # objects for which a relationship exists.
+    inherited_keys = ('partisan', 'seed_year', 'term_length')
     effective = {k: html_obj[k] for k in inherited_keys}
 
     phrases = html_data[NodeNames.phrases]
@@ -503,7 +496,7 @@ def add_html_node(html_data, json_data, field_data, base_name, json_key=None, **
         # TODO: check the object.
         check_object(html_obj, fields)
         # TODO: remove this hack (used to skip offices).
-        if not html_obj:
+        if html_obj['name'] is None:
             continue
         objects[object_id] = html_obj
 
@@ -559,6 +552,7 @@ def make_html_data(json_data, local_assets=False):
     offices = html_data['offices']
     office_count = 0
     for office in offices.values():
+        pprint(office)
         office_count += office['seat_count']
     html_data['office_count'] = office_count
 
