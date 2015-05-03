@@ -2,7 +2,7 @@ TODO
 ====
 
 * Flesh out Body more
-  - Use same list by category tag and template?
+  - Mark fields as required / not required and check automatically.
   - Jurisdiction, election method, district type, etc.
   - Try documenting it.
   - Should the district "object" be a property?

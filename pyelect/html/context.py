@@ -64,6 +64,7 @@ OFFICE_BODY_COMMON_FIELDS_YAML = """\
     name: notes
   -
     name: partisan
+    required: true
   -
     name: seed_year
   -
@@ -291,12 +292,15 @@ def make_one_areas(object_id, json_data, html_data=None):
     return context
 
 
-def make_one_bodies2(html_data, html_obj, json_obj):
+def make_one_bodies2(html_obj, html_data, json_obj):
+    # TODO: DRY this up with make_one_offices2().
+    _set_html_election_data(html_obj, html_obj)
     _set_category_order(html_data, html_obj)
+    pprint(html_obj)
     return html_obj
 
 
-def make_one_categories2(html_data, html_obj, json_obj, ordering):
+def make_one_categories2(html_obj, html_data, json_obj, ordering):
     category_id = html_obj['id']
     order = ordering[category_id]
     html_obj['order'] = order
@@ -304,7 +308,7 @@ def make_one_categories2(html_data, html_obj, json_obj, ordering):
     return html_obj
 
 
-def make_one_district_types2(html_data, html_obj, json_obj):
+def make_one_district_types2(html_obj, html_data, json_obj):
     if not html_obj['category_id']:
         body = get_from_html_data(html_data, json_obj, 'body_id')
         category_id = body.get('category_id')
@@ -316,7 +320,7 @@ def make_one_district_types2(html_data, html_obj, json_obj):
     return html_obj
 
 
-def make_one_districts2(html_data, html_obj, json_obj):
+def make_one_districts2(html_obj, html_data, json_obj):
     district_number = html_obj['number']
 
     district_type = get_from_html_data(html_data, json_obj, 'district_type_id')
@@ -368,7 +372,7 @@ def _set_category_order(html_data, html_obj):
 
 
 # TODO: simplify this and DRY up with make_one_bodies().
-def make_one_offices2(html_data, html_obj, json_obj):
+def make_one_offices2(html_obj, html_data, json_obj):
     inherited_keys = ('seed_year', 'term_length')
     effective = {k: html_obj[k] for k in inherited_keys}
 
@@ -470,12 +474,23 @@ def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
     return objects
 
 
+def check_object(html_obj, fields):
+    for field in fields:
+        field_name = field['name']
+        if field_name not in html_obj:
+            raise Exception("field {0!r} missing: {1}".format(field_name, html_obj))
+        if not field.get('required'):
+            continue
+        if html_obj[field_name] is None:
+            raise Exception("field {0!r} should not be None: {1}".format(field_name, html_obj))
+
+
 def add_html_node(html_data, json_data, field_data, base_name, json_key=None, **kwargs):
     # TODO: document json_key vs. base_name.
     if json_key is None:
         json_key = base_name
     make_object_func_name = "make_one_{0}2".format(base_name, **kwargs)
-    make_object = globals()[make_object_func_name]
+    set_object_fields = globals()[make_object_func_name]
 
     singular = common.type_name_to_singular(base_name)
     fields = field_data[singular]
@@ -484,11 +499,13 @@ def add_html_node(html_data, json_data, field_data, base_name, json_key=None, **
     objects = {}
     for object_id, json_obj in json_node.items():
         html_obj = _make_html_object2(json_obj, fields, object_id)
-        obj = make_object(html_data, html_obj, json_obj, **kwargs)
+        set_object_fields(html_obj, html_data, json_obj, **kwargs)
+        # TODO: check the object.
+        check_object(html_obj, fields)
         # TODO: remove this hack (used to skip offices).
-        if not obj:
+        if not html_obj:
             continue
-        objects[object_id] = obj
+        objects[object_id] = html_obj
 
     html_data[base_name] = objects
 

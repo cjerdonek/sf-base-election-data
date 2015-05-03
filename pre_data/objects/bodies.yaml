@@ -8,10 +8,24 @@ bodies:
     jurisdiction_id: BART
     name: BART Board of Directors
     office_name: BART Director
+    partisan: false
     seat_count: 9
     term_length: 4
     url: http://www.bart.gov/about/bod
     vote_method: FPTP
+  body_ca_board_of_equalization:
+    category_id: category_state
+    district_type_id: district_type_ca_board_of_equalization
+    jurisdiction_id: CA
+    name: State Board of Equalization
+    notes: The State Controller is the fifth member of this body.
+    office_name: Member, State Board of Equalization
+    partisan: true
+    qualified_name: California State Board of Equalization
+    seat_count: 5
+    term_length: 4
+    url: http://www.boe.ca.gov/
+    wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29
   body_ca_court_of_appeal_d1:
     category_id: category_judicial
     name_i18n: text_body_ca_court_of_appeal_d1
@@ -25,6 +39,7 @@ bodies:
     name_i18n: text_body_ca_court_supreme
     notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
       by the Governor and subject to retention elections.
+    partisan: false
     seat_count: 7
     term_length: 12
     url: http://www.courts.ca.gov/supremecourt.htm
@@ -40,18 +55,6 @@ bodies:
     url: http://www.courts.ca.gov/courtsofappeal.htm
     vote_method: retention
     wikipedia: http://en.wikipedia.org/wiki/California_courts_of_appeal
-  body_ca_sboe:
-    category_id: category_state
-    district_type_id: district_type_ca_sboe
-    jurisdiction_id: CA
-    name: State Board of Equalization
-    notes: The State Controller is the fifth member of this body.
-    office_name: Member, State Board of Equalization
-    qualified_name: California State Board of Equalization
-    seat_count: 5
-    term_length: 4
-    url: http://www.boe.ca.gov/
-    wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29
   body_ca_state_assembly:
     category_id: category_state
     district_type_id: district_type_ca_state_assembly
@@ -104,6 +107,7 @@ bodies:
     jurisdiction_id: SFCC
     name_i18n: text_body_city_college_board
     office_name_i18n: text_office_member_community_college_board
+    partisan: false
     seat_count: 7
     term_length: 4
     url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
@@ -112,21 +116,25 @@ bodies:
     category_id: category_party
     jurisdiction_id: SF
     name: Democratic County Central Committee
+    partisan: true
     url: http://www.sfdemocrats.org/
   body_sf_gcc:
     category_id: category_party
     jurisdiction_id: SF
     name: Green County Council
+    partisan: true
     url: http://sfgreenparty.org/
   body_sf_pfccc:
     category_id: category_party
     jurisdiction_id: SF
     name: Peace and Freedom County Central Committee
+    partisan: true
     url: http://www.peaceandfreedom.org
   body_sf_rccc:
     category_id: category_party
     jurisdiction_id: SF
     name: Republican County Central Committee
+    partisan: true
     url: http://sfgop.org/
   body_sf_sc:
     category_id: category_judicial
@@ -135,6 +143,7 @@ bodies:
     notes: The San Francisco Superior Court Bench is comprised of 52 Judges and one
       Commissioner.
     office_name_i18n: text_office_member_body_sf_sc
+    partisan: false
     term_length: 6
     url: http://www.sfsuperiorcourt.org/
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court

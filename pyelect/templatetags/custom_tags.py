@@ -162,7 +162,6 @@ def _init_cond_include_context(template_name, should_include):
 @pass_context
 def header_with_translation(context, template_name, item, attr_name):
     extra = _init_cond_include_context(template_name, should_include=True)
-    pprint(item)
     header = item.get(attr_name)
     header_id = item['id']
     extra.update({
@@ -241,7 +240,6 @@ def url_row_object(context, label, object_id, type_name):
 @log_errors
 @pass_context
 def list_objects(context, objects, title_attr):
-    pprint(objects)
     extra = {
         'objects': objects,
         'title_attr': title_attr
