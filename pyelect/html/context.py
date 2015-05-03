@@ -91,6 +91,7 @@ body:
     required: true
   -
     name: seat_count
+    required: true
   -
     name: seat_name_format
 category:

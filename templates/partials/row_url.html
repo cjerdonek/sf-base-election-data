@@ -3,7 +3,11 @@
 {% block row_header %}{{ header }}{% endblock %}
 
 {% block row_value %}
+{% if href %}
 <a href="{{ href }}">
 {{ href_text }}
 </a>
+{% else %}
+{{ href_text }}
+{% endif %}
 {% endblock %}

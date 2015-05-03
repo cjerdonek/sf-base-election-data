@@ -2,10 +2,10 @@ TODO
 ====
 
 * Flesh out Body more
+  - Add Jurisdiction as required field.
   - Make partisan required in Office only if no Body
     (and must be different).
-  - Mark fields as required / not required and check automatically.
-  - Jurisdiction, election method, district type, etc.
+  - Jurisdiction, election method, etc.
   - Try documenting it.
   - Should the district "object" be a property?
 * Compute translations in header tag code?

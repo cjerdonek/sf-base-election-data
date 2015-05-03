@@ -52,15 +52,9 @@
             "url": "http://www.boe.ca.gov/",
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29"
         },
-        "body_ca_courts_of_appeal_d1": {
-            "category_id": "category_judicial",
-            "name_i18n": "text_body_ca_courts_of_appeal_d1",
-            "notes": "The district covers San Francisco and is divided into five non-geographical divisions with four justices each.",
-            "partisan": false,
-            "seat_count": 20
-        },
         "body_ca_court_supreme": {
             "category_id": "category_judicial",
+            "district_type_id": "=none",
             "jurisdiction_id": "CA",
             "name_i18n": "text_body_ca_court_supreme",
             "notes": "The Court has six Associate Justices and one Chief Justice. Each is appointed by the Governor and subject to retention elections.",
@@ -77,10 +71,19 @@
             "jurisdiction_id": "CA",
             "name_i18n": "text_body_ca_courts_of_appeal",
             "partisan": false,
+            "seat_count": "=unknown",
             "term_length": 12,
             "url": "http://www.courts.ca.gov/courtsofappeal.htm",
             "vote_method": "retention",
             "wikipedia": "http://en.wikipedia.org/wiki/California_courts_of_appeal"
+        },
+        "body_ca_courts_of_appeal_d1": {
+            "category_id": "category_judicial",
+            "district_type_id": "=none",
+            "name_i18n": "text_body_ca_courts_of_appeal_d1",
+            "notes": "The district covers San Francisco and is divided into five non-geographical divisions with four justices each.",
+            "partisan": false,
+            "seat_count": 20
         },
         "body_ca_state_assembly": {
             "category_id": "category_state",
@@ -108,6 +111,7 @@
         },
         "body_sf_board_of_education": {
             "category_id": "category_school",
+            "district_type_id": "=none",
             "jurisdiction_id": "SF",
             "name_i18n": "text_body_city_board_of_education",
             "office_name_i18n": "text_office_member_board_of_education",
@@ -135,6 +139,7 @@
         },
         "body_sf_college_board": {
             "category_id": "category_school",
+            "district_type_id": "=none",
             "jurisdiction_id": "SFCC",
             "name_i18n": "text_body_city_college_board",
             "office_name_i18n": "text_office_member_community_college_board",
@@ -144,41 +149,51 @@
             "url": "http://www.ccsf.edu/en/about-city-college/board-of-trustees.html",
             "vote_method": "FPTP"
         },
-        "body_sf_dccc": {
+        "body_sf_party_democratic": {
             "category_id": "category_party",
+            "district_type_id": "district_type_ca_state_assembly",
             "jurisdiction_id": "SF",
             "name": "Democratic County Central Committee",
             "partisan": true,
+            "seat_count": 24,
             "url": "http://www.sfdemocrats.org/"
         },
-        "body_sf_gcc": {
+        "body_sf_party_green": {
             "category_id": "category_party",
+            "district_type_id": "=none",
             "jurisdiction_id": "SF",
             "name": "Green County Council",
             "partisan": true,
+            "seat_count": "=unknown",
             "url": "http://sfgreenparty.org/"
         },
-        "body_sf_pfccc": {
+        "body_sf_party_peace_freedom": {
             "category_id": "category_party",
+            "district_type_id": "=none",
             "jurisdiction_id": "SF",
             "name": "Peace and Freedom County Central Committee",
             "partisan": true,
+            "seat_count": "=unknown",
             "url": "http://www.peaceandfreedom.org"
         },
         "body_sf_rccc": {
             "category_id": "category_party",
+            "district_type_id": "=none",
             "jurisdiction_id": "SF",
             "name": "Republican County Central Committee",
             "partisan": true,
+            "seat_count": "=unknown",
             "url": "http://sfgop.org/"
         },
         "body_sf_sc": {
             "category_id": "category_judicial",
+            "district_type_id": "=none",
             "jurisdiction_id": "SF",
             "name_i18n": "text_body_city_sc",
-            "notes": "The San Francisco Superior Court Bench is comprised of 52 Judges and one Commissioner.",
+            "notes": "Wikipedia says that the San Francisco Superior Court Bench comprises 52 Judges and one Commissioner.  We do not know if the Commissioner faces election.",
             "office_name_i18n": "text_office_member_body_sf_sc",
             "partisan": false,
+            "seat_count": 52,
             "term_length": 6,
             "url": "http://www.sfsuperiorcourt.org/",
             "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court"
@@ -668,9 +683,6 @@
         }
     },
     "phrases": {
-        "text_body_ca_courts_of_appeal_d1": {
-            "en": "California Court of Appeal, First District"
-        },
         "text_body_ca_court_supreme": {
             "en": "Supreme Court of California",
             "es": "Corte Suprema"
@@ -678,6 +690,9 @@
         "text_body_ca_courts_of_appeal": {
             "en": "California Courts of Appeal",
             "es": "Corte de Apelaci\u00f3n"
+        },
+        "text_body_ca_courts_of_appeal_d1": {
+            "en": "California Court of Appeal, First District"
         },
         "text_body_city_board_of_education": {
             "en": "Board of Education",

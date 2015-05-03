@@ -21,9 +21,26 @@ from pyelect.html import pages
 from pyelect import lang
 
 
+_LABEL_TEXTS = {
+    'none': 'Single',
+    'unknown': 'Unknown',
+}
+
 _log = logging.getLogger()
 
 register = template.Library()
+
+
+def label_to_text(label):
+    text = None
+    try:
+        starts = label.startswith('=')
+    except AttributeError:
+        return text
+    if starts:
+        key = label[1:]
+        text = _LABEL_TEXTS[key]
+    return text
 
 
 # This is a decorator to deal with the fact that by default Django silently
@@ -210,7 +227,7 @@ def _cond_include_context_url(label, href, href_text=None):
         href_text = href
     return {
         'header': label,
-        'should_include': href is not None,
+        'should_include': href_text is not None,
         'template_name': 'partials/row_url.html',
         'href': href,
         'href_text': href_text,
@@ -218,11 +235,15 @@ def _cond_include_context_url(label, href, href_text=None):
 
 
 @register.inclusion_tag('tags/cond_include.html')
+@log_errors
 def info_row(header, value):
+    if label_to_text(value):
+        value = label_to_text(value)
     return _cond_include_context('partials/row_simple.html', header, value)
 
 
 @register.inclusion_tag('tags/cond_include.html')
+@log_errors
 def url_row(header, value):
     return _cond_include_context_url(header, value)
 
@@ -236,14 +257,19 @@ def url_row_object(context, label, object_id, type_name):
     """
     href = None
     name = None
-    if object_id is not None:
+    text = None
+    if object_id is None:
+        pass
+    elif label_to_text(object_id):
+        text = label_to_text(object_id)
+    else:
         objects = context[type_name]
         obj = objects[object_id]
-        name = obj['name']
+        text = obj['name']
         page = pages.get_page_object(type_name)
         href = page.make_href(object_id)
 
-    return _cond_include_context_url(label, href, href_text=name)
+    return _cond_include_context_url(label, href, href_text=text)
 
 
 @register.inclusion_tag('list_objects.html', takes_context=True)
