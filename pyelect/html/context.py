@@ -292,7 +292,7 @@ def make_one_bodies2(html_obj, html_data, json_obj):
     # TODO: DRY this up with make_one_offices2().
     _set_html_election_data(html_obj, html_obj)
     _set_category_order(html_data, html_obj)
-    pprint(html_obj)
+
     return html_obj
 
 
@@ -309,6 +309,8 @@ def make_one_district_types2(html_obj, html_data, json_obj):
         body = get_from_html_data(html_data, json_obj, 'body_id')
         category_id = body.get('category_id')
         html_obj['category_id'] = category_id
+
+    _set_category_order(html_data, html_obj)
     # TODO: revisit message re: category_id.
     if 'name' not in html_obj:
         raise Exception("name and category_id required: {0}".format(context))
@@ -557,7 +559,6 @@ def make_html_data(json_data, local_assets=False):
     offices = html_data['offices']
     office_count = 0
     for office in offices.values():
-        pprint(office)
         office_count += office['seat_count']
     html_data['office_count'] = office_count
 

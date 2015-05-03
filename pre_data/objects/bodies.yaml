@@ -44,6 +44,7 @@ bodies:
     district_type_id: district_type_ca_court_appeal
     jurisdiction_area_id: area_state_ca
     name_i18n: text_body_ca_courts_of_appeal
+    notes: This may be better viewed as a type of office rather than a body.
     partisan: false
     seat_count: =unknown
     term_length: 12
@@ -55,8 +56,8 @@ bodies:
     district_type_id: =none
     jurisdiction_area_id: area_state_ca_courts_of_appeal_d1
     name_i18n: text_body_ca_courts_of_appeal_d1
-    notes: The district covers San Francisco and is divided into five non-geographical
-      divisions with four justices each.
+    notes: This body is divided into five non-geographical divisions with four justices
+      each.
     partisan: false
     seat_count: 20
   body_ca_state_assembly:
@@ -112,7 +113,7 @@ bodies:
     district_type_id: =none
     jurisdiction_area_id: area_sf_community_college
     name_i18n: text_body_city_college_board
-    notes: This is also known as the San Francisco Community Collage Board of Trustees.
+    notes: This is also known as the San Francisco Community College Board of Trustees.
     office_name_i18n: text_office_member_community_college_board
     partisan: false
     seat_count: 7

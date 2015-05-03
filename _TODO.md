@@ -1,26 +1,22 @@
 TODO
 ====
 
+* Get the whole thing rendering.
+* For district types, say how many districts in SF.
 * Flesh out Body more
-  - Add Jurisdiction as required field.
-  - Make partisan required in Office only if no Body
-    (and must be different).
-  - Jurisdiction, election method, etc.
+  - Election method, etc.
   - Try documenting it.
-  - Should the district "object" be a property?
+  - Should the `district_type` "object" be a property?
+* Make partisan required in Office only if no Body (and must be different).
 * Compute translations in header tag code?
-* Add jurisdiction to body and office (at least for national to start out).
-  - Maybe a jurisdiction is a name paired with a geographic area?
-* Flesh out President and then US Senate (with districts and election method).
-* Should CALIFORNIA COURTS OF APPEAL be made an office type?
+* Make jurisdiction a name paired with a geographic area?
 * Switch Court district and remove geographic label.
-* Seat count for school board.
+* Make a new type for CALIFORNIA COURTS OF APPEAL.
 * Clean up & simplify the office HTML and JSON generation.
 * Move "row" templates to a rows directory.
 * Add jurisdiction to office & body (inherit from district type)?
 * Edit notes for body: California Court of Appeal, First District
 * Change the i18n fields on body from the translations to the ID.
-* Add a way to check that all info is present on each object.
 * Add the following to SF Community College:
     name: San Francisco Community College District
     wikipedia: `http://en.wikipedia.org/wiki/City_College_of_San_Francisco`
@@ -45,5 +41,3 @@ TODO
 * Have a way to note when translations are missing.
 * Document the JSON objects as I go.
 * Document Court of Appeals.
-* Do Supreme Court.
-* Mark partisan.

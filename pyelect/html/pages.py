@@ -99,7 +99,7 @@ class DistrictsPage(_Page):
 
 
 class DistrictTypesPage(_Page):
-    pass
+    sorter = ('category_order', 'name')
 
 
 class ElectionMethodsPage(_Page):
