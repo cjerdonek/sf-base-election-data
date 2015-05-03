@@ -318,6 +318,7 @@ def make_one_district_types2(html_obj, html_data, json_obj):
     return html_obj
 
 
+# TODO: inherit properties from district type (like office from body).
 def make_one_districts2(html_obj, html_data, json_obj):
     district_number = html_obj['number']
 
@@ -335,6 +336,7 @@ def make_one_districts2(html_obj, html_data, json_obj):
         html_obj['name_short'] = name_short
 
     html_obj['category_id'] = category_id
+    _set_category_order(html_data, html_obj)
 
     # TODO: figure out a DRY way to add this check (e.g. config-driven).
     if 'name' not in html_obj:

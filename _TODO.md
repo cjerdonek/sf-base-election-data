@@ -1,7 +1,8 @@
 TODO
 ====
 
-* Get the whole thing rendering.
+* Add all the SF districts.
+* Change seats to SF seats, e.g. 2 of 80.
 * For district types, say how many districts in SF.
 * Flesh out Body more
   - Election method, etc.
@@ -37,7 +38,6 @@ TODO
 * Show the seat name (that distinguishes among body members)
   - at the top, but below the overall name.
 * Add voting method enum (with Wikipedia link).
-* Change seats to SF seats, e.g. 2 of 80.
 * Have a way to note when translations are missing.
 * Document the JSON objects as I go.
 * Document Court of Appeals.
