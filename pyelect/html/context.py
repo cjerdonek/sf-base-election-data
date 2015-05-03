@@ -56,8 +56,6 @@ OFFICE_BODY_COMMON_FIELDS_YAML = """\
   -
     name: election_method_id
   -
-    name: jurisdiction_id
-  -
     name: name
     type: i18n
   -
@@ -79,6 +77,9 @@ body:
 {office_body_yaml}
   -
     name: district_type_id
+    required: true
+  -
+    name: jurisdiction_area_id
     required: true
   -
     name: member_name
@@ -132,6 +133,9 @@ office:
     name: body_id
   -
     name: district_id
+  -
+    # TODO: make this required.
+    name: jurisdiction_area_id
   -
     name: partisan
   -

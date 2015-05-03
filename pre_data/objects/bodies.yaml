@@ -5,7 +5,7 @@ bodies:
   body_bart:
     category_id: category_transit
     district_type_id: district_type_bart
-    jurisdiction_id: BART
+    jurisdiction_area_id: area_state_ca_bart
     name: BART Board of Directors
     office_name: BART Director
     partisan: false
@@ -16,7 +16,7 @@ bodies:
   body_ca_board_of_equalization:
     category_id: category_state
     district_type_id: district_type_ca_board_of_equalization
-    jurisdiction_id: CA
+    jurisdiction_area_id: area_state_ca
     name: State Board of Equalization
     notes: The State Controller is the fifth member of this body.
     office_name: Member, State Board of Equalization
@@ -29,7 +29,7 @@ bodies:
   body_ca_court_supreme:
     category_id: category_judicial
     district_type_id: =none
-    jurisdiction_id: CA
+    jurisdiction_area_id: area_state_ca
     name_i18n: text_body_ca_court_supreme
     notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
       by the Governor and subject to retention elections.
@@ -42,7 +42,7 @@ bodies:
   body_ca_courts_of_appeal:
     category_id: category_judicial
     district_type_id: district_type_ca_court_appeal
-    jurisdiction_id: CA
+    jurisdiction_area_id: area_state_ca
     name_i18n: text_body_ca_courts_of_appeal
     partisan: false
     seat_count: =unknown
@@ -53,6 +53,7 @@ bodies:
   body_ca_courts_of_appeal_d1:
     category_id: category_judicial
     district_type_id: =none
+    jurisdiction_area_id: area_state_ca_courts_of_appeal_d1
     name_i18n: text_body_ca_courts_of_appeal_d1
     notes: The district covers San Francisco and is divided into five non-geographical
       divisions with four justices each.
@@ -61,7 +62,7 @@ bodies:
   body_ca_state_assembly:
     category_id: category_state
     district_type_id: district_type_ca_state_assembly
-    jurisdiction_id: CA
+    jurisdiction_area_id: area_state_ca
     name: California State Assembly
     office_name: Member of the State Assembly
     partisan: true
@@ -72,7 +73,7 @@ bodies:
   body_ca_state_senate:
     category_id: category_state
     district_type_id: district_type_ca_state_senate
-    jurisdiction_id: CA
+    jurisdiction_area_id: area_state_ca
     name: California State Senate
     office_name_format: State Senator
     partisan: true
@@ -83,7 +84,7 @@ bodies:
   body_sf_board_of_education:
     category_id: category_school
     district_type_id: =none
-    jurisdiction_id: SF
+    jurisdiction_area_id: area_county_sf
     name_i18n: text_body_city_board_of_education
     office_name_i18n: text_office_member_board_of_education
     partisan: false
@@ -95,7 +96,7 @@ bodies:
   body_sf_board_of_supervisors:
     category_id: category_city_county
     district_type_id: district_type_sf_board_of_supervisors
-    jurisdiction_id: SF
+    jurisdiction_area_id: area_county_sf
     localwiki: https://localwiki.org/sf/Board_of_Supervisors
     name_i18n: text_body_city_board_of_supervisors
     office_name_i18n: text_office_member_board_of_supervisors
@@ -109,8 +110,9 @@ bodies:
   body_sf_college_board:
     category_id: category_school
     district_type_id: =none
-    jurisdiction_id: SFCC
+    jurisdiction_area_id: area_sf_community_college
     name_i18n: text_body_city_college_board
+    notes: This is also known as the San Francisco Community Collage Board of Trustees.
     office_name_i18n: text_office_member_community_college_board
     partisan: false
     seat_count: 7
@@ -120,7 +122,7 @@ bodies:
   body_sf_party_democratic:
     category_id: category_party
     district_type_id: district_type_ca_state_assembly
-    jurisdiction_id: SF
+    jurisdiction_area_id: area_county_sf
     name: Democratic County Central Committee
     partisan: true
     seat_count: 24
@@ -128,7 +130,7 @@ bodies:
   body_sf_party_green:
     category_id: category_party
     district_type_id: =none
-    jurisdiction_id: SF
+    jurisdiction_area_id: area_county_sf
     name: Green County Council
     partisan: true
     seat_count: =unknown
@@ -136,7 +138,7 @@ bodies:
   body_sf_party_peace_freedom:
     category_id: category_party
     district_type_id: =none
-    jurisdiction_id: SF
+    jurisdiction_area_id: area_county_sf
     name: Peace and Freedom County Central Committee
     partisan: true
     seat_count: =unknown
@@ -144,7 +146,7 @@ bodies:
   body_sf_rccc:
     category_id: category_party
     district_type_id: =none
-    jurisdiction_id: SF
+    jurisdiction_area_id: area_county_sf
     name: Republican County Central Committee
     partisan: true
     seat_count: =unknown
@@ -152,7 +154,7 @@ bodies:
   body_sf_sc:
     category_id: category_judicial
     district_type_id: =none
-    jurisdiction_id: SF
+    jurisdiction_area_id: area_county_sf
     name_i18n: text_body_city_sc
     notes: Wikipedia says that the San Francisco Superior Court Bench comprises 52
       Judges and one Commissioner.  We do not know if the Commissioner faces election.
@@ -166,7 +168,7 @@ bodies:
     category_id: category_federal
     district_type_id: district_type_usa_house
     election_method_id: election_method_top_two
-    jurisdiction_id: US
+    jurisdiction_area_id: area_country_usa
     member_name: U.S. Representative
     name: United States House of Representatives
     notes: There are also 6 non-voting members.
@@ -181,7 +183,7 @@ bodies:
     category_id: category_federal
     district_type_id: district_type_usa_states
     election_method_id: election_method_top_two
-    jurisdiction_id: US
+    jurisdiction_area_id: area_country_usa
     member_name: U.S. Senator
     name: United States Senate
     office_name_format: '{member_name}, {district_name_short} ({seat_name})'
