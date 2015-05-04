@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Make list by subcategory inherit.
 * Get translated phrases working again.
 * Check Twitter for bodies.
 * Change seats to SF seats, e.g. 2 of 80.
