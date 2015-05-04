@@ -122,7 +122,7 @@ district_type:
   -
     name: district_name_short_format
   -
-    name: district_name_full_format
+    name: district_name_format
     # Require this because it is used to generate the name.
     required: true
   -
@@ -302,11 +302,11 @@ def make_one_categories2(html_obj, html_data, json_obj, ordering):
 
 
 def make_one_district_types2(html_obj, html_data, json_obj):
-    name_format = html_obj['district_name_full_format']
+    name_format = html_obj['district_name_format']
     if name_format is None:
         name = html_obj['name_singular']
         name_format = "{name} {{number}}".format(name=name)
-        html_obj['district_name_full_format'] = name_format
+        html_obj['district_name_format'] = name_format
 
     if not html_obj['category_id']:
         body = get_from_html_data(html_data, json_obj, 'body_id')
@@ -326,7 +326,7 @@ def make_one_districts2(html_obj, html_data, json_obj):
     district_type = get_from_html_data(html_data, json_obj, 'district_type_id')
     category_id = district_type['category_id']
 
-    name_format = district_type['district_name_full_format']
+    name_format = district_type['district_name_format']
     if name_format is not None:
         name = name_format.format(**html_obj)
         html_obj['name'] = name

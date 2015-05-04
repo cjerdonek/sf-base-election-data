@@ -19,7 +19,7 @@ district_types:
   district_type_ca_court_appeal:
     body_id: body_ca_courts_of_appeal
     district_count: 6
-    district_name_full_format: '{district_code} Appellate District'
+    district_name_format: '{district_code} Appellate District'
     district_name_short_format: '{district_code} District'
     name: Appellate
     name_plural: Appellate Districts
@@ -55,7 +55,7 @@ district_types:
   district_type_usa_states:
     category_id: category_federal
     district_count: 50
-    district_name_full_format: State of {name}
+    district_name_format: State of {name}
     name: US State
     name_plural: US States
     parent_area_id: area_country_usa

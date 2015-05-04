@@ -29,6 +29,34 @@ FILE_TYPE_COMMENTS = {
 }
 
 
+_SINGULAR_TO_PLURAL = {
+    'body': 'bodies',
+    'category': 'categories',
+}
+
+_PLURAL_TO_SINGULAR = {p: s for s, p in _SINGULAR_TO_PLURAL.items()}
+
+
+def type_name_to_plural(singular):
+    """Return the node name given an object type name.
+
+    For example, "body" yields "bodies".
+    """
+    try:
+        plural = _SINGULAR_TO_PLURAL[singular]
+    except KeyError:
+        plural = "{0}s".format(singular)
+    return plural
+
+
+def type_name_to_singular(plural):
+    try:
+        singular = _PLURAL_TO_SINGULAR[plural]
+    except KeyError:
+        singular = plural[:-1]
+    return singular
+
+
 # The idea for this comes from here:
 # http://stackoverflow.com/questions/8640959/how-can-i-control-what-scalar-form-pyyaml-uses-for-my-data
 def _yaml_str_representer(dumper, data):

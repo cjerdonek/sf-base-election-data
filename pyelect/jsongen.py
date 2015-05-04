@@ -4,8 +4,10 @@ from copy import deepcopy
 import glob
 import json
 import os
-from pprint import pprint
+from pprint import pformat, pprint
 import textwrap
+
+import yaml
 
 from pyelect import lang
 from pyelect import utils
@@ -18,12 +20,26 @@ KEY_ID = '_id'
 KEY_OFFICES = 'offices'
 
 DIR_NAME_OBJECTS = 'objects'
+
 _REL_PATH_JSON_DATA = "data/sf.json"
 
 _LICENSE = ("The database consisting of this file is made available under "
 "the Public Domain Dedication and License v1.0 whose full text can be "
 "found at: http://www.opendatacommons.org/licenses/pddl/1.0/ .")
 
+_TYPE_FIELDS_YAML = """\
+area: {}
+body: {}
+category: {}
+district:
+  name:
+    required: true
+district_type: {}
+election_method: {}
+language: {}
+office: {}
+phrase: {}
+"""
 
 def get_rel_path_json_data():
     return _REL_PATH_JSON_DATA
@@ -47,6 +63,13 @@ def get_json():
         data = json.load(f)
 
     return data
+
+
+def get_fields(field_data, node_name):
+    type_name = utils.type_name_to_singular(node_name)
+    fields = field_data[type_name]
+
+    return fields
 
 
 def _get_yaml_data(base_name):
@@ -77,6 +100,8 @@ def make_object_district_types(yaml_data, json_data):
 
 
 def make_object_districts(yaml_data, json_data):
+    # TODO: make common method for extracxting object.
+    name_format = yaml
     return yaml_data
 
 
@@ -214,56 +239,63 @@ def add_source(data, source_name):
         data[key] = value
 
 
-def add_json_node_i18n(json_data):
+def add_json_node_i18n(json_data, field_data):
     node = make_node_i18n()
-    _add_json_node_base(json_data, node, 'phrases')
+    _add_json_node_base(json_data, node, 'phrases', field_data)
 
 
-def check_node(node, node_name):
+def check_json_object(json_obj, node_name, field_data):
+    # TODO: DRY this up with similar code for HTML.
+    fields = get_fields(field_data, node_name)
+
+    for field_name, field in fields.items():
+        if 'required' in field and field_name not in json_obj:
+            raise Exception("required field {0!r} missing from:\n***\n{1}".
+                            format(field_name, pformat(json_obj)))
+
     allowed_types = (bool, int, str)
-    for object_id, obj in node.items():
-        for attr, value in obj.items():
-            if type(value) not in allowed_types:
-                err = textwrap.dedent("""\
-                json node with key "{node_name}" failed sanity check.
-                  object_id: "{object_id}"
-                  object attribute name: "{attr_name}"
-                  attribute value has type {value_type} (only allowed types are: {allowed_types})
-                  object:
-                -->{object}
-                """.format(node_name=node_name, object_id=object_id, attr_name=attr,
-                           value_type=type(value), allowed_types=allowed_types,
-                           object=obj))
-                raise Exception(err)
+    for attr, value in json_obj.items():
+        if type(value) not in allowed_types:
+            err = textwrap.dedent("""\
+            json node with key "{node_name}" failed sanity check.
+              object_id: "{object_id}"
+              object attribute name: "{attr_name}"
+              attribute value has type {value_type} (only allowed types are: {allowed_types})
+              object:
+            -->{object}
+            """.format(node_name=node_name, object_id=object_id, attr_name=attr,
+                       value_type=type(value), allowed_types=allowed_types,
+                       object=json_obj))
+            raise Exception(err)
 
 
-def _add_json_node_base(json_data, node, node_name):
-    check_node(node, node_name)
+def _add_json_node_base(json_data, node, node_name, field_data):
     json_data[node_name] = node
 
 
 # TODO: remove this function?
-def add_json_node(json_data, base_name, **kwargs):
+def add_json_node_legacy(json_data, base_name, field_data, **kwargs):
     """Add the node with key base_name."""
     make_node_function_name = "make_node_{0}".format(base_name)
     make_node_func = globals()[make_node_function_name]
     objects, meta = _get_yaml_data(base_name)
     node = make_node_func(objects, meta=meta, **kwargs)
-    _add_json_node_base(json_data, node, base_name)
+    _add_json_node_base(json_data, node, base_name, field_data)
 
 
-def add_json_node_simple(json_data, base_name, **kwargs):
-    """Add the node with key base_name."""
-    objects, meta = _get_yaml_data(base_name)
-    make_object_function_name = "make_object_{0}".format(base_name)
+def add_json_node(json_data, node_name, field_data, **kwargs):
+    """Add the node with key node_name."""
+    objects, meta = _get_yaml_data(node_name)
+    make_object_function_name = "make_object_{0}".format(node_name)
     make_object = globals()[make_object_function_name]
 
     json_node = {}
     for object_id, yaml_data in objects.items():
         json_object = make_object(yaml_data, json_data)
+        check_json_object(json_object, node_name, field_data)
         json_node[object_id] = json_object
 
-    _add_json_node_base(json_data, json_node, base_name)
+    _add_json_node_base(json_data, json_node, node_name, field_data)
 
 
 # TODO
@@ -276,6 +308,7 @@ def add_json_node_simple(json_data, base_name, **kwargs):
 # offices = make_court_of_appeals()
 # data['court_offices'] = offices
 def make_json_data():
+    field_data = yaml.load(_TYPE_FIELDS_YAML)
     mixins, meta = _get_yaml_data('mixins')
 
     json_data ={
@@ -293,12 +326,12 @@ def make_json_data():
     ]
 
     for base_name in base_names:
-        add_json_node_simple(json_data, base_name)
+        add_json_node(json_data, base_name, field_data)
 
     # TODO: DRY up the remaining object types.
-    add_json_node(json_data, 'categories')
-    add_json_node(json_data, 'bodies')
-    add_json_node(json_data, 'offices', mixins=mixins)
-    add_json_node_i18n(json_data)
+    add_json_node_legacy(json_data, 'categories', field_data)
+    add_json_node_legacy(json_data, 'bodies', field_data)
+    add_json_node_legacy(json_data, 'offices', field_data, mixins=mixins)
+    add_json_node_i18n(json_data, field_data)
 
     return json_data
