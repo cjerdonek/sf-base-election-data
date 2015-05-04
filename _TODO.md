@@ -1,7 +1,9 @@
 TODO
 ====
 
+* Copy LICENSE file to data directory.
 * Add all the SF districts.
+* Check Twitter for bodies.
 * Change seats to SF seats, e.g. 2 of 80.
 * For district types, say how many districts in SF.
 * Flesh out Body more

@@ -1,9 +1,7 @@
 {% load custom_tags %}
-{% with body=object %}
 {% url_row_object 'Jurisdiction' object.jurisdiction_area_id 'areas' %}
 {% url_row_object 'Districts' object.district_type_id 'district_types' %}
-{% info_row 'Member' body.member_name %}
-{% info_row 'Seats' body.seat_count %}
+{% info_row 'Member' object.member_name %}
+{% info_row 'Seats' object.seat_count %}
 {% include 'office_info.html' %}
 {% include 'rows_general_info.html' %}
-{% endwith %}

@@ -15,6 +15,7 @@ Variables:
 {% for object in objects %}
 {% spaceless %}
 {% header_with_translation 'header_item.html' object title_attr %}
+{% include 'rows/object_id.html' with object=object %}
 {% include current_show_template %}
 {% if object.debug %}
 <p>

@@ -17,6 +17,7 @@ from pyelect import utils
 _log = logging.getLogger()
 
 _DIR_NAME_TEMPLATE_PAGE = 'pages'
+STATIC_FILES_DIR = 'static_files'
 HTML_OUTPUT_DIRNAME = 'html'
 
 # The subdirectories to create in the HTML output directory.
@@ -24,6 +25,12 @@ HTML_OUTPUT_SUB_DIRS = [
     os.path.dirname(context.JSON_OUTPUT_PATH),
     'js'
 ]
+
+
+def get_static_dir():
+    repo_dir = utils.get_repo_dir()
+    dir_path = os.path.join(repo_dir, STATIC_FILES_DIR)
+    return dir_path
 
 
 def get_page_template_name(file_name):
@@ -68,6 +75,24 @@ def create_dir(dir_path):
         os.makedirs(dir_path)
 
 
+def get_copy_info(source_dir, target_dir, root_dir, name):
+    source_path = os.path.join(root_dir, name)
+    rel_path = os.path.relpath(source_path, start=source_dir)
+    target_path = os.path.join(target_dir, rel_path)
+
+    return source_path, target_path
+
+def copy_files(source_dir, target_dir):
+    for root_dir, dir_names, file_names in os.walk(source_dir):
+        for dir_name in dir_names:
+            source_dir, target_dir = get_copy_info(source_dir, target_dir, root_dir, dir_name)
+            if not os.path.exists(target_dir):
+                os.mkdir(target_dir)
+        for file_name in file_names:
+            source_path, target_path = get_copy_info(source_dir, target_dir, root_dir, file_name)
+            shutil.copyfile(source_path, target_path)
+
+
 def make_html(output_dir, page_name=None, print_html=False, local_assets=False,
               debug=False):
     """Generate the HTML from the JSON."""
@@ -82,7 +107,10 @@ def make_html(output_dir, page_name=None, print_html=False, local_assets=False,
         dir_path = os.path.join(output_dir, dir_name)
         create_dir(dir_path)
 
-    # Add data files.
+    # Copy all static files.
+    static_dir = get_static_dir()
+    copy_files(static_dir, output_dir)
+    # TODO: use copy_files() also for the data directory.
     json_path_source = jsongen.get_json_path()
     json_path_target = os.path.join(output_dir, context.JSON_OUTPUT_PATH)
     shutil.copyfile(json_path_source, json_path_target)
