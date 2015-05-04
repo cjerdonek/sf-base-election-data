@@ -2,13 +2,13 @@ _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
 districts:
-  district_ca_bart_07:
+  district_ca_bart_7:
     district_type_id: district_type_bart
     number: 7
-  district_ca_bart_08:
+  district_ca_bart_8:
     district_type_id: district_type_bart
     number: 8
-  district_ca_bart_09:
+  district_ca_bart_9:
     district_type_id: district_type_bart
     number: 9
   district_ca_board_of_equalization:

@@ -29,13 +29,16 @@ offices:
     name: Chief Justice
   office_bart_7:
     body_id: body_bart
-    district: 7
+    district_id: district_ca_bart_7
+    seed_year: 2000
   office_bart_8:
     body_id: body_bart
-    district: 8
+    district_id: district_ca_bart_8
+    seed_year: 2002
   office_bart_9:
     body_id: body_bart
-    district: 9
+    district_id: district_ca_bart_9
+    seed_year: 2000
   office_ca_attorney_general:
     mixin_id: ca_common
     name_i18n: text_office_state_attorney_general
@@ -66,13 +69,13 @@ offices:
     url: http://www.sos.ca.gov/
   office_ca_state_assembly_17:
     body_id: body_ca_state_assembly
-    district: 17
+    district_id: district_ca_state_assembly_17
   office_ca_state_assembly_19:
     body_id: body_ca_state_assembly
-    district: 19
+    district_id: district_ca_state_assembly_19
   office_ca_state_senate_11:
     body_id: body_ca_state_senate
-    district: 11
+    district_id: district_ca_state_senate_11
   office_ca_superintendent_of_public_instruction:
     mixin_id: ca_common
     name_i18n: text_office_state_superintendent_of_public_instruction
@@ -96,49 +99,49 @@ offices:
     body_id: body_sf_board_of_education
     seat_count: 4
     seed_year: 2012
-  office_sf_board_of_supervisors_1:
+  office_sf_board_of_supervisors_01:
     body_id: body_sf_board_of_supervisors
-    district: 1
+    district_id: district_sf_board_of_supervisors_01
+    seed_year: 2012
+  office_sf_board_of_supervisors_02:
+    body_id: body_sf_board_of_supervisors
+    district_id: district_sf_board_of_supervisors_02
+    seed_year: 2014
+  office_sf_board_of_supervisors_03:
+    body_id: body_sf_board_of_supervisors
+    district_id: district_sf_board_of_supervisors_03
+    seed_year: 2012
+  office_sf_board_of_supervisors_04:
+    body_id: body_sf_board_of_supervisors
+    district_id: district_sf_board_of_supervisors_04
+    seed_year: 2014
+  office_sf_board_of_supervisors_05:
+    body_id: body_sf_board_of_supervisors
+    district_id: district_sf_board_of_supervisors_05
+    seed_year: 2012
+  office_sf_board_of_supervisors_06:
+    body_id: body_sf_board_of_supervisors
+    district_id: district_sf_board_of_supervisors_06
+    seed_year: 2014
+  office_sf_board_of_supervisors_07:
+    body_id: body_sf_board_of_supervisors
+    district_id: district_sf_board_of_supervisors_07
+    seed_year: 2012
+  office_sf_board_of_supervisors_08:
+    body_id: body_sf_board_of_supervisors
+    district_id: district_sf_board_of_supervisors_08
+    seed_year: 2014
+  office_sf_board_of_supervisors_09:
+    body_id: body_sf_board_of_supervisors
+    district_id: district_sf_board_of_supervisors_09
     seed_year: 2012
   office_sf_board_of_supervisors_10:
     body_id: body_sf_board_of_supervisors
-    district: 10
+    district_id: district_sf_board_of_supervisors_10
     seed_year: 2014
   office_sf_board_of_supervisors_11:
     body_id: body_sf_board_of_supervisors
-    district: 11
-    seed_year: 2012
-  office_sf_board_of_supervisors_2:
-    body_id: body_sf_board_of_supervisors
-    district: 2
-    seed_year: 2014
-  office_sf_board_of_supervisors_3:
-    body_id: body_sf_board_of_supervisors
-    district: 3
-    seed_year: 2012
-  office_sf_board_of_supervisors_4:
-    body_id: body_sf_board_of_supervisors
-    district: 4
-    seed_year: 2014
-  office_sf_board_of_supervisors_5:
-    body_id: body_sf_board_of_supervisors
-    district: 5
-    seed_year: 2012
-  office_sf_board_of_supervisors_6:
-    body_id: body_sf_board_of_supervisors
-    district: 6
-    seed_year: 2014
-  office_sf_board_of_supervisors_7:
-    body_id: body_sf_board_of_supervisors
-    district: 7
-    seed_year: 2012
-  office_sf_board_of_supervisors_8:
-    body_id: body_sf_board_of_supervisors
-    district: 8
-    seed_year: 2014
-  office_sf_board_of_supervisors_9:
-    body_id: body_sf_board_of_supervisors
-    district: 9
+    district_id: district_sf_board_of_supervisors_11
     seed_year: 2012
   office_sf_city_attorney:
     mixin_id: sf_common

@@ -33,8 +33,9 @@
             "category_id": "category_transit",
             "district_type_id": "district_type_bart",
             "jurisdiction_area_id": "area_state_ca_bart",
+            "member_name": "BART Director",
             "name": "BART Board of Directors",
-            "office_name": "BART Director",
+            "office_name_format": "{member_name}, {district_name_short}",
             "partisan": false,
             "seat_count": 9,
             "term_length": 4,
@@ -132,8 +133,9 @@
             "district_type_id": "district_type_sf_board_of_supervisors",
             "jurisdiction_area_id": "area_county_sf",
             "localwiki": "https://localwiki.org/sf/Board_of_Supervisors",
+            "member_name_i18n": "text_office_member_board_of_supervisors",
             "name_i18n": "text_body_city_board_of_supervisors",
-            "office_name_i18n": "text_office_member_board_of_supervisors",
+            "office_name_format": "{member_name}, {district_name_short}",
             "partisan": false,
             "qualified_name": "San Francisco Board of Supervisors",
             "seat_count": 11,
@@ -263,6 +265,7 @@
         "district_type_bart": {
             "body_id": "body_bart",
             "district_count": 9,
+            "district_name_short_format": "District {number}",
             "name": "BART Districts",
             "name_singular": "BART District",
             "parent_area_id": "area_state_ca_bart"
@@ -326,15 +329,15 @@
         }
     },
     "districts": {
-        "district_ca_bart_07": {
+        "district_ca_bart_7": {
             "district_type_id": "district_type_bart",
             "number": 7
         },
-        "district_ca_bart_08": {
+        "district_ca_bart_8": {
             "district_type_id": "district_type_bart",
             "number": 8
         },
-        "district_ca_bart_09": {
+        "district_ca_bart_9": {
             "district_type_id": "district_type_bart",
             "number": 9
         },
@@ -505,15 +508,18 @@
         },
         "office_bart_7": {
             "body_id": "body_bart",
-            "district": 7
+            "district_id": "district_ca_bart_7",
+            "seed_year": 2000
         },
         "office_bart_8": {
             "body_id": "body_bart",
-            "district": 8
+            "district_id": "district_ca_bart_8",
+            "seed_year": 2002
         },
         "office_bart_9": {
             "body_id": "body_bart",
-            "district": 9
+            "district_id": "district_ca_bart_9",
+            "seed_year": 2000
         },
         "office_ca_attorney_general": {
             "category_id": "category_state",
@@ -563,15 +569,15 @@
         },
         "office_ca_state_assembly_17": {
             "body_id": "body_ca_state_assembly",
-            "district": 17
+            "district_id": "district_ca_state_assembly_17"
         },
         "office_ca_state_assembly_19": {
             "body_id": "body_ca_state_assembly",
-            "district": 19
+            "district_id": "district_ca_state_assembly_19"
         },
         "office_ca_state_senate_11": {
             "body_id": "body_ca_state_senate",
-            "district": 11
+            "district_id": "district_ca_state_senate_11"
         },
         "office_ca_superintendent_of_public_instruction": {
             "category_id": "category_state",
@@ -607,59 +613,59 @@
             "seat_count": 4,
             "seed_year": 2012
         },
-        "office_sf_board_of_supervisors_1": {
+        "office_sf_board_of_supervisors_01": {
             "body_id": "body_sf_board_of_supervisors",
-            "district": 1,
+            "district_id": "district_sf_board_of_supervisors_01",
+            "seed_year": 2012
+        },
+        "office_sf_board_of_supervisors_02": {
+            "body_id": "body_sf_board_of_supervisors",
+            "district_id": "district_sf_board_of_supervisors_02",
+            "seed_year": 2014
+        },
+        "office_sf_board_of_supervisors_03": {
+            "body_id": "body_sf_board_of_supervisors",
+            "district_id": "district_sf_board_of_supervisors_03",
+            "seed_year": 2012
+        },
+        "office_sf_board_of_supervisors_04": {
+            "body_id": "body_sf_board_of_supervisors",
+            "district_id": "district_sf_board_of_supervisors_04",
+            "seed_year": 2014
+        },
+        "office_sf_board_of_supervisors_05": {
+            "body_id": "body_sf_board_of_supervisors",
+            "district_id": "district_sf_board_of_supervisors_05",
+            "seed_year": 2012
+        },
+        "office_sf_board_of_supervisors_06": {
+            "body_id": "body_sf_board_of_supervisors",
+            "district_id": "district_sf_board_of_supervisors_06",
+            "seed_year": 2014
+        },
+        "office_sf_board_of_supervisors_07": {
+            "body_id": "body_sf_board_of_supervisors",
+            "district_id": "district_sf_board_of_supervisors_07",
+            "seed_year": 2012
+        },
+        "office_sf_board_of_supervisors_08": {
+            "body_id": "body_sf_board_of_supervisors",
+            "district_id": "district_sf_board_of_supervisors_08",
+            "seed_year": 2014
+        },
+        "office_sf_board_of_supervisors_09": {
+            "body_id": "body_sf_board_of_supervisors",
+            "district_id": "district_sf_board_of_supervisors_09",
             "seed_year": 2012
         },
         "office_sf_board_of_supervisors_10": {
             "body_id": "body_sf_board_of_supervisors",
-            "district": 10,
+            "district_id": "district_sf_board_of_supervisors_10",
             "seed_year": 2014
         },
         "office_sf_board_of_supervisors_11": {
             "body_id": "body_sf_board_of_supervisors",
-            "district": 11,
-            "seed_year": 2012
-        },
-        "office_sf_board_of_supervisors_2": {
-            "body_id": "body_sf_board_of_supervisors",
-            "district": 2,
-            "seed_year": 2014
-        },
-        "office_sf_board_of_supervisors_3": {
-            "body_id": "body_sf_board_of_supervisors",
-            "district": 3,
-            "seed_year": 2012
-        },
-        "office_sf_board_of_supervisors_4": {
-            "body_id": "body_sf_board_of_supervisors",
-            "district": 4,
-            "seed_year": 2014
-        },
-        "office_sf_board_of_supervisors_5": {
-            "body_id": "body_sf_board_of_supervisors",
-            "district": 5,
-            "seed_year": 2012
-        },
-        "office_sf_board_of_supervisors_6": {
-            "body_id": "body_sf_board_of_supervisors",
-            "district": 6,
-            "seed_year": 2014
-        },
-        "office_sf_board_of_supervisors_7": {
-            "body_id": "body_sf_board_of_supervisors",
-            "district": 7,
-            "seed_year": 2012
-        },
-        "office_sf_board_of_supervisors_8": {
-            "body_id": "body_sf_board_of_supervisors",
-            "district": 8,
-            "seed_year": 2014
-        },
-        "office_sf_board_of_supervisors_9": {
-            "body_id": "body_sf_board_of_supervisors",
-            "district": 9,
+            "district_id": "district_sf_board_of_supervisors_11",
             "seed_year": 2012
         },
         "office_sf_city_attorney": {

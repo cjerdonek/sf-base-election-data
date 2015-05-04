@@ -108,7 +108,7 @@ class ElectionMethodsPage(_Page):
 
 class IndexPage(_Page):
     _objects_name = 'offices'
-    sorter = ('category_order', 'body_id', 'name')
+    sorter = ('category_order', 'body_id', 'id')
 
 
 class LanguagesPage(_Page):

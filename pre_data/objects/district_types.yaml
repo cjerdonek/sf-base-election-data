@@ -5,6 +5,7 @@ district_types:
   district_type_bart:
     body_id: body_bart
     district_count: 9
+    district_name_short_format: District {number}
     name: BART Districts
     name_singular: BART District
     parent_area_id: area_state_ca_bart

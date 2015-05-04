@@ -6,8 +6,9 @@ bodies:
     category_id: category_transit
     district_type_id: district_type_bart
     jurisdiction_area_id: area_state_ca_bart
+    member_name: BART Director
     name: BART Board of Directors
-    office_name: BART Director
+    office_name_format: '{member_name}, {district_name_short}'
     partisan: false
     seat_count: 9
     term_length: 4
@@ -100,7 +101,8 @@ bodies:
     jurisdiction_area_id: area_county_sf
     localwiki: https://localwiki.org/sf/Board_of_Supervisors
     name_i18n: text_body_city_board_of_supervisors
-    office_name_i18n: text_office_member_board_of_supervisors
+    office_name_format: '{member_name}, {district_name_short}'
+    member_name_i18n: text_office_member_board_of_supervisors
     partisan: false
     qualified_name: San Francisco Board of Supervisors
     seat_count: 11
