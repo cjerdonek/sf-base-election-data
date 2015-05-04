@@ -68,23 +68,23 @@ def yaml_to_json(yaml_data, fields):
     return json_data
 
 
-def make_object_areas(yaml_data):
+def make_object_areas(yaml_data, json_data):
     return yaml_data
 
 
-def make_object_district_types(yaml_data):
+def make_object_district_types(yaml_data, json_data):
     return yaml_data
 
 
-def make_object_districts(yaml_data):
+def make_object_districts(yaml_data, json_data):
     return yaml_data
 
 
-def make_object_election_methods(yaml_data):
+def make_object_election_methods(yaml_data, json_data):
     return yaml_data
 
 
-def make_object_languages(yaml_data):
+def make_object_languages(yaml_data, json_data):
     return yaml_data
 
 
@@ -260,7 +260,7 @@ def add_json_node_simple(json_data, base_name, **kwargs):
 
     json_node = {}
     for object_id, yaml_data in objects.items():
-        json_object = make_object(yaml_data)
+        json_object = make_object(yaml_data, json_data)
         json_node[object_id] = json_object
 
     _add_json_node_base(json_data, json_node, base_name)
