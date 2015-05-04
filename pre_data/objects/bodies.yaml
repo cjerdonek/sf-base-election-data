@@ -100,9 +100,9 @@ bodies:
     district_type_id: district_type_sf_board_of_supervisors
     jurisdiction_area_id: area_county_sf
     localwiki: https://localwiki.org/sf/Board_of_Supervisors
+    member_name_i18n: text_office_member_board_of_supervisors
     name_i18n: text_body_city_board_of_supervisors
     office_name_format: '{member_name}, {district_name_short}'
-    member_name_i18n: text_office_member_board_of_supervisors
     partisan: false
     qualified_name: San Francisco Board of Supervisors
     seat_count: 11

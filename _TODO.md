@@ -1,6 +1,11 @@
 TODO
 ====
 
+* Add `name` and `name_i18n` to district in JSON file.
+* Add `name` and `name_i18n` to Office in JSON file.
+  - Also document this for Office object.
+* Add court offices.
+  - Call to see if they have seat numbers.
 * DRY up `district_type.district_name_short_format`?
 * Somehow flag types as required in either the instance or the base (e.g. office/body)?
 * Get translated phrases working again.

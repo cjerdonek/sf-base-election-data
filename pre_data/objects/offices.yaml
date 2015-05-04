@@ -27,6 +27,10 @@ offices:
   CA_SC_CJ:
     body_id: body_ca_court_supreme
     name: Chief Justice
+  office_ca_attorney_general:
+    mixin_id: ca_common
+    name_i18n: text_office_state_attorney_general
+    url: http://www.oag.ca.gov/
   office_ca_bart_director_7:
     body_id: body_bart
     district_id: district_ca_bart_7
@@ -39,10 +43,6 @@ offices:
     body_id: body_bart
     district_id: district_ca_bart_9
     seed_year: 2000
-  office_ca_attorney_general:
-    mixin_id: ca_common
-    name_i18n: text_office_state_attorney_general
-    url: http://www.oag.ca.gov/
   office_ca_controller:
     mixin_id: ca_common
     name_i18n: text_office_state_controller
