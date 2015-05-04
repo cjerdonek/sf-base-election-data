@@ -182,7 +182,7 @@
             "seat_count": "=unknown",
             "url": "http://www.peaceandfreedom.org"
         },
-        "body_sf_rccc": {
+        "body_sf_party_republican": {
             "category_id": "category_party",
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_county_sf",
@@ -264,36 +264,40 @@
             "body_id": "body_bart",
             "district_count": 9,
             "name": "BART Districts",
+            "name_singular": "BART District",
             "parent_area_id": "area_state_ca_bart"
         },
         "district_type_ca_board_of_equalization": {
             "body_id": "body_ca_board_of_equalization",
             "district_count": 4,
-            "name": "Board of Equalization Districts",
+            "name": "Equalization Districts",
+            "name_singular": "Equalization District",
             "parent_area_id": "area_state_ca",
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts"
         },
         "district_type_ca_court_appeal": {
             "body_id": "body_ca_courts_of_appeal",
             "district_count": 6,
+            "district_name_full_format": "{district_code} Appellate District",
             "district_name_short_format": "{district_code} District",
-            "name": "Courts of Appeal Districts",
+            "name": "Appellate Districts",
+            "name_singular": "Appellate District",
             "parent_area_id": "area_state_ca"
         },
         "district_type_ca_state_assembly": {
             "body_id": "body_ca_state_assembly",
             "district_count": 80,
-            "district_name_full_format": "State Assembly District {number}",
             "district_name_short_format": "District {number}",
             "name": "State Assembly Districts",
+            "name_singular": "State Assembly District",
             "parent_area_id": "area_state_ca"
         },
         "district_type_ca_state_senate": {
             "body_id": "body_ca_state_senate",
             "district_count": 40,
-            "district_name_full_format": "State Senate District {number}",
             "district_name_short_format": "District {number}",
             "name": "State Senate Districts",
+            "name_singular": "State Senate District",
             "parent_area_id": "area_state_ca"
         },
         "district_type_sf_board_of_supervisors": {
@@ -301,24 +305,50 @@
             "district_count": 11,
             "district_name_short_format_i18n": "text_district_numbered_format",
             "name": "Supervisorial Districts",
+            "name_singular": "Supervisorial District",
             "parent_area_id": "area_county_sf"
         },
         "district_type_usa_house": {
             "body_id": "body_usa_house",
             "district_count": 435,
-            "district_name_full_format": "US Congressional District {number}",
             "district_name_short_format": "District {number}",
             "name": "US Congressional Districts",
+            "name_singular": "US Congressional District",
             "parent_area_id": "area_country_usa"
         },
         "district_type_usa_states": {
             "category_id": "category_federal",
             "district_count": 50,
+            "district_name_full_format": "State of {name}",
             "name": "US States",
+            "name_singular": "US State",
             "parent_area_id": "area_country_usa"
         }
     },
     "districts": {
+        "district_ca_bart_07": {
+            "district_type_id": "district_type_bart",
+            "number": 7
+        },
+        "district_ca_bart_08": {
+            "district_type_id": "district_type_bart",
+            "number": 8
+        },
+        "district_ca_bart_09": {
+            "district_type_id": "district_type_bart",
+            "number": 9
+        },
+        "district_ca_board_of_equalization": {
+            "district_type_id": "district_type_ca_board_of_equalization",
+            "number": 2,
+            "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Second_district"
+        },
+        "district_ca_court_appeal": {
+            "district_code": "First",
+            "district_type_id": "district_type_ca_court_appeal",
+            "number": 1,
+            "wikipedia": "http://en.wikipedia.org/wiki/California_courts_of_appeal#First_District"
+        },
         "district_ca_state_assembly_17": {
             "district_type_id": "district_type_ca_state_assembly",
             "number": 17,
@@ -334,9 +364,49 @@
             "number": 11,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_11th_State_Senate_district"
         },
-        "district_state_ca": {
-            "district_type_id": "district_type_usa_states",
-            "name": "California"
+        "district_sf_board_of_supervisors_01": {
+            "district_type_id": "district_type_sf_board_of_supervisors",
+            "number": 1
+        },
+        "district_sf_board_of_supervisors_02": {
+            "district_type_id": "district_type_sf_board_of_supervisors",
+            "number": 2
+        },
+        "district_sf_board_of_supervisors_03": {
+            "district_type_id": "district_type_sf_board_of_supervisors",
+            "number": 3
+        },
+        "district_sf_board_of_supervisors_04": {
+            "district_type_id": "district_type_sf_board_of_supervisors",
+            "number": 4
+        },
+        "district_sf_board_of_supervisors_05": {
+            "district_type_id": "district_type_sf_board_of_supervisors",
+            "number": 5
+        },
+        "district_sf_board_of_supervisors_06": {
+            "district_type_id": "district_type_sf_board_of_supervisors",
+            "number": 6
+        },
+        "district_sf_board_of_supervisors_07": {
+            "district_type_id": "district_type_sf_board_of_supervisors",
+            "number": 7
+        },
+        "district_sf_board_of_supervisors_08": {
+            "district_type_id": "district_type_sf_board_of_supervisors",
+            "number": 8
+        },
+        "district_sf_board_of_supervisors_09": {
+            "district_type_id": "district_type_sf_board_of_supervisors",
+            "number": 9
+        },
+        "district_sf_board_of_supervisors_10": {
+            "district_type_id": "district_type_sf_board_of_supervisors",
+            "number": 10
+        },
+        "district_sf_board_of_supervisors_11": {
+            "district_type_id": "district_type_sf_board_of_supervisors",
+            "number": 11
         },
         "district_usa_house_12": {
             "district_type_id": "district_type_usa_house",
@@ -347,6 +417,10 @@
             "district_type_id": "district_type_usa_house",
             "number": 14,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_14th_congressional_district"
+        },
+        "district_usa_state_ca": {
+            "district_type_id": "district_type_usa_states",
+            "name": "California"
         }
     },
     "election_methods": {
@@ -677,13 +751,13 @@
         },
         "office_usa_senate_1": {
             "body_id": "body_usa_senate",
-            "district_id": "district_state_ca",
+            "district_id": "district_usa_state_ca",
             "seat": 1,
             "seed_year": 2000
         },
         "office_usa_senate_2": {
             "body_id": "body_usa_senate",
-            "district_id": "district_state_ca",
+            "district_id": "district_usa_state_ca",
             "seat": 3,
             "seed_year": 2004
         }
@@ -772,7 +846,7 @@
             "zh": "\u5dde\u773e\u8b70\u9662\u7b2c{0}\u9078\u5340"
         },
         "text_district_numbered_format": {
-            "en": "DISTRICT {0}",
+            "en": "DISTRICT {number}",
             "es": "DISTRITO {0}",
             "fil": "Distrito {0}",
             "zh": "\u7b2c{0}\u9078\u5340"
