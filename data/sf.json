@@ -263,13 +263,15 @@
         "district_type_bart": {
             "body_id": "body_bart",
             "district_count": 9,
-            "name": "BART District",
+            "name": "BART Districts",
+            "name_singular": "BART District",
             "parent_area_id": "area_state_ca_bart"
         },
         "district_type_ca_board_of_equalization": {
             "body_id": "body_ca_board_of_equalization",
             "district_count": 4,
-            "name": "Equalization District",
+            "name": "Equalization Districts",
+            "name_singular": "Equalization District",
             "parent_area_id": "area_state_ca",
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts"
         },
@@ -277,42 +279,48 @@
             "body_id": "body_ca_courts_of_appeal",
             "district_count": 6,
             "district_name_short_format": "{district_code} District",
-            "name": "Appellate District",
+            "name": "Appellate Districts",
+            "name_singular": "Appellate District",
             "parent_area_id": "area_state_ca"
         },
         "district_type_ca_state_assembly": {
             "body_id": "body_ca_state_assembly",
             "district_count": 80,
             "district_name_short_format": "District {number}",
-            "name": "State Assembly District",
+            "name": "State Assembly Districts",
+            "name_singular": "State Assembly District",
             "parent_area_id": "area_state_ca"
         },
         "district_type_ca_state_senate": {
             "body_id": "body_ca_state_senate",
             "district_count": 40,
             "district_name_short_format": "District {number}",
-            "name": "State Senate District",
+            "name": "State Senate Districts",
+            "name_singular": "State Senate District",
             "parent_area_id": "area_state_ca"
         },
         "district_type_sf_board_of_supervisors": {
             "body_id": "body_sf_board_of_supervisors",
             "district_count": 11,
             "district_name_short_format_i18n": "text_district_numbered_format",
-            "name": "Supervisorial District",
+            "name": "Supervisorial Districts",
+            "name_singular": "Supervisorial District",
             "parent_area_id": "area_county_sf"
         },
         "district_type_usa_house": {
             "body_id": "body_usa_house",
             "district_count": 435,
             "district_name_short_format": "District {number}",
-            "name": "US Congressional District",
+            "name": "US Congressional Districts",
+            "name_singular": "US Congressional District",
             "parent_area_id": "area_country_usa"
         },
         "district_type_usa_states": {
             "category_id": "category_federal",
             "district_count": 50,
             "district_name_full_format": "State of {name}",
-            "name": "US State",
+            "name": "US States",
+            "name_singular": "US State",
             "parent_area_id": "area_country_usa"
         }
     },

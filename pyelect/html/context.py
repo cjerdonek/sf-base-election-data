@@ -130,6 +130,9 @@ district_type:
   -
     name: name
   -
+    name: name_singular
+    required: true
+  -
     name: parent_area_id
   -
     name: wikipedia
@@ -301,7 +304,7 @@ def make_one_categories2(html_obj, html_data, json_obj, ordering):
 def make_one_district_types2(html_obj, html_data, json_obj):
     name_format = html_obj['district_name_full_format']
     if name_format is None:
-        name = html_obj['name']
+        name = html_obj['name_singular']
         name_format = "{name} {{number}}".format(name=name)
         html_obj['district_name_full_format'] = name_format
 
