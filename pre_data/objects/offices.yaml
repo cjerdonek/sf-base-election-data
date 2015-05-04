@@ -27,15 +27,15 @@ offices:
   CA_SC_CJ:
     body_id: body_ca_court_supreme
     name: Chief Justice
-  office_bart_7:
+  office_ca_bart_director_7:
     body_id: body_bart
     district_id: district_ca_bart_7
     seed_year: 2000
-  office_bart_8:
+  office_ca_bart_director_8:
     body_id: body_bart
     district_id: district_ca_bart_8
     seed_year: 2002
-  office_bart_9:
+  office_ca_bart_director_9:
     body_id: body_bart
     district_id: district_ca_bart_9
     seed_year: 2000

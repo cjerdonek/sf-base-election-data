@@ -2,6 +2,7 @@ TODO
 ====
 
 * DRY up `district_type.district_name_short_format`?
+* Somehow flag types as required in either the instance or the base (e.g. office/body)?
 * Get translated phrases working again.
 * Check Twitter for bodies.
 * Change seats to SF seats, e.g. 2 of 80.
@@ -27,7 +28,6 @@ TODO
 * Hamburger nav
 * Add a source for each translation.
   - Allow for translation notes?
-* Review `office_bart_director` id.
 * Add a `seat_name` attribute to Office that distinguishes members from
   one another (and `office_name` is the more generic name).
 * Think about whether internationalized text should be mandatory

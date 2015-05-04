@@ -506,27 +506,27 @@
             "body_id": "body_ca_court_supreme",
             "name": "Chief Justice"
         },
-        "office_bart_7": {
-            "body_id": "body_bart",
-            "district_id": "district_ca_bart_7",
-            "seed_year": 2000
-        },
-        "office_bart_8": {
-            "body_id": "body_bart",
-            "district_id": "district_ca_bart_8",
-            "seed_year": 2002
-        },
-        "office_bart_9": {
-            "body_id": "body_bart",
-            "district_id": "district_ca_bart_9",
-            "seed_year": 2000
-        },
         "office_ca_attorney_general": {
             "category_id": "category_state",
             "name_i18n": "text_office_state_attorney_general",
             "partisan": true,
             "term_length": 4,
             "url": "http://www.oag.ca.gov/"
+        },
+        "office_ca_bart_director_7": {
+            "body_id": "body_bart",
+            "district_id": "district_ca_bart_7",
+            "seed_year": 2000
+        },
+        "office_ca_bart_director_8": {
+            "body_id": "body_bart",
+            "district_id": "district_ca_bart_8",
+            "seed_year": 2002
+        },
+        "office_ca_bart_director_9": {
+            "body_id": "body_bart",
+            "district_id": "district_ca_bart_9",
+            "seed_year": 2000
         },
         "office_ca_controller": {
             "category_id": "category_state",
@@ -911,12 +911,12 @@
         "text_language_vietnamese": {
             "en": "Vietnamese"
         },
-        "text_office_bart_director": {
+        "text_office_ca_bart_director": {
             "en": "BART DIRECTOR",
             "es": "DIRECTOR DE BART",
             "zh": "\u7063\u5340\u6377\u904b\u8463\u4e8b,"
         },
-        "text_office_bart_director_edge_format": {
+        "text_office_ca_bart_director_edge_format": {
             "en": "BART DIRECTOR DIST. {0}"
         },
         "text_office_city_assessor_recorder": {

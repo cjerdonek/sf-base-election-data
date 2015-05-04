@@ -50,7 +50,7 @@ texts:
   text_header_voter_nominated_offices:
     _en: VOTER-NOMINATED OFFICES
     zh: 選民提名職位
-  text_office_bart_director:
+  text_office_ca_bart_director:
     _en: BART DIRECTOR
     zh: 灣區捷運董事,
   text_office_city_assessor_recorder:

@@ -50,7 +50,7 @@ texts:
   text_header_voter_nominated_offices:
     _en: VOTER-NOMINATED OFFICES
     fil: null
-  text_office_bart_director:
+  text_office_ca_bart_director:
     _en: BART DIRECTOR
     fil: null
   text_office_city_assessor_recorder:

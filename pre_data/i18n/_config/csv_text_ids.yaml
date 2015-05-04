@@ -24,7 +24,7 @@ text_ids:
   text_header_school_propositions: SCHOOL PROPOSITIONS
   text_header_state_propositions: STATE PROPOSITIONS
   text_header_voter_nominated_offices: VOTER-NOMINATED OFFICES
-  text_office_bart_director: BART DIRECTOR
+  text_office_ca_bart_director: BART DIRECTOR
   text_office_city_assessor_recorder: ASSESSOR-RECORDER
   text_office_city_attorney: CITY ATTORNEY
   text_office_city_district_attorney: DISTRICT ATTORNEY

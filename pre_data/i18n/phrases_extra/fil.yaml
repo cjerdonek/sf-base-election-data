@@ -56,7 +56,7 @@ texts:
   text_language_vietnamese:
     _en: Vietnamese
     fil: null
-  text_office_bart_director_edge_format:
+  text_office_ca_bart_director_edge_format:
     _en: BART DIRECTOR DIST. {0}
     fil: null
   text_office_judge_of_the_superior_court_edge_format:

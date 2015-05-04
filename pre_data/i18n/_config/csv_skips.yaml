@@ -3,8 +3,8 @@
 _meta:
   _type: manual
 text_ids:
-  # Extra: text_office_bart_director_edge_format.
-  - text_office_bart_director_edge
+  # Extra: text_office_ca_bart_director_edge_format.
+  - text_office_ca_bart_director_edge
   # Extra: text_office_member_board_of_supervisors_edge_format.
   - text_office_member_board_of_supervisors_edge
   # Extra: text_office_judge_of_the_superior_court_edge_format.
