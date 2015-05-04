@@ -1,7 +1,7 @@
 TODO
 ====
 
-* Copy LICENSE file to data directory.
+* Get translated phrases working again.
 * Add all the SF districts.
 * Check Twitter for bodies.
 * Change seats to SF seats, e.g. 2 of 80.

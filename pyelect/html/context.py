@@ -24,6 +24,7 @@ _BOOTSTRAP_REMOTE = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/"
 _BOOTSTRAP_LOCAL = 'bootstrap/'
 
 JSON_OUTPUT_PATH = 'data/sf.json'
+LICENSE_PATH = 'data/LICENSE.txt'
 
 # The base names of the pages in the order they should be listed in the
 # table of contents on each page.
@@ -530,6 +531,7 @@ def make_html_data(json_data, local_assets=False):
         'jquery_prefix': jquery_prefix,
         'json_path': JSON_OUTPUT_PATH,
         'language_codes': [LANG_ENGLISH] + NON_ENGLISH_ORDER,
+        'license_path': LICENSE_PATH,
         'bootstrap_prefix': bootstrap_prefix,
         'page_bases': _TABLE_OF_CONTENTS,
         NodeNames.phrases: phrases,
