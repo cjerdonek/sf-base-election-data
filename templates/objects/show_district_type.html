@@ -1,4 +1,4 @@
 {% load custom_tags %}
 {% url_row_object 'Parent Area' object.parent_area_id 'areas' %}
-{% info_row 'District Count' object.district_count %}
+{% include 'rows/district_count.html' with object=object %}
 {% url_row_object 'Body' object.body_id 'bodies' %}

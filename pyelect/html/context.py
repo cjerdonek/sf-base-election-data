@@ -567,6 +567,16 @@ def make_html_data(json_data, local_assets=False):
         office_count += office['seat_count']
     html_data['office_count'] = office_count
 
+    # Compute: district_count_sf
+    district_types = html_data['district_types']
+    for district in html_data['districts'].values():
+        district_type_id = district['district_type_id']
+        district_type = district_types[district_type_id]
+        try:
+            district_type['district_count_sf'] += 1
+        except KeyError:
+            district_type['district_count_sf'] = 1
+
     languages = add_context_node(html_data, json_data, 'languages')
 
     html_data['language_map'] = {lang['code']: lang for lang in languages.values()}
