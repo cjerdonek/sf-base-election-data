@@ -52,10 +52,10 @@ class _Page(object):
             title = get_default_page_title(self.objects_name)
         return title
 
-    def make_href(self, object_id=None):
+    def make_href(self, fragment=None):
         url = "{0}.html".format(self.page_base_name)
-        if object_id is not None:
-            url += "#{0}".format(object_id)
+        if fragment is not None:
+            url += "#{0}".format(fragment)
         return url
 
     def get_singular(self):

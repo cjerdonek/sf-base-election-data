@@ -18,6 +18,7 @@ district_types:
   district_type_ca_court_appeal:
     body_id: body_ca_courts_of_appeal
     district_count: 6
+    district_name_full_format: '{district_code} Appellate District'
     district_name_short_format: '{district_code} District'
     name: Appellate Districts
     name_singular: Appellate District

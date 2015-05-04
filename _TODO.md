@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Add SF district count.
 * Make list by subcategory inherit.
 * Get translated phrases working again.
 * Check Twitter for bodies.

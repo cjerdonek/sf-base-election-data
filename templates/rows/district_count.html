@@ -1,5 +1,13 @@
-{% extends "row_info_base.html" %}
+{% extends "row_info_base.html" %}{% comment %}
+
+Arguments:
+
+  object: a district_type object.
+
+{% endcomment %}{% load custom_tags %}
 
 {% block row_header %}District Count{% endblock %}
 
-{% block row_value %}{{ object.district_count }} total, {{ object.district_count_sf }} in SF{% endblock %}
+{% block row_value %}{{ object.district_count }} total,
+  <a href="{% page_href 'districts' object.id %}">{{ object.district_count_sf }} in SF</a>
+{% endblock %}

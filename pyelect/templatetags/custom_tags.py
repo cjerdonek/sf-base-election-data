@@ -43,6 +43,18 @@ def label_to_text(label):
     return text
 
 
+def get_page_href(page_base, fragment=None):
+    page = pages.get_page_object(page_base)
+    href = page.make_href(fragment=fragment)
+    return href
+
+
+def get_page_title(page_base):
+    page = pages.get_page_object(page_base)
+    title = page.title
+    return title
+
+
 # This is a decorator to deal with the fact that by default Django silently
 # swallows exceptions when rendering templates.  This default behavior
 # can be changed by setting TEMPLATE_DEBUG to True.
@@ -138,16 +150,12 @@ def translations(context, item, attr_name):
     return text
 
 
-def get_page_href(page_base):
-    page = pages.get_page_object(page_base)
-    href = page.make_href()
-    return href
+@register.simple_tag()
+@log_errors
+def page_href(page_base, fragment):
+    url = get_page_href(page_base, fragment=fragment)
+    return url
 
-
-def get_page_title(page_base):
-    page = pages.get_page_object(page_base)
-    title = page.title
-    return title
 
 
 @register.simple_tag(takes_context=True)
@@ -250,10 +258,10 @@ def url_row(header, value):
 
 @register.inclusion_tag('tags/cond_include.html', takes_context=True)
 @log_errors
-def url_row_object(context, label, object_id, type_name):
+def url_row_object(context, label, object_id, page_base_name):
     """
     Arguments:
-      type_name: for example, "languages".
+      page_base_name: for example, "languages".
     """
     href = None
     name = None
@@ -263,11 +271,11 @@ def url_row_object(context, label, object_id, type_name):
     elif label_to_text(object_id):
         text = label_to_text(object_id)
     else:
-        objects = context[type_name]
+        objects = context[page_base_name]
         obj = objects[object_id]
         text = obj['name']
-        page = pages.get_page_object(type_name)
-        href = page.make_href(object_id)
+        page = pages.get_page_object(page_base_name)
+        href = page.make_href(fragment=object_id)
 
     return _cond_include_context_url(label, href, href_text=text)
 
