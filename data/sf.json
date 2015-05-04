@@ -32,7 +32,7 @@
         "body_bart": {
             "category_id": "category_transit",
             "district_type_id": "district_type_bart",
-            "jurisdiction_area_id": "area_state_ca_bart",
+            "jurisdiction_id": "area_state_ca_bart",
             "name": "BART Board of Directors",
             "office_name": "BART Director",
             "partisan": false,
@@ -73,7 +73,6 @@
             "district_type_id": "district_type_ca_court_appeal",
             "jurisdiction_area_id": "area_state_ca",
             "name_i18n": "text_body_ca_courts_of_appeal",
-            "notes": "This may be better viewed as a type of office rather than a body.",
             "partisan": false,
             "seat_count": "=unknown",
             "term_length": 12,
@@ -84,9 +83,8 @@
         "body_ca_courts_of_appeal_d1": {
             "category_id": "category_judicial",
             "district_type_id": "=none",
-            "jurisdiction_area_id": "area_state_ca_courts_of_appeal_d1",
             "name_i18n": "text_body_ca_courts_of_appeal_d1",
-            "notes": "This body is divided into five non-geographical divisions with four justices each.",
+            "notes": "The district covers San Francisco and is divided into five non-geographical divisions with four justices each.",
             "partisan": false,
             "seat_count": 20
         },
@@ -147,7 +145,7 @@
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_sf_community_college",
             "name_i18n": "text_body_city_college_board",
-            "notes": "This is also known as the San Francisco Community College Board of Trustees.",
+            "notes": "This is also known as the San Francisco Community Collage Board of Trustees.",
             "office_name_i18n": "text_office_member_community_college_board",
             "partisan": false,
             "seat_count": 7,
@@ -182,7 +180,7 @@
             "seat_count": "=unknown",
             "url": "http://www.peaceandfreedom.org"
         },
-        "body_sf_rccc": {
+        "body_sf_party_republican": {
             "category_id": "category_party",
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_county_sf",
@@ -208,7 +206,7 @@
             "category_id": "category_federal",
             "district_type_id": "district_type_usa_house",
             "election_method_id": "election_method_top_two",
-            "jurisdiction_area_id": "area_country_usa",
+            "jurisdiction_id": "US",
             "member_name": "U.S. Representative",
             "name": "United States House of Representatives",
             "notes": "There are also 6 non-voting members.",
@@ -224,7 +222,7 @@
             "category_id": "category_federal",
             "district_type_id": "district_type_usa_states",
             "election_method_id": "election_method_top_two",
-            "jurisdiction_area_id": "area_country_usa",
+            "jurisdiction_id": "US",
             "member_name": "U.S. Senator",
             "name": "United States Senate",
             "office_name_format": "{member_name}, {district_name_short} ({seat_name})",
@@ -334,7 +332,7 @@
             "number": 11,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_11th_State_Senate_district"
         },
-        "district_state_ca": {
+        "district_usa_state_ca": {
             "district_type_id": "district_type_usa_states",
             "name": "California"
         },
@@ -677,13 +675,13 @@
         },
         "office_usa_senate_1": {
             "body_id": "body_usa_senate",
-            "district_id": "district_state_ca",
+            "district_id": "district_usa_state_ca",
             "seat": 1,
             "seed_year": 2000
         },
         "office_usa_senate_2": {
             "body_id": "body_usa_senate",
-            "district_id": "district_state_ca",
+            "district_id": "district_usa_state_ca",
             "seat": 3,
             "seed_year": 2004
         }

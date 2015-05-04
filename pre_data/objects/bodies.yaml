@@ -144,7 +144,7 @@ bodies:
     partisan: true
     seat_count: =unknown
     url: http://www.peaceandfreedom.org
-  body_sf_rccc:
+  body_sf_party_republican:
     category_id: category_party
     district_type_id: =none
     jurisdiction_area_id: area_county_sf

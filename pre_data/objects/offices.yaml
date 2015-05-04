@@ -200,11 +200,11 @@ offices:
     wikipedia: http://en.wikipedia.org/wiki/President_of_the_United_States
   office_usa_senate_1:
     body_id: body_usa_senate
-    district_id: district_state_ca
+    district_id: district_usa_state_ca
     seat: 1
     seed_year: 2000
   office_usa_senate_2:
     body_id: body_usa_senate
-    district_id: district_state_ca
+    district_id: district_usa_state_ca
     seat: 3
     seed_year: 2004
