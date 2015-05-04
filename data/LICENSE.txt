@@ -5,13 +5,13 @@ can be found below, as well as at the following location:
 http://www.opendatacommons.org/licenses/pddl/1.0/
 
 
-Open Data Commons – Public Domain Dedication & Licence (PDDL)
+Open Data Commons -- Public Domain Dedication & Licence (PDDL)
 =============================================================
 
 Preamble
 --------
 
-The Open Data Commons – Public Domain Dedication & Licence is a document
+The Open Data Commons -- Public Domain Dedication & Licence is a document
 intended to allow you to freely share, modify, and use this work for any
 purpose and without any restrictions. This licence is intended for use on
 databases or their contents ("data"), either together or individually.
@@ -68,9 +68,9 @@ license. Doing so creates truly accessible data to build rich applications and
 advance the progress of science and the arts.
 
 This document can cover either or both of the database and its contents (the
-data). Because databases can have a wide variety of content – not just factual
-data – rightsholders should use the Open Data Commons – Public Domain
-Dedication & Licence for an entire database and its contents only if
+data). Because databases can have a wide variety of content -- not just
+factual data -- rightsholders should use the Open Data Commons -- Public
+Domain Dedication & Licence for an entire database and its contents only if
 everything can be placed under the terms of this document. Because even
 factual data can sometimes have intellectual property rights, rightsholders
 should use this licence to cover both the database and its factual data when
@@ -80,9 +80,9 @@ data would not be covered by copyright or database rights.
 Rightsholders can also use this document to cover any copyright or database
 rights claims over only a database, and leave the contents to be covered by
 other licences or documents. They can do this because this document refers to
-the "Work", which can be either – or both – the database and its contents. As
-a result, rightsholders need to clearly state what they are dedicating under
-this document when they dedicate it.
+the "Work", which can be either -- or both -- the database and its contents.
+As a result, rightsholders need to clearly state what they are dedicating
+under this document when they dedicate it.
 
 Just like any licence or other document dealing with intellectual property,
 rightsholders should be aware that one can only license what one owns. Please
@@ -102,39 +102,39 @@ follows:
 
 1.0 Definitions of Capitalised Words
 
-"Copyright" – Includes rights under copyright and under neighbouring rights
+"Copyright" -- Includes rights under copyright and under neighbouring rights
 and similarly related sets of rights under the law of the relevant
 jurisdiction under Section 6.4.
 
-"Data" – The contents of the Database, which includes the information,
+"Data" -- The contents of the Database, which includes the information,
 independent works, or other material collected into the Database offered under
 the terms of this Document.
 
-"Database" – A collection of Data arranged in a systematic or methodical way
+"Database" -- A collection of Data arranged in a systematic or methodical way
 and individually accessible by electronic or other means offered under the
 terms of this Document.
 
-"Database Right" – Means rights over Data resulting from the Chapter III ("sui
-generis") rights in the Database Directive (Directive 96/9/EC of the European
-Parliament and of the Council of 11 March 1996 on the legal protection of
-databases) and any future updates as well as any similar rights available in
-the relevant jurisdiction under Section 6.4.
+"Database Right" -- Means rights over Data resulting from the Chapter III
+("sui generis") rights in the Database Directive (Directive 96/9/EC of the
+European Parliament and of the Council of 11 March 1996 on the legal
+protection of databases) and any future updates as well as any similar rights
+available in the relevant jurisdiction under Section 6.4.
 
-"Document" – means this relinquishment and waiver of rights and claims and
+"Document" -- means this relinquishment and waiver of rights and claims and
 back up licence agreement.
 
-"Person" – Means a natural or legal person or a body of persons corporate or
+"Person" -- Means a natural or legal person or a body of persons corporate or
 incorporate.
 
-"Use" – As a verb, means doing any act that is restricted by Copyright or
+"Use" -- As a verb, means doing any act that is restricted by Copyright or
 Database Rights whether in the original medium or any other; and includes
 modifying the Work as may be technically necessary to use it in a different
 mode or format. This includes the right to sublicense the Work.
 
-"Work" – Means either or both of the Database and Data offered under the terms
-of this Document.
+"Work" -- Means either or both of the Database and Data offered under the
+terms of this Document.
 
-"You" – the Person acquiring rights under the licence elements of this
+"You" -- the Person acquiring rights under the licence elements of this
 Document.
 
 Words in the singular include the plural and vice versa.
