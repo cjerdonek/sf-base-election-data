@@ -3,7 +3,7 @@ from collections import defaultdict
 from datetime import date
 import logging
 import os
-from pprint import pprint
+from pprint import pformat, pprint
 
 from django.template import Context
 import yaml
@@ -102,9 +102,12 @@ category:
     type: i18n
 district:
   -
+    name: district_code
+  -
     name: district_type_id
   -
     name: name
+    required: true
   -
     name: number
   -
@@ -120,6 +123,8 @@ district_type:
     name: district_name_short_format
   -
     name: district_name_full_format
+    # Require this because it is used to generate the name.
+    required: true
   -
     name: geographic
   -
@@ -180,18 +185,6 @@ def make_translations(id_, json_data):
         return None
     json_data['id'] = id_
     return json_data
-
-
-def make_district(value):
-    data = {
-        'name': value['district_code']
-    }
-    return data
-
-
-def make_districts(data):
-    districts = [make_district(v) for v in data['districts']]
-    return districts
 
 
 def _compute_next_election_year(json_data):
@@ -306,6 +299,12 @@ def make_one_categories2(html_obj, html_data, json_obj, ordering):
 
 
 def make_one_district_types2(html_obj, html_data, json_obj):
+    name_format = html_obj['district_name_full_format']
+    if name_format is None:
+        name = html_obj['name']
+        name_format = "{name} {{number}}".format(name=name)
+        html_obj['district_name_full_format'] = name_format
+
     if not html_obj['category_id']:
         body = get_from_html_data(html_data, json_obj, 'body_id')
         category_id = body.get('category_id')
@@ -321,27 +320,22 @@ def make_one_district_types2(html_obj, html_data, json_obj):
 
 # TODO: inherit properties from district type (like office from body).
 def make_one_districts2(html_obj, html_data, json_obj):
-    district_number = html_obj['number']
-
     district_type = get_from_html_data(html_data, json_obj, 'district_type_id')
     category_id = district_type['category_id']
 
     name_format = district_type['district_name_full_format']
     if name_format is not None:
-        name = name_format.format(number=district_number)
+        name = name_format.format(**html_obj)
         html_obj['name'] = name
 
     name_short_format = district_type['district_name_short_format']
     if name_short_format is not None:
-        name_short = name_short_format.format(number=district_number)
+        name_short = name_short_format.format(**html_obj)
         html_obj['name_short'] = name_short
 
     html_obj['category_id'] = category_id
     _set_category_order(html_data, html_obj)
 
-    # TODO: figure out a DRY way to add this check (e.g. config-driven).
-    if 'name' not in html_obj:
-        raise Exception("name and category_id required: {0}".format(html_obj))
     return html_obj
 
 
@@ -485,7 +479,7 @@ def check_object(html_obj, fields):
         if not field.get('required'):
             continue
         if html_obj[field_name] is None:
-            raise Exception("field {0!r} should not be None: {1}".format(field_name, html_obj))
+            raise Exception("field {0!r} should not be None:\n{1}".format(field_name, pformat(html_obj)))
 
 
 def add_html_node(html_data, json_data, field_data, base_name, json_key=None, **kwargs):
@@ -500,7 +494,11 @@ def add_html_node(html_data, json_data, field_data, base_name, json_key=None, **
     json_node = json_data[json_key]
 
     objects = {}
-    for object_id, json_obj in json_node.items():
+
+    # Sort the items to get repeatability.  This helps when troubleshooting
+    # issues, so that the same item will error out when running a second time.
+    for object_id in sorted(json_node.keys()):
+        json_obj = json_node[object_id]
         html_obj = _make_html_object2(json_obj, fields, object_id)
         set_object_fields(html_obj, html_data, json_obj, **kwargs)
         # TODO: check the object.

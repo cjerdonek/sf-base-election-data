@@ -2,6 +2,24 @@ _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
 districts:
+  district_ca_bart_07:
+    district_type_id: district_type_bart
+    number: 7
+  district_ca_bart_08:
+    district_type_id: district_type_bart
+    number: 8
+  district_ca_bart_09:
+    district_type_id: district_type_bart
+    number: 9
+  district_ca_board_of_equalization:
+    district_type_id: district_type_ca_board_of_equalization
+    number: 2
+    wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Second_district
+  district_ca_court_appeal:
+    district_code: First
+    district_type_id: district_type_ca_court_appeal
+    number: 1
+    wikipedia: http://en.wikipedia.org/wiki/California_courts_of_appeal#First_District
   district_ca_state_assembly_17:
     district_type_id: district_type_ca_state_assembly
     number: 17
@@ -14,21 +32,6 @@ districts:
     district_type_id: district_type_ca_state_senate
     number: 11
     wikipedia: http://en.wikipedia.org/wiki/California%27s_11th_State_Senate_district
-  district_usa_state_ca:
-    district_type_id: district_type_usa_states
-    name: California
-  district_usa_house_12:
-    district_type_id: district_type_usa_house
-    number: 12
-    wikipedia: http://en.wikipedia.org/wiki/California%27s_12th_congressional_district
-  district_ca_board_of_equalization:
-    district_type_id: district_type_ca_board_of_equalization
-    number: 2
-    wikipedia: "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Second_district"
-  district_usa_house_14:
-    district_type_id: district_type_usa_house
-    number: 14
-    wikipedia: http://en.wikipedia.org/wiki/California%27s_14th_congressional_district
   district_sf_board_of_supervisors_01:
     district_type_id: district_type_sf_board_of_supervisors
     number: 1
@@ -62,16 +65,14 @@ districts:
   district_sf_board_of_supervisors_11:
     district_type_id: district_type_sf_board_of_supervisors
     number: 11
-  district_ca_bart_07:
-    district_type_id: district_type_bart
-    number: 7
-  district_ca_bart_08:
-    district_type_id: district_type_bart
-    number: 8
-  district_ca_bart_09:
-    district_type_id: district_type_bart
-    number: 9
-  district_ca_court_appeal:
-    district_type_id: district_type_ca_court_appeal
-    number: 1
-    wikipedia: "http://en.wikipedia.org/wiki/California_courts_of_appeal#First_District"
+  district_usa_house_12:
+    district_type_id: district_type_usa_house
+    number: 12
+    wikipedia: http://en.wikipedia.org/wiki/California%27s_12th_congressional_district
+  district_usa_house_14:
+    district_type_id: district_type_usa_house
+    number: 14
+    wikipedia: http://en.wikipedia.org/wiki/California%27s_14th_congressional_district
+  district_usa_state_ca:
+    district_type_id: district_type_usa_states
+    name: California
