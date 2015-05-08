@@ -155,14 +155,13 @@ bodies:
     partisan: true
     seat_count: =unknown
     url: http://sfgop.org/
-  body_sf_sc:
+  body_sf_superior_court:
     category_id: category_judicial
     district_type_id: =none
     jurisdiction_area_id: area_county_sf
     name_i18n: text_body_city_sc
-    notes: Wikipedia says that the San Francisco Superior Court Bench comprises 52
-      Judges and one Commissioner.  We do not know if the Commissioner faces election.
-    office_name_i18n: text_office_member_body_sf_sc
+    notes: The Commissioners mentioned by Wikipedia do not face election.
+    office_name_i18n: text_office_member_body_sf_superior_court
     partisan: false
     seat_count: 52
     term_length: 6

@@ -65,7 +65,7 @@ texts:
   text_office_member_board_of_supervisors_edge_format:
     _en: BOARD OF SUPERVISORS D{0}
     fil: null
-  text_office_member_body_sf_sc:
+  text_office_member_body_sf_superior_court:
     _en: Judge of the Superior Court
     fil: null
   text_office_state_treasurer:

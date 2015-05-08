@@ -45,7 +45,7 @@ texts:
     en: 'SUPERIOR COURT JUDGE #{0}'
   text_office_member_board_of_supervisors_edge_format:
     en: BOARD OF SUPERVISORS D{0}
-  text_office_member_body_sf_sc:
+  text_office_member_body_sf_superior_court:
     en: Judge of the Superior Court
   text_office_state_treasurer:
     en: TREASURER

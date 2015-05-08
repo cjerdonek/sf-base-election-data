@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Update info re: superior court
 * Add config-driven validation code to JSON gen.
 * Add `name` and `name_i18n` to district in JSON file.
 * Add `name` and `name_i18n` to Office in JSON file.
