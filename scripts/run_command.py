@@ -16,6 +16,7 @@ import init_path
 from pyelect.html import generator as htmlgen
 from pyelect import jsongen
 from pyelect import lang
+from pyelect.lang import PHRASES_BASE_NAME
 from pyelect.common import utils
 from pyelect.common import yamlutil
 
@@ -104,6 +105,10 @@ def command_sample_html(ns):
                                   debug=debug)
     if open_browser:
         subprocess.call(["open", html_path])
+
+
+def command_yaml_make_phrases(ns):
+    lang.update_yaml_phrases_file()
 
 
 def _get_all_files(dir_path):
@@ -238,6 +243,11 @@ def create_parser():
         help='write the HTML to stdout.')
     parser.add_argument('--debug', action='store_true',
         help="set Django's TEMPLATE_DEBUG to True.")
+
+    phrases_file_name = utils.get_yaml_file_name(PHRASES_BASE_NAME)
+    phrases_path = utils.get_yaml_objects_path_rel(PHRASES_BASE_NAME)
+    parser = make_subparser(sub, "yaml_make_phrases",
+                help="create or update the i18n object file {0}.".format(phrases_file_name))
 
     parser = make_subparser(sub, "yaml_norm",
                 help="normalize one or more YAML files.")

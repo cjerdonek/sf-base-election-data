@@ -1,9 +1,10 @@
 TODO
 ====
 
-* DRY up `description_plural` in district_types.yaml
-* Make command to generate phrases.yaml.
+* Skip files beginning with a "." in the `copy_files()` helper function.
+* Make command to generate phrases.yaml: `yaml_make_phrases`
 * Get i18n node working in JSON as first node.
+* DRY up `description_plural` in district_types.yaml
 * Include i18n name fields in district_types JSON.
 * Add `name_short_i18n` to district in JSON file?
   - (and the body-specific variations -- search "distrito")

@@ -21,8 +21,6 @@ KEY_DISTRICTS = 'districts'
 KEY_ID = '_id'
 KEY_OFFICES = 'offices'
 
-DIR_NAME_OBJECTS = 'objects'
-
 _REL_PATH_JSON_DATA = "data/sf.json"
 
 _LICENSE = ("The database consisting of this file is made available under "
@@ -73,10 +71,6 @@ def get_rel_path_json_data():
     return _REL_PATH_JSON_DATA
 
 
-def _get_rel_path_objects_dir():
-    return os.path.join(utils.DIR_PRE_DATA, DIR_NAME_OBJECTS)
-
-
 def get_json_path():
     repo_dir = utils.get_repo_dir()
     rel_path = get_rel_path_json_data()
@@ -102,7 +96,7 @@ def get_fields(field_data, node_name):
 
 def _get_yaml_data(base_name):
     """Return the object data from a YAML file."""
-    rel_path = _get_rel_path_objects_dir()
+    rel_path = get_yaml_objects_dir_rel()
     data = yamlutil.read_yaml_rel(rel_path, file_base=base_name)
     meta = yamlutil.get_yaml_meta(data)
     objects = utils.get_required(data, base_name)
@@ -170,12 +164,6 @@ def make_node_categories(objects, meta):
         node[category_id] = category
 
     return node
-
-
-def make_node_i18n():
-    """Return the node containing internationalized data."""
-    data = lang.get_phrases()
-    return data
 
 
 def make_node_bodies(objects, meta):
@@ -275,11 +263,7 @@ def add_source(data, source_name):
         data[key] = value
 
 
-def add_json_node_i18n(json_data, field_data):
-    node = make_node_i18n()
-    _add_json_node_base(json_data, node, 'phrases', field_data)
-
-
+# TODO: remove this function?
 def _add_json_node_base(json_data, node, node_name, field_data):
     json_data[node_name] = node
 

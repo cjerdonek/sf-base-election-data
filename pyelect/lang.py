@@ -52,6 +52,8 @@ DIR_CSV_FILES = 'csv'
 _DIR_PHRASES_CSV = 'phrases_csv'
 _DIR_PHRASES_EXTRA = 'phrases_extra'
 
+PHRASES_BASE_NAME = 'phrases'
+
 FILE_NAME_CSV_SKIPS = 'csv_skips.yaml'
 FILE_TEXT_IDS_CSV = 'csv_text_ids.yaml'
 FILE_NAME_CSV_OVERRIDES = 'csv_overrides.yaml'
@@ -83,7 +85,7 @@ ContestRow = namedtuple('ContestRow', CONTEST_HEADERS)
 
 
 def get_rel_path_lang_dir():
-    return os.path.join(utils.DIR_PRE_DATA, DIR_LANG)
+    return os.path.join(utils.DIR_NAME_PRE_DATA, DIR_LANG)
 
 
 def get_rel_path_config_dir():
@@ -321,7 +323,7 @@ def read_phrases_dir(rel_dir):
     return phrases
 
 
-def get_phrases():
+def update_yaml_phrases_file():
     phrases_seq = []
     for dir_name in (_DIR_PHRASES_CSV, _DIR_PHRASES_EXTRA):
         rel_dir = get_rel_path_phrases(dir_name=dir_name)

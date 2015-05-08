@@ -6,7 +6,8 @@ from pprint import pformat
 
 _log = logging.getLogger()
 
-DIR_PRE_DATA = 'pre_data'
+DIR_NAME_OBJECTS = 'objects'
+DIR_NAME_PRE_DATA = 'pre_data'
 
 _SINGULAR_TO_PLURAL = {
     'body': 'bodies',
@@ -62,6 +63,10 @@ def get_required(mapping, key):
     return value
 
 
+def get_yaml_file_name(base_name):
+    return "{0}.yaml".format(base_name)
+
+
 def get_repo_dir():
     repo_dir = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)
     return os.path.abspath(repo_dir)
@@ -69,8 +74,19 @@ def get_repo_dir():
 
 def get_pre_data_dir():
     repo_dir = get_repo_dir()
-    dir_path = os.path.join(repo_dir, DIR_PRE_DATA)
+    dir_path = os.path.join(repo_dir, DIR_NAME_PRE_DATA)
     return dir_path
+
+
+def get_yaml_objects_dir_rel():
+    return os.path.join(DIR_NAME_PRE_DATA, DIR_NAME_OBJECTS)
+
+
+def get_yaml_objects_path_rel(base_name):
+    dir_path = get_yaml_objects_dir_rel()
+    file_name = get_yaml_file_name(base_name)
+
+    return os.path.join(dir_path, file_name)
 
 
 def write(path, text):
