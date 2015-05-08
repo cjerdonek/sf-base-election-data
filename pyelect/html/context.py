@@ -13,7 +13,7 @@ from pyelect.html.common import NON_ENGLISH_ORDER
 from pyelect.html import pages
 from pyelect import lang
 from pyelect.lang import I18N_SUFFIX, LANG_ENGLISH
-from pyelect import utils
+from pyelect.common import utils
 
 
 _log = logging.getLogger()

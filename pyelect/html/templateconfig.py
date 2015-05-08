@@ -9,7 +9,7 @@ import django
 from django.conf import settings
 import django.template.defaulttags as defaulttags
 
-from pyelect import utils
+from pyelect.common import utils
 
 
 _TEMPLATE_DIR_NAMES = ('base', 'objects', 'partials', 'tags')

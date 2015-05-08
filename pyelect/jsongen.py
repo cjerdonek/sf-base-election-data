@@ -10,7 +10,8 @@ import textwrap
 import yaml
 
 from pyelect import lang
-from pyelect import utils
+from pyelect.common import utils
+from pyelect.common import yamlutil
 
 
 COURT_OF_APPEALS_ID = 'ca_court_app'
@@ -75,8 +76,8 @@ def get_fields(field_data, node_name):
 def _get_yaml_data(base_name):
     """Return the object data from a YAML file."""
     rel_path = _get_rel_path_objects_dir()
-    data = utils.read_yaml_rel(rel_path, file_base=base_name)
-    meta = utils.get_yaml_meta(data)
+    data = yamlutil.read_yaml_rel(rel_path, file_base=base_name)
+    meta = yamlutil.get_yaml_meta(data)
     objects = utils.get_required(data, base_name)
 
     return objects, meta

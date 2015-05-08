@@ -11,7 +11,7 @@ from django.template.loader import get_template
 
 from pyelect.html import context, templateconfig
 from pyelect import jsongen
-from pyelect import utils
+from pyelect.common import utils
 
 
 _log = logging.getLogger()

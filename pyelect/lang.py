@@ -21,7 +21,7 @@ from pprint import pprint
 import re
 import textwrap
 
-from pyelect import utils
+from pyelect.common import utils
 
 
 _log = logging.getLogger()
@@ -167,7 +167,7 @@ def _make_text_id(text):
 def _get_csv_skips(key):
     rel_dir = get_rel_path_config_dir()
     rel_path = os.path.join(rel_dir, FILE_NAME_CSV_SKIPS)
-    skip_phrases = set(utils.read_yaml_rel(rel_path, key=key))
+    skip_phrases = set(yamlutil.read_yaml_rel(rel_path, key=key))
 
     return skip_phrases
 
@@ -202,14 +202,14 @@ def _get_csv_overrides():
     """Return the translation overrides as a dict."""
     rel_dir = get_rel_path_config_dir()
     rel_path = os.path.join(rel_dir, FILE_NAME_CSV_OVERRIDES)
-    overrides = utils.read_yaml_rel(rel_path, key='overrides')
+    overrides = yamlutil.read_yaml_rel(rel_path, key='overrides')
 
     return overrides
 
 
 def _make_english_to_id():
     rel_path = get_rel_path_text_ids_csv()
-    id_to_english = utils.read_yaml_rel(rel_path, key='text_ids')
+    id_to_english = yamlutil.read_yaml_rel(rel_path, key='text_ids')
 
     english_to_id = {}
     for text_id, english in id_to_english.items():
@@ -277,7 +277,7 @@ def read_csv_dir():
 
 def _get_text_ids_extra():
     rel_path = get_rel_path_phrases_extra()
-    data = utils.read_yaml_rel(rel_path, key=KEY_TEXTS)
+    data = yamlutil.read_yaml_rel(rel_path, key=KEY_TEXTS)
     return rel_path, data.keys()
 
 
@@ -290,7 +290,7 @@ def _get_text_ids_csv():
 def read_translations_file(rel_dir, lang):
     """Return the dict of: text_id to dict of info."""
     rel_path = os.path.join(rel_dir, "{0}.yaml".format(lang))
-    phrases = utils.read_yaml_rel(rel_path, key=KEY_TEXTS)
+    phrases = yamlutil.read_yaml_rel(rel_path, key=KEY_TEXTS)
     for text_id, translations in phrases.items():
         translations.pop(KEY_ENGLISH_ANNOTATION, None)
     return phrases
@@ -394,7 +394,7 @@ def update_extras():
 
     # Check that none of the extra text ID's is already taken by a CSV word.
     csv_rel_path = get_rel_path_text_ids_csv()
-    csv_text_ids = set(utils.read_yaml_rel(csv_rel_path, key='text_ids'))
+    csv_text_ids = set(yamlutil.read_yaml_rel(csv_rel_path, key='text_ids'))
     intersection = text_ids.intersection(csv_text_ids)
     if intersection:
         raise Exception("some text ID's in: {0}\n"

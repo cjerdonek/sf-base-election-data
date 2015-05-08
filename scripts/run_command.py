@@ -16,7 +16,7 @@ import init_path
 from pyelect.html import generator as htmlgen
 from pyelect import jsongen
 from pyelect import lang
-from pyelect import utils
+from pyelect.common import utils
 
 
 _log = logging.getLogger()
