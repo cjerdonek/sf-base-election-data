@@ -52,108 +52,67 @@ category_party
 
 
 OFFICE_BODY_COMMON_FIELDS_YAML = """\
-  -
-    name: category_id
-  -
-    name: election_method_id
-  -
-    name: name
+  category_id: {}
+  election_method_id: {}
+  name:
     type: i18n
-  -
-    name: notes
-  -
-    name: seed_year
-  -
-    name: term_length
-  -
-    name: twitter
-  -
-    name: url
-  -
-    name: wikipedia
+  notes: {}
+  seed_year: {}
+  term_length: {}
+  twitter: {}
+  url: {}
+  wikipedia: {}
 """
 
 TYPE_FIELDS_YAML = """\
 body:
-{office_body_yaml}
-  -
-    name: district_type_id
+  district_type_id:
     required: true
-  -
-    name: jurisdiction_area_id
+  jurisdiction_area_id:
     required: true
-  -
-    name: member_name
+  member_name:
+    required: false
+  office_name: {}
+  office_name_format: {}
+  partisan:
     required: true
-  -
-    name: office_name
-  -
-    name: office_name_format
-  -
-    name: partisan
+  seat_count:
     required: true
-  -
-    name: seat_count
-    required: true
-  -
-    name: seat_name_format
+  seat_name_format: {}
 category:
-  -
-    name: name
+  name:
     type: i18n
 district:
-  -
-    name: district_code
-  -
-    name: district_type_id
-  -
-    name: name
+  district_code: {}
+  district_type_id: {}
+  name:
     required: true
-  -
-    name: number
-  -
-    name: wikipedia
+  number: {}
+  wikipedia: {}
 district_type:
-  -
-    name: body_id
-  -
-    name: category_id
-  -
-    name: district_count
-  -
-    name: district_name_short_format
-  -
-    name: district_name_format
+  body_id: {}
+  category_id: {}
+  district_count: {}
+  district_name_short_format: {}
+  district_name_format:
     # Require this because it is used to generate the name.
     required: true
-  -
-    name: geographic
-  -
-    name: name
+  geographic: {}
+  name:
     required: true
-  -
-    name: description_plural
+  description_plural:
     required: true
-  -
-    name: parent_area_id
-  -
-    name: wikipedia
+  parent_area_id: {}
+  wikipedia: {}
 office:
-{office_body_yaml}
-  -
-    name: body_id
-  -
-    name: district_id
-  -
-    # TODO: make this required.
-    name: jurisdiction_area_id
-  -
-    name: partisan
-  -
-    name: seat
-  -
-    name: seat_name
-""".format(office_body_yaml=OFFICE_BODY_COMMON_FIELDS_YAML)
+  body_id: {}
+  district_id: {}
+  # TODO: make this required
+  jurisdiction_area_id: {}
+  partisan: {}
+  seat: {}
+  seat_name: {}
+"""
 
 
 class NodeNames(object):
@@ -233,8 +192,10 @@ def _set_html_object_data(html_data, json_data, keys):
 
 
 def _set_html_object_fields(html_data, json_data, fields):
-    for field in fields:
-        field_name = field['name']
+    print(fields)
+    for field_name in sorted(fields.keys()):
+        field = fields[field_name]
+        print(field_name)
         field_type = field.get('type', None)
         value = json_data.get(field_name, None)
         html_data[field_name] = value
@@ -295,7 +256,7 @@ def make_one_district_type2(html_obj, html_data, json_obj):
         html_obj['district_name_format'] = name_format
 
     if not html_obj['category_id']:
-        body = get_from_html_data(html_data, json_obj, 'body_id')
+        body = utils.get_referenced_object(html_data, json_obj, 'body_id')
         category_id = body.get('category_id')
         html_obj['category_id'] = category_id
 
@@ -309,14 +270,10 @@ def make_one_district_type2(html_obj, html_data, json_obj):
 
 # TODO: inherit properties from district type (like office from body).
 def make_one_district2(html_obj, html_data, json_obj):
-    district_type = get_from_html_data(html_data, json_obj, 'district_type_id')
+    district_type = utils.get_referenced_object(html_data, json_obj, 'district_type_id')
     category_id = district_type['category_id']
 
-    name_format = district_type['district_name_format']
-    if name_format is not None:
-        name = name_format.format(**html_obj)
-        html_obj['name'] = name
-
+    # TODO: remove this.
     name_short_format = district_type['district_name_short_format']
     if name_short_format is not None:
         name_short = name_short_format.format(**html_obj)
@@ -345,7 +302,7 @@ def make_one_languages(object_id, json_data, html_data=None):
 
 
 def _set_category_order(html_data, html_obj):
-    category_id = html_obj['category_id']
+    category_id = utils.get_required(html_obj, 'category_id')
     if category_id is None:
         category_order = 0
     else:
@@ -460,23 +417,6 @@ def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
     return objects
 
 
-def on_check_object_error(html_obj, type_name, field_name, details):
-    message = "{details} in HTML data for field: {type_name}.{field_name}\n-->\n{object}"
-    raise Exception(message.format(object=pformat(html_obj), field_name=field_name,
-                                   type_name=type_name, details=details))
-
-
-def check_object(type_name, html_obj, fields):
-    for field in fields:
-        field_name = field['name']
-        if field_name not in html_obj:
-            on_check_object_error(html_obj, type_name, field_name, details="field missing")
-        if not field.get('required'):
-            continue
-        if html_obj[field_name] is None:
-            on_check_object_error(html_obj, type_name, field_name, details="field should not be None")
-
-
 def add_html_node(base_name, html_data, json_data, field_data, json_key=None, **kwargs):
     type_name = utils.types_name_to_singular(base_name)
 
@@ -497,16 +437,26 @@ def add_html_node(base_name, html_data, json_data, field_data, json_key=None, **
         json_obj = json_node[object_id]
         html_obj = _make_html_object2(json_obj, fields, object_id)
         set_object_fields(html_obj, html_data, json_obj, **kwargs)
-        check_object(type_name, html_obj, fields)
         # TODO: remove this hack (used to skip offices).
         if html_obj['name'] is None:
             continue
+        utils.check_object(html_obj, fields, type_name=type_name, data_type='HTML')
         objects[object_id] = html_obj
 
     html_data[base_name] = objects
 
     # Return it in case the caller wants to do something more with it.
     return objects
+
+
+def load_field_data():
+    field_data = yaml.load(TYPE_FIELDS_YAML)
+    for name in ('body', 'office'):
+        fields = field_data[name]
+        extra_fields = yaml.load(OFFICE_BODY_COMMON_FIELDS_YAML)
+        fields.update(extra_fields)
+
+    return field_data
 
 
 # TODO: switch this to use add_context_node() everywhere possible.
@@ -537,7 +487,7 @@ def make_html_data(json_data, local_assets=False):
     for base_name in base_names:
         add_context_node(html_data, json_data, base_name)
 
-    field_data = yaml.load(TYPE_FIELDS_YAML)
+    field_data = load_field_data()
 
     def _add_node(base_name, **kwargs):
         add_html_node(base_name, html_data, json_data, field_data, **kwargs)

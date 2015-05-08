@@ -46,6 +46,9 @@ district_type:
   district_name_format:
     format: true
     required: true
+  district_name_short_format:
+    format: true
+    required: true
   name:
     required: true
 election_method:
@@ -303,7 +306,7 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
             if attr in json_object:
                 continue
             value = object_base[attr]
-            field = fields[attr]
+            field = get_required(fields, attr)
             if field.get('format'):
                 value = utils.format(value, **json_object)
             json_object[attr] = value

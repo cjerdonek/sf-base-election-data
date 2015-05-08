@@ -32,6 +32,7 @@ bodies:
     category_id: category_judicial
     district_type_id: =none
     jurisdiction_area_id: area_state_ca
+    member_name: BART Director
     name_i18n: text_body_ca_court_supreme
     notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
       by the Governor and subject to retention elections.

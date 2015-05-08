@@ -3,12 +3,12 @@ _meta:
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
   base:
     district_name_format: '{name} District {{number}}'
+    district_name_short_format: 'District {{number}}'
 district_types:
   district_type_bart:
     body_id: body_bart
     description_plural: BART Districts
     district_count: 9
-    district_name_short_format: District {number}
     name: BART
     parent_area_id: area_state_ca_bart
   district_type_ca_board_of_equalization:
@@ -16,6 +16,7 @@ district_types:
     description_plural: Equalization Districts
     district_count: 4
     district_name_format: '{label} Equalization District'
+    district_name_short_format: '{label} District'
     name: Equalization
     parent_area_id: area_state_ca
     wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts
@@ -24,21 +25,19 @@ district_types:
     description_plural: Appellate Districts
     district_count: 6
     district_name_format: '{label} Appellate District'
-    district_name_short_format: '{district_label} District'
+    district_name_short_format: '{label} District'
     name: Appellate
     parent_area_id: area_state_ca
   district_type_ca_state_assembly:
     body_id: body_ca_state_assembly
     description_plural: State Assembly Districts
     district_count: 80
-    district_name_short_format: District {number}
     name: State Assembly
     parent_area_id: area_state_ca
   district_type_ca_state_senate:
     body_id: body_ca_state_senate
     description_plural: State Senate Districts
     district_count: 40
-    district_name_short_format: District {number}
     name: State Senate
     parent_area_id: area_state_ca
   district_type_sf_board_of_supervisors:
@@ -52,7 +51,6 @@ district_types:
     body_id: body_usa_house
     description_plural: US Congressional Districts
     district_count: 435
-    district_name_short_format: District {number}
     name: US Congressional
     parent_area_id: area_country_usa
   district_type_usa_states:
@@ -60,5 +58,6 @@ district_types:
     description_plural: US States
     district_count: 50
     district_name_format: State of {name}
+    district_name_short_format: '{name}'
     name: US State
     parent_area_id: area_country_usa

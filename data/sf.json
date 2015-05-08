@@ -61,6 +61,7 @@
             "category_id": "category_judicial",
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_state_ca",
+            "member_name": "BART Director",
             "name_i18n": "text_body_ca_court_supreme",
             "notes": "The Court has six Associate Justices and one Chief Justice. Each is appointed by the Governor and subject to retention elections.",
             "partisan": false,
@@ -277,6 +278,7 @@
             "description_plural": "Equalization Districts",
             "district_count": 4,
             "district_name_format": "{label} Equalization District",
+            "district_name_short_format": "{label} District",
             "name": "Equalization",
             "parent_area_id": "area_state_ca",
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts"
@@ -286,7 +288,7 @@
             "description_plural": "Appellate Districts",
             "district_count": 6,
             "district_name_format": "{label} Appellate District",
-            "district_name_short_format": "{district_label} District",
+            "district_name_short_format": "{label} District",
             "name": "Appellate",
             "parent_area_id": "area_state_ca"
         },
@@ -313,6 +315,7 @@
             "description_plural": "Supervisorial Districts",
             "district_count": 11,
             "district_name_format": "Supervisorial District {number}",
+            "district_name_short_format": "District {number}",
             "district_name_short_format_i18n": "text_district_numbered_format",
             "name": "Supervisorial",
             "parent_area_id": "area_county_sf"
@@ -331,6 +334,7 @@
             "description_plural": "US States",
             "district_count": 50,
             "district_name_format": "State of {name}",
+            "district_name_short_format": "{name}",
             "name": "US State",
             "parent_area_id": "area_country_usa"
         }
