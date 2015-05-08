@@ -76,4 +76,4 @@ districts:
     wikipedia: http://en.wikipedia.org/wiki/California%27s_14th_congressional_district
   district_usa_state_ca:
     district_type_id: district_type_usa_states
-    name: California
+    label: California

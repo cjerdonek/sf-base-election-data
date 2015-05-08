@@ -333,8 +333,8 @@
             "category_id": "category_federal",
             "description_plural": "US States",
             "district_count": 50,
-            "district_name_format": "State of {name}",
-            "district_name_short_format": "{name}",
+            "district_name_format": "State of {label}",
+            "district_name_short_format": "{label}",
             "name": "US State",
             "parent_area_id": "area_country_usa"
         }
@@ -343,22 +343,26 @@
         "district_ca_bart_7": {
             "district_type_id": "district_type_bart",
             "name": "BART District 7",
+            "name_short": "District 7",
             "number": 7
         },
         "district_ca_bart_8": {
             "district_type_id": "district_type_bart",
             "name": "BART District 8",
+            "name_short": "District 8",
             "number": 8
         },
         "district_ca_bart_9": {
             "district_type_id": "district_type_bart",
             "name": "BART District 9",
+            "name_short": "District 9",
             "number": 9
         },
         "district_ca_board_of_equalization": {
             "district_type_id": "district_type_ca_board_of_equalization",
             "label": "Second",
             "name": "Second Equalization District",
+            "name_short": "Second District",
             "number": 2,
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Second_district"
         },
@@ -366,97 +370,116 @@
             "district_type_id": "district_type_ca_court_appeal",
             "label": "First",
             "name": "First Appellate District",
+            "name_short": "First District",
             "number": 1,
             "wikipedia": "http://en.wikipedia.org/wiki/California_courts_of_appeal#First_District"
         },
         "district_ca_state_assembly_17": {
             "district_type_id": "district_type_ca_state_assembly",
             "name": "State Assembly District 17",
+            "name_short": "District 17",
             "number": 17,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_17th_State_Assembly_district"
         },
         "district_ca_state_assembly_19": {
             "district_type_id": "district_type_ca_state_assembly",
             "name": "State Assembly District 19",
+            "name_short": "District 19",
             "number": 19,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_19th_State_Assembly_district"
         },
         "district_ca_state_senate_11": {
             "district_type_id": "district_type_ca_state_senate",
             "name": "State Senate District 11",
+            "name_short": "District 11",
             "number": 11,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_11th_State_Senate_district"
         },
         "district_sf_board_of_supervisors_01": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 1",
+            "name_short": "District 1",
             "number": 1
         },
         "district_sf_board_of_supervisors_02": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 2",
+            "name_short": "District 2",
             "number": 2
         },
         "district_sf_board_of_supervisors_03": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 3",
+            "name_short": "District 3",
             "number": 3
         },
         "district_sf_board_of_supervisors_04": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 4",
+            "name_short": "District 4",
             "number": 4
         },
         "district_sf_board_of_supervisors_05": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 5",
+            "name_short": "District 5",
             "number": 5
         },
         "district_sf_board_of_supervisors_06": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 6",
+            "name_short": "District 6",
             "number": 6
         },
         "district_sf_board_of_supervisors_07": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 7",
+            "name_short": "District 7",
             "number": 7
         },
         "district_sf_board_of_supervisors_08": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 8",
+            "name_short": "District 8",
             "number": 8
         },
         "district_sf_board_of_supervisors_09": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 9",
+            "name_short": "District 9",
             "number": 9
         },
         "district_sf_board_of_supervisors_10": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 10",
+            "name_short": "District 10",
             "number": 10
         },
         "district_sf_board_of_supervisors_11": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 11",
+            "name_short": "District 11",
             "number": 11
         },
         "district_usa_house_12": {
             "district_type_id": "district_type_usa_house",
             "name": "US Congressional District 12",
+            "name_short": "District 12",
             "number": 12,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_12th_congressional_district"
         },
         "district_usa_house_14": {
             "district_type_id": "district_type_usa_house",
             "name": "US Congressional District 14",
+            "name_short": "District 14",
             "number": 14,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_14th_congressional_district"
         },
         "district_usa_state_ca": {
             "district_type_id": "district_type_usa_states",
-            "name": "State of California"
+            "label": "California",
+            "name": "State of California",
+            "name_short": "California"
         }
     },
     "election_methods": {

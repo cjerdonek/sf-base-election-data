@@ -125,10 +125,14 @@ def make_object_district_types(yaml_data, global_data):
 
 def make_object_districts(object_data, global_data):
     district_type = utils.get_referenced_object(global_data, object_data, 'district_type_id')
+
     name_format = get_required(district_type, 'district_name_format')
-    if name_format is not None:
-        name = utils.format(name_format, **object_data)
-        object_data['name'] = name
+    name = utils.format(name_format, **object_data)
+    object_data['name'] = name
+
+    short_name_format = get_required(district_type, 'district_name_short_format')
+    short_name = utils.format(short_name_format, **object_data)
+    object_data['name_short'] = short_name
 
     return object_data
 

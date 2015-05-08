@@ -192,10 +192,8 @@ def _set_html_object_data(html_data, json_data, keys):
 
 
 def _set_html_object_fields(html_data, json_data, fields):
-    print(fields)
     for field_name in sorted(fields.keys()):
         field = fields[field_name]
-        print(field_name)
         field_type = field.get('type', None)
         value = json_data.get(field_name, None)
         html_data[field_name] = value
@@ -276,7 +274,7 @@ def make_one_district2(html_obj, html_data, json_obj):
     # TODO: remove this.
     name_short_format = district_type['district_name_short_format']
     if name_short_format is not None:
-        name_short = name_short_format.format(**html_obj)
+        name_short = format(name_short_format, **html_obj)
         html_obj['name_short'] = name_short
 
     html_obj['category_id'] = category_id

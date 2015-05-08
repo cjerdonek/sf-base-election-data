@@ -57,7 +57,7 @@ district_types:
     category_id: category_federal
     description_plural: US States
     district_count: 50
-    district_name_format: State of {name}
-    district_name_short_format: '{name}'
+    district_name_format: 'State of {label}'
+    district_name_short_format: '{label}'
     name: US State
     parent_area_id: area_country_usa
