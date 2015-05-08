@@ -1,6 +1,7 @@
 TODO
 ====
 
+* In Bodies, change District Type to Districts using "description_plural"
 * Update info re: superior court
 * Add config-driven validation code to JSON gen.
 * Add `name` and `name_i18n` to district in JSON file.

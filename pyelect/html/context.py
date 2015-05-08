@@ -129,8 +129,9 @@ district_type:
     name: geographic
   -
     name: name
+    required: true
   -
-    name: name_singular
+    name: name_plural
     required: true
   -
     name: parent_area_id
@@ -285,7 +286,7 @@ def make_one_areas(object_id, json_data, html_data=None):
     return context
 
 
-def make_one_bodies2(html_obj, html_data, json_obj):
+def make_one_body2(html_obj, html_data, json_obj):
     # TODO: DRY this up with make_one_offices2().
     _set_html_election_data(html_obj, html_obj)
     _set_category_order(html_data, html_obj)
@@ -293,7 +294,7 @@ def make_one_bodies2(html_obj, html_data, json_obj):
     return html_obj
 
 
-def make_one_categories2(html_obj, html_data, json_obj, ordering):
+def make_one_category2(html_obj, html_data, json_obj, ordering):
     category_id = html_obj['id']
     order = ordering[category_id]
     html_obj['order'] = order
@@ -301,10 +302,10 @@ def make_one_categories2(html_obj, html_data, json_obj, ordering):
     return html_obj
 
 
-def make_one_district_types2(html_obj, html_data, json_obj):
+def make_one_district_type2(html_obj, html_data, json_obj):
     name_format = html_obj['district_name_format']
     if name_format is None:
-        name = html_obj['name_singular']
+        name = html_obj['name']
         name_format = "{name} {{number}}".format(name=name)
         html_obj['district_name_format'] = name_format
 
@@ -322,7 +323,7 @@ def make_one_district_types2(html_obj, html_data, json_obj):
 
 
 # TODO: inherit properties from district type (like office from body).
-def make_one_districts2(html_obj, html_data, json_obj):
+def make_one_district2(html_obj, html_data, json_obj):
     district_type = get_from_html_data(html_data, json_obj, 'district_type_id')
     category_id = district_type['category_id']
 
@@ -370,7 +371,7 @@ def _set_category_order(html_data, html_obj):
 
 
 # TODO: simplify this and DRY up with make_one_bodies().
-def make_one_offices2(html_obj, html_data, json_obj):
+def make_one_office2(html_obj, html_data, json_obj):
     # TODO: come up with a pattern for inheriting properties between
     # objects for which a relationship exists.
     inherited_keys = ('partisan', 'seed_year', 'term_length')
@@ -492,13 +493,14 @@ def check_object(type_name, html_obj, fields):
 
 
 def add_html_node(base_name, html_data, json_data, field_data, json_key=None, **kwargs):
+    type_name = utils.type_name_to_singular(base_name)
+
     # TODO: document json_key vs. base_name.
     if json_key is None:
         json_key = base_name
-    make_object_func_name = "make_one_{0}2".format(base_name, **kwargs)
+    make_object_func_name = "make_one_{0}2".format(type_name, **kwargs)
     set_object_fields = globals()[make_object_func_name]
 
-    type_name = utils.type_name_to_singular(base_name)
     fields = field_data[type_name]
     json_node = json_data[json_key]
 

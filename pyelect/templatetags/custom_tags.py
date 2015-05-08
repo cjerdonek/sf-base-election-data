@@ -22,7 +22,7 @@ from pyelect import lang
 
 
 _LABEL_TEXTS = {
-    'none': 'Single',
+    'none': 'None',
     'unknown': 'Unknown',
 }
 
