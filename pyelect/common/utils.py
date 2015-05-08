@@ -16,7 +16,7 @@ _SINGULAR_TO_PLURAL = {
 _PLURAL_TO_SINGULAR = {p: s for s, p in _SINGULAR_TO_PLURAL.items()}
 
 
-def format(format_str, *args, **kwargs):
+def easy_format(format_str, *args, **kwargs):
     """Call format() with more informative errors."""
     try:
         formatted = format_str.format(*args, **kwargs)

@@ -10,6 +10,7 @@ TODO
 * Somehow flag types as required in either the instance or the base (e.g. office/body)?
 * Get translated phrases working again.
 * Check Twitter for bodies.
+* Internationalize district short name.
 * Change seats to SF seats, e.g. 2 of 80.
 * Flesh out Body more
   - Election method, etc.

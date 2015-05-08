@@ -14,6 +14,7 @@ from pyelect.html import pages
 from pyelect import lang
 from pyelect.lang import I18N_SUFFIX, LANG_ENGLISH
 from pyelect.common import utils
+from pyelect.common.utils import easy_format
 
 
 _log = logging.getLogger()
@@ -85,7 +86,10 @@ category:
 district:
   district_code: {}
   district_type_id: {}
+  label: {}
   name:
+    required: true
+  name_short:
     required: true
   number: {}
   wikipedia: {}
@@ -271,12 +275,6 @@ def make_one_district2(html_obj, html_data, json_obj):
     district_type = utils.get_referenced_object(html_data, json_obj, 'district_type_id')
     category_id = district_type['category_id']
 
-    # TODO: remove this.
-    name_short_format = district_type['district_name_short_format']
-    if name_short_format is not None:
-        name_short = format(name_short_format, **html_obj)
-        html_obj['name_short'] = name_short
-
     html_obj['category_id'] = category_id
     _set_category_order(html_data, html_obj)
 
@@ -319,14 +317,15 @@ def make_one_office2(html_obj, html_data, json_obj):
 
     phrases = html_data[NodeNames.phrases]
     if 'body_id' in json_obj:
-        district = get_from_html_data(html_data, json_obj, 'district_id')
-        if district is None:
-            short_name = None
-        else:
-            short_name = district.get('name_short') or district['name']
-        html_obj['district_name_short'] = short_name
+        if 'district_id' in json_obj:
+            district = utils.get_referenced_object(html_data, json_obj, 'district_id')
+            if district is None:
+                short_name = None
+            else:
+                short_name = district.get('name_short') or district['name']
+            html_obj['district_name_short'] = short_name
 
-        body = get_from_html_data(html_data, json_obj, 'body_id')
+        body = utils.get_referenced_object(html_data, json_obj, 'body_id')
         html_obj['category_id'] = body['category_id']
         member_name = body['member_name']
         html_obj['member_name'] = member_name

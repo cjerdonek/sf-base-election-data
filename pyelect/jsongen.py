@@ -11,7 +11,7 @@ import yaml
 
 from pyelect import lang
 from pyelect.common import utils
-from pyelect.common.utils import get_required
+from pyelect.common.utils import easy_format, get_required
 from pyelect.common import yamlutil
 
 
@@ -41,6 +41,8 @@ category:
     required: true
 district:
   name:
+    required: true
+  name_short:
     required: true
 district_type:
   district_name_format:
@@ -127,11 +129,11 @@ def make_object_districts(object_data, global_data):
     district_type = utils.get_referenced_object(global_data, object_data, 'district_type_id')
 
     name_format = get_required(district_type, 'district_name_format')
-    name = utils.format(name_format, **object_data)
+    name = easy_format(name_format, **object_data)
     object_data['name'] = name
 
     short_name_format = get_required(district_type, 'district_name_short_format')
-    short_name = utils.format(short_name_format, **object_data)
+    short_name = easy_format(short_name_format, **object_data)
     object_data['name_short'] = short_name
 
     return object_data
@@ -312,7 +314,7 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
             value = object_base[attr]
             field = get_required(fields, attr)
             if field.get('format'):
-                value = utils.format(value, **json_object)
+                value = easy_format(value, **json_object)
             json_object[attr] = value
 
         utils.check_object(json_object, fields, type_name=type_name, data_type='JSON')
