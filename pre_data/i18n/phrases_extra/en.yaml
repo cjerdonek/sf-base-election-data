@@ -20,7 +20,7 @@ texts:
   text_body_city_sc:
     en: Superior Court of San Francisco
   text_district_assembly_format:
-    en: ASSEMBLY DISTRICT {0}
+    en: ASSEMBLY DISTRICT {{number}}
   text_district_numbered_format:
     en: DISTRICT {{number}}
   text_language_chinese:
@@ -40,18 +40,18 @@ texts:
   text_language_vietnamese:
     en: Vietnamese
   text_office_ca_bart_director_edge_format:
-    en: BART DIRECTOR DIST. {0}
+    en: BART DIRECTOR DIST. {{number}}
   text_office_judge_of_the_superior_court_edge_format:
-    en: 'SUPERIOR COURT JUDGE #{0}'
+    en: 'SUPERIOR COURT JUDGE #{{number}}'
   text_office_member_board_of_supervisors_edge_format:
-    en: BOARD OF SUPERVISORS D{0}
+    en: BOARD OF SUPERVISORS D{{number}}
   text_office_member_body_sf_superior_court:
     en: Judge of the Superior Court
   text_office_state_treasurer:
     en: TREASURER
   text_office_x_format:
-    en: OFFICE NO. {0}
+    en: OFFICE NO. {{number}}
   text_proposition_x_format:
-    en: PROPOSITION {0}
+    en: PROPOSITION {{number}}
   text_vote_for_no_more_than_x_format:
-    en: Vote for no more than {0}
+    en: Vote for no more than {{number}}

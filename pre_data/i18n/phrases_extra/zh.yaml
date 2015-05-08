@@ -27,10 +27,10 @@ texts:
     _en: Superior Court of San Francisco
     zh: null
   text_district_assembly_format:
-    _en: ASSEMBLY DISTRICT {0}
+    _en: ASSEMBLY DISTRICT {{number}}
     zh: 州眾議院第{0}選區
   text_district_numbered_format:
-    _en: DISTRICT {0}
+    _en: DISTRICT {{number}}
     zh: 第{{number}}選區
   text_language_chinese:
     _en: Chinese
@@ -63,11 +63,11 @@ texts:
     _en: TREASURER
     zh: null
   text_office_x_format:
-    _en: OFFICE NO. {0}
+    _en: OFFICE NO. {{number}}
     zh: 第{0}席
   text_proposition_x_format:
-    _en: PROPOSITION {0}
+    _en: PROPOSITION {{number}}
     zh: 提案{0}
   text_vote_for_no_more_than_x_format:
-    _en: Vote for no more than {0}
+    _en: Vote for no more than {{number}}
     zh: 選不超過{0}名
