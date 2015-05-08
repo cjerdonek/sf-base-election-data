@@ -2,12 +2,12 @@ _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
   base:
+    description_plural: '{name} Districts'
     district_name_format: '{name} District {{number}}'
-    district_name_short_format: District {{number}}
+    district_name_short_format_i18n: text_district_numbered_format
 district_types:
   district_type_bart:
     body_id: body_bart
-    description_plural: BART Districts
     district_count: 9
     name: BART
     parent_area_id: area_state_ca_bart

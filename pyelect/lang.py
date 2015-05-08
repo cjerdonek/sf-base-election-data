@@ -23,7 +23,7 @@ import textwrap
 
 from pyelect.common import utils
 from pyelect.common import yamlutil
-
+from pyelect.common.yamlutil import FILE_AUTO_GENERATED, FILE_AUTO_UPDATED
 
 _log = logging.getLogger()
 
@@ -284,7 +284,7 @@ def _get_text_ids_extra():
 
 def _get_text_ids_csv():
     rel_path = get_rel_path_text_ids_added()
-    phrases_dict = utils.get_yaml_data(rel_path, key='phrases')
+    phrases_dict = yamlutil.get_yaml_data(rel_path, key='phrases')
     return phrases
 
 
@@ -366,14 +366,14 @@ def write_translations_file(phrases, dir_name, file_type, lang, comments=None):
     rel_path = get_rel_path_phrases(dir_name, lang=lang)
     data = _make_translations_texts(phrases, lang)
     data = {'texts': data}
-    utils.write_yaml_with_header(data, rel_path=rel_path, file_type=file_type,
+    yamlutil.write_yaml_with_header(data, rel_path=rel_path, file_type=file_type,
                                  comments=comments)
 
 
 def write_translations_dir_csv(phrases):
     """Write the phrases to the extra translations directory."""
     dir_name = _DIR_PHRASES_CSV
-    file_type = utils.FILE_AUTO_GENERATED
+    file_type = FILE_AUTO_GENERATED
     for lang in LANGS:
         write_translations_file(phrases, dir_name=dir_name, file_type=file_type, lang=lang)
 
@@ -381,7 +381,7 @@ def write_translations_dir_csv(phrases):
 def write_translations_extra(phrases):
     """Write the phrases to the extra translations directory."""
     dir_name = _DIR_PHRASES_EXTRA
-    file_type = utils.FILE_AUTO_UPDATED
+    file_type = FILE_AUTO_UPDATED
     write_translations_file(phrases, dir_name=dir_name, file_type=file_type, lang=LANG_ENGLISH,
                             comments=COMMENT_TRANSLATIONS_EXTRA_ENGLISH)
     for lang in LANGS_NON_ENGLISH:

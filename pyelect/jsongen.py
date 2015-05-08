@@ -48,9 +48,11 @@ district_type:
   district_name_format:
     format: true
     required: true
+    i18n: true
   district_name_short_format:
     format: true
     required: true
+    i18n: true
   name:
     required: true
 election_method:
@@ -316,6 +318,8 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
             if field.get('format'):
                 value = easy_format(value, **json_object)
             json_object[attr] = value
+        # TODO: iterate through fields, if the field is i18n, then
+        #   calculate and set the non-i18n version.
 
         utils.check_object(json_object, fields, type_name=type_name, data_type='JSON')
         json_node[object_id] = json_object

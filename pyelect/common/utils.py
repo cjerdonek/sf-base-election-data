@@ -102,16 +102,11 @@ def check_object(obj, fields, type_name, data_type):
     # We sort when iterating for repeatability when troubleshooting.
     for field_name in sorted(fields.keys()):
         field = fields[field_name]
-        # try:
-        #     field_name = get_required(field, 'name')
-        # except KeyMissingError:
-        #     raise Exception("with details: type_name={0!r}, data_type={1!r}"
-        #                     .format(type_name, data_type))
+        if not field.get('required'):
+            continue
         if field_name not in obj:
             _on_check_object_error(obj, type_name, field_name, data_type,
                                    details="field missing")
-        if not field.get('required'):
-            continue
         if obj[field_name] is None:
             _on_check_object_error(obj, type_name, field_name, data_type,
                                    details="field should not be None")

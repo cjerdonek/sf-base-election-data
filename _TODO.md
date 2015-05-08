@@ -1,14 +1,18 @@
 TODO
 ====
 
-* Add `name` and `name_i18n` to district in JSON file.
+* DRY up `description_plural` in district_types.yaml
+* Make command to generate phrases.yaml.
+* Get i18n node working in JSON as first node.
+* Include i18n name fields in district_types JSON.
+* Add `name_short_i18n` to district in JSON file?
+  - (and the body-specific variations -- search "distrito")
+* Get translated phrases working again.
 * Add `name` and `name_i18n` to Office in JSON file.
   - Also document this for Office object.
 * Add court offices.
   - Call to see if they have seat numbers.
-* DRY up `district_type.district_name_short_format`?
 * Somehow flag types as required in either the instance or the base (e.g. office/body)?
-* Get translated phrases working again.
 * Check Twitter for bodies.
 * Internationalize district short name.
 * Change seats to SF seats, e.g. 2 of 80.
