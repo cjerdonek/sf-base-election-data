@@ -6,59 +6,59 @@ _meta:
 district_types:
   district_type_bart:
     body_id: body_bart
+    description_plural: BART Districts
     district_count: 9
     district_name_short_format: District {number}
     name: BART
-    description_plural: BART Districts
     parent_area_id: area_state_ca_bart
   district_type_ca_board_of_equalization:
     body_id: body_ca_board_of_equalization
+    description_plural: Equalization Districts
     district_count: 4
     district_name_format: '{label} Equalization District'
     name: Equalization
-    description_plural: Equalization Districts
     parent_area_id: area_state_ca
     wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts
   district_type_ca_court_appeal:
     body_id: body_ca_courts_of_appeal
+    description_plural: Appellate Districts
     district_count: 6
     district_name_format: '{label} Appellate District'
     district_name_short_format: '{district_label} District'
     name: Appellate
-    description_plural: Appellate Districts
     parent_area_id: area_state_ca
   district_type_ca_state_assembly:
     body_id: body_ca_state_assembly
+    description_plural: State Assembly Districts
     district_count: 80
     district_name_short_format: District {number}
     name: State Assembly
-    description_plural: State Assembly Districts
     parent_area_id: area_state_ca
   district_type_ca_state_senate:
     body_id: body_ca_state_senate
+    description_plural: State Senate Districts
     district_count: 40
     district_name_short_format: District {number}
     name: State Senate
-    description_plural: State Senate Districts
     parent_area_id: area_state_ca
   district_type_sf_board_of_supervisors:
     body_id: body_sf_board_of_supervisors
+    description_plural: Supervisorial Districts
     district_count: 11
     district_name_short_format_i18n: text_district_numbered_format
     name: Supervisorial
-    description_plural: Supervisorial Districts
     parent_area_id: area_county_sf
   district_type_usa_house:
     body_id: body_usa_house
+    description_plural: US Congressional Districts
     district_count: 435
     district_name_short_format: District {number}
     name: US Congressional
-    description_plural: US Congressional Districts
     parent_area_id: area_country_usa
   district_type_usa_states:
     category_id: category_federal
+    description_plural: US States
     district_count: 50
     district_name_format: State of {name}
     name: US State
-    description_plural: US States
     parent_area_id: area_country_usa
