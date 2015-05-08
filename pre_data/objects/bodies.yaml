@@ -18,6 +18,7 @@ bodies:
     category_id: category_state
     district_type_id: district_type_ca_board_of_equalization
     jurisdiction_area_id: area_state_ca
+    member_name: Board Member
     name: State Board of Equalization
     notes: The State Controller is the fifth member of this body.
     office_name: Member, State Board of Equalization

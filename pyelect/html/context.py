@@ -84,6 +84,7 @@ body:
     required: true
   -
     name: member_name
+    required: true
   -
     name: office_name
   -
