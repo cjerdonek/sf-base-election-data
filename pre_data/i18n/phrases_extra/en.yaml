@@ -22,7 +22,7 @@ texts:
   text_district_assembly_format:
     en: ASSEMBLY DISTRICT {0}
   text_district_numbered_format:
-    en: DISTRICT {number}
+    en: DISTRICT {{number}}
   text_language_chinese:
     en: Chinese
   text_language_english:

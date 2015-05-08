@@ -31,7 +31,7 @@ texts:
     zh: 州眾議院第{0}選區
   text_district_numbered_format:
     _en: DISTRICT {0}
-    zh: 第{0}選區
+    zh: 第{{number}}選區
   text_language_chinese:
     _en: Chinese
     zh: null

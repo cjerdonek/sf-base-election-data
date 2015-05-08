@@ -31,7 +31,7 @@ texts:
     es: DISTRITO {0} DE LA ASAMBLEA
   text_district_numbered_format:
     _en: DISTRICT {0}
-    es: DISTRITO {0}
+    es: DISTRITO {{number}}
   text_language_chinese:
     _en: Chinese
     es: null
