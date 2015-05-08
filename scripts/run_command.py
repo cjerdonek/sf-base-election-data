@@ -17,6 +17,7 @@ from pyelect.html import generator as htmlgen
 from pyelect import jsongen
 from pyelect import lang
 from pyelect.common import utils
+from pyelect.common import yamlutil
 
 
 _log = logging.getLogger()
@@ -126,7 +127,7 @@ def command_yaml_norm(ns):
         paths = _get_all_files(data_dir)
         paths = [p for p in paths if os.path.splitext(p)[1] == '.yaml']
     for path in paths:
-        utils.normalize_yaml(path, stdout=False)
+        yamlutil.normalize_yaml(path, stdout=False)
 
 
 def command_yaml_temp(ns):
