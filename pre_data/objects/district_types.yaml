@@ -3,7 +3,7 @@ _meta:
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
   base:
     district_name_format: '{name} District {{number}}'
-    district_name_short_format: 'District {{number}}'
+    district_name_short_format: District {{number}}
 district_types:
   district_type_bart:
     body_id: body_bart
@@ -57,7 +57,7 @@ district_types:
     category_id: category_federal
     description_plural: US States
     district_count: 50
-    district_name_format: 'State of {label}'
+    district_name_format: State of {label}
     district_name_short_format: '{label}'
     name: US State
     parent_area_id: area_country_usa
