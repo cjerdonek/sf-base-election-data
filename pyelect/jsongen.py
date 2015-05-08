@@ -245,11 +245,14 @@ def add_json_node_i18n(json_data, field_data):
     _add_json_node_base(json_data, node, 'phrases', field_data)
 
 
+# TODO: share code with the HTML checker (and move to common/utils.py).
 def check_json_object(json_obj, node_name, field_data):
     # TODO: DRY this up with similar code for HTML.
     fields = get_fields(field_data, node_name)
 
-    for field_name, field in fields.items():
+    # We sort when iterating for repeatability when troubleshooting.
+    for field_name in sorted(fields.keys()):
+        field = fields[field_name]
         if 'required' in field and field_name not in json_obj:
             raise Exception("required field {0!r} missing from:\n***\n{1}".
                             format(field_name, pformat(json_obj)))
@@ -291,7 +294,9 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
     make_object = globals()[make_object_function_name]
 
     json_node = {}
-    for object_id, yaml_data in objects.items():
+    # We sort the objects for repeatability when troubleshooting.
+    for object_id in sorted(objects.keys()):
+        yaml_data = objects[object_id]
         json_object = make_object(yaml_data, json_data)
         check_json_object(json_object, node_name, field_data)
         json_node[object_id] = json_object
