@@ -2,7 +2,7 @@
 
 import logging
 import os
-
+from pprint import pformat
 
 _log = logging.getLogger()
 
@@ -30,6 +30,16 @@ _SINGULAR_TO_PLURAL = {
 _PLURAL_TO_SINGULAR = {p: s for s, p in _SINGULAR_TO_PLURAL.items()}
 
 
+def format(format_str, *args, **kwargs):
+    """Call format() with more informative errors."""
+    try:
+        formatted = format_str.format(*args, **kwargs)
+    except KeyError:
+        raise Exception("with: format_str={0!r}, args={1!r}, kwargs={2!r}"
+                        .format(format_str, args, kwargs))
+    return formatted
+
+
 def type_name_to_plural(singular):
     """Return the node name given an object type name.
 
@@ -42,7 +52,7 @@ def type_name_to_plural(singular):
     return plural
 
 
-def type_name_to_singular(plural):
+def types_name_to_singular(plural):
     try:
         singular = _PLURAL_TO_SINGULAR[plural]
     except KeyError:
@@ -54,12 +64,15 @@ def filter_dict_by_keys(data, keys):
     return {k: v for k, v in data.items() if k in keys}
 
 
-def get_required(dict_, key, message=None):
+class KeyMissingError(Exception):
+    pass
+
+
+def get_required(mapping, key):
     try:
-        value = dict_[key]
+        value = mapping[key]
     except:
-        raise Exception("error getting key {0!r} from: {1!r} message={2}"
-                        .format(key, dict_, message))
+        raise KeyMissingError("key missing: '{key}'\n{0}".format(pformat(mapping), key=key))
     return value
 
 
@@ -78,3 +91,55 @@ def write(path, text):
     _log.info("writing to: {0}".format(path))
     with open(path, mode='w') as f:
         f.write(text)
+
+
+def get_referenced_object(global_data, object_data, id_attr_name):
+    """Retrieve an object referenced by ID from the global data."""
+    assert id_attr_name.endswith('_id')
+    object_id = get_required(object_data, id_attr_name)
+    type_name = id_attr_name[:-3]
+    types_name = type_name_to_plural(type_name)
+    objects = global_data[types_name]
+    ref_object = objects[object_id]
+
+    return ref_object
+
+
+def _on_check_object_error(html_obj, type_name, field_name, data_type, details):
+    message = "{details} (data_type={data_type!r}, type_name={type_name!r}, field={field_name!r}):\n{object}"
+    raise Exception(message.format(object=pformat(html_obj), field_name=field_name,
+                                   type_name=type_name, details=details, data_type=data_type))
+
+
+# TODO: decide re: not existing versus existing as None.
+def check_object(obj, fields, type_name, data_type):
+    # We sort when iterating for repeatability when troubleshooting.
+    for field_name in sorted(fields.keys()):
+        field = fields[field_name]
+        # try:
+        #     field_name = get_required(field, 'name')
+        # except KeyMissingError:
+        #     raise Exception("with details: type_name={0!r}, data_type={1!r}"
+        #                     .format(type_name, data_type))
+        if field_name not in obj:
+            _on_check_object_error(obj, type_name, field_name, data_type,
+                                   details="field missing")
+        if not field.get('required'):
+            continue
+        if obj[field_name] is None:
+            _on_check_object_error(obj, type_name, field_name, data_type,
+                                   details="field should not be None")
+        # allowed_types = (bool, int, str)
+        # for attr, value in json_obj.items():
+        #     if type(value) not in allowed_types:
+        #         err = textwrap.dedent("""\
+        #         json node with key "{node_name}" failed sanity check.
+        #           object_id: "{object_id}"
+        #           object attribute name: "{attr_name}"
+        #           attribute value has type {value_type} (only allowed types are: {allowed_types})
+        #           object:
+        #         -->{object}
+        #         """.format(node_name=node_name, object_id=object_id, attr_name=attr,
+        #                    value_type=type(value), allowed_types=allowed_types,
+        #                    object=json_obj))
+        #         raise Exception(err)

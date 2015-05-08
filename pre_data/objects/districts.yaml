@@ -13,10 +13,11 @@ districts:
     number: 9
   district_ca_board_of_equalization:
     district_type_id: district_type_ca_board_of_equalization
+    label: Second
     number: 2
     wikipedia: http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Second_district
   district_ca_court_appeal:
-    district_code: First
+    label: First
     district_type_id: district_type_ca_court_appeal
     number: 1
     wikipedia: http://en.wikipedia.org/wiki/California_courts_of_appeal#First_District

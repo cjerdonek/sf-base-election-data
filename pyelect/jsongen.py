@@ -11,6 +11,7 @@ import yaml
 
 from pyelect import lang
 from pyelect.common import utils
+from pyelect.common.utils import get_required
 from pyelect.common import yamlutil
 
 
@@ -29,17 +30,36 @@ _LICENSE = ("The database consisting of this file is made available under "
 "found at: http://www.opendatacommons.org/licenses/pddl/1.0/ .")
 
 _TYPE_FIELDS_YAML = """\
-area: {}
-body: {}
-category: {}
+area:
+  name:
+    required: true
+body:
+  name:
+    required: true
+category:
+  name:
+    required: true
 district:
   name:
     required: true
-district_type: {}
-election_method: {}
-language: {}
-office: {}
-phrase: {}
+district_type:
+  district_name_format:
+    format: true
+    required: true
+  name:
+    required: true
+election_method:
+  name:
+    required: true
+language:
+  name:
+    required: true
+office:
+  name:
+    required: true
+phrase:
+  name:
+    required: true
 """
 
 def get_rel_path_json_data():
@@ -67,7 +87,7 @@ def get_json():
 
 
 def get_fields(field_data, node_name):
-    type_name = utils.type_name_to_singular(node_name)
+    type_name = utils.types_name_to_singular(node_name)
     fields = field_data[type_name]
 
     return fields
@@ -92,25 +112,29 @@ def yaml_to_json(yaml_data, fields):
     return json_data
 
 
-def make_object_areas(yaml_data, json_data):
+def make_object_areas(yaml_data, global_data):
     return yaml_data
 
 
-def make_object_district_types(yaml_data, json_data):
+def make_object_district_types(yaml_data, global_data):
     return yaml_data
 
 
-def make_object_districts(yaml_data, json_data):
-    # TODO: make common method for extracxting object.
-    name_format = yaml
+def make_object_districts(object_data, global_data):
+    district_type = utils.get_referenced_object(global_data, object_data, 'district_type_id')
+    name_format = get_required(district_type, 'district_name_format')
+    if name_format is not None:
+        name = utils.format(name_format, **object_data)
+        object_data['name'] = name
+
+    return object_data
+
+
+def make_object_election_methods(yaml_data, global_data):
     return yaml_data
 
 
-def make_object_election_methods(yaml_data, json_data):
-    return yaml_data
-
-
-def make_object_languages(yaml_data, json_data):
+def make_object_languages(yaml_data, global_data):
     return yaml_data
 
 
@@ -245,34 +269,6 @@ def add_json_node_i18n(json_data, field_data):
     _add_json_node_base(json_data, node, 'phrases', field_data)
 
 
-# TODO: share code with the HTML checker (and move to common/utils.py).
-def check_json_object(json_obj, node_name, field_data):
-    # TODO: DRY this up with similar code for HTML.
-    fields = get_fields(field_data, node_name)
-
-    # We sort when iterating for repeatability when troubleshooting.
-    for field_name in sorted(fields.keys()):
-        field = fields[field_name]
-        if 'required' in field and field_name not in json_obj:
-            raise Exception("required field {0!r} missing from:\n***\n{1}".
-                            format(field_name, pformat(json_obj)))
-
-    allowed_types = (bool, int, str)
-    for attr, value in json_obj.items():
-        if type(value) not in allowed_types:
-            err = textwrap.dedent("""\
-            json node with key "{node_name}" failed sanity check.
-              object_id: "{object_id}"
-              object attribute name: "{attr_name}"
-              attribute value has type {value_type} (only allowed types are: {allowed_types})
-              object:
-            -->{object}
-            """.format(node_name=node_name, object_id=object_id, attr_name=attr,
-                       value_type=type(value), allowed_types=allowed_types,
-                       object=json_obj))
-            raise Exception(err)
-
-
 def _add_json_node_base(json_data, node, node_name, field_data):
     json_data[node_name] = node
 
@@ -289,7 +285,11 @@ def add_json_node_legacy(json_data, base_name, field_data, **kwargs):
 
 def add_json_node(json_data, node_name, field_data, **kwargs):
     """Add the node with key node_name."""
+    type_name = utils.types_name_to_singular(node_name)
+    fields = field_data[type_name]
+
     objects, meta = _get_yaml_data(node_name)
+    object_base = meta.get('base', {})
     make_object_function_name = "make_object_{0}".format(node_name)
     make_object = globals()[make_object_function_name]
 
@@ -297,8 +297,18 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
     # We sort the objects for repeatability when troubleshooting.
     for object_id in sorted(objects.keys()):
         yaml_data = objects[object_id]
-        json_object = make_object(yaml_data, json_data)
-        check_json_object(json_object, node_name, field_data)
+        json_object = make_object(yaml_data, global_data=json_data)
+        # Inherit values from base where needed.
+        for attr in sorted(object_base.keys()):
+            if attr in json_object:
+                continue
+            value = object_base[attr]
+            field = fields[attr]
+            if field.get('format'):
+                value = utils.format(value, **json_object)
+            json_object[attr] = value
+
+        utils.check_object(json_object, fields, type_name=type_name, data_type='JSON')
         json_node[object_id] = json_object
 
     _add_json_node_base(json_data, json_node, node_name, field_data)
@@ -317,13 +327,7 @@ def make_json_data():
     field_data = yaml.load(_TYPE_FIELDS_YAML)
     mixins, meta = _get_yaml_data('mixins')
 
-    json_data ={
-        '_meta': {
-            'license': _LICENSE
-        }
-    }
-
-    base_names = [
+    node_names = [
         'areas',
         'district_types',
         'districts',
@@ -331,7 +335,8 @@ def make_json_data():
         'languages'
     ]
 
-    for base_name in base_names:
+    json_data ={}
+    for base_name in node_names:
         add_json_node(json_data, base_name, field_data)
 
     # TODO: DRY up the remaining object types.
@@ -339,5 +344,9 @@ def make_json_data():
     add_json_node_legacy(json_data, 'bodies', field_data)
     add_json_node_legacy(json_data, 'offices', field_data, mixins=mixins)
     add_json_node_i18n(json_data, field_data)
+
+    json_data['_meta'] = {
+        'license': _LICENSE
+    }
 
     return json_data

@@ -1,6 +1,8 @@
 _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
+  base:
+    district_name_format: '{name} District {{number}}'
 district_types:
   district_type_bart:
     body_id: body_bart
@@ -12,6 +14,7 @@ district_types:
   district_type_ca_board_of_equalization:
     body_id: body_ca_board_of_equalization
     district_count: 4
+    district_name_format: '{label} Equalization District'
     name: Equalization
     description_plural: Equalization Districts
     parent_area_id: area_state_ca
@@ -19,8 +22,8 @@ district_types:
   district_type_ca_court_appeal:
     body_id: body_ca_courts_of_appeal
     district_count: 6
-    district_name_format: '{district_code} Appellate District'
-    district_name_short_format: '{district_code} District'
+    district_name_format: '{label} Appellate District'
+    district_name_short_format: '{district_label} District'
     name: Appellate
     description_plural: Appellate Districts
     parent_area_id: area_state_ca

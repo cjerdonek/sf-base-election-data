@@ -22,6 +22,7 @@ import re
 import textwrap
 
 from pyelect.common import utils
+from pyelect.common import yamlutil
 
 
 _log = logging.getLogger()

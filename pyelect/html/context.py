@@ -261,22 +261,6 @@ def _set_html_election_data(html_data, json_data):
     html_data['next_election_year'] = _compute_next_election_year(json_data)
 
 
-def get_from_html_data(html_data, json_obj, id_attr_name):
-    """Retrieve an object by ID from the given template data."""
-    assert id_attr_name.endswith('_id')
-    object_id = json_obj.get(id_attr_name)
-    if object_id is None:
-        return None
-
-    type_name = id_attr_name[:-3]
-    node_name = utils.type_name_to_plural(type_name)
-    object_map = html_data[node_name]
-
-    obj = object_map[object_id]
-
-    return obj
-
-
 def make_one_areas(object_id, json_data, html_data=None):
     keys = [
         'name',
@@ -494,7 +478,7 @@ def check_object(type_name, html_obj, fields):
 
 
 def add_html_node(base_name, html_data, json_data, field_data, json_key=None, **kwargs):
-    type_name = utils.type_name_to_singular(base_name)
+    type_name = utils.types_name_to_singular(base_name)
 
     # TODO: document json_key vs. base_name.
     if json_key is None:

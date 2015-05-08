@@ -6,6 +6,8 @@ mixins:
     category_id: category_state
     partisan: true
     term_length: 4
+  district_type_common:
+    district_name_format: '{name} District {number}'
   sf_common:
     category_id: category_city_county
     partisan: false
