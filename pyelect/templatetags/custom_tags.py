@@ -258,11 +258,13 @@ def url_row(header, value):
 
 @register.inclusion_tag('tags/cond_include.html', takes_context=True)
 @log_errors
-def url_row_object(context, label, object_id, page_base_name):
+def url_row_object(context, label, object_id, page_base_name, attr_name=None):
     """
     Arguments:
       page_base_name: for example, "languages".
     """
+    if attr_name is None:
+        attr_name = 'name'
     href = None
     name = None
     text = None
@@ -273,7 +275,7 @@ def url_row_object(context, label, object_id, page_base_name):
     else:
         objects = context[page_base_name]
         obj = objects[object_id]
-        text = obj['name']
+        text = obj[attr_name]
         page = pages.get_page_object(page_base_name)
         href = page.make_href(fragment=object_id)
 

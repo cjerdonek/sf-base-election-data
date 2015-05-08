@@ -131,7 +131,7 @@ district_type:
     name: name
     required: true
   -
-    name: name_plural
+    name: description_plural
     required: true
   -
     name: parent_area_id

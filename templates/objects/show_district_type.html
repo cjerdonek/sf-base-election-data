@@ -1,4 +1,5 @@
 {% load custom_tags %}
+{% info_row 'Plural' object.description_plural %}
 {% url_row_object 'Parent Area' object.parent_area_id 'areas' %}
 {% include 'rows/district_count.html' with object=object %}
 {% url_row_object 'Body' object.body_id 'bodies' %}
