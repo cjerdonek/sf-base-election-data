@@ -66,7 +66,7 @@ def read_yaml_rel(rel_path, file_base=None, key=None):
       key: optionally, the key-value to return.
     """
     if file_base is not None:
-        file_name = "{0}.yaml".format(file_base)
+        file_name = get_yaml_file_name(file_base)
         rel_path = os.path.join(rel_path, file_name)
 
     repo_dir = utils.get_repo_dir()

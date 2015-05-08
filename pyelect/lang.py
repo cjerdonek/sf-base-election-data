@@ -110,7 +110,7 @@ def get_rel_path_phrases(dir_name, lang=None):
     rel_dir = os.path.join(lang_dir, dir_name)
     if lang is None:
         return rel_dir
-    file_name = "{0}.yaml".format(lang)
+    file_name = utils.get_yaml_file_name(lang)
     return os.path.join(rel_dir, file_name)
 
 
@@ -292,7 +292,8 @@ def _get_text_ids_csv():
 
 def read_translations_file(rel_dir, lang):
     """Return the dict of: text_id to dict of info."""
-    rel_path = os.path.join(rel_dir, "{0}.yaml".format(lang))
+    file_name = utils.get_yaml_file_name(lang)
+    rel_path = os.path.join(rel_dir, file_name)
     phrases = yamlutil.read_yaml_rel(rel_path, key=KEY_TEXTS)
     for text_id, translations in phrases.items():
         translations.pop(KEY_ENGLISH_ANNOTATION, None)
@@ -321,21 +322,6 @@ def read_phrases_dir(rel_dir):
             text_info.update(translations)
 
     return phrases
-
-
-def update_yaml_phrases_file():
-    phrases_seq = []
-    for dir_name in (_DIR_PHRASES_CSV, _DIR_PHRASES_EXTRA):
-        rel_dir = get_rel_path_phrases(dir_name=dir_name)
-        phrases = read_phrases_dir(rel_dir)
-        phrases_seq.append(phrases)
-    phrases1, phrases2 = phrases_seq
-    text_ids1, text_ids2 = (set(p) for p in phrases_seq)
-    common_ids = set(text_ids1).intersection(set(text_ids2))
-    if common_ids:
-        raise Exception("should be empty: {0}".format(common_ids))
-    phrases1.update(phrases2)
-    return phrases1
 
 
 def get_lang_phrase(translations, lang):
@@ -425,3 +411,20 @@ def update_extras():
 def update_csv_translations():
     phrases = read_csv_dir()
     write_translations_dir_csv(phrases)
+
+
+def update_yaml_phrases_file():
+    phrases_seq = []
+    for dir_name in (_DIR_PHRASES_CSV, _DIR_PHRASES_EXTRA):
+        rel_dir = get_rel_path_phrases(dir_name=dir_name)
+        phrases = read_phrases_dir(rel_dir)
+        phrases_seq.append(phrases)
+    phrases1, phrases2 = phrases_seq
+    text_ids1, text_ids2 = (set(p) for p in phrases_seq)
+    common_ids = set(text_ids1).intersection(set(text_ids2))
+    if common_ids:
+        raise Exception("should be empty: {0}".format(common_ids))
+    phrases1.update(phrases2)
+
+    rel_path = utils.get_yaml_objects_path_rel(PHRASES_BASE_NAME)
+    yamlutil.write_yaml_with_header(phrases1, rel_path, file_type=FILE_AUTO_GENERATED)
