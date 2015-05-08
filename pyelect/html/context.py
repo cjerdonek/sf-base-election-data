@@ -267,7 +267,7 @@ def get_from_html_data(html_data, json_obj, id_attr_name):
         return None
 
     type_name = id_attr_name[:-3]
-    node_name = common.type_name_to_plural(type_name)
+    node_name = utils.type_name_to_plural(type_name)
     object_map = html_data[node_name]
 
     obj = object_map[object_id]
@@ -474,26 +474,32 @@ def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
     return objects
 
 
-def check_object(html_obj, fields):
+def on_check_object_error(html_obj, type_name, field_name, details):
+    message = "{details} in HTML data for field: {type_name}.{field_name}\n-->\n{object}"
+    raise Exception(message.format(object=pformat(html_obj), field_name=field_name,
+                                   type_name=type_name, details=details))
+
+
+def check_object(type_name, html_obj, fields):
     for field in fields:
         field_name = field['name']
         if field_name not in html_obj:
-            raise Exception("field {0!r} missing: {1}".format(field_name, html_obj))
+            on_check_object_error(html_obj, type_name, field_name, details="field missing")
         if not field.get('required'):
             continue
         if html_obj[field_name] is None:
-            raise Exception("field {0!r} should not be None:\n{1}".format(field_name, pformat(html_obj)))
+            on_check_object_error(html_obj, type_name, field_name, details="field should not be None")
 
 
-def add_html_node(html_data, json_data, field_data, base_name, json_key=None, **kwargs):
+def add_html_node(base_name, html_data, json_data, field_data, json_key=None, **kwargs):
     # TODO: document json_key vs. base_name.
     if json_key is None:
         json_key = base_name
     make_object_func_name = "make_one_{0}2".format(base_name, **kwargs)
     set_object_fields = globals()[make_object_func_name]
 
-    singular = common.type_name_to_singular(base_name)
-    fields = field_data[singular]
+    type_name = utils.type_name_to_singular(base_name)
+    fields = field_data[type_name]
     json_node = json_data[json_key]
 
     objects = {}
@@ -504,8 +510,7 @@ def add_html_node(html_data, json_data, field_data, base_name, json_key=None, **
         json_obj = json_node[object_id]
         html_obj = _make_html_object2(json_obj, fields, object_id)
         set_object_fields(html_obj, html_data, json_obj, **kwargs)
-        # TODO: check the object.
-        check_object(html_obj, fields)
+        check_object(type_name, html_obj, fields)
         # TODO: remove this hack (used to skip offices).
         if html_obj['name'] is None:
             continue
@@ -548,7 +553,7 @@ def make_html_data(json_data, local_assets=False):
     field_data = yaml.load(TYPE_FIELDS_YAML)
 
     def _add_node(base_name, **kwargs):
-        add_html_node(html_data, json_data, field_data, base_name, **kwargs)
+        add_html_node(base_name, html_data, json_data, field_data, **kwargs)
 
     _add_node('categories', ordering=category_ordering)
 

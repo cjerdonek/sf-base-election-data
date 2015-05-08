@@ -1,6 +1,7 @@
 TODO
 ====
 
+* Update info re: superior court
 * Add config-driven validation code to JSON gen.
 * Add `name` and `name_i18n` to district in JSON file.
 * Add `name` and `name_i18n` to Office in JSON file.
@@ -42,8 +43,6 @@ TODO
   - This way people will be able to add translations.
   - Also clean things up in this regard (will simplify things going forward).
   - Move extra i18n values into the manual section.
-* Show the seat name (that distinguishes among body members)
-  - at the top, but below the overall name.
 * Add voting method enum (with Wikipedia link).
 * Have a way to note when translations are missing.
 * Document the JSON objects as I go.
