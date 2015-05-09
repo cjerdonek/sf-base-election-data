@@ -245,8 +245,10 @@ def create_parser():
         help="set Django's TEMPLATE_DEBUG to True.")
 
     phrases_file_name = utils.get_yaml_file_name(PHRASES_BASE_NAME)
+    phrases_rel_path = utils.get_yaml_objects_path_rel(PHRASES_BASE_NAME)
     parser = make_subparser(sub, "yaml_make_phrases",
-                help="create or update the i18n object file {0}.".format(phrases_file_name))
+                help="create or update the i18n object file {0}.".format(phrases_file_name),
+                details="Updates the file at: {0}.".format(phrases_rel_path))
 
     parser = make_subparser(sub, "yaml_norm",
                 help="normalize one or more YAML files.")

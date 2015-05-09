@@ -43,6 +43,8 @@ district:
   name_short:
     required: true
 district_type:
+  description_plural:
+    required: true
   district_name_format:
     format: true
     required: true
@@ -96,8 +98,8 @@ def get_fields(field_data, node_name):
 
 def _get_yaml_data(base_name):
     """Return the object data from a YAML file."""
-    rel_path = get_yaml_objects_dir_rel()
-    data = yamlutil.read_yaml_rel(rel_path, file_base=base_name)
+    rel_path = utils.get_yaml_objects_path_rel(base_name)
+    data = yamlutil.read_yaml_rel(rel_path)
     meta = yamlutil.get_yaml_meta(data)
     objects = utils.get_required(data, base_name)
 
@@ -292,6 +294,7 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
     # We sort the objects for repeatability when troubleshooting.
     for object_id in sorted(objects.keys()):
         yaml_data = objects[object_id]
+        # TODO: create initial object using configured fields.
         json_object = make_object(yaml_data, global_data=json_data)
         # Inherit values from base where needed.
         for attr in sorted(object_base.keys()):
@@ -325,6 +328,7 @@ def make_json_data():
     mixins, meta = _get_yaml_data('mixins')
 
     node_names = [
+        'phrases',
         'areas',
         'district_types',
         'districts',
@@ -340,7 +344,6 @@ def make_json_data():
     add_json_node_legacy(json_data, 'categories', field_data)
     add_json_node_legacy(json_data, 'bodies', field_data)
     add_json_node_legacy(json_data, 'offices', field_data, mixins=mixins)
-    add_json_node_i18n(json_data, field_data)
 
     json_data['_meta'] = {
         'license': _LICENSE

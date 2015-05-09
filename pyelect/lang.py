@@ -355,7 +355,7 @@ def write_translations_file(phrases, dir_name, file_type, lang, comments=None):
     data = _make_translations_texts(phrases, lang)
     data = {'texts': data}
     yamlutil.write_yaml_with_header(data, rel_path=rel_path, file_type=file_type,
-                                 comments=comments)
+                                    comments=comments)
 
 
 def write_translations_dir_csv(phrases):
@@ -426,5 +426,5 @@ def update_yaml_phrases_file():
         raise Exception("should be empty: {0}".format(common_ids))
     phrases1.update(phrases2)
 
-    rel_path = utils.get_yaml_objects_path_rel(PHRASES_BASE_NAME)
-    yamlutil.write_yaml_with_header(phrases1, rel_path, file_type=FILE_AUTO_GENERATED)
+    yamlutil.create_yaml_object_file(phrases1, PHRASES_BASE_NAME,
+                        file_type=FILE_AUTO_GENERATED)

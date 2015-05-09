@@ -58,17 +58,13 @@ def read_yaml(path):
     return data
 
 
-def read_yaml_rel(rel_path, file_base=None, key=None):
+def read_yaml_rel(rel_path, key=None):
     """Return the data in a YAML file as a Python dict.
 
     Arguments:
       rel_path: the path to the file relative to the repo root.
       key: optionally, the key-value to return.
     """
-    if file_base is not None:
-        file_name = get_yaml_file_name(file_base)
-        rel_path = os.path.join(rel_path, file_name)
-
     repo_dir = utils.get_repo_dir()
     path = os.path.join(repo_dir, rel_path)
 
@@ -132,6 +128,12 @@ def write_yaml_with_header(data, rel_path, file_type=None, comments=None,
     path = os.path.join(repo_dir, rel_path)
     _set_header(data, file_type=file_type, comments=comments)
     _write_yaml(data, path, stdout=stdout)
+
+
+def create_yaml_object_file(objects, base_name, file_type=None):
+    rel_path = utils.get_yaml_objects_path_rel(base_name)
+    data = {base_name: objects}
+    write_yaml_with_header(data, rel_path, file_type=file_type)
 
 
 def _is_yaml_normalizable(data, path_hint):
