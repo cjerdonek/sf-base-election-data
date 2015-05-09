@@ -65,8 +65,10 @@ office:
   name:
     required: true
 phrase:
-  name:
-    required: true
+  en: {}
+  es: {}
+  fi: {}
+  zh: {}
 """
 
 def get_rel_path_json_data():
@@ -115,15 +117,15 @@ def yaml_to_json(yaml_data, fields):
     return json_data
 
 
-def make_object_areas(yaml_data, global_data):
-    return yaml_data
+def customize_area(json_object, yaml_data, global_data):
+    pass
 
 
-def make_object_district_types(yaml_data, global_data):
-    return yaml_data
+def customize_district_type(json_object, yaml_data, global_data):
+    pass
 
 
-def make_object_districts(object_data, global_data):
+def customize_district(json_object, object_data, global_data):
     district_type = utils.get_referenced_object(global_data, object_data, 'district_type_id')
 
     name_format = get_required(district_type, 'district_name_format')
@@ -134,15 +136,17 @@ def make_object_districts(object_data, global_data):
     short_name = easy_format(short_name_format, **object_data)
     object_data['name_short'] = short_name
 
-    return object_data
+
+def customize_election_method(json_object, yaml_data, global_data):
+    pass
 
 
-def make_object_election_methods(yaml_data, global_data):
-    return yaml_data
+def customize_language(json_object, yaml_data, global_data):
+    pass
 
 
-def make_object_languages(yaml_data, global_data):
-    return yaml_data
+def customize_phrase(json_object, yaml_data, global_data):
+    pass
 
 
 def make_node_languages(objects, meta):
@@ -258,13 +262,6 @@ def make_court_of_appeals():
     return offices
 
 
-# TODO: remove this function.
-def add_source(data, source_name):
-    source_data = get_yaml(source_name)
-    for key, value in source_data.items():
-        data[key] = value
-
-
 # TODO: remove this function?
 def _add_json_node_base(json_data, node, node_name, field_data):
     json_data[node_name] = node
@@ -287,15 +284,15 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
 
     objects, meta = _get_yaml_data(node_name)
     object_base = meta.get('base', {})
-    make_object_function_name = "make_object_{0}".format(node_name)
-    make_object = globals()[make_object_function_name]
+    customize_function_name = "customize_{0}".format(type_name)
+    customize_object = globals()[customize_function_name]
 
     json_node = {}
     # We sort the objects for repeatability when troubleshooting.
     for object_id in sorted(objects.keys()):
         yaml_data = objects[object_id]
-        # TODO: create initial object using configured fields.
-        json_object = make_object(yaml_data, global_data=json_data)
+        json_object = utils.create_object(yaml_data, fields)
+        customize_object(json_object, yaml_data, global_data=json_data)
         # Inherit values from base where needed.
         for attr in sorted(object_base.keys()):
             if attr in json_object:
@@ -315,7 +312,6 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
 
 
 # TODO
-# add_source(data, 'office_types')
 #
 # # Make districts.
 # districts = make_court_of_appeals_districts()

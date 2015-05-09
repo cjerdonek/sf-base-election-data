@@ -1,7 +1,7 @@
 TODO
 ====
 
-* Create `yaml_write()` function to assist with writing phrases file.
+* Update json generation to create initial object using configured fields.
 * Get i18n node working in JSON as first node.
 * DRY up `description_plural` in district_types.yaml
 * Include i18n name fields in district_types JSON.

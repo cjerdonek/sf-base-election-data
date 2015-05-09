@@ -2,7 +2,7 @@
 
 import logging
 import os
-from pprint import pformat
+from pprint import pformat, pprint
 
 _log = logging.getLogger()
 
@@ -93,6 +93,23 @@ def write(path, text):
     _log.info("writing to: {0}".format(path))
     with open(path, mode='w') as f:
         f.write(text)
+
+
+def create_object(object_data, fields):
+    """Create an object from field configuration data."""
+    obj = {}
+    for field_name in sorted(fields.keys()):
+        field = fields[field_name]
+        if field_name in object_data or field.get('required'):
+            value = object_data.get(field_name, None)
+            obj[field_name] = value
+        # field_type = field.get('type', None)
+        # if field_type == 'i18n':
+        #     # Include internationalized values when they are available, for all fields.
+        #     i18n_field_name = lang.get_i18n_field_name(field_name)
+        #     obj[i18n_field_name] = object_data.get(i18n_field_name, None)
+
+    return obj
 
 
 def get_referenced_object(global_data, object_data, id_attr_name):
