@@ -1,0 +1,45 @@
+_meta:
+  _type: auto_updated
+  _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
+fields:
+  area:
+    name:
+      required: true
+  body:
+    name:
+      required: true
+  category:
+    name:
+      required: true
+  district:
+    name:
+      required: true
+    name_short:
+      required: true
+  district_type:
+    description_plural:
+      required: true
+    district_name_format:
+      format: true
+      i18n_okay: true
+      required: true
+    district_name_short_format:
+      format: true
+      i18n_okay: true
+      required: true
+    name:
+      required: true
+  election_method:
+    name:
+      required: true
+  language:
+    name:
+      required: true
+  office:
+    name:
+      required: true
+  phrase:
+    en: {}
+    es: {}
+    fi: {}
+    zh: {}
