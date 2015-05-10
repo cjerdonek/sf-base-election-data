@@ -1,12 +1,8 @@
 TODO
 ====
 
-* Only store i18n-able fields with suffix i18n until the end.
-* Get JSON gen working again with new pattern.
-* Update json generation to create initial object using configured fields.
-* Get i18n node working in JSON as first node.
-* DRY up `description_plural` in district_types.yaml
 * Include i18n name fields in district_types JSON.
+* Clean up jsongen and get everything using the same pattern.
 * Add `name_short_i18n` to district in JSON file?
   - (and the body-specific variations -- search "distrito")
 * Get translated phrases working again.
