@@ -63,14 +63,14 @@ phrases:
     es: DISTRITO
     zh: 區
   text_district_assembly_format:
-    en: ASSEMBLY DISTRICT {{number}}
+    en: ASSEMBLY DISTRICT {number}
     es: DISTRITO {0} DE LA ASAMBLEA
     zh: 州眾議院第{0}選區
   text_district_numbered_format:
-    en: DISTRICT {{number}}
-    es: DISTRITO {{number}}
-    fil: Distrito {{number}}
-    zh: 第{{number}}選區
+    en: DISTRICT {number}
+    es: DISTRITO {number}
+    fil: Distrito {number}
+    zh: 第{number}選區
   text_header_city_county_propositions:
     en: CITY & COUNTY PROPOSITIONS
     es: PROPOSICIONES DE LA CIUDAD Y EL CONDADO
@@ -116,7 +116,7 @@ phrases:
     es: DIRECTOR DE BART
     zh: 灣區捷運董事,
   text_office_ca_bart_director_edge_format:
-    en: BART DIRECTOR DIST. {{number}}
+    en: BART DIRECTOR DIST. {number}
   text_office_city_assessor_recorder:
     en: ASSESSOR-RECORDER
     es: TASADOR-REGISTRADOR
@@ -171,7 +171,7 @@ phrases:
     es: JUEZ DEL TRIBUNAL SUPERIOR,
     zh: 高等法院法官，
   text_office_judge_of_the_superior_court_edge_format:
-    en: 'SUPERIOR COURT JUDGE #{{number}}'
+    en: 'SUPERIOR COURT JUDGE #{number}'
     es: JUEZ, CORTE SUPERIOR {0}
   text_office_member_board_of_education:
     en: MEMBER, BOARD OF EDUCATION
@@ -185,7 +185,7 @@ phrases:
     es: MIEMBRO, CONSEJO DE SUPERVISORES
     zh: 市參議員
   text_office_member_board_of_supervisors_edge_format:
-    en: BOARD OF SUPERVISORS D{{number}}
+    en: BOARD OF SUPERVISORS D{number}
   text_office_member_body_sf_superior_court:
     en: Judge of the Superior Court
     es: Juez del Tribunal Superior
@@ -325,7 +325,7 @@ phrases:
     en: UNITED STATES SENATOR
     es: SENADOR DE EE.UU.
   text_office_x_format:
-    en: OFFICE NO. {{number}}
+    en: OFFICE NO. {number}
     es: OFICINA NÚM. X
     zh: 第{0}席
   text_preference_party:
@@ -337,11 +337,11 @@ phrases:
     es: Preferencia por un candidato presidencial
     zh: 選擇總統候選人
   text_proposition_x_format:
-    en: PROPOSITION {{number}}
+    en: PROPOSITION {number}
     es: PROPOSICIÓN {0}
     zh: 提案{0}
   text_vote_for_no_more_than_x_format:
-    en: Vote for no more than {{number}}
+    en: Vote for no more than {number}
     es: Vote por no más de {0}
     zh: 選不超過{0}名
   text_vote_for_one:
