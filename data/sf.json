@@ -269,7 +269,17 @@
             "description_plural": "BART Districts",
             "district_count": 9,
             "district_name_format": "BART District {number}",
-            "district_name_short_format": "District {number}",
+            "district_name_format_i18n": {
+                "en": "BART District {number}"
+            },
+            "district_name_short_format": "DISTRICT {number}",
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "name": "BART",
             "parent_area_id": "area_state_ca_bart"
         },
@@ -278,7 +288,13 @@
             "description_plural": "Equalization Districts",
             "district_count": 4,
             "district_name_format": "{label} Equalization District",
+            "district_name_format_i18n": {
+                "en": "{label} Equalization District"
+            },
             "district_name_short_format": "{label} District",
+            "district_name_short_format_i18n": {
+                "en": "{label} District"
+            },
             "name": "Equalization",
             "parent_area_id": "area_state_ca",
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts"
@@ -288,7 +304,13 @@
             "description_plural": "Appellate Districts",
             "district_count": 6,
             "district_name_format": "{label} Appellate District",
+            "district_name_format_i18n": {
+                "en": "{label} Appellate District"
+            },
             "district_name_short_format": "{label} District",
+            "district_name_short_format_i18n": {
+                "en": "{label} District"
+            },
             "name": "Appellate",
             "parent_area_id": "area_state_ca"
         },
@@ -297,7 +319,17 @@
             "description_plural": "State Assembly Districts",
             "district_count": 80,
             "district_name_format": "State Assembly District {number}",
-            "district_name_short_format": "District {number}",
+            "district_name_format_i18n": {
+                "en": "State Assembly District {number}"
+            },
+            "district_name_short_format": "DISTRICT {number}",
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "name": "State Assembly",
             "parent_area_id": "area_state_ca"
         },
@@ -306,7 +338,17 @@
             "description_plural": "State Senate Districts",
             "district_count": 40,
             "district_name_format": "State Senate District {number}",
-            "district_name_short_format": "District {number}",
+            "district_name_format_i18n": {
+                "en": "State Senate District {number}"
+            },
+            "district_name_short_format": "DISTRICT {number}",
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "name": "State Senate",
             "parent_area_id": "area_state_ca"
         },
@@ -315,8 +357,17 @@
             "description_plural": "Supervisorial Districts",
             "district_count": 11,
             "district_name_format": "Supervisorial District {number}",
-            "district_name_short_format": "District {number}",
-            "district_name_short_format_i18n": "text_district_numbered_format",
+            "district_name_format_i18n": {
+                "en": "Supervisorial District {number}"
+            },
+            "district_name_short_format": "DISTRICT {number}",
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "name": "Supervisorial",
             "parent_area_id": "area_county_sf"
         },
@@ -325,7 +376,17 @@
             "description_plural": "US Congressional Districts",
             "district_count": 435,
             "district_name_format": "US Congressional District {number}",
-            "district_name_short_format": "District {number}",
+            "district_name_format_i18n": {
+                "en": "US Congressional District {number}"
+            },
+            "district_name_short_format": "DISTRICT {number}",
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "name": "US Congressional",
             "parent_area_id": "area_country_usa"
         },
@@ -334,7 +395,13 @@
             "description_plural": "US States",
             "district_count": 50,
             "district_name_format": "State of {label}",
+            "district_name_format_i18n": {
+                "en": "State of {label}"
+            },
             "district_name_short_format": "{label}",
+            "district_name_short_format_i18n": {
+                "en": "{label}"
+            },
             "name": "US State",
             "parent_area_id": "area_country_usa"
         }
@@ -343,19 +410,19 @@
         "district_ca_bart_7": {
             "district_type_id": "district_type_bart",
             "name": "BART District 7",
-            "name_short": "District 7",
+            "name_short": "DISTRICT 7",
             "number": 7
         },
         "district_ca_bart_8": {
             "district_type_id": "district_type_bart",
             "name": "BART District 8",
-            "name_short": "District 8",
+            "name_short": "DISTRICT 8",
             "number": 8
         },
         "district_ca_bart_9": {
             "district_type_id": "district_type_bart",
             "name": "BART District 9",
-            "name_short": "District 9",
+            "name_short": "DISTRICT 9",
             "number": 9
         },
         "district_ca_board_of_equalization": {
@@ -377,101 +444,101 @@
         "district_ca_state_assembly_17": {
             "district_type_id": "district_type_ca_state_assembly",
             "name": "State Assembly District 17",
-            "name_short": "District 17",
+            "name_short": "DISTRICT 17",
             "number": 17,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_17th_State_Assembly_district"
         },
         "district_ca_state_assembly_19": {
             "district_type_id": "district_type_ca_state_assembly",
             "name": "State Assembly District 19",
-            "name_short": "District 19",
+            "name_short": "DISTRICT 19",
             "number": 19,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_19th_State_Assembly_district"
         },
         "district_ca_state_senate_11": {
             "district_type_id": "district_type_ca_state_senate",
             "name": "State Senate District 11",
-            "name_short": "District 11",
+            "name_short": "DISTRICT 11",
             "number": 11,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_11th_State_Senate_district"
         },
         "district_sf_board_of_supervisors_01": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 1",
-            "name_short": "District 1",
+            "name_short": "DISTRICT 1",
             "number": 1
         },
         "district_sf_board_of_supervisors_02": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 2",
-            "name_short": "District 2",
+            "name_short": "DISTRICT 2",
             "number": 2
         },
         "district_sf_board_of_supervisors_03": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 3",
-            "name_short": "District 3",
+            "name_short": "DISTRICT 3",
             "number": 3
         },
         "district_sf_board_of_supervisors_04": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 4",
-            "name_short": "District 4",
+            "name_short": "DISTRICT 4",
             "number": 4
         },
         "district_sf_board_of_supervisors_05": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 5",
-            "name_short": "District 5",
+            "name_short": "DISTRICT 5",
             "number": 5
         },
         "district_sf_board_of_supervisors_06": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 6",
-            "name_short": "District 6",
+            "name_short": "DISTRICT 6",
             "number": 6
         },
         "district_sf_board_of_supervisors_07": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 7",
-            "name_short": "District 7",
+            "name_short": "DISTRICT 7",
             "number": 7
         },
         "district_sf_board_of_supervisors_08": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 8",
-            "name_short": "District 8",
+            "name_short": "DISTRICT 8",
             "number": 8
         },
         "district_sf_board_of_supervisors_09": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 9",
-            "name_short": "District 9",
+            "name_short": "DISTRICT 9",
             "number": 9
         },
         "district_sf_board_of_supervisors_10": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 10",
-            "name_short": "District 10",
+            "name_short": "DISTRICT 10",
             "number": 10
         },
         "district_sf_board_of_supervisors_11": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 11",
-            "name_short": "District 11",
+            "name_short": "DISTRICT 11",
             "number": 11
         },
         "district_usa_house_12": {
             "district_type_id": "district_type_usa_house",
             "name": "US Congressional District 12",
-            "name_short": "District 12",
+            "name_short": "DISTRICT 12",
             "number": 12,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_12th_congressional_district"
         },
         "district_usa_house_14": {
             "district_type_id": "district_type_usa_house",
             "name": "US Congressional District 14",
-            "name_short": "District 14",
+            "name_short": "DISTRICT 14",
             "number": 14,
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_14th_congressional_district"
         },
@@ -497,37 +564,61 @@
         "language_chinese": {
             "code": "zh",
             "name": "Chinese",
-            "notes": "Available on the default official ballot."
+            "notes": "Available on the default official ballot.",
+            "notes_i18n": {
+                "en": "Available on the default official ballot."
+            }
         },
         "language_english": {
             "code": "en",
             "name": "English",
-            "notes": "Available on all official ballots."
+            "notes": "Available on all official ballots.",
+            "notes_i18n": {
+                "en": "Available on all official ballots."
+            }
         },
         "language_filipino": {
             "code": "fil",
             "name": "Filipino",
-            "notes": "Available on an official ballot by request starting November 2015."
+            "notes": "Available on an official ballot by request starting November 2015.",
+            "notes_i18n": {
+                "en": "Available on an official ballot by request starting November 2015."
+            }
         },
         "language_japanese": {
             "code": "jp",
             "name": "Japanese",
-            "notes_i18n": "text_language_notes_facsimile"
+            "notes": "Available on a translated \"facsimile\" ballot by request.",
+            "notes_i18n": {
+                "_id": "text_language_notes_facsimile",
+                "en": "Available on a translated \"facsimile\" ballot by request."
+            }
         },
         "language_korean": {
             "code": "ko",
             "name": "Korean",
-            "notes_i18n": "text_language_notes_facsimile"
+            "notes": "Available on a translated \"facsimile\" ballot by request.",
+            "notes_i18n": {
+                "_id": "text_language_notes_facsimile",
+                "en": "Available on a translated \"facsimile\" ballot by request."
+            }
         },
         "language_spanish": {
             "code": "es",
             "name": "Spanish",
-            "notes": "Available on an official ballot by request."
+            "notes": "Available on an official ballot by request.",
+            "notes_i18n": {
+                "en": "Available on an official ballot by request."
+            }
         },
         "language_vietnamese": {
             "code": "vi",
             "name": "Vietnamese",
-            "notes_i18n": "text_language_notes_facsimile"
+            "notes": "Available on a translated \"facsimile\" ballot by request.",
+            "notes_i18n": {
+                "_id": "text_language_notes_facsimile",
+                "en": "Available on a translated \"facsimile\" ballot by request."
+            }
         }
     },
     "offices": {
@@ -903,15 +994,15 @@
             "zh": "\u5340"
         },
         "text_district_assembly_format": {
-            "en": "ASSEMBLY DISTRICT {0}",
-            "es": "DISTRITO {0} DE LA ASAMBLEA",
-            "zh": "\u5dde\u773e\u8b70\u9662\u7b2c{0}\u9078\u5340"
+            "en": "ASSEMBLY DISTRICT {number}",
+            "es": "DISTRITO {number} DE LA ASAMBLEA",
+            "zh": "\u5dde\u773e\u8b70\u9662\u7b2c{number}\u9078\u5340"
         },
         "text_district_numbered_format": {
             "en": "DISTRICT {number}",
-            "es": "DISTRITO {0}",
-            "fil": "Distrito {0}",
-            "zh": "\u7b2c{0}\u9078\u5340"
+            "es": "DISTRITO {number}",
+            "fil": "Distrito {number}",
+            "zh": "\u7b2c{number}\u9078\u5340"
         },
         "text_header_city_county_propositions": {
             "en": "CITY & COUNTY PROPOSITIONS",
@@ -973,7 +1064,7 @@
             "zh": "\u7063\u5340\u6377\u904b\u8463\u4e8b,"
         },
         "text_office_ca_bart_director_edge_format": {
-            "en": "BART DIRECTOR DIST. {0}"
+            "en": "BART DIRECTOR DIST. {number}"
         },
         "text_office_city_assessor_recorder": {
             "en": "ASSESSOR-RECORDER",
@@ -1044,7 +1135,7 @@
             "zh": "\u9ad8\u7b49\u6cd5\u9662\u6cd5\u5b98\uff0c"
         },
         "text_office_judge_of_the_superior_court_edge_format": {
-            "en": "SUPERIOR COURT JUDGE #{0}",
+            "en": "SUPERIOR COURT JUDGE #{number}",
             "es": "JUEZ, CORTE SUPERIOR {0}"
         },
         "text_office_member_board_of_education": {
@@ -1062,7 +1153,7 @@
             "zh": "\u5e02\u53c3\u8b70\u54e1"
         },
         "text_office_member_board_of_supervisors_edge_format": {
-            "en": "BOARD OF SUPERVISORS D{0}"
+            "en": "BOARD OF SUPERVISORS D{number}"
         },
         "text_office_member_body_sf_superior_court": {
             "en": "Judge of the Superior Court",
@@ -1238,9 +1329,9 @@
             "es": "SENADOR DE EE.UU."
         },
         "text_office_x_format": {
-            "en": "OFFICE NO. {0}",
+            "en": "OFFICE NO. {number}",
             "es": "OFICINA N\u00daM. X",
-            "zh": "\u7b2c{0}\u5e2d"
+            "zh": "\u7b2c{number}\u5e2d"
         },
         "text_preference_party": {
             "en": "Party Preference:",
@@ -1253,14 +1344,14 @@
             "zh": "\u9078\u64c7\u7e3d\u7d71\u5019\u9078\u4eba"
         },
         "text_proposition_x_format": {
-            "en": "PROPOSITION {0}",
-            "es": "PROPOSICI\u00d3N {0}",
-            "zh": "\u63d0\u6848{0}"
+            "en": "PROPOSITION {label}",
+            "es": "PROPOSICI\u00d3N {label}",
+            "zh": "\u63d0\u6848{label}"
         },
         "text_vote_for_no_more_than_x_format": {
-            "en": "Vote for no more than {0}",
-            "es": "Vote por no m\u00e1s de {0}",
-            "zh": "\u9078\u4e0d\u8d85\u904e{0}\u540d"
+            "en": "Vote for no more than {number}",
+            "es": "Vote por no m\u00e1s de {number}",
+            "zh": "\u9078\u4e0d\u8d85\u904e{number}\u540d"
         },
         "text_vote_for_one": {
             "en": "Vote for One",
