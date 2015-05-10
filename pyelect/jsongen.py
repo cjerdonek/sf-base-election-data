@@ -84,11 +84,11 @@ def customize_district(json_object, object_data, global_data):
 
     name_format = get_required(district_type, 'district_name_format')
     name = easy_format(name_format, **object_data)
-    object_data['name'] = name
+    json_object['name'] = name
 
     short_name_format = get_required(district_type, 'district_name_short_format')
     short_name = easy_format(short_name_format, **object_data)
-    object_data['name_short'] = short_name
+    json_object['name_short'] = short_name
 
 
 def customize_election_method(json_object, yaml_data, global_data):
@@ -237,34 +237,24 @@ def make_json_object(object_data, fields, customize_func, object_base,
                                       object_base=object_base)
     customize_func(json_object, object_data, global_data=global_data)
 
-    # Set any i18n data.
+    # TODO: review the code below in light of the new way we are treating i18n.
+    #
+    # Prep the i18n data by setting the non-i18n version to simplify
+    # English-only processing of the JSON file.
     for field_name in sorted(fields.keys()):
         field = fields[field_name]
         if not field.get('i18n_okay'):
             continue
-        # Otherwise, there may be an internationalized version of the field.
         i18n_field_name = get_i18n_field_name(field_name)
         try:
-            phrase_id = json_object[i18n_field_name]
+            phrase = json_object[i18n_field_name]
         except KeyError:
             # Then the internationalized field is not present.
             continue
-        phrases = global_data['phrases']
-        phrase = get_required(phrases, phrase_id)
-        phrase = phrase.copy()
-        phrase['_id'] = phrase_id
-        json_object[i18n_field_name] = phrase
-        # Also set the non-i18n version to simplify English-only processing
-        # of the JSON file.
         english = phrase[LANG_ENGLISH]
-        try:
-            current = json_object[field_name]
-        except KeyError:
-            json_object[field_name] = english
-        else:
-            raise Exception("non-i18n value should not be present "
-                            "(field_name={0!r}, value={1!r}):\n--> phrase:\n{2}\n--> json_object:\n{3}"
-                            .format(field_name, current, pformat(phrase), pformat(json_object)))
+        json_object[field_name] = english
+        english = phrase[LANG_ENGLISH]
+        json_object[field_name] = english
 
     utils.check_object(json_object, fields, type_name=type_name, data_type='JSON')
 
