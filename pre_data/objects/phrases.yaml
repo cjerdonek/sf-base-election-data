@@ -64,8 +64,8 @@ phrases:
     zh: 區
   text_district_assembly_format:
     en: ASSEMBLY DISTRICT {number}
-    es: DISTRITO {0} DE LA ASAMBLEA
-    zh: 州眾議院第{0}選區
+    es: DISTRITO {number} DE LA ASAMBLEA
+    zh: 州眾議院第{number}選區
   text_district_numbered_format:
     en: DISTRICT {number}
     es: DISTRITO {number}
@@ -327,7 +327,7 @@ phrases:
   text_office_x_format:
     en: OFFICE NO. {number}
     es: OFICINA NÚM. X
-    zh: 第{0}席
+    zh: 第{number}席
   text_preference_party:
     en: 'Party Preference:'
     es: 'Preferencia por partido:'
@@ -337,13 +337,13 @@ phrases:
     es: Preferencia por un candidato presidencial
     zh: 選擇總統候選人
   text_proposition_x_format:
-    en: PROPOSITION {number}
-    es: PROPOSICIÓN {0}
-    zh: 提案{0}
+    en: PROPOSITION {label}
+    es: PROPOSICIÓN {label}
+    zh: 提案{label}
   text_vote_for_no_more_than_x_format:
     en: Vote for no more than {number}
-    es: Vote por no más de {0}
-    zh: 選不超過{0}名
+    es: Vote por no más de {number}
+    zh: 選不超過{number}名
   text_vote_for_one:
     en: Vote for One
     es: Vote por uno
