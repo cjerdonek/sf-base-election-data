@@ -14,10 +14,15 @@ fields:
     name:
       required: true
   district:
+    district_type_id:
+      required: true
     name:
       required: true
     name_short:
       required: true
+    number: {}
+    label: {}
+    wikipedia: {}
   district_type:
     body_id: {}
     district_count:
@@ -37,11 +42,16 @@ fields:
     parent_area_id:
       required: true
   election_method:
+    notes: {}
+    wikipedia: {}
     name:
       required: true
   language:
+    code: {}
     name:
       required: true
+    notes:
+      i18n_okay: true
   office:
     name:
       required: true
