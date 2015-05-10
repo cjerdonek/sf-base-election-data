@@ -148,23 +148,27 @@ def get_object_data_field_info(object_data, field_name, fields):
     return field_name, value
 
 
-def create_object(object_data, fields, global_data, object_base=None):
+def create_object(object_data, fields, object_id, global_data, object_base=None):
     """Create an object from field configuration data."""
     if object_base is None:
         object_base = {}
+
+    # TODO: grab the phrases values only after inheritance?
+    #   Or write the value to base only if no value is present on the concrete.
 
     # Start the object from the base object field data.
     obj = object_base.copy()
     for field_name in sorted(obj.keys()):  # We sort for repeatability.
         value = obj[field_name]
-        value = easy_format(value, **object_data)
+        value = easy_format(value, id=object_id, **object_data)
         field_name, value = normalize_field_info(field_name, value, fields,
                                     global_data=global_data)
         obj[field_name] = value
 
     # Copy all field data from object_data.  We iterate over fields.keys()
-    # rather than object_data.keys() since not all field values coming from
-    # object_data keys come from keys that are field names (c.f. "copy_from").
+    # rather than object_data.keys() since the field values stored in
+    # object_data do not always correspond directly to the names of fields
+    # (cf. "copy_from").
     for field_name in sorted(fields.keys()):  # We sort for repeatability.
         info = get_object_data_field_info(object_data, field_name, fields)
         if info is None:

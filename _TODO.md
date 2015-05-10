@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Include i18n name fields in district_types JSON.
 * Clean up jsongen and get everything using the same pattern.
 * Add `name_short_i18n` to district in JSON file?
   - (and the body-specific variations -- search "distrito")
@@ -11,7 +10,8 @@ TODO
   - Also document this for Office object.
 * Add court offices.
   - Call to see if they have seat numbers.
-* Somehow flag types as required in either the instance or the base (e.g. office/body)?
+* Somehow flag types as required in either the instance or the base
+  (e.g. office/body)?
 * Check Twitter for bodies.
 * Internationalize district short name.
 * Change seats to SF seats, e.g. 2 of 80.

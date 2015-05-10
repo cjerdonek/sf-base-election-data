@@ -12,6 +12,7 @@ fields:
       required: true
   category:
     name:
+      i18n_okay: true
       required: true
   district:
     district_type_id:

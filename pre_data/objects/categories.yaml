@@ -1,12 +1,8 @@
 _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
-  name_i18n_format: text_{0}
-  name_i18n_format_comment: |
-    The "name_i18n_format" field is for programmatically generating a "name_i18n"
-    field for each object.  This field is not used if the object already
-    has a "name" or "name_i18n" field.
-    TODO: should this field be used to auto-update the YAML file itself?
+  base:
+    name_i18n: 'text_{id}'
 categories:
   category_city_county: {}
   category_federal: {}

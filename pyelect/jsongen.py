@@ -36,6 +36,16 @@ def get_json_path():
     return json_path
 
 
+def get_yaml_data(base_name):
+    """Return the object data from a YAML file."""
+    rel_path = utils.get_yaml_objects_path_rel(base_name)
+    data = yamlutil.read_yaml_rel(rel_path)
+    meta = yamlutil.get_yaml_meta(data)
+    objects = utils.get_required(data, base_name)
+
+    return objects, meta
+
+
 def get_json():
     """Read and return the JSON data."""
     json_path = get_json_path()
@@ -52,26 +62,11 @@ def get_fields(field_data, node_name):
     return fields
 
 
-def _get_yaml_data(base_name):
-    """Return the object data from a YAML file."""
-    rel_path = utils.get_yaml_objects_path_rel(base_name)
-    data = yamlutil.read_yaml_rel(rel_path)
-    meta = yamlutil.get_yaml_meta(data)
-    objects = utils.get_required(data, base_name)
-
-    return objects, meta
-
-
-def yaml_to_json(yaml_data, fields):
-    # TODO: construct these fields once per run instead of once per entry.
-    fields = list(fields)
-    fields += ["{0}_i18n".format(f) for f in fields]
-    fields = set(fields)
-    json_data = {f: v for f, v in yaml_data.items() if f in fields}
-    return json_data
-
-
 def customize_area(json_object, yaml_data, global_data):
+    pass
+
+
+def customize_category(json_object, yaml_data, global_data):
     pass
 
 
@@ -99,62 +94,22 @@ def customize_language(json_object, yaml_data, global_data):
     pass
 
 
+def customize_office(json_object, yaml_data, global_data):
+    """Return the node containing internationalized data."""
+    try:
+        mixin_id = office['mixin_id']
+    except KeyError:
+        pass
+    else:
+        # Make the office "extend" from the mixin.
+        office_new = deepcopy(mixins[mixin_id])
+        office_new.update(office)
+        del office_new['mixin_id']
+        office = office_new
+
+
 def customize_phrase(json_object, yaml_data, global_data):
     pass
-
-
-def make_node_languages(objects, meta):
-
-    node = {}
-    for lang_id, yaml_lang in objects.items():
-        json_lang = make_json_language(yaml_lang)
-        node[lang_id] = json_lang
-
-    return node
-
-
-def make_node_categories(objects, meta):
-    name_i18n_format = meta['name_i18n_format']
-
-    node = {}
-    for category_id, category in objects.items():
-        if 'name' not in category and 'name_i18n' not in category:
-            name_i18n = name_i18n_format.format(category_id)
-            category['name_i18n'] = name_i18n
-        node[category_id] = category
-
-    return node
-
-
-def make_node_bodies(objects, meta):
-    """Return the node containing internationalized data."""
-    node = {}
-    for body_id, body in objects.items():
-        node[body_id] = body
-
-    return node
-
-
-def make_node_offices(objects, meta, mixins):
-    """Return the node containing internationalized data."""
-    offices, meta = _get_yaml_data('offices')
-
-    node = {}
-    for office_id, office in offices.items():
-        try:
-            mixin_id = office['mixin_id']
-        except KeyError:
-            pass
-        else:
-            # Make the office "extend" from the mixin.
-            office_new = deepcopy(mixins[mixin_id])
-            office_new.update(office)
-            del office_new['mixin_id']
-            office = office_new
-
-        node[office_id] = office
-
-    return node
 
 
 def make_court_of_appeals_division_numbers():
@@ -216,25 +171,11 @@ def make_court_of_appeals():
     return offices
 
 
-# TODO: remove this function?
-def _add_json_node_base(json_data, node, node_name, field_data):
-    json_data[node_name] = node
-
-
-# TODO: remove this function?
-def add_json_node_legacy(json_data, base_name, field_data, **kwargs):
-    """Add the node with key base_name."""
-    make_node_function_name = "make_node_{0}".format(base_name)
-    make_node_func = globals()[make_node_function_name]
-    objects, meta = _get_yaml_data(base_name)
-    node = make_node_func(objects, meta=meta, **kwargs)
-    _add_json_node_base(json_data, node, base_name, field_data)
-
-
-def make_json_object(object_data, fields, customize_func, object_base,
-                     global_data, type_name):
-    json_object = utils.create_object(object_data, fields, global_data=global_data,
-                                      object_base=object_base)
+def make_json_object(object_data, fields, customize_func, object_id,
+                     object_base, global_data, type_name):
+    json_object = utils.create_object(object_data, fields, object_id=object_id,
+                                      object_base=object_base,
+                                      global_data=global_data)
     customize_func(json_object, object_data, global_data=global_data)
 
     # TODO: review the code below in light of the new way we are treating i18n.
@@ -267,7 +208,7 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
     type_name = utils.types_name_to_singular(node_name)
     fields = field_data[type_name]
 
-    objects, meta = _get_yaml_data(node_name)
+    objects, meta = get_yaml_data(node_name)
     object_base = meta.get('base', {})
     customize_function_name = "customize_{0}".format(type_name)
     customize_func = globals()[customize_function_name]
@@ -278,16 +219,15 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
         object_data = objects[object_id]
         try:
             json_object = make_json_object(object_data, fields, customize_func,
+                                           object_id=object_id,
                                            object_base=object_base,
                                            global_data=json_data, type_name=type_name)
         except:
             raise Exception("while processing {0!r} object:\n-->{1}"
                             .format(type_name, object_data))
-
-
         json_node[object_id] = json_object
 
-    _add_json_node_base(json_data, json_node, node_name, field_data)
+    json_data[node_name] = json_node
 
 
 def load_json_fields():
@@ -296,35 +236,26 @@ def load_json_fields():
     return fields
 
 
-# TODO
-#
-# # Make districts.
-# districts = make_court_of_appeals_districts()
-# data['districts'] = districts
-#
-# offices = make_court_of_appeals()
-# data['court_offices'] = offices
 def make_json_data():
     field_data = load_json_fields()
-    mixins, meta = _get_yaml_data('mixins')
+    mixins, meta = get_yaml_data('mixins')
 
     node_names = [
         'phrases',
         'areas',
+        'categories',
         'district_types',
         'districts',
         'election_methods',
-        'languages'
+        'languages',
+        'bodies',
+        # TODO: use mixins for offices.
+        'offices',
     ]
 
     json_data ={}
     for base_name in node_names:
         add_json_node(json_data, base_name, field_data)
-
-    # TODO: DRY up the remaining object types.
-    add_json_node_legacy(json_data, 'categories', field_data)
-    add_json_node_legacy(json_data, 'bodies', field_data)
-    add_json_node_legacy(json_data, 'offices', field_data, mixins=mixins)
 
     json_data['_meta'] = {
         'license': _LICENSE
