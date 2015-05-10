@@ -16,18 +16,18 @@ fields:
   district:
     district_type_id:
       required: true
+    label: {}
     name:
       required: true
     name_short:
       required: true
     number: {}
-    label: {}
     wikipedia: {}
   district_type:
     body_id: {}
-    district_count:
-      required: true
     description_plural:
+      required: true
+    district_count:
       required: true
     district_name_format:
       format: true
@@ -42,10 +42,10 @@ fields:
     parent_area_id:
       required: true
   election_method:
-    notes: {}
-    wikipedia: {}
     name:
       required: true
+    notes: {}
+    wikipedia: {}
   language:
     code: {}
     name:
