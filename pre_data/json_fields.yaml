@@ -25,6 +25,7 @@ fields:
     wikipedia: {}
   district_type:
     body_id: {}
+    category_id: {}
     description_plural:
       required: true
     district_count:
@@ -41,6 +42,7 @@ fields:
       required: true
     parent_area_id:
       required: true
+    wikipedia: {}
   election_method:
     name:
       required: true
