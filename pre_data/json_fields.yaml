@@ -5,6 +5,8 @@ fields:
   area:
     name:
       required: true
+    notes: {}
+    wikipedia: {}
   body:
     name:
       required: true
@@ -17,6 +19,9 @@ fields:
     name_short:
       required: true
   district_type:
+    body_id: {}
+    district_count:
+      required: true
     description_plural:
       required: true
     district_name_format:
@@ -28,6 +33,8 @@ fields:
       i18n_okay: true
       required: true
     name:
+      required: true
+    parent_area_id:
       required: true
   election_method:
     name:
@@ -41,5 +48,5 @@ fields:
   phrase:
     en: {}
     es: {}
-    fi: {}
+    fil: {}
     zh: {}
