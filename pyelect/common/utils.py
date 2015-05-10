@@ -131,14 +131,21 @@ def normalize_field_info(field_name, value, fields, global_data):
     return field_name, value
 
 
-def is_field_defined(obj, field_name, field):
-    field_names = [field_name]
+def get_object_data_field_info(object_data, field_name, fields):
+    field = fields[field_name]
+    # TODO: examine copy_from?
     if field.get('i18n_okay'):
-        field_names.append(get_i18n_field_name(field_name))
-    for field_name in field_names:
-        if field_name in obj:
-            return True
-    return False
+        i18n_field_name = get_i18n_field_name(field_name)
+        if i18n_field_name in object_data:
+            # As a sanity-check, make sure the non-i18n version of the field
+            # is not also defined.
+            assert field_name not in object_data
+            field_name = i18n_field_name
+    if field_name not in object_data:
+        return None
+    value = object_data[field_name]
+
+    return field_name, value
 
 
 def create_object(object_data, fields, global_data, object_base=None):
@@ -146,21 +153,25 @@ def create_object(object_data, fields, global_data, object_base=None):
     if object_base is None:
         object_base = {}
 
-    # Start the object from the base object.
+    # Start the object from the base object field data.
     obj = object_base.copy()
     for field_name in sorted(obj.keys()):  # We sort for repeatability.
         value = obj[field_name]
         value = easy_format(value, **object_data)
-        field_name, value = normalize_field_info(field_name, value, fields, global_data=global_data)
+        field_name, value = normalize_field_info(field_name, value, fields,
+                                    global_data=global_data)
         obj[field_name] = value
 
-    # Copy the relevant field data from object_data.
+    # Copy all field data from object_data.  We iterate over fields.keys()
+    # rather than object_data.keys() since not all field values coming from
+    # object_data keys come from keys that are field names (c.f. "copy_from").
     for field_name in sorted(fields.keys()):  # We sort for repeatability.
-        field = fields[field_name]
-        if not is_field_defined(object_data, field_name, field):
+        info = get_object_data_field_info(object_data, field_name, fields)
+        if info is None:
             continue
-        # Otherwise, set the field value on the object.
-        value = object_data[field_name]
+        field_name, value = info
+        field_name, value = normalize_field_info(field_name, value, fields,
+                                    global_data=global_data)
         obj[field_name] = value
 
     return obj
