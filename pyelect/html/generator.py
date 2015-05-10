@@ -17,7 +17,7 @@ from pyelect.common import utils
 _log = logging.getLogger()
 
 _DIR_NAME_TEMPLATE_PAGE = 'pages'
-_HTML_OUTPUT_DATA_DIR = os.path.dirname(context.JSON_OUTPUT_PATH)
+_HTML_OUTPUT_DATA_DIR = os.path.dirname(utils.JSON_OUTPUT_PATH)
 
 # Each ordered pair is--
 #  (1) source directory relative to the repo root

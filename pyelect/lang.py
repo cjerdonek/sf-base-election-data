@@ -22,12 +22,13 @@ import re
 import textwrap
 
 from pyelect.common import utils
+from pyelect.common.utils import LANG_ENGLISH
 from pyelect.common import yamlutil
 from pyelect.common.yamlutil import FILE_AUTO_GENERATED, FILE_AUTO_UPDATED
 
+
 _log = logging.getLogger()
 
-LANG_ENGLISH = 'en'
 LANG_SPANISH = 'es'
 LANG_FILIPINO = 'fil'
 LANG_CHINESE = 'zh'
@@ -42,7 +43,6 @@ LANGS = [LANG_ENGLISH] + list(LANGS_NON_ENGLISH)
 LANGS_SHORT = (LANG_ENGLISH, LANG_SPANISH, LANG_FILIPINO)
 
 EDGE_STRING = '_edge'
-I18N_SUFFIX = '_i18n'
 KEY_ENGLISH_ANNOTATION = '_{0}'.format(LANG_ENGLISH)
 KEY_TEXTS = 'texts'
 
@@ -151,10 +151,6 @@ def read_csv_rows_contest():
         data = ContestRow(*(row[CONTEST_INDICES[h]].strip() for h in CONTEST_HEADERS))
         seq.append(data)
     return seq
-
-
-def get_i18n_field_name(name):
-    return "{0}{1}".format(name, I18N_SUFFIX)
 
 
 def _make_text_id(text):

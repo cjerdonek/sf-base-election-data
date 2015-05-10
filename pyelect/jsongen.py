@@ -3,6 +3,7 @@ from collections import defaultdict
 from copy import deepcopy
 import glob
 import json
+import logging
 import os
 from pprint import pformat, pprint
 import textwrap
@@ -11,7 +12,8 @@ import yaml
 
 from pyelect import lang
 from pyelect.common import utils
-from pyelect.common.utils import easy_format, get_required
+from pyelect.common.utils import (JSON_OUTPUT_PATH, LANG_ENGLISH, easy_format,
+                                  get_i18n_field_name, get_required)
 from pyelect.common import yamlutil
 
 
@@ -21,64 +23,16 @@ KEY_DISTRICTS = 'districts'
 KEY_ID = '_id'
 KEY_OFFICES = 'offices'
 
-_REL_PATH_JSON_DATA = "data/sf.json"
-
 _LICENSE = ("The database consisting of this file is made available under "
 "the Public Domain Dedication and License v1.0 whose full text can be "
 "found at: http://www.opendatacommons.org/licenses/pddl/1.0/ .")
 
-_TYPE_FIELDS_YAML = """\
-area:
-  name:
-    required: true
-body:
-  name:
-    required: true
-category:
-  name:
-    required: true
-district:
-  name:
-    required: true
-  name_short:
-    required: true
-district_type:
-  description_plural:
-    required: true
-  district_name_format:
-    format: true
-    required: true
-    i18n: true
-  district_name_short_format:
-    format: true
-    required: true
-    i18n: true
-  name:
-    required: true
-election_method:
-  name:
-    required: true
-language:
-  name:
-    required: true
-office:
-  name:
-    required: true
-phrase:
-  en: {}
-  es: {}
-  fi: {}
-  zh: {}
-"""
-
-def get_rel_path_json_data():
-    return _REL_PATH_JSON_DATA
+_log = logging.getLogger()
 
 
 def get_json_path():
     repo_dir = utils.get_repo_dir()
-    rel_path = get_rel_path_json_data()
-    json_path = os.path.join(repo_dir, rel_path)
+    json_path = os.path.join(repo_dir, JSON_OUTPUT_PATH)
     return json_path
 
 
@@ -277,38 +231,79 @@ def add_json_node_legacy(json_data, base_name, field_data, **kwargs):
     _add_json_node_base(json_data, node, base_name, field_data)
 
 
+def make_json_object(object_data, fields, customize_func, object_base,
+                     global_data, type_name):
+    json_object = utils.create_object(object_data, fields, global_data=global_data,
+                                      object_base=object_base)
+    customize_func(json_object, object_data, global_data=global_data)
+
+    # Set any i18n data.
+    for field_name in sorted(fields.keys()):
+        field = fields[field_name]
+        if not field.get('i18n_okay'):
+            continue
+        # Otherwise, there may be an internationalized version of the field.
+        i18n_field_name = get_i18n_field_name(field_name)
+        try:
+            phrase_id = json_object[i18n_field_name]
+        except KeyError:
+            # Then the internationalized field is not present.
+            continue
+        phrases = global_data['phrases']
+        phrase = get_required(phrases, phrase_id)
+        phrase = phrase.copy()
+        phrase['_id'] = phrase_id
+        json_object[i18n_field_name] = phrase
+        # Also set the non-i18n version to simplify English-only processing
+        # of the JSON file.
+        english = phrase[LANG_ENGLISH]
+        try:
+            current = json_object[field_name]
+        except KeyError:
+            json_object[field_name] = english
+        else:
+            raise Exception("non-i18n value should not be present "
+                            "(field_name={0!r}, value={1!r}):\n--> phrase:\n{2}\n--> json_object:\n{3}"
+                            .format(field_name, current, pformat(phrase), pformat(json_object)))
+
+    utils.check_object(json_object, fields, type_name=type_name, data_type='JSON')
+
+    return json_object
+
+
 def add_json_node(json_data, node_name, field_data, **kwargs):
     """Add the node with key node_name."""
+    _log.info("calculating json node: {0}".format(node_name))
     type_name = utils.types_name_to_singular(node_name)
     fields = field_data[type_name]
 
     objects, meta = _get_yaml_data(node_name)
     object_base = meta.get('base', {})
     customize_function_name = "customize_{0}".format(type_name)
-    customize_object = globals()[customize_function_name]
+    customize_func = globals()[customize_function_name]
 
     json_node = {}
     # We sort the objects for repeatability when troubleshooting.
     for object_id in sorted(objects.keys()):
-        yaml_data = objects[object_id]
-        json_object = utils.create_object(yaml_data, fields)
-        customize_object(json_object, yaml_data, global_data=json_data)
-        # Inherit values from base where needed.
-        for attr in sorted(object_base.keys()):
-            if attr in json_object:
-                continue
-            value = object_base[attr]
-            field = get_required(fields, attr)
-            if field.get('format'):
-                value = easy_format(value, **json_object)
-            json_object[attr] = value
-        # TODO: iterate through fields, if the field is i18n, then
-        #   calculate and set the non-i18n version.
+        object_data = objects[object_id]
+        try:
+            json_object = make_json_object(object_data, fields, customize_func,
+                                           object_base=object_base,
+                                           global_data=json_data, type_name=type_name)
+        except:
+            raise Exception("while processing {0!r} object:\n-->{1}"
+                            .format(type_name, object_data))
 
-        utils.check_object(json_object, fields, type_name=type_name, data_type='JSON')
+
         json_node[object_id] = json_object
 
     _add_json_node_base(json_data, json_node, node_name, field_data)
+
+
+def load_json_fields():
+    data = yamlutil.read_yaml_rel(utils.JSON_FIELDS_PATH)
+    fields = get_required(data, 'fields')
+    return fields
 
 
 # TODO
@@ -320,7 +315,7 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
 # offices = make_court_of_appeals()
 # data['court_offices'] = offices
 def make_json_data():
-    field_data = yaml.load(_TYPE_FIELDS_YAML)
+    field_data = load_json_fields()
     mixins, meta = _get_yaml_data('mixins')
 
     node_names = [

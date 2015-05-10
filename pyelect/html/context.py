@@ -12,9 +12,8 @@ from pyelect.html import common
 from pyelect.html.common import NON_ENGLISH_ORDER
 from pyelect.html import pages
 from pyelect import lang
-from pyelect.lang import I18N_SUFFIX, LANG_ENGLISH
 from pyelect.common import utils
-from pyelect.common.utils import easy_format
+from pyelect.common.utils import I18N_SUFFIX, LANG_ENGLISH, easy_format
 
 
 _log = logging.getLogger()
@@ -23,9 +22,6 @@ _JQUERY_LOCAL = 'js/'
 _JQUERY_REMOTE = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/"
 _BOOTSTRAP_REMOTE = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/"
 _BOOTSTRAP_LOCAL = 'bootstrap/'
-
-JSON_OUTPUT_PATH = 'data/sf.json'
-LICENSE_PATH = 'data/LICENSE.txt'
 
 # The base names of the pages in the order they should be listed in the
 # table of contents on each page.

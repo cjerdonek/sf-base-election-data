@@ -4,10 +4,18 @@ import logging
 import os
 from pprint import pformat, pprint
 
+
 _log = logging.getLogger()
+
+I18N_SUFFIX = '_i18n'
+LANG_ENGLISH = 'en'
 
 DIR_NAME_OBJECTS = 'objects'
 DIR_NAME_PRE_DATA = 'pre_data'
+
+JSON_FIELDS_PATH = os.path.join(DIR_NAME_PRE_DATA, 'json_fields.yaml')
+JSON_OUTPUT_PATH = 'data/sf.json'
+LICENSE_PATH = 'data/LICENSE.txt'
 
 _SINGULAR_TO_PLURAL = {
     'body': 'bodies',
@@ -47,6 +55,10 @@ def types_name_to_singular(plural):
     return singular
 
 
+def get_i18n_field_name(name):
+    return "{0}{1}".format(name, I18N_SUFFIX)
+
+
 def filter_dict_by_keys(data, keys):
     return {k: v for k, v in data.items() if k in keys}
 
@@ -58,7 +70,7 @@ class KeyMissingError(Exception):
 def get_required(mapping, key):
     try:
         value = mapping[key]
-    except:
+    except KeyError:
         raise KeyMissingError("key missing: '{key}'\n{0}".format(pformat(mapping), key=key))
     return value
 
@@ -95,19 +107,61 @@ def write(path, text):
         f.write(text)
 
 
-def create_object(object_data, fields):
-    """Create an object from field configuration data."""
-    obj = {}
-    for field_name in sorted(fields.keys()):
+def normalize_field_info(field_name, value, fields, global_data):
+    """Return a normalized 2-tuple of: field_name, value.
+
+    For i18n fields, the field_name return value should end in "_i18n" and
+    the value should be the dict of translations (supplemented with
+    the phrase ID stored with key "_id").
+    """
+    if field_name.endswith(I18N_SUFFIX):
+        phrase_id = value
+        simple_field_name = field_name.rstrip(I18N_SUFFIX)
+        field = fields[simple_field_name]
+        assert field.get('i18n_okay')
+        phrases = get_required(global_data, 'phrases')
+        value = phrases[phrase_id].copy()
+        value['_id'] = phrase_id
+    else:
         field = fields[field_name]
-        if field_name in object_data or field.get('required'):
-            value = object_data.get(field_name, None)
-            obj[field_name] = value
-        # field_type = field.get('type', None)
-        # if field_type == 'i18n':
-        #     # Include internationalized values when they are available, for all fields.
-        #     i18n_field_name = lang.get_i18n_field_name(field_name)
-        #     obj[i18n_field_name] = object_data.get(i18n_field_name, None)
+        if field.get('i18n_okay'):
+            field_name = get_i18n_field_name(field_name)
+            value = {LANG_ENGLISH: value}
+
+    return field_name, value
+
+
+def is_field_defined(obj, field_name, field):
+    field_names = [field_name]
+    if field.get('i18n_okay'):
+        field_names.append(get_i18n_field_name(field_name))
+    for field_name in field_names:
+        if field_name in obj:
+            return True
+    return False
+
+
+def create_object(object_data, fields, global_data, object_base=None):
+    """Create an object from field configuration data."""
+    if object_base is None:
+        object_base = {}
+
+    # Start the object from the base object.
+    obj = object_base.copy()
+    for field_name in sorted(obj.keys()):  # We sort for repeatability.
+        value = obj[field_name]
+        value = easy_format(value, **object_data)
+        field_name, value = normalize_field_info(field_name, value, fields, global_data=global_data)
+        obj[field_name] = value
+
+    # Copy the relevant field data from object_data.
+    for field_name in sorted(fields.keys()):  # We sort for repeatability.
+        field = fields[field_name]
+        if not is_field_defined(object_data, field_name, field):
+            continue
+        # Otherwise, set the field value on the object.
+        value = object_data[field_name]
+        obj[field_name] = value
 
     return obj
 
@@ -131,6 +185,8 @@ def _on_check_object_error(html_obj, type_name, field_name, data_type, details):
 
 
 # TODO: decide re: not existing versus existing as None.
+#   Answer: start out by requiring that values not be None.
+#   If needed, we can always add a "none_okay" attribute.
 def check_object(obj, fields, type_name, data_type):
     # We sort when iterating for repeatability when troubleshooting.
     for field_name in sorted(fields.keys()):
@@ -139,10 +195,10 @@ def check_object(obj, fields, type_name, data_type):
             continue
         if field_name not in obj:
             _on_check_object_error(obj, type_name, field_name, data_type,
-                                   details="field missing")
+                                   details="required field missing")
         if obj[field_name] is None:
             _on_check_object_error(obj, type_name, field_name, data_type,
-                                   details="field should not be None")
+                                   details="required field is None")
         # allowed_types = (bool, int, str)
         # for attr, value in json_obj.items():
         #     if type(value) not in allowed_types:
