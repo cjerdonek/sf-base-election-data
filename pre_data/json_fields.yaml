@@ -8,11 +8,31 @@ fields:
     notes: {}
     wikipedia: {}
   body:
+    category_id:
+      required: true
+    district_type_id:
+      required: true
+    election_method_id: {}
+    jurisdiction_area_id:
+      required: true
+    localwiki: {}
     member_name:
       i18n_okay: true
     name:
       i18n_okay: true
       required: true
+    notes: {}
+    office_name_format:
+      i18n_okay: true
+    partisan:
+      required: true
+    seat_count:
+      required: true
+    seat_name_format: {}
+    seed_year: {}
+    term_length: {}
+    url: {}
+    vote_method: {}
     wikipedia: {}
   category:
     name:
