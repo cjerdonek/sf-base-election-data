@@ -1,21 +1,23 @@
 TODO
 ====
 
+* Make office inherit from body when body exists.
+* Somehow flag types as required in either the instance or the base
+  (e.g. office/body)?
+* Make partisan required in Office only if no Body (and must be different).
+* Rename `text_body_city_sc`.
 * Choose better names for `office_name` and generic `member_name`.
 * Internationalize `body_ca_board_of_equalization.office_name`:
   - `text_office_member_state_board_of_eq_d2`
 * Make `body.term_length` required.
+* Make `body_ca_courts_of_appeal_d1` inherit from `body_ca_courts_of_appeal`.
 * Clean up jsongen and get everything using the same pattern.
 * Add `name_short_i18n` to district in JSON file?
   - (and the body-specific variations -- search "distrito")
 * Get translated phrases working again.
 * Skip files beginning with a "." in the `copy_files()` helper function.
-* Add `name` and `name_i18n` to Office in JSON file.
-  - Also document this for Office object.
 * Add court offices.
   - Call to see if they have seat numbers.
-* Somehow flag types as required in either the instance or the base
-  (e.g. office/body)?
 * Check Twitter for bodies.
 * Internationalize district short name.
 * Change seats to SF seats, e.g. 2 of 80.
@@ -23,12 +25,11 @@ TODO
   - Election method, etc.
   - Try documenting it.
   - Should the `district_type` "object" be a property?
-* Make partisan required in Office only if no Body (and must be different).
 * Compute translations in header tag code?
 * Make jurisdiction a name paired with a geographic area?
 * Switch Court district and remove geographic label.
 * Make a new type for CALIFORNIA COURTS OF APPEAL.
-* Clean up & simplify the office HTML and JSON generation.
+* Clean up & simplify the office HTML generation.
 * Move "row" templates to a rows directory.
 * Add jurisdiction to office & body (inherit from district type)?
 * Edit notes for body: California Court of Appeal, First District
@@ -41,8 +42,6 @@ TODO
 * Hamburger nav
 * Add a source for each translation.
   - Allow for translation notes?
-* Add a `seat_name` attribute to Office that distinguishes members from
-  one another (and `office_name` is the more generic name).
 * Think about whether internationalized text should be mandatory
   (at least in the config).
   - If so, create a workflow to add new text ID's.
