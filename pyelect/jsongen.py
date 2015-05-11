@@ -100,16 +100,7 @@ def customize_language(json_object, object_data, global_data):
 
 def customize_office(json_object, object_data, global_data):
     """Return the node containing internationalized data."""
-    # try:
-    #     mixin_id = office['mixin_id']
-    # except KeyError:
-    #     pass
-    # else:
-    #     # Make the office "extend" from the mixin.
-    #     office_new = deepcopy(mixins[mixin_id])
-    #     office_new.update(office)
-    #     del office_new['mixin_id']
-    #     office = office_new
+    # TODO: review the code below to see if it is necessary.
     body = utils.get_referenced_object(object_data, 'body_id', global_data=global_data)
     if body is not None:
         name = get_required(body, 'member_name')
@@ -180,10 +171,10 @@ def make_court_of_appeals():
 
 
 def make_json_object(object_data, fields, customize_func, object_id,
-                     object_base, global_data, type_name):
+                     object_base, global_data, type_name, mixins):
     json_object = utils.create_object(object_data, fields, object_id=object_id,
                                       object_base=object_base,
-                                      global_data=global_data)
+                                      global_data=global_data, mixins=mixins)
     customize_func(json_object, object_data, global_data=global_data)
 
     # TODO: review the code below in light of the new way we are treating i18n.
@@ -207,7 +198,7 @@ def make_json_object(object_data, fields, customize_func, object_id,
     return json_object
 
 
-def add_json_node(json_data, node_name, field_data, **kwargs):
+def add_json_node(json_data, node_name, field_data, mixins, **kwargs):
     """Add the node with key node_name."""
     _log.info("calculating json node: {0}".format(node_name))
     type_name = utils.types_name_to_singular(node_name)
@@ -224,9 +215,9 @@ def add_json_node(json_data, node_name, field_data, **kwargs):
         object_data = objects[object_id]
         try:
             json_object = make_json_object(object_data, fields, customize_func,
-                                           object_id=object_id,
-                                           object_base=object_base,
-                                           global_data=json_data, type_name=type_name)
+                                           object_id=object_id, object_base=object_base,
+                                           type_name=type_name,
+                                           global_data=json_data, mixins=mixins)
         except:
             raise Exception("while processing {0!r} object:\n-->{1}"
                             .format(type_name, object_data))
@@ -254,13 +245,12 @@ def make_json_data():
         'election_methods',
         'languages',
         'bodies',
-        # TODO: support mixins for offices.
         'offices',
     ]
 
     json_data ={}
     for base_name in node_names:
-        add_json_node(json_data, base_name, field_data)
+        add_json_node(json_data, base_name, field_data, mixins=mixins)
 
     json_data['_meta'] = {
         'license': _LICENSE

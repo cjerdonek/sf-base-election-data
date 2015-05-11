@@ -1,10 +1,9 @@
 TODO
 ====
 
-* Make office inherit from body when body exists.
+* Make name reflect: "Judge of the Superior Court, Seat No. 20"
 * Somehow flag types as required in either the instance or the base
   (e.g. office/body)?
-* Make partisan required in Office only if no Body (and must be different).
 * Rename `text_body_city_sc`.
 * Choose better names for `office_name` and generic `member_name`.
 * Internationalize `body_ca_board_of_equalization.office_name`:

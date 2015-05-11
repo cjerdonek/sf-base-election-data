@@ -188,29 +188,35 @@ def get_object_data_field_info(object_data, field_name, field, global_data):
     # TODO: examine copy_from?
     field_info = get_field_value(object_data, field_name, field)
 
-    # TODO: uncomment the below if it turns out we need to support "inherit".
-    # if field_info is not None:
-    #     return field_info
-    #
-    # # Otherwise, fetch the inherited value if there is one.
-    # inherit_field_name = field.get('inherit')
-    # if inherit_field_name is None:
-    #     return None
-    # parent = get_referenced_object(object_data, inherit_field_name, global_data=global_data)
-    # if parent is None:
-    #     return None
-    # # TODO: use the parent type's field object rather than the child's.
-    # field_info = get_field_value(parent, field_name, field)
+    if field_info is not None:
+        return field_info
+
+    # Otherwise, fetch the inherited value if there is one.
+    inherit_field_name = field.get('inherit')
+    if inherit_field_name is None:
+        return None
+    parent = get_referenced_object(object_data, inherit_field_name, global_data=global_data)
+    if parent is None:
+        return None
+    # TODO: use the parent type's field object rather than the child's.
+    field_info = get_field_value(parent, field_name, field)
 
     return field_info
 
 
-def create_object(object_data, fields, object_id, global_data, object_base=None):
+# TODO: add support for mixins.
+def create_object(object_data, fields, object_id, global_data, mixins, object_base=None):
     """Create an object from field configuration data."""
     if object_base is None:
         object_base = {}
 
     obj = {}
+
+    mixin_id = object_data.get('mixin_id')
+    if mixin_id is not None:
+        mixin = mixins[mixin_id]
+        obj.update(mixin)
+
     # Copy all field data from object_data.  We iterate over fields.keys()
     # rather than object_data.keys() since the field values stored in
     # object_data do not always correspond directly to the names of fields,
