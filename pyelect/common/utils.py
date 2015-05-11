@@ -55,8 +55,8 @@ def types_name_to_singular(plural):
     return singular
 
 
-def get_i18n_field_name(name):
-    return "{0}{1}".format(name, I18N_SUFFIX)
+def append_i18n_suffix(base_name):
+    return "{0}{1}".format(base_name, I18N_SUFFIX)
 
 
 def filter_dict_by_keys(data, keys):
@@ -107,6 +107,23 @@ def write(path, text):
         f.write(text)
 
 
+def get_field(field_name, fields):
+    if field_name.endswith(I18N_SUFFIX):
+        field_name = field_name.rstrip(I18N_SUFFIX)
+    field = fields[field_name]
+
+    return field
+
+
+def normalize_field_name(field_name, fields):
+    field = get_field(field_name, fields)
+    if field.get('i18n_okay') and not field_name.endswith(I18N_SUFFIX):
+        field_name = append_i18n_suffix(field_name)
+
+    return field_name
+
+
+# TODO: DRY up with normalize_field_name().
 def normalize_field_info(field_name, value, fields, global_data):
     """Return a normalized 2-tuple of: field_name, value.
 
@@ -125,17 +142,16 @@ def normalize_field_info(field_name, value, fields, global_data):
     else:
         field = fields[field_name]
         if field.get('i18n_okay'):
-            field_name = get_i18n_field_name(field_name)
+            field_name = append_i18n_suffix(field_name)
             value = {LANG_ENGLISH: value}
 
     return field_name, value
 
 
-def get_object_data_field_info(object_data, field_name, fields):
-    field = fields[field_name]
+def get_object_data_field_info(object_data, field_name, field):
     # TODO: examine copy_from?
     if field.get('i18n_okay'):
-        i18n_field_name = get_i18n_field_name(field_name)
+        i18n_field_name = append_i18n_suffix(field_name)
         if i18n_field_name in object_data:
             # As a sanity-check, make sure the non-i18n version of the field
             # is not also defined.
@@ -153,29 +169,37 @@ def create_object(object_data, fields, object_id, global_data, object_base=None)
     if object_base is None:
         object_base = {}
 
-    # TODO: grab the phrases values only after inheritance?
-    #   Or write the value to base only if no value is present on the concrete.
-
-    # Start the object from the base object field data.
-    obj = object_base.copy()
-    for field_name in sorted(obj.keys()):  # We sort for repeatability.
-        value = obj[field_name]
-        value = easy_format(value, id=object_id, **object_data)
-        field_name, value = normalize_field_info(field_name, value, fields,
-                                    global_data=global_data)
-        obj[field_name] = value
-
+    obj = {}
     # Copy all field data from object_data.  We iterate over fields.keys()
     # rather than object_data.keys() since the field values stored in
-    # object_data do not always correspond directly to the names of fields
-    # (cf. "copy_from").
-    for field_name in sorted(fields.keys()):  # We sort for repeatability.
-        info = get_object_data_field_info(object_data, field_name, fields)
+    # object_data do not always correspond directly to the names of fields,
+    # for example "copy_from".
+    for field_name, field in sorted(fields.items()):  # We sort for reproducibility.
+        info = get_object_data_field_info(object_data, field_name, field=field)
         if info is None:
             continue
         field_name, value = info
         field_name, value = normalize_field_info(field_name, value, fields,
                                     global_data=global_data)
+        obj[field_name] = value
+
+    # We copy field values from the base object _after_ setting the concrete
+    # values as opposed to before in order to address the issue of
+    # possibly invalid field values in the base object.  For example, the
+    # base object can generate invalid phrase ID's resulting from a format
+    # string in the base.  We do not want to process such ID's in cases
+    # where the value is overridden by a concrete setting in the child.
+    for field_name, value in sorted(object_base.items()):  # We sort for reproducibility.
+        normalized_field_name = normalize_field_name(field_name, fields)
+        if normalized_field_name in obj:
+            continue
+        value = easy_format(value, id=object_id, **object_data)
+        try:
+            field_name, value = normalize_field_info(field_name, value, fields,
+                                        global_data=global_data)
+        except:
+            raise Exception("while processing object (field={0!r}):\n{1}"
+                             .format(field_name, pformat(obj)))
         obj[field_name] = value
 
     return obj
@@ -184,7 +208,9 @@ def create_object(object_data, fields, object_id, global_data, object_base=None)
 def get_referenced_object(global_data, object_data, id_attr_name):
     """Retrieve an object referenced by ID from the global data."""
     assert id_attr_name.endswith('_id')
-    object_id = get_required(object_data, id_attr_name)
+    object_id = object_data.get(id_attr_name)
+    if object_id is None:
+        return None
     type_name = id_attr_name[:-3]
     types_name = type_name_to_plural(type_name)
     objects = global_data[types_name]
@@ -196,7 +222,8 @@ def get_referenced_object(global_data, object_data, id_attr_name):
 def _on_check_object_error(html_obj, type_name, field_name, data_type, details):
     message = "{details} (data_type={data_type!r}, type_name={type_name!r}, field={field_name!r}):\n{object}"
     raise Exception(message.format(object=pformat(html_obj), field_name=field_name,
-                                   type_name=type_name, details=details, data_type=data_type))
+                                   type_name=type_name, details=details,
+                                   data_type=data_type))
 
 
 # TODO: decide re: not existing versus existing as None.

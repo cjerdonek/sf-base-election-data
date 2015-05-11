@@ -13,7 +13,7 @@ import yaml
 from pyelect import lang
 from pyelect.common import utils
 from pyelect.common.utils import (JSON_OUTPUT_PATH, LANG_ENGLISH, easy_format,
-                                  get_i18n_field_name, get_required)
+                                  append_i18n_suffix, get_required)
 from pyelect.common import yamlutil
 
 
@@ -62,15 +62,19 @@ def get_fields(field_data, node_name):
     return fields
 
 
-def customize_area(json_object, yaml_data, global_data):
+def customize_area(json_object, object_data, global_data):
     pass
 
 
-def customize_category(json_object, yaml_data, global_data):
+def customize_body(json_object, object_data, global_data):
     pass
 
 
-def customize_district_type(json_object, yaml_data, global_data):
+def customize_category(json_object, object_data, global_data):
+    pass
+
+
+def customize_district_type(json_object, object_data, global_data):
     pass
 
 
@@ -86,29 +90,33 @@ def customize_district(json_object, object_data, global_data):
     json_object['name_short'] = short_name
 
 
-def customize_election_method(json_object, yaml_data, global_data):
+def customize_election_method(json_object, object_data, global_data):
     pass
 
 
-def customize_language(json_object, yaml_data, global_data):
+def customize_language(json_object, object_data, global_data):
     pass
 
 
-def customize_office(json_object, yaml_data, global_data):
+def customize_office(json_object, object_data, global_data):
     """Return the node containing internationalized data."""
-    try:
-        mixin_id = office['mixin_id']
-    except KeyError:
-        pass
-    else:
-        # Make the office "extend" from the mixin.
-        office_new = deepcopy(mixins[mixin_id])
-        office_new.update(office)
-        del office_new['mixin_id']
-        office = office_new
+    # try:
+    #     mixin_id = office['mixin_id']
+    # except KeyError:
+    #     pass
+    # else:
+    #     # Make the office "extend" from the mixin.
+    #     office_new = deepcopy(mixins[mixin_id])
+    #     office_new.update(office)
+    #     del office_new['mixin_id']
+    #     office = office_new
+    body = utils.get_referenced_object(global_data, object_data, 'body_id')
+    if body is not None:
+        name = get_required(body, 'member_name')
+        json_object['name'] = name
 
 
-def customize_phrase(json_object, yaml_data, global_data):
+def customize_phrase(json_object, object_data, global_data):
     pass
 
 
@@ -180,20 +188,17 @@ def make_json_object(object_data, fields, customize_func, object_id,
 
     # TODO: review the code below in light of the new way we are treating i18n.
     #
-    # Prep the i18n data by setting the non-i18n version to simplify
-    # English-only processing of the JSON file.
-    for field_name in sorted(fields.keys()):
-        field = fields[field_name]
+    # Set the non-i18n version of i18n fields to simplify English-only
+    # processing of the JSON file.
+    for field_name, field in sorted(fields.items()):  # We sort for reproducibility.
         if not field.get('i18n_okay'):
             continue
-        i18n_field_name = get_i18n_field_name(field_name)
+        i18n_field_name = append_i18n_suffix(field_name)
         try:
             phrase = json_object[i18n_field_name]
         except KeyError:
             # Then the internationalized field is not present.
             continue
-        english = phrase[LANG_ENGLISH]
-        json_object[field_name] = english
         english = phrase[LANG_ENGLISH]
         json_object[field_name] = english
 
