@@ -1,6 +1,8 @@
 TODO
 ====
 
+* Add `int` type to fields.yaml.
+* Fix names for: SF Board of Supervisors and Education.
 * Make name reflect: "Judge of the Superior Court, Seat No. 20"
 * Somehow flag types as required in either the instance or the base
   (e.g. office/body)?

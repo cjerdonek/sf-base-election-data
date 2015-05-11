@@ -197,6 +197,7 @@ offices:
     category_id: category_federal
     election_method_id: election_method_presidential
     name_i18n: text_office_usa_president_of_the_united_states
+    partisan: true
     seed_year: 2000
     term_length: 4
     twitter: WhiteHouse

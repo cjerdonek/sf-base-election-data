@@ -82,14 +82,18 @@ fields:
   office:
     body_id: {}
     category_id:
+      inherit: body_id
       required: true
     district_id: {}
+    election_method_id: {}
     name:
       i18n_okay: true
       required: true
     partisan:
+      inherit: body_id
       required: true
     seat: {}
+    seat_count: {}
     seed_year: {}
     term_length: {}
     twitter: {}
