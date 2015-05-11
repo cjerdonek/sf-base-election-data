@@ -1,6 +1,10 @@
 TODO
 ====
 
+* Choose better names for `office_name` and generic `member_name`.
+* Internationalize `body_ca_board_of_equalization.office_name`:
+  - `text_office_member_state_board_of_eq_d2`
+* Make `body.term_length` required.
 * Clean up jsongen and get everything using the same pattern.
 * Add `name_short_i18n` to district in JSON file?
   - (and the body-specific variations -- search "distrito")

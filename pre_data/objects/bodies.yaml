@@ -18,12 +18,10 @@ bodies:
     category_id: category_state
     district_type_id: district_type_ca_board_of_equalization
     jurisdiction_area_id: area_state_ca
-    member_name: Board Member
-    name: State Board of Equalization
+    member_name: Member, State Board of Equalization
+    name: California State Board of Equalization
     notes: The State Controller is the fifth member of this body.
-    office_name: Member, State Board of Equalization
     partisan: true
-    qualified_name: California State Board of Equalization
     seat_count: 5
     term_length: 4
     url: http://www.boe.ca.gov/
@@ -61,6 +59,7 @@ bodies:
     name_i18n: text_body_ca_courts_of_appeal_d1
     notes: This body is divided into five non-geographical divisions with four justices
       each.
+    parent_body_id: body_ca_courts_of_appeal
     partisan: false
     seat_count: 20
   body_ca_state_assembly:
@@ -106,7 +105,6 @@ bodies:
     name_i18n: text_body_city_board_of_supervisors
     office_name_format: '{member_name}, {district_name_short}'
     partisan: false
-    qualified_name: San Francisco Board of Supervisors
     seat_count: 11
     term_length: 4
     url: http://www.sfbos.org
