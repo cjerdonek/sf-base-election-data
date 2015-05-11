@@ -80,9 +80,22 @@ fields:
     notes:
       i18n_okay: true
   office:
+    body_id: {}
+    category_id:
+      required: true
+    district_id: {}
     name:
       i18n_okay: true
       required: true
+    partisan:
+      required: true
+    seat: {}
+    seed_year: {}
+    term_length: {}
+    twitter: {}
+    url: {}
+    vote_method: {}
+    wikipedia: {}
   phrase:
     en: {}
     es: {}

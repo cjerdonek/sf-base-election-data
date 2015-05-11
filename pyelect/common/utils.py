@@ -107,6 +107,23 @@ def write(path, text):
         f.write(text)
 
 
+def get_referenced_object(object_data, id_attr_name, global_data):
+    """Retrieve an object referenced by ID from the global data.
+
+    Arguments:
+      id_attr_name: name of the attribute whose value is an ID.
+    """
+    assert id_attr_name.endswith('_id')
+    object_id = object_data.get(id_attr_name)
+    if object_id is None:
+        return None
+    type_name = id_attr_name[:-3]
+    types_name = type_name_to_plural(type_name)
+    objects = global_data[types_name]
+    ref_object = objects[object_id]
+
+    return ref_object
+
 def get_field(field_name, fields):
     if field_name.endswith(I18N_SUFFIX):
         field_name = field_name.rstrip(I18N_SUFFIX)
@@ -148,20 +165,44 @@ def normalize_field_info(field_name, value, fields, global_data):
     return field_name, value
 
 
-def get_object_data_field_info(object_data, field_name, field):
-    # TODO: examine copy_from?
+def get_field_value(obj, field_name, field):
+    """Look up a field value from an object.
+
+    Arguments:
+      field_name: the non-i18n name of the field.
+    """
     if field.get('i18n_okay'):
         i18n_field_name = append_i18n_suffix(field_name)
-        if i18n_field_name in object_data:
-            # As a sanity-check, make sure the non-i18n version of the field
-            # is not also defined.
-            assert field_name not in object_data
+        if i18n_field_name in obj:
+            # Sanity check: make sure the non-i18n version isn't also defined.
+            assert field_name not in obj
             field_name = i18n_field_name
-    if field_name not in object_data:
+    if field_name not in obj:
         return None
-    value = object_data[field_name]
+    value = obj[field_name]
 
     return field_name, value
+
+
+def get_object_data_field_info(object_data, field_name, field, global_data):
+    # TODO: examine copy_from?
+    field_info = get_field_value(object_data, field_name, field)
+
+    # TODO: uncomment the below if it turns out we need to support "inherit".
+    # if field_info is not None:
+    #     return field_info
+    #
+    # # Otherwise, fetch the inherited value if there is one.
+    # inherit_field_name = field.get('inherit')
+    # if inherit_field_name is None:
+    #     return None
+    # parent = get_referenced_object(object_data, inherit_field_name, global_data=global_data)
+    # if parent is None:
+    #     return None
+    # # TODO: use the parent type's field object rather than the child's.
+    # field_info = get_field_value(parent, field_name, field)
+
+    return field_info
 
 
 def create_object(object_data, fields, object_id, global_data, object_base=None):
@@ -175,7 +216,8 @@ def create_object(object_data, fields, object_id, global_data, object_base=None)
     # object_data do not always correspond directly to the names of fields,
     # for example "copy_from".
     for field_name, field in sorted(fields.items()):  # We sort for reproducibility.
-        info = get_object_data_field_info(object_data, field_name, field=field)
+        info = get_object_data_field_info(object_data, field_name, field=field,
+                                          global_data=global_data)
         if info is None:
             continue
         field_name, value = info
@@ -203,20 +245,6 @@ def create_object(object_data, fields, object_id, global_data, object_base=None)
         obj[field_name] = value
 
     return obj
-
-
-def get_referenced_object(global_data, object_data, id_attr_name):
-    """Retrieve an object referenced by ID from the global data."""
-    assert id_attr_name.endswith('_id')
-    object_id = object_data.get(id_attr_name)
-    if object_id is None:
-        return None
-    type_name = id_attr_name[:-3]
-    types_name = type_name_to_plural(type_name)
-    objects = global_data[types_name]
-    ref_object = objects[object_id]
-
-    return ref_object
 
 
 def _on_check_object_error(html_obj, type_name, field_name, data_type, details):

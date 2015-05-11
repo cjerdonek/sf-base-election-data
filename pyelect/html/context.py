@@ -254,7 +254,7 @@ def make_one_district_type2(html_obj, html_data, json_obj):
         html_obj['district_name_format'] = name_format
 
     if not html_obj['category_id']:
-        body = utils.get_referenced_object(html_data, json_obj, 'body_id')
+        body = utils.get_referenced_object(json_obj, 'body_id', global_data=html_data)
         category_id = body.get('category_id')
         html_obj['category_id'] = category_id
 
@@ -268,7 +268,7 @@ def make_one_district_type2(html_obj, html_data, json_obj):
 
 # TODO: inherit properties from district type (like office from body).
 def make_one_district2(html_obj, html_data, json_obj):
-    district_type = utils.get_referenced_object(html_data, json_obj, 'district_type_id')
+    district_type = utils.get_referenced_object(json_obj, 'district_type_id', global_data=html_data)
     category_id = district_type['category_id']
 
     html_obj['category_id'] = category_id
@@ -314,14 +314,14 @@ def make_one_office2(html_obj, html_data, json_obj):
     phrases = html_data[NodeNames.phrases]
     if 'body_id' in json_obj:
         if 'district_id' in json_obj:
-            district = utils.get_referenced_object(html_data, json_obj, 'district_id')
+            district = utils.get_referenced_object(json_obj, 'district_id', global_data=html_data)
             if district is None:
                 short_name = None
             else:
                 short_name = district.get('name_short') or district['name']
             html_obj['district_name_short'] = short_name
 
-        body = utils.get_referenced_object(html_data, json_obj, 'body_id')
+        body = utils.get_referenced_object(json_obj, 'body_id', global_data=html_data)
         html_obj['category_id'] = body['category_id']
         member_name = body['member_name']
         html_obj['member_name'] = member_name

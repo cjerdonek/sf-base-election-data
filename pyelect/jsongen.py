@@ -79,7 +79,7 @@ def customize_district_type(json_object, object_data, global_data):
 
 
 def customize_district(json_object, object_data, global_data):
-    district_type = utils.get_referenced_object(global_data, object_data, 'district_type_id')
+    district_type = utils.get_referenced_object(object_data, 'district_type_id', global_data=global_data)
 
     name_format = get_required(district_type, 'district_name_format')
     name = easy_format(name_format, **object_data)
@@ -110,7 +110,7 @@ def customize_office(json_object, object_data, global_data):
     #     office_new.update(office)
     #     del office_new['mixin_id']
     #     office = office_new
-    body = utils.get_referenced_object(global_data, object_data, 'body_id')
+    body = utils.get_referenced_object(object_data, 'body_id', global_data=global_data)
     if body is not None:
         name = get_required(body, 'member_name')
         json_object['name'] = name
@@ -254,7 +254,7 @@ def make_json_data():
         'election_methods',
         'languages',
         'bodies',
-        # TODO: use mixins for offices.
+        # TODO: support mixins for offices.
         'offices',
     ]
 

@@ -31,6 +31,7 @@ offices:
     mixin_id: ca_common
     name_i18n: text_office_state_attorney_general
     url: http://www.oag.ca.gov/
+    wikipedia: http://en.wikipedia.org/wiki/California_Attorney_General
   office_ca_bart_director_7:
     body_id: body_bart
     district_id: district_ca_bart_7
