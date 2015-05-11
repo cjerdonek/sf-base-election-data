@@ -33,9 +33,21 @@
             "category_id": "category_transit",
             "district_type_id": "district_type_bart",
             "jurisdiction_area_id": "area_state_ca_bart",
-            "member_name": "BART Director",
+            "member_name": "BART DIRECTOR",
+            "member_name_i18n": {
+                "_id": "text_office_ca_bart_director",
+                "en": "BART DIRECTOR",
+                "es": "DIRECTOR DE BART",
+                "zh": "\u7063\u5340\u6377\u904b\u8463\u4e8b,"
+            },
             "name": "BART Board of Directors",
+            "name_i18n": {
+                "en": "BART Board of Directors"
+            },
             "office_name_format": "{member_name}, {district_name_short}",
+            "office_name_format_i18n": {
+                "en": "{member_name}, {district_name_short}"
+            },
             "partisan": false,
             "seat_count": 9,
             "term_length": 4,
@@ -46,12 +58,16 @@
             "category_id": "category_state",
             "district_type_id": "district_type_ca_board_of_equalization",
             "jurisdiction_area_id": "area_state_ca",
-            "member_name": "Board Member",
-            "name": "State Board of Equalization",
+            "member_name": "Member, State Board of Equalization",
+            "member_name_i18n": {
+                "en": "Member, State Board of Equalization"
+            },
+            "name": "California State Board of Equalization",
+            "name_i18n": {
+                "en": "California State Board of Equalization"
+            },
             "notes": "The State Controller is the fifth member of this body.",
-            "office_name": "Member, State Board of Equalization",
             "partisan": true,
-            "qualified_name": "California State Board of Equalization",
             "seat_count": 5,
             "term_length": 4,
             "url": "http://www.boe.ca.gov/",
@@ -61,8 +77,16 @@
             "category_id": "category_judicial",
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_state_ca",
-            "member_name": "BART Director",
-            "name_i18n": "text_body_ca_court_supreme",
+            "member_name": "Justice",
+            "member_name_i18n": {
+                "en": "Justice"
+            },
+            "name": "Supreme Court of California",
+            "name_i18n": {
+                "_id": "text_body_ca_court_supreme",
+                "en": "Supreme Court of California",
+                "es": "Corte Suprema"
+            },
             "notes": "The Court has six Associate Justices and one Chief Justice. Each is appointed by the Governor and subject to retention elections.",
             "partisan": false,
             "seat_count": 7,
@@ -75,7 +99,12 @@
             "category_id": "category_judicial",
             "district_type_id": "district_type_ca_court_appeal",
             "jurisdiction_area_id": "area_state_ca",
-            "name_i18n": "text_body_ca_courts_of_appeal",
+            "name": "California Courts of Appeal",
+            "name_i18n": {
+                "_id": "text_body_ca_courts_of_appeal",
+                "en": "California Courts of Appeal",
+                "es": "Corte de Apelaci\u00f3n"
+            },
             "notes": "This may be better viewed as a type of office rather than a body.",
             "partisan": false,
             "seat_count": "=unknown",
@@ -88,7 +117,11 @@
             "category_id": "category_judicial",
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_state_ca_courts_of_appeal_d1",
-            "name_i18n": "text_body_ca_courts_of_appeal_d1",
+            "name": "California Court of Appeal, First District",
+            "name_i18n": {
+                "_id": "text_body_ca_courts_of_appeal_d1",
+                "en": "California Court of Appeal, First District"
+            },
             "notes": "This body is divided into five non-geographical divisions with four justices each.",
             "partisan": false,
             "seat_count": 20
@@ -97,8 +130,18 @@
             "category_id": "category_state",
             "district_type_id": "district_type_ca_state_assembly",
             "jurisdiction_area_id": "area_state_ca",
+            "member_name": "MEMBER OF THE STATE ASSEMBLY",
+            "member_name_i18n": {
+                "_id": "text_office_member_of_the_state_assembly",
+                "en": "MEMBER OF THE STATE ASSEMBLY",
+                "es": "MIEMBRO DE LA ASAMBLEA DEL ESTADO",
+                "fil": "Miyembro ng Asembleya ng Estado",
+                "zh": "\u5dde\u773e\u8b70\u54e1"
+            },
             "name": "California State Assembly",
-            "office_name": "Member of the State Assembly",
+            "name_i18n": {
+                "en": "California State Assembly"
+            },
             "partisan": true,
             "seat_count": 80,
             "term_length": 2,
@@ -109,8 +152,18 @@
             "category_id": "category_state",
             "district_type_id": "district_type_ca_state_senate",
             "jurisdiction_area_id": "area_state_ca",
+            "member_name": "STATE SENATOR",
+            "member_name_i18n": {
+                "_id": "text_office_state_senator",
+                "en": "STATE SENATOR",
+                "es": "SENADOR ESTATAL",
+                "fil": "Senador ng Estado",
+                "zh": "\u5dde\u53c3\u8b70\u54e1"
+            },
             "name": "California State Senate",
-            "office_name_format": "State Senator",
+            "name_i18n": {
+                "en": "California State Senate"
+            },
             "partisan": true,
             "seat_count": 40,
             "term_length": 4,
@@ -121,8 +174,19 @@
             "category_id": "category_school",
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_county_sf",
-            "name_i18n": "text_body_city_board_of_education",
-            "office_name_i18n": "text_office_member_board_of_education",
+            "member_name": "MEMBER, BOARD OF EDUCATION",
+            "member_name_i18n": {
+                "_id": "text_office_member_board_of_education",
+                "en": "MEMBER, BOARD OF EDUCATION",
+                "es": "MIEMBRO, CONSEJO DE EDUCACI\u00d3N",
+                "zh": "\u6559\u80b2\u59d4\u54e1\u6703\u6210\u54e1"
+            },
+            "name": "Board of Education",
+            "name_i18n": {
+                "_id": "text_body_city_board_of_education",
+                "en": "Board of Education",
+                "es": "Consejo de Educaci\u00f3n"
+            },
             "partisan": false,
             "seat_count": 7,
             "term_length": 4,
@@ -135,11 +199,24 @@
             "district_type_id": "district_type_sf_board_of_supervisors",
             "jurisdiction_area_id": "area_county_sf",
             "localwiki": "https://localwiki.org/sf/Board_of_Supervisors",
-            "member_name_i18n": "text_office_member_board_of_supervisors",
-            "name_i18n": "text_body_city_board_of_supervisors",
+            "member_name": "MEMBER, BOARD OF SUPERVISORS",
+            "member_name_i18n": {
+                "_id": "text_office_member_board_of_supervisors",
+                "en": "MEMBER, BOARD OF SUPERVISORS",
+                "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
+                "zh": "\u5e02\u53c3\u8b70\u54e1"
+            },
+            "name": "Board of Supervisors",
+            "name_i18n": {
+                "_id": "text_body_city_board_of_supervisors",
+                "en": "Board of Supervisors",
+                "es": "Consejo de Supervisores"
+            },
             "office_name_format": "{member_name}, {district_name_short}",
+            "office_name_format_i18n": {
+                "en": "{member_name}, {district_name_short}"
+            },
             "partisan": false,
-            "qualified_name": "San Francisco Board of Supervisors",
             "seat_count": 11,
             "term_length": 4,
             "url": "http://www.sfbos.org",
@@ -150,9 +227,20 @@
             "category_id": "category_school",
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_sf_community_college",
-            "name_i18n": "text_body_city_college_board",
+            "member_name": "MEMBER, COMMUNITY COLLEGE BOARD",
+            "member_name_i18n": {
+                "_id": "text_office_member_community_college_board",
+                "en": "MEMBER, COMMUNITY COLLEGE BOARD",
+                "es": "MIEMBRO, CONSEJO DEL COLEGIO COMUNITARIO",
+                "zh": "\u793e\u5340\u5927\u5b78\u8463\u4e8b\u6703\u6210\u54e1"
+            },
+            "name": "Community College Board",
+            "name_i18n": {
+                "_id": "text_body_city_college_board",
+                "en": "Community College Board",
+                "es": "Consejo del Colegio Comunitario"
+            },
             "notes": "This is also known as the San Francisco Community College Board of Trustees.",
-            "office_name_i18n": "text_office_member_community_college_board",
             "partisan": false,
             "seat_count": 7,
             "term_length": 4,
@@ -164,6 +252,9 @@
             "district_type_id": "district_type_ca_state_assembly",
             "jurisdiction_area_id": "area_county_sf",
             "name": "Democratic County Central Committee",
+            "name_i18n": {
+                "en": "Democratic County Central Committee"
+            },
             "partisan": true,
             "seat_count": 24,
             "url": "http://www.sfdemocrats.org/"
@@ -173,6 +264,9 @@
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_county_sf",
             "name": "Green County Council",
+            "name_i18n": {
+                "en": "Green County Council"
+            },
             "partisan": true,
             "seat_count": "=unknown",
             "url": "http://sfgreenparty.org/"
@@ -182,6 +276,9 @@
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_county_sf",
             "name": "Peace and Freedom County Central Committee",
+            "name_i18n": {
+                "en": "Peace and Freedom County Central Committee"
+            },
             "partisan": true,
             "seat_count": "=unknown",
             "url": "http://www.peaceandfreedom.org"
@@ -191,6 +288,9 @@
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_county_sf",
             "name": "Republican County Central Committee",
+            "name_i18n": {
+                "en": "Republican County Central Committee"
+            },
             "partisan": true,
             "seat_count": "=unknown",
             "url": "http://sfgop.org/"
@@ -199,9 +299,19 @@
             "category_id": "category_judicial",
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_county_sf",
-            "name_i18n": "text_body_city_sc",
+            "member_name": "Judge of the Superior Court",
+            "member_name_i18n": {
+                "_id": "text_office_member_body_sf_superior_court",
+                "en": "Judge of the Superior Court",
+                "es": "Juez del Tribunal Superior"
+            },
+            "name": "Superior Court of San Francisco",
+            "name_i18n": {
+                "_id": "text_body_city_sc",
+                "en": "Superior Court of San Francisco",
+                "es": "Tribunal Superior"
+            },
             "notes": "The Commissioners mentioned by Wikipedia do not face election.",
-            "office_name_i18n": "text_office_member_body_sf_superior_court",
             "partisan": false,
             "seat_count": 52,
             "term_length": 6,
@@ -213,10 +323,23 @@
             "district_type_id": "district_type_usa_house",
             "election_method_id": "election_method_top_two",
             "jurisdiction_area_id": "area_country_usa",
-            "member_name": "U.S. Representative",
+            "member_name": "UNITED STATES REPRESENTATIVE",
+            "member_name_i18n": {
+                "_id": "text_office_usa_representative",
+                "en": "UNITED STATES REPRESENTATIVE",
+                "es": "REPRESENTANTE DE ESTADOS UNIDOS",
+                "fil": "Kinatawan ng Estados Unidos",
+                "zh": "\u7f8e\u570b\u773e\u8b70\u54e1"
+            },
             "name": "United States House of Representatives",
+            "name_i18n": {
+                "en": "United States House of Representatives"
+            },
             "notes": "There are also 6 non-voting members.",
             "office_name_format": "{member_name}, {district_name_short}",
+            "office_name_format_i18n": {
+                "en": "{member_name}, {district_name_short}"
+            },
             "partisan": true,
             "seat_count": 435,
             "seed_year": 2010,
@@ -229,9 +352,22 @@
             "district_type_id": "district_type_usa_states",
             "election_method_id": "election_method_top_two",
             "jurisdiction_area_id": "area_country_usa",
-            "member_name": "U.S. Senator",
+            "member_name": "UNITED STATES SENATOR",
+            "member_name_i18n": {
+                "_id": "text_office_usa_senator",
+                "en": "UNITED STATES SENATOR",
+                "es": "SENADOR DE ESTADOS UNIDOS",
+                "fil": "Senador ng Estados Unidos",
+                "zh": "\u7f8e\u570b\u53c3\u8b70\u54e1"
+            },
             "name": "United States Senate",
+            "name_i18n": {
+                "en": "United States Senate"
+            },
             "office_name_format": "{member_name}, {district_name_short} ({seat_name})",
+            "office_name_format_i18n": {
+                "en": "{member_name}, {district_name_short} ({seat_name})"
+            },
             "partisan": true,
             "seat_count": 100,
             "seat_name_format": "Class {seat}",
@@ -242,25 +378,61 @@
     },
     "categories": {
         "category_city_county": {
-            "name_i18n": "text_category_city_county"
+            "name": "CITY AND COUNTY",
+            "name_i18n": {
+                "_id": "text_category_city_county",
+                "en": "CITY AND COUNTY",
+                "es": "CIUDAD Y CONDADO",
+                "zh": "\u5e02\u7e23"
+            }
         },
         "category_federal": {
-            "name_i18n": "text_category_federal"
+            "name": "FEDERAL",
+            "name_i18n": {
+                "_id": "text_category_federal",
+                "en": "FEDERAL",
+                "es": "FEDERAL",
+                "zh": "\u806f\u90a6"
+            }
         },
         "category_judicial": {
-            "name_i18n": "text_category_judicial"
+            "name": "JUDICIAL",
+            "name_i18n": {
+                "_id": "text_category_judicial",
+                "en": "JUDICIAL",
+                "es": "JUDICIAL",
+                "zh": "\u53f8\u6cd5"
+            }
         },
         "category_party": {
-            "name": "PARTY"
+            "name": "PARTY",
+            "name_i18n": {
+                "en": "PARTY"
+            }
         },
         "category_school": {
-            "name_i18n": "text_category_school"
+            "name": "SCHOOL",
+            "name_i18n": {
+                "_id": "text_category_school",
+                "en": "SCHOOL",
+                "es": "ESCUELA",
+                "zh": "\u5b78\u6821"
+            }
         },
         "category_state": {
-            "name_i18n": "text_category_state"
+            "name": "STATE",
+            "name_i18n": {
+                "_id": "text_category_state",
+                "en": "STATE",
+                "es": "ESTADO",
+                "zh": "\u5dde"
+            }
         },
         "category_transit": {
-            "name": "TRANSIT"
+            "name": "TRANSIT",
+            "name_i18n": {
+                "en": "TRANSIT"
+            }
         }
     },
     "district_types": {
@@ -622,69 +794,69 @@
         }
     },
     "offices": {
-        "CA_CourtApp_D1_Div1_AJ": {
-            "district": 1,
-            "division": 1,
-            "office_type_id": "CA_CourtApp_AJ",
-            "seat_count": 3
-        },
-        "CA_CourtApp_D1_Div1_PJ": {
-            "district": 1,
-            "division": 1,
-            "office_type_id": "CA_CourtApp_PJ"
-        },
-        "CA_CourtApp_D1_Div2_AJ": {
-            "district": 1,
-            "division": 2,
-            "office_type_id": "CA_CourtApp_AJ",
-            "seat_count": 3
-        },
-        "CA_CourtApp_D1_Div2_PJ": {
-            "district": 1,
-            "division": 2,
-            "office_type_id": "CA_CourtApp_PJ"
-        },
-        "CA_SC_AJ": {
-            "body_id": "body_ca_court_supreme",
-            "name": "Associate Justice",
-            "seat_count": 6
-        },
-        "CA_SC_CJ": {
-            "body_id": "body_ca_court_supreme",
-            "name": "Chief Justice"
-        },
         "office_ca_attorney_general": {
             "category_id": "category_state",
-            "name_i18n": "text_office_state_attorney_general",
+            "name": "ATTORNEY GENERAL",
+            "name_i18n": {
+                "_id": "text_office_state_attorney_general",
+                "en": "ATTORNEY GENERAL",
+                "es": "PROCURADOR GENERAL",
+                "fil": "Pangkalahatang Abugado",
+                "zh": "\u53f8\u6cd5\u90e8\u9577"
+            },
             "partisan": true,
             "term_length": 4,
-            "url": "http://www.oag.ca.gov/"
+            "url": "http://www.oag.ca.gov/",
+            "wikipedia": "http://en.wikipedia.org/wiki/California_Attorney_General"
         },
         "office_ca_bart_director_7": {
             "body_id": "body_bart",
+            "category_id": "category_transit",
             "district_id": "district_ca_bart_7",
+            "name": "BART DIRECTOR",
+            "partisan": false,
             "seed_year": 2000
         },
         "office_ca_bart_director_8": {
             "body_id": "body_bart",
+            "category_id": "category_transit",
             "district_id": "district_ca_bart_8",
+            "name": "BART DIRECTOR",
+            "partisan": false,
             "seed_year": 2002
         },
         "office_ca_bart_director_9": {
             "body_id": "body_bart",
+            "category_id": "category_transit",
             "district_id": "district_ca_bart_9",
+            "name": "BART DIRECTOR",
+            "partisan": false,
             "seed_year": 2000
         },
         "office_ca_controller": {
             "category_id": "category_state",
-            "name_i18n": "text_office_state_controller",
+            "name": "CONTROLLER",
+            "name_i18n": {
+                "_id": "text_office_state_controller",
+                "en": "CONTROLLER",
+                "es": "CONTRALOR",
+                "fil": "Kontroler",
+                "zh": "\u4e3b\u8a08\u9577"
+            },
             "partisan": true,
             "term_length": 4,
             "url": "http://www.sco.ca.gov/"
         },
         "office_ca_governor": {
             "category_id": "category_state",
-            "name_i18n": "text_office_state_governor",
+            "name": "GOVERNOR",
+            "name_i18n": {
+                "_id": "text_office_state_governor",
+                "en": "GOVERNOR",
+                "es": "GOBERNADOR",
+                "fil": "Gobernador",
+                "zh": "\u5dde\u9577"
+            },
             "partisan": true,
             "seed_year": 2014,
             "term_length": 4,
@@ -692,14 +864,28 @@
         },
         "office_ca_insurance_commissioner": {
             "category_id": "category_state",
-            "name_i18n": "text_office_state_insurance_commissioner",
+            "name": "INSURANCE COMMISSIONER",
+            "name_i18n": {
+                "_id": "text_office_state_insurance_commissioner",
+                "en": "INSURANCE COMMISSIONER",
+                "es": "COMISIONADO DE SEGUROS",
+                "fil": "Komisyonado ng Seguro",
+                "zh": "\u4fdd\u96aa\u90e8\u9577"
+            },
             "partisan": true,
             "term_length": 4,
             "url": "http://www.insurance.ca.gov/"
         },
         "office_ca_lieutenant_governor": {
             "category_id": "category_state",
-            "name_i18n": "text_office_state_lieutenant_governor",
+            "name": "LIEUTENANT GOVERNOR",
+            "name_i18n": {
+                "_id": "text_office_state_lieutenant_governor",
+                "en": "LIEUTENANT GOVERNOR",
+                "es": "VICEGOBERNADOR",
+                "fil": "Tenyente Gobernador",
+                "zh": "\u526f\u5dde\u9577"
+            },
             "partisan": true,
             "seed_year": 2014,
             "term_length": 4,
@@ -707,7 +893,14 @@
         },
         "office_ca_secretary": {
             "category_id": "category_state",
-            "name_i18n": "text_office_state_secretary",
+            "name": "SECRETARY OF STATE",
+            "name_i18n": {
+                "_id": "text_office_state_secretary",
+                "en": "SECRETARY OF STATE",
+                "es": "SECRETARIO DE ESTADO",
+                "fil": "Kalihim ng Estado",
+                "zh": "\u5dde\u52d9\u537f"
+            },
             "partisan": true,
             "seed_year": 2014,
             "term_length": 4,
@@ -716,19 +909,35 @@
         },
         "office_ca_state_assembly_17": {
             "body_id": "body_ca_state_assembly",
-            "district_id": "district_ca_state_assembly_17"
+            "category_id": "category_state",
+            "district_id": "district_ca_state_assembly_17",
+            "name": "MEMBER OF THE STATE ASSEMBLY",
+            "partisan": true
         },
         "office_ca_state_assembly_19": {
             "body_id": "body_ca_state_assembly",
-            "district_id": "district_ca_state_assembly_19"
+            "category_id": "category_state",
+            "district_id": "district_ca_state_assembly_19",
+            "name": "MEMBER OF THE STATE ASSEMBLY",
+            "partisan": true
         },
         "office_ca_state_senate_11": {
             "body_id": "body_ca_state_senate",
-            "district_id": "district_ca_state_senate_11"
+            "category_id": "category_state",
+            "district_id": "district_ca_state_senate_11",
+            "name": "STATE SENATOR",
+            "partisan": true
         },
         "office_ca_superintendent_of_public_instruction": {
             "category_id": "category_state",
-            "name_i18n": "text_office_state_superintendent_of_public_instruction",
+            "name": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
+            "name_i18n": {
+                "_id": "text_office_state_superintendent_of_public_instruction",
+                "en": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
+                "es": "SUPERINTENDENTE DE INSTRUCCI\u00d3N P\u00daBLICA",
+                "fil": "Superintendente ng Pampublikong Pagtuturo",
+                "zh": "\u6559\u80b2\u90e8\u9577"
+            },
             "partisan": false,
             "seed_year": 2014,
             "term_length": 4,
@@ -737,13 +946,22 @@
         "office_ca_treasurer": {
             "category_id": "category_state",
             "name": "State Treasurer",
+            "name_i18n": {
+                "en": "State Treasurer"
+            },
             "partisan": true,
             "term_length": 4,
             "url": "http://www.treasurer.ca.gov/"
         },
         "office_sf_assessor_recorder": {
             "category_id": "category_city_county",
-            "name_i18n": "text_office_city_assessor_recorder",
+            "name": "ASSESSOR-RECORDER",
+            "name_i18n": {
+                "_id": "text_office_city_assessor_recorder",
+                "en": "ASSESSOR-RECORDER",
+                "es": "TASADOR-REGISTRADOR",
+                "zh": "\u4f30\u503c\u5b98-\u8a18\u9304\u5b98"
+            },
             "partisan": false,
             "seed_year": 2014,
             "term_length": 4,
@@ -752,72 +970,117 @@
         },
         "office_sf_board_of_education_seats_3": {
             "body_id": "body_sf_board_of_education",
+            "category_id": "category_school",
+            "name": "MEMBER, BOARD OF EDUCATION",
+            "partisan": false,
             "seat_count": 3,
             "seed_year": 2014
         },
         "office_sf_board_of_education_seats_4": {
             "body_id": "body_sf_board_of_education",
+            "category_id": "category_school",
+            "name": "MEMBER, BOARD OF EDUCATION",
+            "partisan": false,
             "seat_count": 4,
             "seed_year": 2012
         },
         "office_sf_board_of_supervisors_01": {
             "body_id": "body_sf_board_of_supervisors",
+            "category_id": "category_city_county",
             "district_id": "district_sf_board_of_supervisors_01",
+            "name": "MEMBER, BOARD OF SUPERVISORS",
+            "partisan": false,
             "seed_year": 2012
         },
         "office_sf_board_of_supervisors_02": {
             "body_id": "body_sf_board_of_supervisors",
+            "category_id": "category_city_county",
             "district_id": "district_sf_board_of_supervisors_02",
+            "name": "MEMBER, BOARD OF SUPERVISORS",
+            "partisan": false,
             "seed_year": 2014
         },
         "office_sf_board_of_supervisors_03": {
             "body_id": "body_sf_board_of_supervisors",
+            "category_id": "category_city_county",
             "district_id": "district_sf_board_of_supervisors_03",
+            "name": "MEMBER, BOARD OF SUPERVISORS",
+            "partisan": false,
             "seed_year": 2012
         },
         "office_sf_board_of_supervisors_04": {
             "body_id": "body_sf_board_of_supervisors",
+            "category_id": "category_city_county",
             "district_id": "district_sf_board_of_supervisors_04",
+            "name": "MEMBER, BOARD OF SUPERVISORS",
+            "partisan": false,
             "seed_year": 2014
         },
         "office_sf_board_of_supervisors_05": {
             "body_id": "body_sf_board_of_supervisors",
+            "category_id": "category_city_county",
             "district_id": "district_sf_board_of_supervisors_05",
+            "name": "MEMBER, BOARD OF SUPERVISORS",
+            "partisan": false,
             "seed_year": 2012
         },
         "office_sf_board_of_supervisors_06": {
             "body_id": "body_sf_board_of_supervisors",
+            "category_id": "category_city_county",
             "district_id": "district_sf_board_of_supervisors_06",
+            "name": "MEMBER, BOARD OF SUPERVISORS",
+            "partisan": false,
             "seed_year": 2014
         },
         "office_sf_board_of_supervisors_07": {
             "body_id": "body_sf_board_of_supervisors",
+            "category_id": "category_city_county",
             "district_id": "district_sf_board_of_supervisors_07",
+            "name": "MEMBER, BOARD OF SUPERVISORS",
+            "partisan": false,
             "seed_year": 2012
         },
         "office_sf_board_of_supervisors_08": {
             "body_id": "body_sf_board_of_supervisors",
+            "category_id": "category_city_county",
             "district_id": "district_sf_board_of_supervisors_08",
+            "name": "MEMBER, BOARD OF SUPERVISORS",
+            "partisan": false,
             "seed_year": 2014
         },
         "office_sf_board_of_supervisors_09": {
             "body_id": "body_sf_board_of_supervisors",
+            "category_id": "category_city_county",
             "district_id": "district_sf_board_of_supervisors_09",
+            "name": "MEMBER, BOARD OF SUPERVISORS",
+            "partisan": false,
             "seed_year": 2012
         },
         "office_sf_board_of_supervisors_10": {
             "body_id": "body_sf_board_of_supervisors",
+            "category_id": "category_city_county",
             "district_id": "district_sf_board_of_supervisors_10",
+            "name": "MEMBER, BOARD OF SUPERVISORS",
+            "partisan": false,
             "seed_year": 2014
         },
         "office_sf_board_of_supervisors_11": {
             "body_id": "body_sf_board_of_supervisors",
+            "category_id": "category_city_county",
             "district_id": "district_sf_board_of_supervisors_11",
+            "name": "MEMBER, BOARD OF SUPERVISORS",
+            "partisan": false,
             "seed_year": 2012
         },
         "office_sf_city_attorney": {
             "category_id": "category_city_county",
-            "name_i18n": "text_office_city_attorney",
+            "name": "CITY ATTORNEY",
+            "name_i18n": {
+                "_id": "text_office_city_attorney",
+                "en": "CITY ATTORNEY",
+                "es": "ABOGADO DE LA CIUDAD",
+                "zh": "\u5e02\u5e9c\u5f8b\u5e2b"
+            },
             "partisan": false,
             "seed_year": 2015,
             "term_length": 4,
@@ -827,17 +1090,29 @@
         },
         "office_sf_college_board_seats_3": {
             "body_id": "body_sf_college_board",
+            "category_id": "category_school",
+            "name": "MEMBER, COMMUNITY COLLEGE BOARD",
+            "partisan": false,
             "seat_count": 3,
             "seed_year": 2014
         },
         "office_sf_college_board_seats_4": {
             "body_id": "body_sf_college_board",
+            "category_id": "category_school",
+            "name": "MEMBER, COMMUNITY COLLEGE BOARD",
+            "partisan": false,
             "seat_count": 4,
             "seed_year": 2012
         },
         "office_sf_district_attorney": {
             "category_id": "category_city_county",
-            "name_i18n": "text_office_city_district_attorney",
+            "name": "DISTRICT ATTORNEY",
+            "name_i18n": {
+                "_id": "text_office_city_district_attorney",
+                "en": "DISTRICT ATTORNEY",
+                "es": "FISCAL DEL DISTRITO",
+                "zh": "\u5730\u65b9\u6aa2\u5bdf\u5b98"
+            },
             "partisan": false,
             "seed_year": 2015,
             "term_length": 4,
@@ -847,7 +1122,13 @@
         },
         "office_sf_mayor": {
             "category_id": "category_city_county",
-            "name_i18n": "text_office_city_mayor",
+            "name": "MAYOR",
+            "name_i18n": {
+                "_id": "text_office_city_mayor",
+                "en": "MAYOR",
+                "es": "ALCALDE",
+                "zh": "\u5e02\u9577"
+            },
             "partisan": false,
             "seed_year": 2015,
             "term_length": 4,
@@ -856,7 +1137,13 @@
         },
         "office_sf_public_defender": {
             "category_id": "category_city_county",
-            "name_i18n": "text_office_city_public_defender",
+            "name": "PUBLIC DEFENDER",
+            "name_i18n": {
+                "_id": "text_office_city_public_defender",
+                "en": "PUBLIC DEFENDER",
+                "es": "DEFENSOR P\u00daBLICO",
+                "zh": "\u516c\u5171\u8faf\u8b77\u5f8b\u5e2b"
+            },
             "partisan": false,
             "seed_year": 2014,
             "term_length": 4,
@@ -866,7 +1153,13 @@
         },
         "office_sf_sheriff": {
             "category_id": "category_city_county",
-            "name_i18n": "text_office_city_sheriff",
+            "name": "SHERIFF",
+            "name_i18n": {
+                "_id": "text_office_city_sheriff",
+                "en": "SHERIFF",
+                "es": "ALGUACIL",
+                "zh": "\u7e23\u8b66\u9577"
+            },
             "partisan": false,
             "seed_year": 2015,
             "term_length": 4,
@@ -876,7 +1169,13 @@
         },
         "office_sf_treasurer": {
             "category_id": "category_city_county",
-            "name_i18n": "text_office_city_treasurer",
+            "name": "TREASURER",
+            "name_i18n": {
+                "_id": "text_office_city_treasurer",
+                "en": "TREASURER",
+                "es": "TESORERO",
+                "zh": "\u8ca1\u653f\u5b98"
+            },
             "partisan": false,
             "seed_year": 2015,
             "term_length": 4,
@@ -886,16 +1185,29 @@
         },
         "office_usa_house_12": {
             "body_id": "body_usa_house",
-            "district_id": "district_usa_house_12"
+            "category_id": "category_federal",
+            "district_id": "district_usa_house_12",
+            "name": "UNITED STATES REPRESENTATIVE",
+            "partisan": true
         },
         "office_usa_house_14": {
             "body_id": "body_usa_house",
-            "district_id": "district_usa_house_14"
+            "category_id": "category_federal",
+            "district_id": "district_usa_house_14",
+            "name": "UNITED STATES REPRESENTATIVE",
+            "partisan": true
         },
         "office_usa_president_of_the_united_states": {
             "category_id": "category_federal",
             "election_method_id": "election_method_presidential",
-            "name_i18n": "text_office_usa_president_of_the_united_states",
+            "name": "PRESIDENT OF THE UNITED STATES",
+            "name_i18n": {
+                "_id": "text_office_usa_president_of_the_united_states",
+                "en": "PRESIDENT OF THE UNITED STATES",
+                "es": "PRESIDENTE DE ESTADOS UNIDOS",
+                "zh": "\u7f8e\u570b\u7e3d\u7d71"
+            },
+            "partisan": true,
             "seed_year": 2000,
             "term_length": 4,
             "twitter": "WhiteHouse",
@@ -904,13 +1216,19 @@
         },
         "office_usa_senate_1": {
             "body_id": "body_usa_senate",
+            "category_id": "category_federal",
             "district_id": "district_usa_state_ca",
+            "name": "UNITED STATES SENATOR",
+            "partisan": true,
             "seat": 1,
             "seed_year": 2000
         },
         "office_usa_senate_2": {
             "body_id": "body_usa_senate",
+            "category_id": "category_federal",
             "district_id": "district_usa_state_ca",
+            "name": "UNITED STATES SENATOR",
+            "partisan": true,
             "seat": 3,
             "seed_year": 2004
         }
