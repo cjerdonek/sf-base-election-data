@@ -2,7 +2,7 @@ _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
   base:
-    name_i18n: 'text_{id}'
+    name_i18n: text_{id}
 categories:
   category_city_county: {}
   category_federal: {}

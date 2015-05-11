@@ -67,8 +67,8 @@ bodies:
     category_id: category_state
     district_type_id: district_type_ca_state_assembly
     jurisdiction_area_id: area_state_ca
-    name: California State Assembly
     member_name: Member of the State Assembly
+    name: California State Assembly
     partisan: true
     seat_count: 80
     term_length: 2
@@ -78,8 +78,8 @@ bodies:
     category_id: category_state
     district_type_id: district_type_ca_state_senate
     jurisdiction_area_id: area_state_ca
-    name: California State Senate
     member_name: State Senator
+    name: California State Senate
     partisan: true
     seat_count: 40
     term_length: 4
@@ -88,8 +88,8 @@ bodies:
   body_sf_board_of_education:
     category_id: category_school
     district_type_id: =none
-    member_name_i18n: text_office_member_board_of_education
     jurisdiction_area_id: area_county_sf
+    member_name_i18n: text_office_member_board_of_education
     name_i18n: text_body_city_board_of_education
     partisan: false
     seat_count: 7
@@ -116,9 +116,9 @@ bodies:
     category_id: category_school
     district_type_id: =none
     jurisdiction_area_id: area_sf_community_college
+    member_name_i18n: text_office_member_community_college_board
     name_i18n: text_body_city_college_board
     notes: This is also known as the San Francisco Community College Board of Trustees.
-    member_name_i18n: text_office_member_community_college_board
     partisan: false
     seat_count: 7
     term_length: 4
