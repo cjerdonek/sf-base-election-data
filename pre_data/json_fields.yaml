@@ -8,8 +8,12 @@ fields:
     notes: {}
     wikipedia: {}
   body:
+    member_name:
+      i18n_okay: true
     name:
+      i18n_okay: true
       required: true
+    wikipedia: {}
   category:
     name:
       i18n_okay: true
@@ -57,6 +61,7 @@ fields:
       i18n_okay: true
   office:
     name:
+      i18n_okay: true
       required: true
   phrase:
     en: {}
