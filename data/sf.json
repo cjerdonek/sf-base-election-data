@@ -307,7 +307,7 @@
             },
             "name": "Superior Court of San Francisco",
             "name_i18n": {
-                "_id": "text_body_city_sc",
+                "_id": "text_body_sf_superior_court",
                 "en": "Superior Court of San Francisco",
                 "es": "Tribunal Superior"
             },
@@ -1257,7 +1257,7 @@
             "en": "Community College Board",
             "es": "Consejo del Colegio Comunitario"
         },
-        "text_body_city_sc": {
+        "text_body_sf_superior_court": {
             "en": "Superior Court of San Francisco",
             "es": "Tribunal Superior"
         },

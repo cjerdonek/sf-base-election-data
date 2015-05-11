@@ -1,12 +1,16 @@
 TODO
 ====
 
+* Check all `body.office_name_i18n` values.
 * Add `int` type to fields.yaml.
+* Member name for Supreme Court of California: Justice?
 * Fix names for: SF Board of Supervisors and Education.
+  - Generally, work on office.name, taking into account i18n and
+    format strings, etc.
+  - Also take into account "seat_count" and district, etc.
 * Make name reflect: "Judge of the Superior Court, Seat No. 20"
 * Somehow flag types as required in either the instance or the base
   (e.g. office/body)?
-* Rename `text_body_city_sc`.
 * Choose better names for `office_name` and generic `member_name`.
 * Internationalize `body_ca_board_of_equalization.office_name`:
   - `text_office_member_state_board_of_eq_d2`
