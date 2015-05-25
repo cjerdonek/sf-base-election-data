@@ -226,13 +226,17 @@ def _on_check_object_error(obj, object_id, type_name, field_name, data_type, det
 def check_object(obj, object_id, type_name, data_type, fields):
     type_fields = fields[type_name]
 
-    # Check for fields that should not exist.
     for field_name, value in sorted(obj.items()):  # sort for reproducibility.
         try:
-            get_field(field_name, type_fields)
+            # Ensure that every field value is supposed to be there.
+            field = get_field(field_name, type_fields)
         except KeyError:
             raise Exception("field '{0}' is not defined for type '{1}':\n{2}"
                             .format(field_name, type_name, pformat(obj)))
+        if (field.is_i18n and not field_name.endswith(I18N_SUFFIX) and
+            not isinstance(value, str)):
+            raise Exception("field {0!r} should be a string:\n{1}"
+                            .format(field_name, pformat(value)))
 
     # We sort when iterating for repeatability when troubleshooting.
     for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.

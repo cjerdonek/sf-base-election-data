@@ -43,10 +43,12 @@ fields:
       required: true
     label: {}
     name:
+      i18n_okay: true
       inherit: district_type_id.district_name_format
       format: true
       required: true
     name_short:
+      i18n_okay: true
       inherit: district_type_id.district_name_short_format
       format: true
       required: true
