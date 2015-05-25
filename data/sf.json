@@ -41,13 +41,7 @@
                 "zh": "\u7063\u5340\u6377\u904b\u8463\u4e8b,"
             },
             "name": "BART Board of Directors",
-            "name_i18n": {
-                "en": "BART Board of Directors"
-            },
             "office_name_format": "{member_name}, {district_name_short}",
-            "office_name_format_i18n": {
-                "en": "{member_name}, {district_name_short}"
-            },
             "partisan": false,
             "seat_count": 9,
             "term_length": 4,
@@ -59,13 +53,7 @@
             "district_type_id": "district_type_ca_board_of_equalization",
             "jurisdiction_area_id": "area_state_ca",
             "member_name": "Member, State Board of Equalization",
-            "member_name_i18n": {
-                "en": "Member, State Board of Equalization"
-            },
             "name": "California State Board of Equalization",
-            "name_i18n": {
-                "en": "California State Board of Equalization"
-            },
             "notes": "The State Controller is the fifth member of this body.",
             "partisan": true,
             "seat_count": 5,
@@ -78,9 +66,6 @@
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_state_ca",
             "member_name": "Justice",
-            "member_name_i18n": {
-                "en": "Justice"
-            },
             "name": "Supreme Court of California",
             "name_i18n": {
                 "_id": "text_body_ca_court_supreme",
@@ -139,9 +124,6 @@
                 "zh": "\u5dde\u773e\u8b70\u54e1"
             },
             "name": "California State Assembly",
-            "name_i18n": {
-                "en": "California State Assembly"
-            },
             "partisan": true,
             "seat_count": 80,
             "term_length": 2,
@@ -161,9 +143,6 @@
                 "zh": "\u5dde\u53c3\u8b70\u54e1"
             },
             "name": "California State Senate",
-            "name_i18n": {
-                "en": "California State Senate"
-            },
             "partisan": true,
             "seat_count": 40,
             "term_length": 4,
@@ -213,9 +192,6 @@
                 "es": "Consejo de Supervisores"
             },
             "office_name_format": "{member_name}, {district_name_short}",
-            "office_name_format_i18n": {
-                "en": "{member_name}, {district_name_short}"
-            },
             "partisan": false,
             "seat_count": 11,
             "term_length": 4,
@@ -252,9 +228,6 @@
             "district_type_id": "district_type_ca_state_assembly",
             "jurisdiction_area_id": "area_county_sf",
             "name": "Democratic County Central Committee",
-            "name_i18n": {
-                "en": "Democratic County Central Committee"
-            },
             "partisan": true,
             "seat_count": 24,
             "url": "http://www.sfdemocrats.org/"
@@ -264,9 +237,6 @@
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_county_sf",
             "name": "Green County Council",
-            "name_i18n": {
-                "en": "Green County Council"
-            },
             "partisan": true,
             "seat_count": "=unknown",
             "url": "http://sfgreenparty.org/"
@@ -276,9 +246,6 @@
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_county_sf",
             "name": "Peace and Freedom County Central Committee",
-            "name_i18n": {
-                "en": "Peace and Freedom County Central Committee"
-            },
             "partisan": true,
             "seat_count": "=unknown",
             "url": "http://www.peaceandfreedom.org"
@@ -288,9 +255,6 @@
             "district_type_id": "=none",
             "jurisdiction_area_id": "area_county_sf",
             "name": "Republican County Central Committee",
-            "name_i18n": {
-                "en": "Republican County Central Committee"
-            },
             "partisan": true,
             "seat_count": "=unknown",
             "url": "http://sfgop.org/"
@@ -332,14 +296,8 @@
                 "zh": "\u7f8e\u570b\u773e\u8b70\u54e1"
             },
             "name": "United States House of Representatives",
-            "name_i18n": {
-                "en": "United States House of Representatives"
-            },
             "notes": "There are also 6 non-voting members.",
             "office_name_format": "{member_name}, {district_name_short}",
-            "office_name_format_i18n": {
-                "en": "{member_name}, {district_name_short}"
-            },
             "partisan": true,
             "seat_count": 435,
             "seed_year": 2010,
@@ -361,13 +319,7 @@
                 "zh": "\u7f8e\u570b\u53c3\u8b70\u54e1"
             },
             "name": "United States Senate",
-            "name_i18n": {
-                "en": "United States Senate"
-            },
             "office_name_format": "{member_name}, {district_name_short} ({seat_name})",
-            "office_name_format_i18n": {
-                "en": "{member_name}, {district_name_short} ({seat_name})"
-            },
             "partisan": true,
             "seat_count": 100,
             "seat_name_format": "Class {seat}",
@@ -405,10 +357,7 @@
             }
         },
         "category_party": {
-            "name": "PARTY",
-            "name_i18n": {
-                "en": "PARTY"
-            }
+            "name": "PARTY"
         },
         "category_school": {
             "name": "SCHOOL",
@@ -429,10 +378,7 @@
             }
         },
         "category_transit": {
-            "name": "TRANSIT",
-            "name_i18n": {
-                "en": "TRANSIT"
-            }
+            "name": "TRANSIT"
         }
     },
     "district_types": {
@@ -441,9 +387,6 @@
             "description_plural": "BART Districts",
             "district_count": 9,
             "district_name_format": "BART District {number}",
-            "district_name_format_i18n": {
-                "en": "BART District {number}"
-            },
             "district_name_short_format": "DISTRICT {number}",
             "district_name_short_format_i18n": {
                 "_id": "text_district_numbered_format",
@@ -460,13 +403,7 @@
             "description_plural": "Equalization Districts",
             "district_count": 4,
             "district_name_format": "{label} Equalization District",
-            "district_name_format_i18n": {
-                "en": "{label} Equalization District"
-            },
             "district_name_short_format": "{label} District",
-            "district_name_short_format_i18n": {
-                "en": "{label} District"
-            },
             "name": "Equalization",
             "parent_area_id": "area_state_ca",
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Equalization_districts"
@@ -476,13 +413,7 @@
             "description_plural": "Appellate Districts",
             "district_count": 6,
             "district_name_format": "{label} Appellate District",
-            "district_name_format_i18n": {
-                "en": "{label} Appellate District"
-            },
             "district_name_short_format": "{label} District",
-            "district_name_short_format_i18n": {
-                "en": "{label} District"
-            },
             "name": "Appellate",
             "parent_area_id": "area_state_ca"
         },
@@ -491,9 +422,6 @@
             "description_plural": "State Assembly Districts",
             "district_count": 80,
             "district_name_format": "State Assembly District {number}",
-            "district_name_format_i18n": {
-                "en": "State Assembly District {number}"
-            },
             "district_name_short_format": "DISTRICT {number}",
             "district_name_short_format_i18n": {
                 "_id": "text_district_numbered_format",
@@ -510,9 +438,6 @@
             "description_plural": "State Senate Districts",
             "district_count": 40,
             "district_name_format": "State Senate District {number}",
-            "district_name_format_i18n": {
-                "en": "State Senate District {number}"
-            },
             "district_name_short_format": "DISTRICT {number}",
             "district_name_short_format_i18n": {
                 "_id": "text_district_numbered_format",
@@ -529,9 +454,6 @@
             "description_plural": "Supervisorial Districts",
             "district_count": 11,
             "district_name_format": "Supervisorial District {number}",
-            "district_name_format_i18n": {
-                "en": "Supervisorial District {number}"
-            },
             "district_name_short_format": "DISTRICT {number}",
             "district_name_short_format_i18n": {
                 "_id": "text_district_numbered_format",
@@ -548,9 +470,6 @@
             "description_plural": "US Congressional Districts",
             "district_count": 435,
             "district_name_format": "US Congressional District {number}",
-            "district_name_format_i18n": {
-                "en": "US Congressional District {number}"
-            },
             "district_name_short_format": "DISTRICT {number}",
             "district_name_short_format_i18n": {
                 "_id": "text_district_numbered_format",
@@ -567,13 +486,7 @@
             "description_plural": "US States",
             "district_count": 50,
             "district_name_format": "State of {label}",
-            "district_name_format_i18n": {
-                "en": "State of {label}"
-            },
             "district_name_short_format": "{label}",
-            "district_name_short_format_i18n": {
-                "en": "{label}"
-            },
             "name": "US State",
             "parent_area_id": "area_country_usa"
         }
@@ -582,9 +495,6 @@
         "district_ca_bart_7": {
             "district_type_id": "district_type_bart",
             "name": "BART District 7",
-            "name_i18n": {
-                "en": "BART District 7"
-            },
             "name_short": "DISTRICT 7",
             "name_short_i18n": {
                 "en": "DISTRICT 7",
@@ -597,9 +507,6 @@
         "district_ca_bart_8": {
             "district_type_id": "district_type_bart",
             "name": "BART District 8",
-            "name_i18n": {
-                "en": "BART District 8"
-            },
             "name_short": "DISTRICT 8",
             "name_short_i18n": {
                 "en": "DISTRICT 8",
@@ -612,9 +519,6 @@
         "district_ca_bart_9": {
             "district_type_id": "district_type_bart",
             "name": "BART District 9",
-            "name_i18n": {
-                "en": "BART District 9"
-            },
             "name_short": "DISTRICT 9",
             "name_short_i18n": {
                 "en": "DISTRICT 9",
@@ -628,13 +532,7 @@
             "district_type_id": "district_type_ca_board_of_equalization",
             "label": "Second",
             "name": "Second Equalization District",
-            "name_i18n": {
-                "en": "Second Equalization District"
-            },
             "name_short": "Second District",
-            "name_short_i18n": {
-                "en": "Second District"
-            },
             "number": 2,
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Second_district"
         },
@@ -642,22 +540,13 @@
             "district_type_id": "district_type_ca_court_appeal",
             "label": "First",
             "name": "First Appellate District",
-            "name_i18n": {
-                "en": "First Appellate District"
-            },
             "name_short": "First District",
-            "name_short_i18n": {
-                "en": "First District"
-            },
             "number": 1,
             "wikipedia": "http://en.wikipedia.org/wiki/California_courts_of_appeal#First_District"
         },
         "district_ca_state_assembly_17": {
             "district_type_id": "district_type_ca_state_assembly",
             "name": "State Assembly District 17",
-            "name_i18n": {
-                "en": "State Assembly District 17"
-            },
             "name_short": "DISTRICT 17",
             "name_short_i18n": {
                 "en": "DISTRICT 17",
@@ -671,9 +560,6 @@
         "district_ca_state_assembly_19": {
             "district_type_id": "district_type_ca_state_assembly",
             "name": "State Assembly District 19",
-            "name_i18n": {
-                "en": "State Assembly District 19"
-            },
             "name_short": "DISTRICT 19",
             "name_short_i18n": {
                 "en": "DISTRICT 19",
@@ -687,9 +573,6 @@
         "district_ca_state_senate_11": {
             "district_type_id": "district_type_ca_state_senate",
             "name": "State Senate District 11",
-            "name_i18n": {
-                "en": "State Senate District 11"
-            },
             "name_short": "DISTRICT 11",
             "name_short_i18n": {
                 "en": "DISTRICT 11",
@@ -703,9 +586,6 @@
         "district_sf_board_of_supervisors_01": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 1",
-            "name_i18n": {
-                "en": "Supervisorial District 1"
-            },
             "name_short": "DISTRICT 1",
             "name_short_i18n": {
                 "en": "DISTRICT 1",
@@ -718,9 +598,6 @@
         "district_sf_board_of_supervisors_02": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 2",
-            "name_i18n": {
-                "en": "Supervisorial District 2"
-            },
             "name_short": "DISTRICT 2",
             "name_short_i18n": {
                 "en": "DISTRICT 2",
@@ -733,9 +610,6 @@
         "district_sf_board_of_supervisors_03": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 3",
-            "name_i18n": {
-                "en": "Supervisorial District 3"
-            },
             "name_short": "DISTRICT 3",
             "name_short_i18n": {
                 "en": "DISTRICT 3",
@@ -748,9 +622,6 @@
         "district_sf_board_of_supervisors_04": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 4",
-            "name_i18n": {
-                "en": "Supervisorial District 4"
-            },
             "name_short": "DISTRICT 4",
             "name_short_i18n": {
                 "en": "DISTRICT 4",
@@ -763,9 +634,6 @@
         "district_sf_board_of_supervisors_05": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 5",
-            "name_i18n": {
-                "en": "Supervisorial District 5"
-            },
             "name_short": "DISTRICT 5",
             "name_short_i18n": {
                 "en": "DISTRICT 5",
@@ -778,9 +646,6 @@
         "district_sf_board_of_supervisors_06": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 6",
-            "name_i18n": {
-                "en": "Supervisorial District 6"
-            },
             "name_short": "DISTRICT 6",
             "name_short_i18n": {
                 "en": "DISTRICT 6",
@@ -793,9 +658,6 @@
         "district_sf_board_of_supervisors_07": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 7",
-            "name_i18n": {
-                "en": "Supervisorial District 7"
-            },
             "name_short": "DISTRICT 7",
             "name_short_i18n": {
                 "en": "DISTRICT 7",
@@ -808,9 +670,6 @@
         "district_sf_board_of_supervisors_08": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 8",
-            "name_i18n": {
-                "en": "Supervisorial District 8"
-            },
             "name_short": "DISTRICT 8",
             "name_short_i18n": {
                 "en": "DISTRICT 8",
@@ -823,9 +682,6 @@
         "district_sf_board_of_supervisors_09": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 9",
-            "name_i18n": {
-                "en": "Supervisorial District 9"
-            },
             "name_short": "DISTRICT 9",
             "name_short_i18n": {
                 "en": "DISTRICT 9",
@@ -838,9 +694,6 @@
         "district_sf_board_of_supervisors_10": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 10",
-            "name_i18n": {
-                "en": "Supervisorial District 10"
-            },
             "name_short": "DISTRICT 10",
             "name_short_i18n": {
                 "en": "DISTRICT 10",
@@ -853,9 +706,6 @@
         "district_sf_board_of_supervisors_11": {
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 11",
-            "name_i18n": {
-                "en": "Supervisorial District 11"
-            },
             "name_short": "DISTRICT 11",
             "name_short_i18n": {
                 "en": "DISTRICT 11",
@@ -868,9 +718,6 @@
         "district_usa_house_12": {
             "district_type_id": "district_type_usa_house",
             "name": "US Congressional District 12",
-            "name_i18n": {
-                "en": "US Congressional District 12"
-            },
             "name_short": "DISTRICT 12",
             "name_short_i18n": {
                 "en": "DISTRICT 12",
@@ -884,9 +731,6 @@
         "district_usa_house_14": {
             "district_type_id": "district_type_usa_house",
             "name": "US Congressional District 14",
-            "name_i18n": {
-                "en": "US Congressional District 14"
-            },
             "name_short": "DISTRICT 14",
             "name_short_i18n": {
                 "en": "DISTRICT 14",
@@ -901,13 +745,7 @@
             "district_type_id": "district_type_usa_states",
             "label": "California",
             "name": "State of California",
-            "name_i18n": {
-                "en": "State of California"
-            },
-            "name_short": "California",
-            "name_short_i18n": {
-                "en": "California"
-            }
+            "name_short": "California"
         }
     },
     "election_methods": {
@@ -925,26 +763,17 @@
         "language_chinese": {
             "code": "zh",
             "name": "Chinese",
-            "notes": "Available on the default official ballot.",
-            "notes_i18n": {
-                "en": "Available on the default official ballot."
-            }
+            "notes": "Available on the default official ballot."
         },
         "language_english": {
             "code": "en",
             "name": "English",
-            "notes": "Available on all official ballots.",
-            "notes_i18n": {
-                "en": "Available on all official ballots."
-            }
+            "notes": "Available on all official ballots."
         },
         "language_filipino": {
             "code": "fil",
             "name": "Filipino",
-            "notes": "Available on an official ballot by request starting November 2015.",
-            "notes_i18n": {
-                "en": "Available on an official ballot by request starting November 2015."
-            }
+            "notes": "Available on an official ballot by request starting November 2015."
         },
         "language_japanese": {
             "code": "jp",
@@ -967,10 +796,7 @@
         "language_spanish": {
             "code": "es",
             "name": "Spanish",
-            "notes": "Available on an official ballot by request.",
-            "notes_i18n": {
-                "en": "Available on an official ballot by request."
-            }
+            "notes": "Available on an official ballot by request."
         },
         "language_vietnamese": {
             "code": "vi",
@@ -1135,9 +961,6 @@
         "office_ca_treasurer": {
             "category_id": "category_state",
             "name": "State Treasurer",
-            "name_i18n": {
-                "en": "State Treasurer"
-            },
             "partisan": true,
             "term_length": 4,
             "url": "http://www.treasurer.ca.gov/"

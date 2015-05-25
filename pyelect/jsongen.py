@@ -174,7 +174,7 @@ def make_json_object(obj, customize_func, type_name, object_id, object_base,
     # Set the non-i18n version of i18n fields to simplify English-only
     # processing of the JSON file.
     type_fields = fields[type_name]
-    for field_name, field in sorted(type_fields.items()):  # We sort for reproducibility.
+    for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
         if not field.is_i18n or field.normalized_name not in json_object:
             continue
         phrase = json_object[field.normalized_name]
@@ -243,6 +243,20 @@ def make_json_data():
     json_data ={}
     for base_name in node_names:
         add_json_node(json_data, base_name, fields=fields, mixins=mixins)
+
+    # Remove the i18n form when only English is present to reduce clutter.
+    # We can only do this after all nodes have been processed.
+    for node_name in node_names:
+        json_node = json_data[node_name]
+        type_name = utils.types_name_to_singular(node_name)
+        type_fields = fields[type_name]
+        for object_id, json_object in sorted(json_node.items()):  # sort for reproducibility.
+            for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
+                if not field.is_i18n or field.normalized_name not in json_object:
+                    continue
+                phrase = json_object[field.normalized_name]
+                if list(phrase.keys()) == [LANG_ENGLISH]:
+                    del json_object[field.normalized_name]
 
     json_data['_meta'] = {
         'license': _LICENSE
