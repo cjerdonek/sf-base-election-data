@@ -580,24 +580,48 @@
     },
     "districts": {
         "district_ca_bart_7": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_bart",
             "name": "BART District 7",
             "name_short": "DISTRICT 7",
             "number": 7
         },
         "district_ca_bart_8": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_bart",
             "name": "BART District 8",
             "name_short": "DISTRICT 8",
             "number": 8
         },
         "district_ca_bart_9": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_bart",
             "name": "BART District 9",
             "name_short": "DISTRICT 9",
             "number": 9
         },
         "district_ca_board_of_equalization": {
+            "district_name_short_format_i18n": {
+                "en": "{label} District"
+            },
             "district_type_id": "district_type_ca_board_of_equalization",
             "label": "Second",
             "name": "Second Equalization District",
@@ -606,6 +630,9 @@
             "wikipedia": "http://en.wikipedia.org/wiki/State_Board_of_Equalization_%28California%29#Second_district"
         },
         "district_ca_court_appeal": {
+            "district_name_short_format_i18n": {
+                "en": "{label} District"
+            },
             "district_type_id": "district_type_ca_court_appeal",
             "label": "First",
             "name": "First Appellate District",
@@ -614,6 +641,13 @@
             "wikipedia": "http://en.wikipedia.org/wiki/California_courts_of_appeal#First_District"
         },
         "district_ca_state_assembly_17": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_ca_state_assembly",
             "name": "State Assembly District 17",
             "name_short": "DISTRICT 17",
@@ -621,6 +655,13 @@
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_17th_State_Assembly_district"
         },
         "district_ca_state_assembly_19": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_ca_state_assembly",
             "name": "State Assembly District 19",
             "name_short": "DISTRICT 19",
@@ -628,6 +669,13 @@
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_19th_State_Assembly_district"
         },
         "district_ca_state_senate_11": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_ca_state_senate",
             "name": "State Senate District 11",
             "name_short": "DISTRICT 11",
@@ -635,72 +683,156 @@
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_11th_State_Senate_district"
         },
         "district_sf_board_of_supervisors_01": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 1",
             "name_short": "DISTRICT 1",
             "number": 1
         },
         "district_sf_board_of_supervisors_02": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 2",
             "name_short": "DISTRICT 2",
             "number": 2
         },
         "district_sf_board_of_supervisors_03": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 3",
             "name_short": "DISTRICT 3",
             "number": 3
         },
         "district_sf_board_of_supervisors_04": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 4",
             "name_short": "DISTRICT 4",
             "number": 4
         },
         "district_sf_board_of_supervisors_05": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 5",
             "name_short": "DISTRICT 5",
             "number": 5
         },
         "district_sf_board_of_supervisors_06": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 6",
             "name_short": "DISTRICT 6",
             "number": 6
         },
         "district_sf_board_of_supervisors_07": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 7",
             "name_short": "DISTRICT 7",
             "number": 7
         },
         "district_sf_board_of_supervisors_08": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 8",
             "name_short": "DISTRICT 8",
             "number": 8
         },
         "district_sf_board_of_supervisors_09": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 9",
             "name_short": "DISTRICT 9",
             "number": 9
         },
         "district_sf_board_of_supervisors_10": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 10",
             "name_short": "DISTRICT 10",
             "number": 10
         },
         "district_sf_board_of_supervisors_11": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_sf_board_of_supervisors",
             "name": "Supervisorial District 11",
             "name_short": "DISTRICT 11",
             "number": 11
         },
         "district_usa_house_12": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_usa_house",
             "name": "US Congressional District 12",
             "name_short": "DISTRICT 12",
@@ -708,6 +840,13 @@
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_12th_congressional_district"
         },
         "district_usa_house_14": {
+            "district_name_short_format_i18n": {
+                "_id": "text_district_numbered_format",
+                "en": "DISTRICT {number}",
+                "es": "DISTRITO {number}",
+                "fil": "Distrito {number}",
+                "zh": "\u7b2c{number}\u9078\u5340"
+            },
             "district_type_id": "district_type_usa_house",
             "name": "US Congressional District 14",
             "name_short": "DISTRICT 14",
@@ -715,6 +854,9 @@
             "wikipedia": "http://en.wikipedia.org/wiki/California%27s_14th_congressional_district"
         },
         "district_usa_state_ca": {
+            "district_name_short_format_i18n": {
+                "en": "{label}"
+            },
             "district_type_id": "district_type_usa_states",
             "label": "California",
             "name": "State of California",

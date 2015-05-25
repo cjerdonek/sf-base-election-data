@@ -79,7 +79,7 @@ def customize_district_type(json_object, object_data, global_data):
 
 
 def customize_district(json_object, object_data, global_data):
-    district_type = utils.get_referenced_object(object_data, 'district_type_id', global_data=global_data)
+    type_name, district_type = utils.get_referenced_object(object_data, 'district_type_id', global_data=global_data)
 
     name_format = get_required(district_type, 'district_name_format')
     name = easy_format(name_format, **object_data)
@@ -101,8 +101,9 @@ def customize_language(json_object, object_data, global_data):
 def customize_office(json_object, object_data, global_data):
     """Return the node containing internationalized data."""
     # TODO: review the code below to see if it is necessary.
-    body = utils.get_referenced_object(object_data, 'body_id', global_data=global_data)
-    if body is not None:
+    info = utils.get_referenced_object(object_data, 'body_id', global_data=global_data)
+    if info is not None:
+        type_name, body = info
         name = get_required(body, 'member_name')
         json_object['name'] = name
 
@@ -170,17 +171,19 @@ def make_court_of_appeals():
     return offices
 
 
-def make_json_object(object_data, fields, customize_func, object_id,
-                     object_base, global_data, type_name, mixins):
-    json_object = utils.create_object(object_data, fields, object_id=object_id,
-                                      object_base=object_base,
-                                      global_data=global_data, mixins=mixins)
+def make_json_object(object_data, customize_func, type_name, object_id, object_base,
+                     field_data, global_data, mixins):
+    json_object = utils.create_object(object_data, type_name=type_name,
+                                      object_id=object_id, object_base=object_base,
+                                      field_data=field_data, global_data=global_data,
+                                      mixins=mixins)
     customize_func(json_object, object_data, global_data=global_data)
 
     # TODO: review the code below in light of the new way we are treating i18n.
     #
     # Set the non-i18n version of i18n fields to simplify English-only
     # processing of the JSON file.
+    fields = field_data[type_name]
     for field_name, field in sorted(fields.items()):  # We sort for reproducibility.
         if not field.get('i18n_okay'):
             continue
@@ -193,7 +196,8 @@ def make_json_object(object_data, fields, customize_func, object_id,
         english = phrase[LANG_ENGLISH]
         json_object[field_name] = english
 
-    utils.check_object(json_object, fields, type_name=type_name, data_type='JSON')
+    utils.check_object(json_object, type_name=type_name, data_type='JSON',
+                       field_data=field_data)
 
     return json_object
 
@@ -202,7 +206,6 @@ def add_json_node(json_data, node_name, field_data, mixins, **kwargs):
     """Add the node with key node_name."""
     _log.info("calculating json node: {0}".format(node_name))
     type_name = utils.types_name_to_singular(node_name)
-    fields = field_data[type_name]
 
     objects, meta = get_yaml_data(node_name)
     object_base = meta.get('base', {})
@@ -214,10 +217,10 @@ def add_json_node(json_data, node_name, field_data, mixins, **kwargs):
     for object_id in sorted(objects.keys()):
         object_data = objects[object_id]
         try:
-            json_object = make_json_object(object_data, fields, customize_func,
+            json_object = make_json_object(object_data, customize_func, type_name=type_name,
                                            object_id=object_id, object_base=object_base,
-                                           type_name=type_name,
-                                           global_data=json_data, mixins=mixins)
+                                           field_data=field_data, global_data=json_data,
+                                           mixins=mixins)
         except:
             raise Exception("while processing {0!r} object:\n-->{1}"
                             .format(type_name, object_data))

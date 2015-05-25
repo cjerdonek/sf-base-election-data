@@ -1,6 +1,7 @@
 _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
+  base: {}
 bodies:
   body_bart:
     category_id: category_transit

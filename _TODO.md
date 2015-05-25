@@ -1,13 +1,22 @@
 TODO
 ====
 
-* Check all `body.office_name_i18n` values.
-* Add `int` type to fields.yaml.
-* Member name for Supreme Court of California: Justice?
-* Fix names for: SF Board of Supervisors and Education.
-  - Generally, work on office.name, taking into account i18n and
-    format strings, etc.
-  - Also take into account "seat_count" and district, etc.
+* Make a Field object.
+* Clean up JSON for districts.
+* Consider also making an object wrapper that also encapsulates field access.
+  - For example, calling `get_referenced_object()` would return an object
+    also with access to its fields dictionary.
+* Remove the i18n version at the end if there is only English.
+* Fix names for: SF Board of Supervisors and Education:
+  - **Start with district / district type since it is simpler.
+  - English format strings should always only be used to generate English values.
+  - Similarly, an i18n format string should always grab values for the
+    corresponding language (if the name of the value ends in i18n).
+  - BoS should be, for example:
+    1. MEMBER, BOARD OF SUPERVISORS, DISTRICT 2
+  - Need to work out i18n format string with i18n values, etc,
+    and consider the various combinations.
+* Make office names take into account: seat_count, district, etc.
 * Make name reflect: "Judge of the Superior Court, Seat No. 20"
 * Somehow flag types as required in either the instance or the base
   (e.g. office/body)?
@@ -24,6 +33,9 @@ TODO
 * Add court offices.
   - Call to see if they have seat numbers.
 * Check Twitter for bodies.
+* Check all `body.office_name_i18n` values.
+* Add `int` type to fields.yaml.
+* Member name for Supreme Court of California: Justice?
 * Internationalize district short name.
 * Change seats to SF seats, e.g. 2 of 80.
 * Flesh out Body more

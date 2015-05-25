@@ -45,6 +45,8 @@ fields:
     name:
       required: true
     name_short:
+      inherit: district_type_id.district_name_short_format
+      format: true
       required: true
     number: {}
     wikipedia: {}
