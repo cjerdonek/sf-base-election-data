@@ -43,6 +43,8 @@ fields:
       required: true
     label: {}
     name:
+      inherit: district_type_id.district_name_format
+      format: true
       required: true
     name_short:
       inherit: district_type_id.district_name_short_format
@@ -58,11 +60,9 @@ fields:
     district_count:
       required: true
     district_name_format:
-      format: true
       i18n_okay: true
       required: true
     district_name_short_format:
-      format: true
       i18n_okay: true
       required: true
     name:

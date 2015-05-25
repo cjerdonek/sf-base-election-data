@@ -79,16 +79,7 @@ def customize_district_type(json_object, object_data, global_data):
 
 
 def customize_district(json_object, object_data, global_data):
-    # TODO: remove the code below?
-    type_name, district_type = utils.get_referenced_object(object_data, 'district_type_id', global_data=global_data)
-
-    name_format = get_required(district_type, 'district_name_format')
-    name = easy_format(name_format, **object_data)
-    json_object['name'] = name
-
-    short_name_format = get_required(district_type, 'district_name_short_format')
-    short_name = easy_format(short_name_format, **object_data)
-    json_object['name_short'] = short_name
+    pass
 
 
 def customize_election_method(json_object, object_data, global_data):
@@ -190,8 +181,8 @@ def make_json_object(obj, customize_func, type_name, object_id, object_base,
         english = phrase[LANG_ENGLISH]
         json_object[field.name] = english
 
-    utils.check_object(json_object, type_name=type_name, data_type='JSON',
-                       fields=fields)
+    utils.check_object(json_object, object_id=object_id, type_name=type_name,
+                       fields=fields, data_type='JSON')
 
     return json_object
 

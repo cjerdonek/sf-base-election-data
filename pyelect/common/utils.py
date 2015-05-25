@@ -29,6 +29,8 @@ def easy_format(format_str, *args, **kwargs):
     """Call format() with more informative errors."""
     try:
         formatted = format_str.format(*args, **kwargs)
+    except AttributeError:
+        raise Exception("format_str: {0!r}".format(format_str))
     except KeyError:
         raise Exception("with: format_str={0!r}, args={1!r}, kwargs={2!r}"
                         .format(format_str, args, kwargs))
@@ -128,7 +130,9 @@ def get_referenced_object(object_data, id_attr_name, global_data):
     #   accessible from the object.
     return type_name, ref_object
 
+
 def get_field(field_name, fields):
+    """Raises KeyError if the field does not exist."""
     if field_name.endswith(I18N_SUFFIX):
         field_name = field_name.rstrip(I18N_SUFFIX)
     field = fields[field_name]
@@ -136,38 +140,16 @@ def get_field(field_name, fields):
     return field
 
 
-def make_phrase_value(phrase_id, global_data):
-    phrases = get_required(global_data, 'phrases')
-    value = phrases[phrase_id].copy()
-    value['_id'] = phrase_id
-
-    return value
-
-
-# TODO: add support for mixins.
-def create_object(object_data, type_name, object_id, fields, global_data, mixins,
-                  object_base=None):
-    """Create an object from field configuration data."""
-    if object_base is None:
-        object_base = {}
-
-    obj = {}
-
-    mixin_id = object_data.get('mixin_id')
-    if mixin_id is not None:
-        mixin = mixins[mixin_id]
-        obj.update(mixin)
-
-    # Copy all field data from object_data.  We iterate over fields.keys()
-    # rather than object_data.keys() since the field values stored in
+def set_field_values(obj, object_id, object_data, object_base, type_fields, fields, global_data):
+    # Copy all field data from object_data.  We iterate over type_fields
+    # instead of object_data.keys() since the field values stored in
     # object_data do not always correspond directly to the names of fields,
     # for example "copy_from".
-    type_fields = fields[type_name]
     for field_name, field in sorted(type_fields.items()):  # We sort for reproducibility.
         value_info = field.resolve_value(object_data, fields=fields, global_data=global_data)
         if value_info is None:
             continue
-        field, value = value_info
+        resolved_field, value = value_info
         obj[field.normalized_name] = value
 
     # We copy field values from the base object _after_ setting the concrete
@@ -185,30 +167,78 @@ def create_object(object_data, type_name, object_id, fields, global_data, mixins
         value = field.normalize_value(field_name, value, global_data)
         obj[normalized_field_name] = value
 
+    for field_name, field in sorted(type_fields.items()):  # We sort for reproducibility.
+        if not field.should_format:
+            continue
+        field_name = field.normalized_name
+        value = obj[field_name]
+        # TODO: handle this better and make DRY.
+        if isinstance(value, str):
+            value = easy_format(value, **obj)
+        else:
+            for key, format_str in sorted(value.items()):
+                formatted = easy_format(format_str, **obj)
+                value[key] = formatted
+            # Since we formatted, the strings no longer match the original.
+            try:
+                del value['_id']
+            except KeyError:
+                pass
+
+        obj[field_name] = value
+
+
+def create_object(object_data, type_name, object_id, fields, global_data, mixins,
+                  object_base=None):
+    """Create an object from field configuration data."""
+    if object_base is None:
+        object_base = {}
+
+    obj = {}
+
+    mixin_id = object_data.get('mixin_id')
+    if mixin_id is not None:
+        mixin = mixins[mixin_id]
+        obj.update(mixin)
+
+    type_fields = fields[type_name]
+
+    set_field_values(obj, object_id, object_data, object_base, type_fields,
+                     fields=fields, global_data=global_data)
+
     return obj
 
 
-def _on_check_object_error(html_obj, type_name, field_name, data_type, details):
-    message = "{details} (data_type={data_type!r}, type_name={type_name!r}, field={field_name!r}):\n{object}"
-    raise Exception(message.format(object=pformat(html_obj), field_name=field_name,
-                                   type_name=type_name, details=details,
+def _on_check_object_error(obj, object_id, type_name, field_name, data_type, details):
+    message = "{details} (object_id={object_id!r}, type_name={type_name!r}, field={field_name!r}, data_type={data_type!r}):\n{object}"
+    raise Exception(message.format(object=pformat(obj), object_id=object_id,
+                                   field_name=field_name, type_name=type_name, details=details,
                                    data_type=data_type))
 
 
 # TODO: decide re: not existing versus existing as None.
 #   Answer: start out by requiring that values not be None.
 #   If needed, we can always add a "none_okay" attribute.
-def check_object(obj, type_name, data_type, fields):
+def check_object(obj, object_id, type_name, data_type, fields):
     type_fields = fields[type_name]
+
+    # Check for fields that should not exist.
+    for field_name, value in sorted(obj.items()):  # sort for reproducibility.
+        try:
+            get_field(field_name, type_fields)
+        except KeyError:
+            raise Exception("field '{0}' is not defined for type '{1}':\n{2}"
+                            .format(field_name, type_name, pformat(obj)))
+
     # We sort when iterating for repeatability when troubleshooting.
     for field_name, field in sorted(type_fields.items()):  # We sort for reproducibility.
         if not field.is_required:
             continue
         if field_name not in obj:
-            _on_check_object_error(obj, type_name, field_name, data_type,
+            _on_check_object_error(obj, object_id, type_name, field_name, data_type,
                                    details="required field missing")
         if obj[field_name] is None:
-            _on_check_object_error(obj, type_name, field_name, data_type,
+            _on_check_object_error(obj, object_id, type_name, field_name, data_type,
                                    details="required field is None")
         # allowed_types = (bool, int, str)
         # for attr, value in json_obj.items():
@@ -224,6 +254,14 @@ def check_object(obj, type_name, data_type, fields):
         #                    value_type=type(value), allowed_types=allowed_types,
         #                    object=json_obj))
         #         raise Exception(err)
+
+
+def make_phrase_value(phrase_id, global_data):
+    phrases = get_required(global_data, 'phrases')
+    value = phrases[phrase_id].copy()
+    value['_id'] = phrase_id
+
+    return value
 
 
 class Field(object):
@@ -243,6 +281,10 @@ class Field(object):
     @property
     def is_required(self):
         return self.data.get('required')
+
+    @property
+    def should_format(self):
+        return self.data.get('format')
 
     @property
     def i18n_field_name(self):
