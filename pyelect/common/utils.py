@@ -145,7 +145,7 @@ def set_field_values(obj, object_id, object_data, object_base, type_fields, fiel
     # instead of object_data.keys() since the field values stored in
     # object_data do not always correspond directly to the names of fields,
     # for example "copy_from".
-    for field_name, field in sorted(type_fields.items()):  # We sort for reproducibility.
+    for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
         value_info = field.resolve_value(object_data, fields=fields, global_data=global_data)
         if value_info is None:
             continue
@@ -158,7 +158,7 @@ def set_field_values(obj, object_id, object_data, object_base, type_fields, fiel
     # base object can generate invalid phrase ID's resulting from a format
     # string in the base.  We do not want to process such ID's in cases
     # where the value is overridden by a concrete setting in the child.
-    for field_name, value in sorted(object_base.items()):  # We sort for reproducibility.
+    for field_name, value in sorted(object_base.items()):  # sort for reproducibility.
         field = get_field(field_name, type_fields)
         normalized_field_name = field.normalized_name
         if normalized_field_name in obj:
@@ -167,7 +167,8 @@ def set_field_values(obj, object_id, object_data, object_base, type_fields, fiel
         value = field.normalize_value(field_name, value, global_data)
         obj[normalized_field_name] = value
 
-    for field_name, field in sorted(type_fields.items()):  # We sort for reproducibility.
+    # Process format strings last since they rely on other values.
+    for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
         if not field.should_format:
             continue
         field_name = field.normalized_name
@@ -176,6 +177,9 @@ def set_field_values(obj, object_id, object_data, object_base, type_fields, fiel
         if isinstance(value, str):
             value = easy_format(value, **obj)
         else:
+            # Otherwise, the value is a dict.
+            # Copy the value since we are modifying it.
+            value = value.copy()
             for key, format_str in sorted(value.items()):
                 formatted = easy_format(format_str, **obj)
                 value[key] = formatted
@@ -231,7 +235,7 @@ def check_object(obj, object_id, type_name, data_type, fields):
                             .format(field_name, type_name, pformat(obj)))
 
     # We sort when iterating for repeatability when troubleshooting.
-    for field_name, field in sorted(type_fields.items()):  # We sort for reproducibility.
+    for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
         if not field.is_required:
             continue
         if field_name not in obj:
