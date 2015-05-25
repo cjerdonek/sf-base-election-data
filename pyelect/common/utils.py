@@ -136,105 +136,16 @@ def get_field(field_name, fields):
     return field
 
 
-def normalize_field_name(field_name, fields):
-    field = get_field(field_name, fields)
-    if field.get('i18n_okay') and not field_name.endswith(I18N_SUFFIX):
-        field_name = append_i18n_suffix(field_name)
+def make_phrase_value(phrase_id, global_data):
+    phrases = get_required(global_data, 'phrases')
+    value = phrases[phrase_id].copy()
+    value['_id'] = phrase_id
 
-    return field_name
-
-
-# TODO: DRY up with normalize_field_name().
-def normalize_field_info(field_name, value, field, global_data):
-    """Return the normalized form of a field key-value.
-
-    For i18n fields, the field_name return value should end in "_i18n" and
-    the value should be the dict of translations (supplemented with
-    the phrase ID stored with key "_id").
-    """
-    if field_name.endswith(I18N_SUFFIX):
-        assert field.get('i18n_okay')
-        # TODO: remove the hack of checking whether value is a string.
-        if isinstance(value, str):
-            # Then the value is a phrase ID.
-            phrase_id = value
-            phrases = get_required(global_data, 'phrases')
-            value = phrases[phrase_id].copy()
-            value['_id'] = phrase_id
-    else:
-        if field.get('i18n_okay'):
-            # Then value is the English form of the phrase.
-            field_name = append_i18n_suffix(field_name)
-            # TODO: add the key '_id' to the dict.
-            value = {LANG_ENGLISH: value}
-
-    return field_name, value
-
-
-# TODO: make this a method on a Field class.
-def get_field_value(obj, field_name, field):
-    """Lookup a field value on an object.
-
-    Returns the field name and value.
-
-    Arguments:
-      obj: an object dict on which to look up the field value.
-      field_name: the non-i18n name of the field.
-      field: the dict describing the field.
-    """
-    if field.get('i18n_okay'):
-        i18n_field_name = append_i18n_suffix(field_name)
-        if i18n_field_name in obj:
-            # TODO: add validation somewhere that i18n and non-i18n are not
-            #   both defined in the raw data.
-            field_name = i18n_field_name
-    if field_name not in obj:
-        return None
-    value = obj[field_name]
-
-    return field_name, value
-
-
-# TODO: make this a method on a Field class.
-def resolve_field_value(obj, field_name, field, field_data, global_data):
-    """Lookup and resolve a field value on an object.
-
-    Returns (field, field_name, field_value).
-
-    Arguments:
-      obj: an object dict on which to look up the field value.
-      field_name: the non-i18n name of the field.
-      field: the dict describing the field.
-    """
-    # TODO: examine copy_from?
-    field_info = get_field_value(obj, field_name, field)
-
-    if field_info is not None:
-        field_name, value = field_info
-        return field, field_name, value
-
-    # Otherwise, fetch the inherited value if there is one.
-    inherit_value = field.get('inherit')
-    if inherit_value is None:
-        return None
-    try:
-        id_field_name, child_field_name = inherit_value.split('.')
-    except ValueError:
-        # Then use the same field name.
-        id_field_name, child_field_name = inherit_value, field_name
-    ref_info = get_referenced_object(obj, id_field_name, global_data=global_data)
-    if ref_info is None:
-        return None
-    ref_type_name, ref_obj = ref_info
-    ref_fields = field_data[ref_type_name]
-    ref_field = ref_fields[child_field_name]
-    field_name, value = get_field_value(ref_obj, child_field_name, ref_field)
-
-    return ref_field, field_name, value
+    return value
 
 
 # TODO: add support for mixins.
-def create_object(object_data, type_name, object_id, field_data, global_data, mixins,
+def create_object(object_data, type_name, object_id, fields, global_data, mixins,
                   object_base=None):
     """Create an object from field configuration data."""
     if object_base is None:
@@ -251,16 +162,13 @@ def create_object(object_data, type_name, object_id, field_data, global_data, mi
     # rather than object_data.keys() since the field values stored in
     # object_data do not always correspond directly to the names of fields,
     # for example "copy_from".
-    fields = field_data[type_name]
-    for field_name, field in sorted(fields.items()):  # We sort for reproducibility.
-        field_info = resolve_field_value(object_data, field_name, field=field,
-                                   field_data=field_data, global_data=global_data)
-        if field_info is None:
+    type_fields = fields[type_name]
+    for field_name, field in sorted(type_fields.items()):  # We sort for reproducibility.
+        value_info = field.resolve_value(object_data, fields=fields, global_data=global_data)
+        if value_info is None:
             continue
-        field, field_name, value = field_info
-        field_name, value = normalize_field_info(field_name, value, field=field,
-                                                 global_data=global_data)
-        obj[field_name] = value
+        field, value = value_info
+        obj[field.normalized_name] = value
 
     # We copy field values from the base object _after_ setting the concrete
     # values as opposed to before in order to address the issue of
@@ -269,18 +177,13 @@ def create_object(object_data, type_name, object_id, field_data, global_data, mi
     # string in the base.  We do not want to process such ID's in cases
     # where the value is overridden by a concrete setting in the child.
     for field_name, value in sorted(object_base.items()):  # We sort for reproducibility.
-        normalized_field_name = normalize_field_name(field_name, fields)
+        field = get_field(field_name, type_fields)
+        normalized_field_name = field.normalized_name
         if normalized_field_name in obj:
             continue
         value = easy_format(value, id=object_id, **object_data)
-        field = get_field(field_name, fields)
-        try:
-            field_name, value = normalize_field_info(field_name, value, field=field,
-                                        global_data=global_data)
-        except:
-            raise Exception("while processing object (field={0!r}):\n{1}"
-                             .format(field_name, pformat(obj)))
-        obj[field_name] = value
+        value = field.normalize_value(field_name, value, global_data)
+        obj[normalized_field_name] = value
 
     return obj
 
@@ -295,12 +198,11 @@ def _on_check_object_error(html_obj, type_name, field_name, data_type, details):
 # TODO: decide re: not existing versus existing as None.
 #   Answer: start out by requiring that values not be None.
 #   If needed, we can always add a "none_okay" attribute.
-def check_object(obj, type_name, data_type, field_data):
-    fields = field_data[type_name]
+def check_object(obj, type_name, data_type, fields):
+    type_fields = fields[type_name]
     # We sort when iterating for repeatability when troubleshooting.
-    for field_name in sorted(fields.keys()):
-        field = fields[field_name]
-        if not field.get('required'):
+    for field_name, field in sorted(type_fields.items()):  # We sort for reproducibility.
+        if not field.is_required:
             continue
         if field_name not in obj:
             _on_check_object_error(obj, type_name, field_name, data_type,
@@ -322,3 +224,103 @@ def check_object(obj, type_name, data_type, field_data):
         #                    value_type=type(value), allowed_types=allowed_types,
         #                    object=json_obj))
         #         raise Exception(err)
+
+
+class Field(object):
+
+    def __init__(self, name, data):
+        self.data = data
+        self.name = name
+
+    def __repr__(self):
+        return ("<Field at {1} (name={0!r}, data={2!r})>"
+                .format(self.name, hex(id(self)), self.data))
+
+    @property
+    def is_i18n(self):
+        return self.data.get('i18n_okay')
+
+    @property
+    def is_required(self):
+        return self.data.get('required')
+
+    @property
+    def i18n_field_name(self):
+        return append_i18n_suffix(self.name)
+
+    @property
+    def normalized_name(self):
+        return self.i18n_field_name if self.is_i18n else self.name
+
+    @property
+    def inherit_name(self):
+        return self.data.get('inherit')
+
+    def normalize_value(self, name, value, global_data):
+        if not self.is_i18n:
+            return value
+        if name.endswith(I18N_SUFFIX):
+            # Then the value is a phrase ID.
+            value = make_phrase_value(value, global_data)
+        else:
+            # Then the value is the English form, and there is no phrase ID.
+            value = {LANG_ENGLISH: value}
+        return value
+
+    # TODO: distinguish between None and not found in the return value.
+    def get_value(self, obj, global_data):
+        """Look up a field value on an object, and return the value.
+
+        This returns the normalized form of the value in the case of i18n
+        fields.
+
+        Arguments:
+          obj: an object dict on which to look up the field value.
+        """
+        if self.is_i18n and self.i18n_field_name in obj:
+            # TODO: add validation somewhere that i18n and non-i18n are not
+            #   both defined in the raw data.
+            field_name = self.i18n_field_name
+        else:
+            field_name = self.name
+        value = obj.get(field_name)
+        if value is None:
+            return None
+        value = self.normalize_value(field_name, value, global_data)
+
+        return value
+
+    def resolve_value(self, obj, fields, global_data):
+        """Look up and resolve a field value on an object.
+
+        Returns (field, field_value).
+
+        Arguments:
+          obj: an object dict on which to look up the field value.
+          field_name: the non-i18n name of the field.
+          field: the dict describing the field.
+        """
+        # TODO: examine copy_from?
+        value = self.get_value(obj, global_data)
+
+        if value is not None:
+            return self, value
+
+        # Otherwise, fetch the inherited value if there is one.
+        inherit_name = self.inherit_name
+        if inherit_name is None:
+            return None
+        try:
+            id_field_name, child_field_name = inherit_name.split('.')
+        except ValueError:
+            # Then use the same field name.
+            id_field_name, child_field_name = inherit_name, self.name
+        ref_info = get_referenced_object(obj, id_field_name, global_data=global_data)
+        if ref_info is None:
+            return None
+        ref_type_name, ref_obj = ref_info
+        ref_fields = fields[ref_type_name]
+        ref_field = ref_fields[child_field_name]
+        value = ref_obj.get(ref_field.normalized_name)
+
+        return ref_field, value

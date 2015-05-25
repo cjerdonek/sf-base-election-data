@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Make a Field object.
 * Clean up JSON for districts.
 * Consider also making an object wrapper that also encapsulates field access.
   - For example, calling `get_referenced_object()` would return an object

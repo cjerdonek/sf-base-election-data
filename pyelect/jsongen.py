@@ -12,8 +12,8 @@ import yaml
 
 from pyelect import lang
 from pyelect.common import utils
-from pyelect.common.utils import (JSON_OUTPUT_PATH, LANG_ENGLISH, easy_format,
-                                  append_i18n_suffix, get_required)
+from pyelect.common.utils import (append_i18n_suffix, easy_format, get_required, Field,
+                                  JSON_OUTPUT_PATH, LANG_ENGLISH)
 from pyelect.common import yamlutil
 
 
@@ -79,6 +79,7 @@ def customize_district_type(json_object, object_data, global_data):
 
 
 def customize_district(json_object, object_data, global_data):
+    # TODO: remove the code below?
     type_name, district_type = utils.get_referenced_object(object_data, 'district_type_id', global_data=global_data)
 
     name_format = get_required(district_type, 'district_name_format')
@@ -100,7 +101,7 @@ def customize_language(json_object, object_data, global_data):
 
 def customize_office(json_object, object_data, global_data):
     """Return the node containing internationalized data."""
-    # TODO: review the code below to see if it is necessary.
+    # TODO: remove the code below?
     info = utils.get_referenced_object(object_data, 'body_id', global_data=global_data)
     if info is not None:
         type_name, body = info
@@ -171,38 +172,31 @@ def make_court_of_appeals():
     return offices
 
 
-def make_json_object(object_data, customize_func, type_name, object_id, object_base,
-                     field_data, global_data, mixins):
-    json_object = utils.create_object(object_data, type_name=type_name,
+def make_json_object(obj, customize_func, type_name, object_id, object_base,
+                     fields, global_data, mixins):
+    json_object = utils.create_object(obj, type_name=type_name,
                                       object_id=object_id, object_base=object_base,
-                                      field_data=field_data, global_data=global_data,
+                                      fields=fields, global_data=global_data,
                                       mixins=mixins)
-    customize_func(json_object, object_data, global_data=global_data)
+    customize_func(json_object, obj, global_data=global_data)
 
-    # TODO: review the code below in light of the new way we are treating i18n.
-    #
     # Set the non-i18n version of i18n fields to simplify English-only
     # processing of the JSON file.
-    fields = field_data[type_name]
-    for field_name, field in sorted(fields.items()):  # We sort for reproducibility.
-        if not field.get('i18n_okay'):
+    type_fields = fields[type_name]
+    for field_name, field in sorted(type_fields.items()):  # We sort for reproducibility.
+        if not field.is_i18n or field.normalized_name not in json_object:
             continue
-        i18n_field_name = append_i18n_suffix(field_name)
-        try:
-            phrase = json_object[i18n_field_name]
-        except KeyError:
-            # Then the internationalized field is not present.
-            continue
+        phrase = json_object[field.normalized_name]
         english = phrase[LANG_ENGLISH]
-        json_object[field_name] = english
+        json_object[field.name] = english
 
     utils.check_object(json_object, type_name=type_name, data_type='JSON',
-                       field_data=field_data)
+                       fields=fields)
 
     return json_object
 
 
-def add_json_node(json_data, node_name, field_data, mixins, **kwargs):
+def add_json_node(json_data, node_name, fields, mixins, **kwargs):
     """Add the node with key node_name."""
     _log.info("calculating json node: {0}".format(node_name))
     type_name = utils.types_name_to_singular(node_name)
@@ -219,11 +213,11 @@ def add_json_node(json_data, node_name, field_data, mixins, **kwargs):
         try:
             json_object = make_json_object(object_data, customize_func, type_name=type_name,
                                            object_id=object_id, object_base=object_base,
-                                           field_data=field_data, global_data=json_data,
+                                           fields=fields, global_data=json_data,
                                            mixins=mixins)
         except:
             raise Exception("while processing {0!r} object:\n-->{1}"
-                            .format(type_name, object_data))
+                            .format(type_name, pformat(object_data)))
         json_node[object_id] = json_object
 
     json_data[node_name] = json_node
@@ -231,12 +225,16 @@ def add_json_node(json_data, node_name, field_data, mixins, **kwargs):
 
 def load_json_fields():
     data = yamlutil.read_yaml_rel(utils.JSON_FIELDS_PATH)
-    fields = get_required(data, 'fields')
+    field_data = get_required(data, 'fields')
+    fields = {}
+    for type_name, type_field_data in field_data.items():
+        type_fields = {name: Field(name, data) for name, data in type_field_data.items()}
+        fields[type_name] = type_fields
     return fields
 
 
 def make_json_data():
-    field_data = load_json_fields()
+    fields = load_json_fields()
     mixins, meta = get_yaml_data('mixins')
 
     node_names = [
@@ -253,7 +251,7 @@ def make_json_data():
 
     json_data ={}
     for base_name in node_names:
-        add_json_node(json_data, base_name, field_data, mixins=mixins)
+        add_json_node(json_data, base_name, fields=fields, mixins=mixins)
 
     json_data['_meta'] = {
         'license': _LICENSE
