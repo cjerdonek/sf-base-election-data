@@ -147,7 +147,8 @@ def set_field_values(obj, object_id, object_data, object_base, type_fields, obje
     # object_data do not always correspond directly to the names of fields,
     # for example "copy_from".
     for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
-        value_info = field.resolve_value(object_data, object_types=object_types, global_data=global_data)
+        value_info = field.resolve_value(object_data, object_types=object_types,
+                                         global_data=global_data)
         if value_info is None:
             continue
         resolved_field, value = value_info

@@ -13,7 +13,7 @@ import yaml
 from pyelect import lang
 from pyelect.common import utils
 from pyelect.common.utils import (append_i18n_suffix, easy_format, get_required,
-                                  Field, ObjectType, JSON_OUTPUT_PATH, LANG_ENGLISH)
+                                  Field, ObjectType, LANG_ENGLISH)
 from pyelect.common import yamlutil
 
 
@@ -30,12 +30,6 @@ _LICENSE = ("The database consisting of this file is made available under "
 _log = logging.getLogger()
 
 
-def get_json_path():
-    repo_dir = utils.get_repo_dir()
-    json_path = os.path.join(repo_dir, JSON_OUTPUT_PATH)
-    return json_path
-
-
 def get_yaml_data(base_name):
     """Return the object data from a YAML file."""
     rel_path = utils.get_yaml_objects_path_rel(base_name)
@@ -44,15 +38,6 @@ def get_yaml_data(base_name):
     objects = utils.get_required(data, base_name)
 
     return objects, meta
-
-
-def get_json():
-    """Read and return the JSON data."""
-    json_path = get_json_path()
-    with open(json_path) as f:
-        data = json.load(f)
-
-    return data
 
 
 def get_fields(field_data, node_name):
@@ -174,8 +159,7 @@ def make_json_object(obj, customize_func, type_name, object_id, object_base,
     # Set the non-i18n version of i18n fields to simplify English-only
     # processing of the JSON file.
     object_type = object_types[type_name]
-    type_fields = object_type._fields
-    for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
+    for field in object_type.fields():
         if not field.is_i18n or field.normalized_name not in json_object:
             continue
         phrase = json_object[field.normalized_name]
@@ -230,6 +214,7 @@ def load_object_types():
 def make_json_data():
     object_types = load_object_types()
     mixins, meta = get_yaml_data('mixins')
+    del meta
 
     node_names = [
         'phrases',

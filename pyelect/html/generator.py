@@ -12,6 +12,7 @@ from django.template.loader import get_template
 from pyelect.html import context, templateconfig
 from pyelect import jsongen
 from pyelect.common import utils
+from pyelect.common.utils import JSON_OUTPUT_PATH
 
 
 _log = logging.getLogger()
@@ -35,6 +36,21 @@ HTML_OUTPUT_SUB_DIRS = [
     _HTML_OUTPUT_DATA_DIR,
     'js'
 ]
+
+
+def get_json_path():
+    repo_dir = utils.get_repo_dir()
+    json_path = os.path.join(repo_dir, JSON_OUTPUT_PATH)
+    return json_path
+
+
+def get_json():
+    """Read and return the JSON data."""
+    json_path = get_json_path()
+    with open(json_path) as f:
+        data = json.load(f)
+
+    return data
 
 
 def get_page_template_name(file_name):
