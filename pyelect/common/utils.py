@@ -132,8 +132,9 @@ def get_referenced_object(object_data, id_attr_name, global_data):
     return type_name, ref_object
 
 
-def get_field(field_name, fields):
+def get_field(object_type, field_name):
     """Raises KeyError if the field does not exist."""
+    fields = object_type._fields
     if field_name.endswith(I18N_SUFFIX):
         field_name = field_name.rstrip(I18N_SUFFIX)
     field = fields[field_name]
@@ -144,11 +145,10 @@ def get_field(field_name, fields):
 def set_field_values(obj, object_id, object_data, object_base, type_name,
                      object_types, global_data):
     object_type = object_types[type_name]
-    type_fields = object_type._fields
 
-    # Copy all field data from object_data.  We iterate over type_fields
-    # instead of object_data.keys() since the field values stored in
-    # object_data do not always correspond directly to the names of fields,
+    # Copy all field data from object_data.  We iterate over the field
+    # definitions instead of object_data.keys() since the field values stored
+    # in object_data do not always correspond directly to the names of fields,
     # for example "copy_from".
     for field in object_type.fields():
         value_info = field.resolve_value(object_data, object_types=object_types,
@@ -166,7 +166,7 @@ def set_field_values(obj, object_id, object_data, object_base, type_name,
     # string in the base.  We do not want to process such ID's in cases
     # where the value is overridden by a concrete setting in the child.
     for field_name, value in sorted(object_base.items()):  # sort for reproducibility.
-        field = get_field(field_name, type_fields)
+        field = get_field(object_type, field_name)
         normalized_field_name = field.normalized_name
         if normalized_field_name in obj:
             continue
@@ -175,7 +175,7 @@ def set_field_values(obj, object_id, object_data, object_base, type_name,
         obj[normalized_field_name] = value
 
     # Process format strings last since they rely on other values.
-    for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
+    for field in object_type.fields():
         if not field.should_format:
             continue
         field_name = field.normalized_name
@@ -230,12 +230,11 @@ def _on_check_object_error(obj, object_id, type_name, field_name, data_type, det
 #   If needed, we can always add a "none_okay" attribute.
 def check_object(obj, object_id, type_name, data_type, object_types):
     object_type = object_types[type_name]
-    type_fields = object_type._fields
 
     for field_name, value in sorted(obj.items()):  # sort for reproducibility.
         try:
             # Ensure that every field value is supposed to be there.
-            field = get_field(field_name, type_fields)
+            field = get_field(object_type, field_name)
         except KeyError:
             raise Exception("field '{0}' is not defined for type '{1}':\n{2}"
                             .format(field_name, type_name, pformat(obj)))
@@ -245,9 +244,10 @@ def check_object(obj, object_id, type_name, data_type, object_types):
                             .format(field_name, pformat(value)))
 
     # We sort when iterating for repeatability when troubleshooting.
-    for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
+    for field in object_type.fields():
         if not field.is_required:
             continue
+        field_name = field.name
         if field_name not in obj:
             _on_check_object_error(obj, object_id, type_name, field_name, data_type,
                                    details="required field missing")
