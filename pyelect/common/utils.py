@@ -142,10 +142,8 @@ def get_field(object_type, field_name):
     return field
 
 
-def set_field_values(obj, object_id, object_data, object_base, type_name,
+def set_field_values(obj, object_id, object_data, object_base, object_type,
                      object_types, global_data):
-    object_type = object_types[type_name]
-
     # Copy all field data from object_data.  We iterate over the field
     # definitions instead of object_data.keys() since the field values stored
     # in object_data do not always correspond directly to the names of fields,
@@ -199,7 +197,7 @@ def set_field_values(obj, object_id, object_data, object_base, type_name,
         obj[field_name] = value
 
 
-def create_object(object_data, type_name, object_id, object_types, global_data, mixins,
+def create_object(object_data, object_id, object_type, object_types, global_data, mixins,
                   object_base=None):
     """Create an object from field configuration data."""
     if object_base is None:
@@ -212,7 +210,7 @@ def create_object(object_data, type_name, object_id, object_types, global_data, 
         mixin = mixins[mixin_id]
         obj.update(mixin)
 
-    set_field_values(obj, object_id, object_data, object_base, type_name=type_name,
+    set_field_values(obj, object_id, object_data, object_base, object_type=object_type,
                      object_types=object_types, global_data=global_data)
 
     return obj
@@ -228,9 +226,8 @@ def _on_check_object_error(obj, object_id, type_name, field_name, data_type, det
 # TODO: decide re: not existing versus existing as None.
 #   Answer: start out by requiring that values not be None.
 #   If needed, we can always add a "none_okay" attribute.
-def check_object(obj, object_id, type_name, data_type, object_types):
-    object_type = object_types[type_name]
-
+def check_object(obj, object_id, data_type, object_type, object_types):
+    type_name = object_type.name
     for field_name, value in sorted(obj.items()):  # sort for reproducibility.
         try:
             # Ensure that every field value is supposed to be there.
@@ -394,7 +391,7 @@ class ObjectType(object):
         """
         self._data = data
         self._fields = fields
-        self._name = name
+        self.name = name
 
     @property
     def customized(self):

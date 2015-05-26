@@ -105,19 +105,17 @@ def make_court_of_appeals():
     return offices
 
 
-def make_json_object(obj, customize_func, type_name, object_id, object_base,
-                     object_types, global_data, mixins):
-    json_object = utils.create_object(obj, type_name=type_name,
-                                      object_id=object_id, object_base=object_base,
-                                      object_types=object_types, global_data=global_data,
-                                      mixins=mixins)
+def make_json_object(obj, customize_func, object_id, object_base,
+                     object_type, object_types, global_data, mixins):
+    json_object = utils.create_object(obj, object_id=object_id, object_base=object_base,
+                                      object_type=object_type, object_types=object_types,
+                                      global_data=global_data, mixins=mixins)
     if customize_func is not None:
         customize_func(json_object, obj, global_data=global_data)
 
     try:
         # Set the non-i18n version of i18n fields to simplify English-only
         # processing of the JSON file.
-        object_type = object_types[type_name]
         for field in object_type.fields():
             if not field.is_i18n or field.normalized_name not in json_object:
                 continue
@@ -127,7 +125,7 @@ def make_json_object(obj, customize_func, type_name, object_id, object_base,
     except Exception:
         raise Exception("json_object:\n{0}".format(pformat(json_object)))
 
-    utils.check_object(json_object, object_id=object_id, type_name=type_name,
+    utils.check_object(json_object, object_id=object_id, object_type=object_type,
                        object_types=object_types, data_type='JSON')
 
     return json_object
@@ -153,10 +151,10 @@ def add_json_node(json_data, node_name, object_types, mixins, **kwargs):
     for object_id in sorted(objects.keys()):
         object_data = objects[object_id]
         try:
-            json_object = make_json_object(object_data, customize_func, type_name=type_name,
+            json_object = make_json_object(object_data, customize_func,
                                            object_id=object_id, object_base=object_base,
-                                           object_types=object_types, global_data=json_data,
-                                           mixins=mixins)
+                                           object_type=object_type, object_types=object_types,
+                                           global_data=json_data, mixins=mixins)
         except:
             raise Exception("while processing {0!r} object:\n-->\n{1}"
                             .format(type_name, pformat(object_data)))
