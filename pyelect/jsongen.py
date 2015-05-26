@@ -46,16 +46,6 @@ def get_fields(field_data, node_name):
     return fields
 
 
-def customize_office(json_object, object_data, global_data):
-    """Return the node containing internationalized data."""
-    # TODO: remove the code below?
-    info = utils.get_referenced_object(object_data, 'body_id', global_data=global_data)
-    if info is not None:
-        type_name, body = info
-        name = get_required(body, 'member_name')
-        json_object['name'] = name
-
-
 def make_court_of_appeals_division_numbers():
     return range(1, 6)
 
@@ -124,15 +114,18 @@ def make_json_object(obj, customize_func, type_name, object_id, object_base,
     if customize_func is not None:
         customize_func(json_object, obj, global_data=global_data)
 
-    # Set the non-i18n version of i18n fields to simplify English-only
-    # processing of the JSON file.
-    object_type = object_types[type_name]
-    for field in object_type.fields():
-        if not field.is_i18n or field.normalized_name not in json_object:
-            continue
-        phrase = json_object[field.normalized_name]
-        english = phrase[LANG_ENGLISH]
-        json_object[field.name] = english
+    try:
+        # Set the non-i18n version of i18n fields to simplify English-only
+        # processing of the JSON file.
+        object_type = object_types[type_name]
+        for field in object_type.fields():
+            if not field.is_i18n or field.normalized_name not in json_object:
+                continue
+            phrase = json_object[field.normalized_name]
+            english = phrase[LANG_ENGLISH]
+            json_object[field.name] = english
+    except Exception:
+        raise Exception("json_object:\n{0}".format(pformat(json_object)))
 
     utils.check_object(json_object, object_id=object_id, type_name=type_name,
                        object_types=object_types, data_type='JSON')
@@ -165,7 +158,7 @@ def add_json_node(json_data, node_name, object_types, mixins, **kwargs):
                                            object_types=object_types, global_data=json_data,
                                            mixins=mixins)
         except:
-            raise Exception("while processing {0!r} object:\n-->{1}"
+            raise Exception("while processing {0!r} object:\n-->\n{1}"
                             .format(type_name, pformat(object_data)))
         json_node[object_id] = json_object
 

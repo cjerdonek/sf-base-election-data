@@ -20,7 +20,11 @@ types:
       jurisdiction_area_id:
         required: true
       localwiki: {}
-      member_name:
+      member_name_format:
+        i18n_okay: true
+      member_name_generic:
+        i18n_okay: true
+      member_name_short_format:
         i18n_okay: true
       name:
         i18n_okay: true
@@ -98,6 +102,7 @@ types:
       notes:
         i18n_okay: true
   office:
+    customized: false
     fields:
       body_id: {}
       category_id:
@@ -107,6 +112,7 @@ types:
       election_method_id: {}
       name:
         i18n_okay: true
+        inherit: body_id.member_name_generic
         required: true
       partisan:
         inherit: body_id

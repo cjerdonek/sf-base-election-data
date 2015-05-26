@@ -7,7 +7,7 @@ bodies:
     category_id: category_transit
     district_type_id: district_type_bart
     jurisdiction_area_id: area_state_ca_bart
-    member_name_i18n: text_office_ca_bart_director
+    member_name_generic_i18n: text_office_ca_bart_director
     name: BART Board of Directors
     office_name_format: '{member_name}, {district_name_short}'
     partisan: false
@@ -19,7 +19,7 @@ bodies:
     category_id: category_state
     district_type_id: district_type_ca_board_of_equalization
     jurisdiction_area_id: area_state_ca
-    member_name: Member, State Board of Equalization
+    member_name_generic: Member, State Board of Equalization
     name: California State Board of Equalization
     notes: The State Controller is the fifth member of this body.
     partisan: true
@@ -31,7 +31,7 @@ bodies:
     category_id: category_judicial
     district_type_id: =none
     jurisdiction_area_id: area_state_ca
-    member_name: Justice
+    member_name_generic: Justice
     name_i18n: text_body_ca_court_supreme
     notes: The Court has six Associate Justices and one Chief Justice. Each is appointed
       by the Governor and subject to retention elections.
@@ -66,7 +66,7 @@ bodies:
   body_ca_state_assembly:
     district_type_id: district_type_ca_state_assembly
     jurisdiction_area_id: area_state_ca
-    member_name_i18n: text_office_member_of_the_state_assembly
+    member_name_generic_i18n: text_office_member_of_the_state_assembly
     mixin_id: ca_common
     name: California State Assembly
     seat_count: 80
@@ -76,7 +76,7 @@ bodies:
   body_ca_state_senate:
     district_type_id: district_type_ca_state_senate
     jurisdiction_area_id: area_state_ca
-    member_name_i18n: text_office_state_senator
+    member_name_generic_i18n: text_office_state_senator
     mixin_id: ca_common
     name: California State Senate
     seat_count: 40
@@ -86,7 +86,9 @@ bodies:
     category_id: category_school
     district_type_id: =none
     jurisdiction_area_id: area_county_sf
-    member_name_i18n: text_office_member_board_of_education
+    member_name_format: 'MEMBER, BOARD OF EDUCATION, DISTRICT {district_number}'
+    member_name_generic_i18n: text_office_member_board_of_education
+    member_name_short_format: 'DISTRICT {district_number} BOARD MEMBER'
     name_i18n: text_body_city_board_of_education
     partisan: false
     seat_count: 7
@@ -98,7 +100,9 @@ bodies:
     district_type_id: district_type_sf_board_of_supervisors
     jurisdiction_area_id: area_county_sf
     localwiki: https://localwiki.org/sf/Board_of_Supervisors
-    member_name_i18n: text_office_member_board_of_supervisors
+    member_name_format: 'MEMBER, BOARD OF SUPERVISORS, DISTRICT {district_number}'
+    member_name_generic_i18n: text_office_member_board_of_supervisors
+    member_name_short_format: 'DISTRICT {district_number} SUPERVISOR'
     mixin_id: sf_common
     name_i18n: text_body_city_board_of_supervisors
     office_name_format: '{member_name}, {district_name_short}'
@@ -109,7 +113,7 @@ bodies:
     category_id: category_school
     district_type_id: =none
     jurisdiction_area_id: area_sf_community_college
-    member_name_i18n: text_office_member_community_college_board
+    member_name_generic_i18n: text_office_member_community_college_board
     name_i18n: text_body_city_college_board
     notes: This is also known as the San Francisco Community College Board of Trustees.
     partisan: false
@@ -155,7 +159,7 @@ bodies:
     jurisdiction_area_id: area_county_sf
     name_i18n: text_body_sf_superior_court
     notes: The Commissioners mentioned by Wikipedia do not face election.
-    member_name_i18n: text_office_member_body_sf_superior_court
+    member_name_generic_i18n: text_office_member_body_sf_superior_court
     partisan: false
     seat_count: 52
     term_length: 6
@@ -166,7 +170,7 @@ bodies:
     district_type_id: district_type_usa_house
     election_method_id: election_method_top_two
     jurisdiction_area_id: area_country_usa
-    member_name_i18n: text_office_usa_representative
+    member_name_generic_i18n: text_office_usa_representative
     name: United States House of Representatives
     notes: There are also 6 non-voting members.
     office_name_format: '{member_name}, {district_name_short}'
@@ -181,7 +185,7 @@ bodies:
     district_type_id: district_type_usa_states
     election_method_id: election_method_top_two
     jurisdiction_area_id: area_country_usa
-    member_name_i18n: text_office_usa_senator
+    member_name_generic_i18n: text_office_usa_senator
     name: United States Senate
     office_name_format: '{member_name}, {district_name_short} ({seat_name})'
     partisan: true

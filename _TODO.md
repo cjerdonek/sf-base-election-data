@@ -2,12 +2,11 @@ TODO
 ====
 
 * Fix names for: SF Board of Supervisors and Education:
-  - Start with district / district type since it is simpler.
+  - BoS should be, for example:
+    1. MEMBER, BOARD OF SUPERVISORS, DISTRICT 2
   - English format strings should always only be used to generate English values.
   - Similarly, an i18n format string should always grab values for the
     corresponding language (if the name of the value ends in i18n).
-  - BoS should be, for example:
-    1. MEMBER, BOARD OF SUPERVISORS, DISTRICT 2
   - Need to work out i18n format string with i18n values, etc,
     and consider the various combinations.
 * Make office names take into account: seat_count, district, etc.

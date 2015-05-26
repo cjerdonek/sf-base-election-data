@@ -141,17 +141,22 @@ def get_field(field_name, fields):
     return field
 
 
-def set_field_values(obj, object_id, object_data, object_base, type_fields, object_types, global_data):
+def set_field_values(obj, object_id, object_data, object_base, type_name,
+                     object_types, global_data):
+    object_type = object_types[type_name]
+    type_fields = object_type._fields
+
     # Copy all field data from object_data.  We iterate over type_fields
     # instead of object_data.keys() since the field values stored in
     # object_data do not always correspond directly to the names of fields,
     # for example "copy_from".
-    for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
+    for field in object_type.fields():
         value_info = field.resolve_value(object_data, object_types=object_types,
                                          global_data=global_data)
         if value_info is None:
             continue
         resolved_field, value = value_info
+        assert value is not None
         obj[field.normalized_name] = value
 
     # We copy field values from the base object _after_ setting the concrete
@@ -207,10 +212,7 @@ def create_object(object_data, type_name, object_id, object_types, global_data, 
         mixin = mixins[mixin_id]
         obj.update(mixin)
 
-    object_type = object_types[type_name]
-    type_fields = object_type._fields
-
-    set_field_values(obj, object_id, object_data, object_base, type_fields,
+    set_field_values(obj, object_id, object_data, object_base, type_name=type_name,
                      object_types=object_types, global_data=global_data)
 
     return obj
@@ -377,6 +379,8 @@ class Field(object):
         ref_fields = ref_type._fields
         ref_field = ref_fields[child_field_name]
         value = ref_obj.get(ref_field.normalized_name)
+        if value is None:
+            return None
 
         return ref_field, value
 
