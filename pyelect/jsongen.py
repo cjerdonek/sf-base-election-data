@@ -12,8 +12,7 @@ import yaml
 
 from pyelect import lang
 from pyelect.common import utils
-from pyelect.common.utils import (append_i18n_suffix, easy_format, get_required,
-                                  Field, ObjectType, LANG_ENGLISH)
+from pyelect.common.utils import get_required, Field, ObjectType, LANG_ENGLISH
 from pyelect.common import yamlutil
 
 
@@ -35,7 +34,7 @@ def get_yaml_data(base_name):
     rel_path = utils.get_yaml_objects_path_rel(base_name)
     data = yamlutil.read_yaml_rel(rel_path)
     meta = yamlutil.get_yaml_meta(data)
-    objects = utils.get_required(data, base_name)
+    objects = get_required(data, base_name)
 
     return objects, meta
 
@@ -200,11 +199,12 @@ def add_json_node(json_data, node_name, object_types, mixins, **kwargs):
 
 
 def load_object_types():
-    data = yamlutil.read_yaml_rel(utils.JSON_FIELDS_PATH)
-    field_data = get_required(data, 'fields')
+    data = yamlutil.read_yaml_rel(utils.JSON_TYPES_PATH)
+    types_data = get_required(data, 'types')
     object_types = {}
-    for type_name, field_data in sorted(field_data.items()):
-        fields = {name: Field(name, data) for name, data in field_data.items()}
+    for type_name, type_data in sorted(types_data.items()):
+        fields_data = get_required(type_data, 'fields')
+        fields = {name: Field(name, data) for name, data in fields_data.items()}
         object_type = ObjectType(type_name, fields=fields)
         object_types[type_name] = object_type
 

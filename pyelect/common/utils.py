@@ -14,8 +14,8 @@ LANG_ENGLISH = 'en'
 DIR_NAME_OBJECTS = 'objects'
 DIR_NAME_PRE_DATA = 'pre_data'
 
-JSON_FIELDS_PATH = os.path.join(DIR_NAME_PRE_DATA, 'json_fields.yaml')
 JSON_OUTPUT_PATH = 'data/sf.json'
+JSON_TYPES_PATH = os.path.join(DIR_NAME_PRE_DATA, 'json_types.yaml')
 LICENSE_PATH = 'data/LICENSE.txt'
 
 _SINGULAR_TO_PLURAL = {
