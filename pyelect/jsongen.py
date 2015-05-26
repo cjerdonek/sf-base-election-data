@@ -46,34 +46,6 @@ def get_fields(field_data, node_name):
     return fields
 
 
-def customize_area(json_object, object_data, global_data):
-    pass
-
-
-def customize_body(json_object, object_data, global_data):
-    pass
-
-
-def customize_category(json_object, object_data, global_data):
-    pass
-
-
-def customize_district_type(json_object, object_data, global_data):
-    pass
-
-
-def customize_district(json_object, object_data, global_data):
-    pass
-
-
-def customize_election_method(json_object, object_data, global_data):
-    pass
-
-
-def customize_language(json_object, object_data, global_data):
-    pass
-
-
 def customize_office(json_object, object_data, global_data):
     """Return the node containing internationalized data."""
     # TODO: remove the code below?
@@ -82,10 +54,6 @@ def customize_office(json_object, object_data, global_data):
         type_name, body = info
         name = get_required(body, 'member_name')
         json_object['name'] = name
-
-
-def customize_phrase(json_object, object_data, global_data):
-    pass
 
 
 def make_court_of_appeals_division_numbers():
@@ -153,7 +121,8 @@ def make_json_object(obj, customize_func, type_name, object_id, object_base,
                                       object_id=object_id, object_base=object_base,
                                       object_types=object_types, global_data=global_data,
                                       mixins=mixins)
-    customize_func(json_object, obj, global_data=global_data)
+    if customize_func is not None:
+        customize_func(json_object, obj, global_data=global_data)
 
     # Set the non-i18n version of i18n fields to simplify English-only
     # processing of the JSON file.
@@ -175,11 +144,16 @@ def add_json_node(json_data, node_name, object_types, mixins, **kwargs):
     """Add the node with key node_name."""
     _log.info("calculating json node: {0}".format(node_name))
     type_name = utils.types_name_to_singular(node_name)
+    object_type = object_types[type_name]
 
     objects, meta = get_yaml_data(node_name)
     object_base = meta.get('base', {})
     customize_function_name = "customize_{0}".format(type_name)
-    customize_func = globals()[customize_function_name]
+
+    if object_type.customized:
+        customize_func = globals()[customize_function_name]
+    else:
+        customize_func = None
 
     json_node = {}
     # We sort the objects for repeatability when troubleshooting.
@@ -205,7 +179,7 @@ def load_object_types():
     for type_name, type_data in sorted(types_data.items()):
         fields_data = get_required(type_data, 'fields')
         fields = {name: Field(name, data) for name, data in fields_data.items()}
-        object_type = ObjectType(type_name, fields=fields)
+        object_type = ObjectType(type_name, fields=fields, data=type_data)
         object_types[type_name] = object_type
 
     return object_types

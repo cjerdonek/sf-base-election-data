@@ -3,12 +3,14 @@ _meta:
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
 types:
   area:
+    customized: false
     fields:
       name:
         required: true
       notes: {}
       wikipedia: {}
   body:
+    customized: false
     fields:
       category_id:
         required: true
@@ -37,11 +39,13 @@ types:
       vote_method: {}
       wikipedia: {}
   category:
+    customized: false
     fields:
       name:
         i18n_okay: true
         required: true
   district:
+    customized: false
     fields:
       district_type_id:
         required: true
@@ -59,6 +63,7 @@ types:
       number: {}
       wikipedia: {}
   district_type:
+    customized: false
     fields:
       body_id: {}
       category_id: {}
@@ -78,12 +83,14 @@ types:
         required: true
       wikipedia: {}
   election_method:
+    customized: false
     fields:
       name:
         required: true
       notes: {}
       wikipedia: {}
   language:
+    customized: false
     fields:
       code: {}
       name:
@@ -113,6 +120,7 @@ types:
       vote_method: {}
       wikipedia: {}
   phrase:
+    customized: false
     fields:
       en: {}
       es: {}

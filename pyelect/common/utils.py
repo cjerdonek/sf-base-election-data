@@ -383,13 +383,19 @@ class Field(object):
 
 class ObjectType(object):
 
-    def __init__(self, name, fields):
+    def __init__(self, name, fields, data):
         """
         Arguments:
           fields: a dict mapping field_name to Field object.
         """
+        self._data = data
         self._fields = fields
         self._name = name
+
+    @property
+    def customized(self):
+        # Default to True because that will alert us to errors.
+        return self._data.get('customized', True)
 
     def fields(self):
         # We sort for reproducibility.
