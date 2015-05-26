@@ -1,5 +1,6 @@
 """Project-wide helper functions."""
 
+import functools
 import logging
 import os
 from pprint import pformat, pprint
@@ -140,13 +141,13 @@ def get_field(field_name, fields):
     return field
 
 
-def set_field_values(obj, object_id, object_data, object_base, type_fields, fields, global_data):
+def set_field_values(obj, object_id, object_data, object_base, type_fields, object_types, global_data):
     # Copy all field data from object_data.  We iterate over type_fields
     # instead of object_data.keys() since the field values stored in
     # object_data do not always correspond directly to the names of fields,
     # for example "copy_from".
     for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
-        value_info = field.resolve_value(object_data, fields=fields, global_data=global_data)
+        value_info = field.resolve_value(object_data, object_types=object_types, global_data=global_data)
         if value_info is None:
             continue
         resolved_field, value = value_info
@@ -192,7 +193,7 @@ def set_field_values(obj, object_id, object_data, object_base, type_fields, fiel
         obj[field_name] = value
 
 
-def create_object(object_data, type_name, object_id, fields, global_data, mixins,
+def create_object(object_data, type_name, object_id, object_types, global_data, mixins,
                   object_base=None):
     """Create an object from field configuration data."""
     if object_base is None:
@@ -205,10 +206,11 @@ def create_object(object_data, type_name, object_id, fields, global_data, mixins
         mixin = mixins[mixin_id]
         obj.update(mixin)
 
-    type_fields = fields[type_name]
+    object_type = object_types[type_name]
+    type_fields = object_type._fields
 
     set_field_values(obj, object_id, object_data, object_base, type_fields,
-                     fields=fields, global_data=global_data)
+                     object_types=object_types, global_data=global_data)
 
     return obj
 
@@ -223,8 +225,9 @@ def _on_check_object_error(obj, object_id, type_name, field_name, data_type, det
 # TODO: decide re: not existing versus existing as None.
 #   Answer: start out by requiring that values not be None.
 #   If needed, we can always add a "none_okay" attribute.
-def check_object(obj, object_id, type_name, data_type, fields):
-    type_fields = fields[type_name]
+def check_object(obj, object_id, type_name, data_type, object_types):
+    object_type = object_types[type_name]
+    type_fields = object_type._fields
 
     for field_name, value in sorted(obj.items()):  # sort for reproducibility.
         try:
@@ -340,7 +343,7 @@ class Field(object):
 
         return value
 
-    def resolve_value(self, obj, fields, global_data):
+    def resolve_value(self, obj, object_types, global_data):
         """Look up and resolve a field value on an object.
 
         Returns (field, field_value).
@@ -369,8 +372,25 @@ class Field(object):
         if ref_info is None:
             return None
         ref_type_name, ref_obj = ref_info
-        ref_fields = fields[ref_type_name]
+        ref_type = object_types[ref_type_name]
+        ref_fields = ref_type._fields
         ref_field = ref_fields[child_field_name]
         value = ref_obj.get(ref_field.normalized_name)
 
         return ref_field, value
+
+
+class ObjectType(object):
+
+    def __init__(self, name, fields):
+        """
+        Arguments:
+          fields: a dict mapping field_name to Field object.
+        """
+        self._fields = fields
+        self._name = name
+
+    def fields(self):
+        # We sort for reproducibility.
+        for field_name, field in sorted(self._fields.items()):
+            yield field

@@ -1,12 +1,8 @@
 TODO
 ====
 
-* Consider also making an object wrapper that also encapsulates field access.
-  - For example, calling `get_referenced_object()` would return an object
-    also with access to its fields dictionary.
-* Remove the i18n version at the end if there is only English.
 * Fix names for: SF Board of Supervisors and Education:
-  - **Start with district / district type since it is simpler.
+  - Start with district / district type since it is simpler.
   - English format strings should always only be used to generate English values.
   - Similarly, an i18n format string should always grab values for the
     corresponding language (if the name of the value ends in i18n).

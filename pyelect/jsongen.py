@@ -12,8 +12,8 @@ import yaml
 
 from pyelect import lang
 from pyelect.common import utils
-from pyelect.common.utils import (append_i18n_suffix, easy_format, get_required, Field,
-                                  JSON_OUTPUT_PATH, LANG_ENGLISH)
+from pyelect.common.utils import (append_i18n_suffix, easy_format, get_required,
+                                  Field, ObjectType, JSON_OUTPUT_PATH, LANG_ENGLISH)
 from pyelect.common import yamlutil
 
 
@@ -164,16 +164,17 @@ def make_court_of_appeals():
 
 
 def make_json_object(obj, customize_func, type_name, object_id, object_base,
-                     fields, global_data, mixins):
+                     object_types, global_data, mixins):
     json_object = utils.create_object(obj, type_name=type_name,
                                       object_id=object_id, object_base=object_base,
-                                      fields=fields, global_data=global_data,
+                                      object_types=object_types, global_data=global_data,
                                       mixins=mixins)
     customize_func(json_object, obj, global_data=global_data)
 
     # Set the non-i18n version of i18n fields to simplify English-only
     # processing of the JSON file.
-    type_fields = fields[type_name]
+    object_type = object_types[type_name]
+    type_fields = object_type._fields
     for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
         if not field.is_i18n or field.normalized_name not in json_object:
             continue
@@ -182,12 +183,12 @@ def make_json_object(obj, customize_func, type_name, object_id, object_base,
         json_object[field.name] = english
 
     utils.check_object(json_object, object_id=object_id, type_name=type_name,
-                       fields=fields, data_type='JSON')
+                       object_types=object_types, data_type='JSON')
 
     return json_object
 
 
-def add_json_node(json_data, node_name, fields, mixins, **kwargs):
+def add_json_node(json_data, node_name, object_types, mixins, **kwargs):
     """Add the node with key node_name."""
     _log.info("calculating json node: {0}".format(node_name))
     type_name = utils.types_name_to_singular(node_name)
@@ -204,7 +205,7 @@ def add_json_node(json_data, node_name, fields, mixins, **kwargs):
         try:
             json_object = make_json_object(object_data, customize_func, type_name=type_name,
                                            object_id=object_id, object_base=object_base,
-                                           fields=fields, global_data=json_data,
+                                           object_types=object_types, global_data=json_data,
                                            mixins=mixins)
         except:
             raise Exception("while processing {0!r} object:\n-->{1}"
@@ -214,18 +215,20 @@ def add_json_node(json_data, node_name, fields, mixins, **kwargs):
     json_data[node_name] = json_node
 
 
-def load_json_fields():
+def load_object_types():
     data = yamlutil.read_yaml_rel(utils.JSON_FIELDS_PATH)
     field_data = get_required(data, 'fields')
-    fields = {}
-    for type_name, type_field_data in field_data.items():
-        type_fields = {name: Field(name, data) for name, data in type_field_data.items()}
-        fields[type_name] = type_fields
-    return fields
+    object_types = {}
+    for type_name, field_data in sorted(field_data.items()):
+        fields = {name: Field(name, data) for name, data in field_data.items()}
+        object_type = ObjectType(type_name, fields=fields)
+        object_types[type_name] = object_type
+
+    return object_types
 
 
 def make_json_data():
-    fields = load_json_fields()
+    object_types = load_object_types()
     mixins, meta = get_yaml_data('mixins')
 
     node_names = [
@@ -242,16 +245,16 @@ def make_json_data():
 
     json_data ={}
     for base_name in node_names:
-        add_json_node(json_data, base_name, fields=fields, mixins=mixins)
+        add_json_node(json_data, base_name, object_types=object_types, mixins=mixins)
 
     # Remove the i18n form when only English is present to reduce clutter.
     # We can only do this after all nodes have been processed.
     for node_name in node_names:
         json_node = json_data[node_name]
         type_name = utils.types_name_to_singular(node_name)
-        type_fields = fields[type_name]
+        object_type = object_types[type_name]
         for object_id, json_object in sorted(json_node.items()):  # sort for reproducibility.
-            for field_name, field in sorted(type_fields.items()):  # sort for reproducibility.
+            for field in object_type.fields():
                 if not field.is_i18n or field.normalized_name not in json_object:
                     continue
                 phrase = json_object[field.normalized_name]
