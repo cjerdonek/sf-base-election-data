@@ -1,6 +1,10 @@
 TODO
 ====
 
+* Choose better names for `office_name` and generic `member_name`:
+  - `office_name_format` for office.name
+  - `member_name` for generic
+* Clean up occurrences of `office_name_format`.
 * Fix names for: SF Board of Supervisors and Education:
   - BoS should be, for example:
     1. MEMBER, BOARD OF SUPERVISORS, DISTRICT 2
@@ -13,12 +17,10 @@ TODO
 * Make name reflect: "Judge of the Superior Court, Seat No. 20"
 * Somehow flag types as required in either the instance or the base
   (e.g. office/body)?
-* Choose better names for `office_name` and generic `member_name`.
 * Internationalize `body_ca_board_of_equalization.office_name`:
   - `text_office_member_state_board_of_eq_d2`
 * Make `body.term_length` required.
 * Make `body_ca_courts_of_appeal_d1` inherit from `body_ca_courts_of_appeal`.
-* Clean up jsongen and get everything using the same pattern.
 * Add `name_short_i18n` to district in JSON file?
   - (and the body-specific variations -- search "distrito")
 * Get translated phrases working again.

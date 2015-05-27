@@ -180,11 +180,6 @@ def set_field_values(obj, object_id, object_data, object_base, object_type,
             for key, format_str in sorted(value.items()):
                 formatted = easy_format(format_str, **obj)
                 value[key] = formatted
-            # Since we formatted, the strings no longer match the original.
-            try:
-                del value['_id']
-            except KeyError:
-                pass
 
         field.set_value(obj, value)
 

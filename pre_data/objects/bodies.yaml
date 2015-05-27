@@ -1,7 +1,8 @@
 _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
-  base: {}
+  base:
+    office_name_format: '{{member_name}}, {{district_name_short}}'
 bodies:
   body_bart:
     category_id: category_transit
@@ -9,7 +10,6 @@ bodies:
     jurisdiction_area_id: area_state_ca_bart
     member_name_i18n: text_office_ca_bart_director
     name: BART Board of Directors
-    office_name_format: '{name_generic}, {district_name_short}'
     partisan: false
     seat_count: 9
     term_length: 4
@@ -88,8 +88,8 @@ bodies:
     jurisdiction_area_id: area_county_sf
     member_name_i18n: text_office_member_board_of_education
     name_i18n: text_body_city_board_of_education
-    office_name_format: MEMBER, BOARD OF EDUCATION, DISTRICT {district_number}
-    office_name_short_format: DISTRICT {district_number} BOARD MEMBER
+    office_name_format: '{member_name} (elect {seat_count})'
+    office_name_short_format: "{district_name_short} BOARD MEMBER"
     partisan: false
     seat_count: 7
     term_length: 4
@@ -103,8 +103,7 @@ bodies:
     member_name_i18n: text_office_member_board_of_supervisors
     mixin_id: sf_common
     name_i18n: text_body_city_board_of_supervisors
-    office_name_format: '{member_name}, {district_name_short}'
-    office_name_short_format: DISTRICT {district_number} SUPERVISOR
+    office_name_short_format: "{district_name_short} SUPERVISOR"
     seat_count: 11
     url: http://www.sfbos.org
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_Board_of_Supervisors
@@ -115,6 +114,7 @@ bodies:
     member_name_i18n: text_office_member_community_college_board
     name_i18n: text_body_city_college_board
     notes: This is also known as the San Francisco Community College Board of Trustees.
+    office_name_format: '{member_name} (elect {seat_count})'
     partisan: false
     seat_count: 7
     term_length: 4
@@ -172,7 +172,6 @@ bodies:
     member_name_i18n: text_office_usa_representative
     name: United States House of Representatives
     notes: There are also 6 non-voting members.
-    office_name_format: '{member_name}, {district_name_short}'
     partisan: true
     seat_count: 435
     seed_year: 2010
@@ -186,7 +185,7 @@ bodies:
     jurisdiction_area_id: area_country_usa
     member_name_i18n: text_office_usa_senator
     name: United States Senate
-    office_name_format: '{member_name}, {district_name_short} ({seat_name})'
+    office_name_format: '{member_name}, {district_name_short} (Class {seat})'
     partisan: true
     seat_count: 100
     seat_name_format: Class {seat}

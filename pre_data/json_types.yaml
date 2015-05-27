@@ -107,7 +107,14 @@ types:
         inherit: body_id
         required: true
       district_id: {}
+      district_name_short:
+        format: true
+        i18n_okay: true
+        inherit: district_id.name_short
       election_method_id: {}
+      member_name:
+        i18n_okay: true
+        inherit: body_id.member_name
       name:
         format: true
         i18n_okay: true
