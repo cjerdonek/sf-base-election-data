@@ -34,7 +34,8 @@ types:
         required: true
       seat_count:
         required: true
-      seat_name_format: {}
+      seat_name_format:
+        i18n_okay: true
       seed_year: {}
       term_length: {}
       url: {}
@@ -109,6 +110,7 @@ types:
       district_id: {}
       district_name_short:
         format: true
+        format_order: 1
         i18n_okay: true
         inherit: district_id.name_short
       election_method_id: {}
@@ -117,6 +119,7 @@ types:
         inherit: body_id.member_name
       name:
         format: true
+        format_order: 2
         i18n_okay: true
         inherit: body_id.office_name_format
         required: true
@@ -125,6 +128,11 @@ types:
         required: true
       seat: {}
       seat_count: {}
+      seat_name:
+        format: true
+        format_order: 2
+        i18n_okay: true
+        inherit: body_id.seat_name_format
       seed_year: {}
       term_length: {}
       twitter: {}

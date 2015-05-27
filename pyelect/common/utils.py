@@ -33,8 +33,8 @@ def easy_format(format_str, *args, **kwargs):
     except AttributeError:
         raise Exception("format_str: {0!r}".format(format_str))
     except KeyError:
-        raise Exception("with: format_str={0!r}, args={1!r}, kwargs={2!r}"
-                        .format(format_str, args, kwargs))
+        raise Exception("with: format_str={0!r}\nargs: {1!r}\nkwargs:\n{2}"
+                        .format(format_str, args, pformat(kwargs)))
     return formatted
 
 
@@ -272,6 +272,9 @@ class Field(object):
         return ("<Field at {1} (name={0!r}, data={2!r})>"
                 .format(self.name, hex(id(self)), self.data))
 
+    def format_order(self):
+        return self.data.get('format_order', 0)
+
     @property
     def is_i18n(self):
         return self.data.get('i18n_okay')
@@ -406,6 +409,5 @@ class ObjectType(object):
         return self._data.get('customized', True)
 
     def fields(self):
-        # We sort for reproducibility.
-        for field_name, field in sorted(self._fields.items()):
+        for field in sorted(self._fields.values(), key=Field.format_order):
             yield field

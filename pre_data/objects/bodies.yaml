@@ -2,7 +2,8 @@ _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
   base:
-    office_name_format: '{{member_name}}, {{district_name_short}}'
+    office_name_format: '{{member_name}}, {{seat_name}}'
+    seat_name_format: '{{district_name_short}}'
 bodies:
   body_bart:
     category_id: category_transit
@@ -88,10 +89,10 @@ bodies:
     jurisdiction_area_id: area_county_sf
     member_name_i18n: text_office_member_board_of_education
     name_i18n: text_body_city_board_of_education
-    office_name_format: '{member_name} (elect {seat_count})'
     office_name_short_format: "{district_name_short} BOARD MEMBER"
     partisan: false
     seat_count: 7
+    seat_name_format: 'Elect {seat_count}'
     term_length: 4
     url: http://www.sfusd.edu/en/about-sfusd/board-of-education
     vote_method: FPTP
@@ -114,9 +115,9 @@ bodies:
     member_name_i18n: text_office_member_community_college_board
     name_i18n: text_body_city_college_board
     notes: This is also known as the San Francisco Community College Board of Trustees.
-    office_name_format: '{member_name} (elect {seat_count})'
     partisan: false
     seat_count: 7
+    seat_name_format: 'Elect {seat_count}'
     term_length: 4
     url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
     vote_method: FPTP
@@ -185,10 +186,9 @@ bodies:
     jurisdiction_area_id: area_country_usa
     member_name_i18n: text_office_usa_senator
     name: United States Senate
-    office_name_format: '{member_name}, {district_name_short} (Class {seat})'
     partisan: true
     seat_count: 100
-    seat_name_format: Class {seat}
+    seat_name_format: "{district_name_short} (Class {seat})"
     term_length: 6
     url: http://www.senate.gov/
     wikipedia: http://en.wikipedia.org/wiki/United_States_Senate
