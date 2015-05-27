@@ -113,18 +113,6 @@ def make_json_object(obj, customize_func, object_id, object_base,
     if customize_func is not None:
         customize_func(json_object, obj, global_data=global_data)
 
-    try:
-        # Set the non-i18n version of i18n fields to simplify English-only
-        # processing of the JSON file.
-        for field in object_type.fields():
-            if not field.is_i18n or field.normalized_name not in json_object:
-                continue
-            phrase = json_object[field.normalized_name]
-            english = phrase[LANG_ENGLISH]
-            json_object[field.name] = english
-    except Exception:
-        raise Exception("json_object:\n{0}".format(pformat(json_object)))
-
     utils.check_object(json_object, object_id=object_id, object_type=object_type,
                        object_types=object_types, data_type='JSON')
 
@@ -139,23 +127,19 @@ def add_json_node(json_data, node_name, object_types, mixins, **kwargs):
 
     objects, meta = get_yaml_data(node_name)
     object_base = meta.get('base', {})
-    customize_function_name = "customize_{0}".format(type_name)
-
-    if object_type.customized:
-        customize_func = globals()[customize_function_name]
-    else:
-        customize_func = None
+    # Keep the lines below around for convenience in case we need them.
+    # customize_function_name = "customize_{0}".format(type_name)
+    # customize_func = globals()[customize_function_name] if object_type.customized else None
 
     json_node = {}
-    # We sort the objects for repeatability when troubleshooting.
-    for object_id in sorted(objects.keys()):
-        object_data = objects[object_id]
+    # We sort for repeatability when troubleshooting.
+    for object_id, object_data in sorted(objects.items()):
         try:
-            json_object = make_json_object(object_data, customize_func,
+            json_object = make_json_object(object_data, customize_func=None,
                                            object_id=object_id, object_base=object_base,
                                            object_type=object_type, object_types=object_types,
                                            global_data=json_data, mixins=mixins)
-        except:
+        except Exception:
             raise Exception("while processing {0!r} object:\n-->\n{1}"
                             .format(type_name, pformat(object_data)))
         json_node[object_id] = json_object
@@ -203,6 +187,7 @@ def make_json_data():
         json_node = json_data[node_name]
         type_name = utils.types_name_to_singular(node_name)
         object_type = object_types[type_name]
+        # We sort for repeatability when troubleshooting.
         for object_id, json_object in sorted(json_node.items()):  # sort for reproducibility.
             for field in object_type.fields():
                 if not field.is_i18n or field.normalized_name not in json_object:

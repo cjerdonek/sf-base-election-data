@@ -139,7 +139,7 @@ def create_yaml_object_file(objects, base_name, file_type=None):
 def _is_yaml_normalizable(data, path_hint):
     try:
         file_type = _get_yaml_file_type(data)
-    except:
+    except Exception:
         raise Exception("for file: {0}".format(path_hint))
     # Use a white list instead of a black list to be safe.
     return file_type in (FILE_AUTO_UPDATED, FILE_AUTO_GENERATED)

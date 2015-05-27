@@ -132,16 +132,6 @@ def get_referenced_object(object_data, id_attr_name, global_data):
     return type_name, ref_object
 
 
-def get_field(object_type, field_name):
-    """Raises KeyError if the field does not exist."""
-    fields = object_type._fields
-    if field_name.endswith(I18N_SUFFIX):
-        field_name = field_name.rstrip(I18N_SUFFIX)
-    field = fields[field_name]
-
-    return field
-
-
 def set_field_values(obj, object_id, object_data, object_base, object_type,
                      object_types, global_data):
     # Copy all field data from object_data.  We iterate over the field
@@ -155,7 +145,7 @@ def set_field_values(obj, object_id, object_data, object_base, object_type,
             continue
         resolved_field, value = value_info
         assert value is not None
-        obj[field.normalized_name] = value
+        field.set_value(obj, value)
 
     # We copy field values from the base object _after_ setting the concrete
     # values as opposed to before in order to address the issue of
@@ -170,14 +160,16 @@ def set_field_values(obj, object_id, object_data, object_base, object_type,
             continue
         value = easy_format(value, id=object_id, **object_data)
         value = field.normalize_value(field_name, value, global_data)
-        obj[normalized_field_name] = value
+        field.set_value(obj, value)
 
     # Process format strings last since they rely on other values.
     for field in object_type.fields():
         if not field.should_format:
             continue
-        field_name = field.normalized_name
-        value = obj[field_name]
+        try:
+            value = obj[field.normalized_name]
+        except KeyError:
+            continue
         # TODO: handle this better and make DRY.
         if isinstance(value, str):
             value = easy_format(value, **obj)
@@ -194,7 +186,7 @@ def set_field_values(obj, object_id, object_data, object_base, object_type,
             except KeyError:
                 pass
 
-        obj[field_name] = value
+        field.set_value(obj, value)
 
 
 def create_object(object_data, object_id, object_type, object_types, global_data, mixins,
@@ -320,6 +312,15 @@ class Field(object):
             value = {LANG_ENGLISH: value}
         return value
 
+    def set_value(self, obj, value):
+        obj[self.normalized_name] = value
+        # Set the non-i18n version of i18n fields to simplify English-only
+        # processing of the JSON file.
+        if self.is_i18n:
+            # Then value is a phrase.
+            obj[self.name] = value[LANG_ENGLISH]
+
+
     # TODO: distinguish between None and not found in the return value.
     def get_value(self, obj, global_data):
         """Look up a field value on an object, and return the value.
@@ -374,12 +375,23 @@ class Field(object):
         ref_type_name, ref_obj = ref_info
         ref_type = object_types[ref_type_name]
         ref_fields = ref_type._fields
-        ref_field = ref_fields[child_field_name]
+        ref_field = get_required(ref_fields, child_field_name)
         value = ref_obj.get(ref_field.normalized_name)
         if value is None:
             return None
 
         return ref_field, value
+
+
+# TODO: move this to ObjectType?
+def get_field(object_type, field_name):
+    """Raises KeyError if the field does not exist."""
+    fields = object_type._fields
+    if field_name.endswith(I18N_SUFFIX):
+        field_name = field_name.rstrip(I18N_SUFFIX)
+    field = fields[field_name]
+
+    return field
 
 
 class ObjectType(object):

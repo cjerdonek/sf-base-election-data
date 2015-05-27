@@ -382,7 +382,7 @@ def add_english_fields(json_data, phrases):
         for object_id, obj in objects.items():
             try:
                 _add_english_fields_object(phrases, object_id, obj)
-            except:
+            except Exception:
                 raise Exception("object (id={0}): {1}".format(object_id, obj))
 
 
