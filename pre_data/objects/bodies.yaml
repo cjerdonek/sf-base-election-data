@@ -163,6 +163,7 @@ bodies:
     notes: The Commissioners mentioned by Wikipedia do not face election.
     partisan: false
     seat_count: 52
+    seat_name_format: 'Seat No. {seat_number}'
     term_length: 6
     url: http://www.sfsuperiorcourt.org/
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court

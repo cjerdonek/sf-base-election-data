@@ -1,22 +1,6 @@
 TODO
 ====
 
-* Choose better names for `office_name` and generic `member_name`:
-  - `office_name_format` for office.name
-  - `member_name` for generic
-* Clean up occurrences of `office_name_format`.
-* Fix names for: SF Board of Supervisors and Education:
-  - BoS should be, for example:
-    1. MEMBER, BOARD OF SUPERVISORS, DISTRICT 2
-  - English format strings should always only be used to generate English values.
-  - Similarly, an i18n format string should always grab values for the
-    corresponding language (if the name of the value ends in i18n).
-  - Need to work out i18n format string with i18n values, etc,
-    and consider the various combinations.
-* Make office names take into account: seat_count, district, etc.
-* Make name reflect: "Judge of the Superior Court, Seat No. 20"
-* Somehow flag types as required in either the instance or the base
-  (e.g. office/body)?
 * Internationalize `body_ca_board_of_equalization.office_name`:
   - `text_office_member_state_board_of_eq_d2`
 * Make `body.term_length` required.
@@ -25,6 +9,11 @@ TODO
   - (and the body-specific variations -- search "distrito")
 * Get translated phrases working again.
 * Skip files beginning with a "." in the `copy_files()` helper function.
+* English format strings should always only be used to generate English values.
+  - Similarly, an i18n format string should always grab values for the
+    corresponding language (if the name of the value ends in i18n).
+  - Need to work out i18n format string with i18n values, etc,
+    and consider the various combinations.
 * Add court offices.
   - Call to see if they have seat numbers.
 * Check Twitter for bodies.
