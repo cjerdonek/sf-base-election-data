@@ -39,7 +39,6 @@ district_types:
   district_type_sf_board_of_supervisors:
     body_id: body_sf_board_of_supervisors
     district_count: 11
-    district_name_short_format_i18n: text_district_numbered_format
     name: Supervisorial
     parent_area_id: area_county_sf
   district_type_usa_house:

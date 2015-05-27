@@ -92,7 +92,7 @@ bodies:
     name_i18n: text_body_city_board_of_education
     partisan: false
     seat_count: 7
-    seat_name_format: 'Elect {seat_count}'
+    seat_name_format: Elect {seat_count}
     term_length: 4
     url: http://www.sfusd.edu/en/about-sfusd/board-of-education
     vote_method: FPTP
@@ -105,7 +105,7 @@ bodies:
     member_name_short: SUPERVISOR
     mixin_id: sf_common
     name_i18n: text_body_city_board_of_supervisors
-    office_name_short_format: "{district_name_short} SUPERVISOR"
+    office_name_short_format: '{district_name_short} SUPERVISOR'
     seat_count: 11
     url: http://www.sfbos.org
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_Board_of_Supervisors
@@ -118,7 +118,7 @@ bodies:
     notes: This is also known as the San Francisco Community College Board of Trustees.
     partisan: false
     seat_count: 7
-    seat_name_format: 'Elect {seat_count}'
+    seat_name_format: Elect {seat_count}
     term_length: 4
     url: http://www.ccsf.edu/en/about-city-college/board-of-trustees.html
     vote_method: FPTP
@@ -163,7 +163,7 @@ bodies:
     notes: The Commissioners mentioned by Wikipedia do not face election.
     partisan: false
     seat_count: 52
-    seat_name_format: 'Seat No. {seat_number}'
+    seat_name_format: Seat No. {seat_number}
     term_length: 6
     url: http://www.sfsuperiorcourt.org/
     wikipedia: http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court
@@ -190,7 +190,7 @@ bodies:
     name: United States Senate
     partisan: true
     seat_count: 100
-    seat_name_format: "{district_name_short} (Class {seat})"
+    seat_name_format: '{district_name_short} (Class {seat})'
     term_length: 6
     url: http://www.senate.gov/
     wikipedia: http://en.wikipedia.org/wiki/United_States_Senate

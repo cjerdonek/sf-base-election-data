@@ -308,7 +308,7 @@
             "office_name_format": "{member_name}, {seat_name}",
             "partisan": false,
             "seat_count": 52,
-            "seat_name_format": "{district_name_short}",
+            "seat_name_format": "Seat No. {seat_number}",
             "term_length": 6,
             "url": "http://www.sfsuperiorcourt.org/",
             "wikipedia": "http://en.wikipedia.org/wiki/San_Francisco_County_Superior_Court"

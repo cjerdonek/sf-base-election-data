@@ -5,8 +5,7 @@ TODO
   - `text_office_member_state_board_of_eq_d2`
 * Make `body.term_length` required.
 * Make `body_ca_courts_of_appeal_d1` inherit from `body_ca_courts_of_appeal`.
-* Add `name_short_i18n` to district in JSON file?
-  - (and the body-specific variations -- search "distrito")
+* Get HTML working again.
 * Get translated phrases working again.
 * Skip files beginning with a "." in the `copy_files()` helper function.
 * English format strings should always only be used to generate English values.
