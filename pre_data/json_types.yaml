@@ -22,6 +22,8 @@ types:
       localwiki: {}
       member_name:
         i18n_okay: true
+      member_name_short:
+        i18n_okay: true
       name:
         i18n_okay: true
         required: true
@@ -117,12 +119,20 @@ types:
       member_name:
         i18n_okay: true
         inherit: body_id.member_name
+      member_name_short:
+        i18n_okay: true
+        inherit: body_id.member_name_short
       name:
         format: true
-        format_order: 2
+        format_order: 3
         i18n_okay: true
         inherit: body_id.office_name_format
         required: true
+      name_short:
+        format: true
+        format_order: 3
+        i18n_okay: true
+        inherit: body_id.office_name_short_format
       partisan:
         inherit: body_id
         required: true

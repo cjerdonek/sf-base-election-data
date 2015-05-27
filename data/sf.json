@@ -173,6 +173,7 @@
                 "es": "MIEMBRO, CONSEJO DE EDUCACI\u00d3N",
                 "zh": "\u6559\u80b2\u59d4\u54e1\u6703\u6210\u54e1"
             },
+            "member_name_short": "BOARD MEMBER",
             "name": "Board of Education",
             "name_i18n": {
                 "_id": "text_body_city_board_of_education",
@@ -180,7 +181,6 @@
                 "es": "Consejo de Educaci\u00f3n"
             },
             "office_name_format": "{member_name}, {seat_name}",
-            "office_name_short_format": "{district_name_short} BOARD MEMBER",
             "partisan": false,
             "seat_count": 7,
             "seat_name_format": "Elect {seat_count}",
@@ -201,6 +201,7 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "Board of Supervisors",
             "name_i18n": {
                 "_id": "text_body_city_board_of_supervisors",
@@ -1139,6 +1140,7 @@
                 "es": "MIEMBRO, CONSEJO DE EDUCACI\u00d3N",
                 "zh": "\u6559\u80b2\u59d4\u54e1\u6703\u6210\u54e1"
             },
+            "member_name_short": "BOARD MEMBER",
             "name": "MEMBER, BOARD OF EDUCATION, Elect 3",
             "partisan": false,
             "seat_count": 3,
@@ -1155,6 +1157,7 @@
                 "es": "MIEMBRO, CONSEJO DE EDUCACI\u00d3N",
                 "zh": "\u6559\u80b2\u59d4\u54e1\u6703\u6210\u54e1"
             },
+            "member_name_short": "BOARD MEMBER",
             "name": "MEMBER, BOARD OF EDUCATION, Elect 4",
             "partisan": false,
             "seat_count": 4,
@@ -1180,7 +1183,9 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "MEMBER, BOARD OF SUPERVISORS, DISTRICT 1",
+            "name_short": "DISTRICT 1 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 1",
             "seed_year": 2012
@@ -1204,7 +1209,9 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "MEMBER, BOARD OF SUPERVISORS, DISTRICT 2",
+            "name_short": "DISTRICT 2 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 2",
             "seed_year": 2014
@@ -1228,7 +1235,9 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "MEMBER, BOARD OF SUPERVISORS, DISTRICT 3",
+            "name_short": "DISTRICT 3 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 3",
             "seed_year": 2012
@@ -1252,7 +1261,9 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "MEMBER, BOARD OF SUPERVISORS, DISTRICT 4",
+            "name_short": "DISTRICT 4 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 4",
             "seed_year": 2014
@@ -1276,7 +1287,9 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "MEMBER, BOARD OF SUPERVISORS, DISTRICT 5",
+            "name_short": "DISTRICT 5 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 5",
             "seed_year": 2012
@@ -1300,7 +1313,9 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "MEMBER, BOARD OF SUPERVISORS, DISTRICT 6",
+            "name_short": "DISTRICT 6 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 6",
             "seed_year": 2014
@@ -1324,7 +1339,9 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "MEMBER, BOARD OF SUPERVISORS, DISTRICT 7",
+            "name_short": "DISTRICT 7 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 7",
             "seed_year": 2012
@@ -1348,7 +1365,9 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "MEMBER, BOARD OF SUPERVISORS, DISTRICT 8",
+            "name_short": "DISTRICT 8 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 8",
             "seed_year": 2014
@@ -1372,7 +1391,9 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "MEMBER, BOARD OF SUPERVISORS, DISTRICT 9",
+            "name_short": "DISTRICT 9 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 9",
             "seed_year": 2012
@@ -1396,7 +1417,9 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "MEMBER, BOARD OF SUPERVISORS, DISTRICT 10",
+            "name_short": "DISTRICT 10 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 10",
             "seed_year": 2014
@@ -1420,7 +1443,9 @@
                 "es": "MIEMBRO, CONSEJO DE SUPERVISORES",
                 "zh": "\u5e02\u53c3\u8b70\u54e1"
             },
+            "member_name_short": "SUPERVISOR",
             "name": "MEMBER, BOARD OF SUPERVISORS, DISTRICT 11",
+            "name_short": "DISTRICT 11 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 11",
             "seed_year": 2012

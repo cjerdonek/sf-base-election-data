@@ -88,8 +88,8 @@ bodies:
     district_type_id: =none
     jurisdiction_area_id: area_county_sf
     member_name_i18n: text_office_member_board_of_education
+    member_name_short: BOARD MEMBER
     name_i18n: text_body_city_board_of_education
-    office_name_short_format: "{district_name_short} BOARD MEMBER"
     partisan: false
     seat_count: 7
     seat_name_format: 'Elect {seat_count}'
@@ -102,6 +102,7 @@ bodies:
     jurisdiction_area_id: area_county_sf
     localwiki: https://localwiki.org/sf/Board_of_Supervisors
     member_name_i18n: text_office_member_board_of_supervisors
+    member_name_short: SUPERVISOR
     mixin_id: sf_common
     name_i18n: text_body_city_board_of_supervisors
     office_name_short_format: "{district_name_short} SUPERVISOR"
