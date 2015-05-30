@@ -12,13 +12,13 @@ from django.template.loader import get_template
 from pyelect.html import context, templateconfig
 from pyelect import jsongen
 from pyelect.common import utils
-from pyelect.common.utils import JSON_OUTPUT_PATH
+from pyelect.common.utils import JSON_DATA_PATH
 
 
 _log = logging.getLogger()
 
 _DIR_NAME_TEMPLATE_PAGE = 'pages'
-_HTML_OUTPUT_DATA_DIR = os.path.dirname(utils.JSON_OUTPUT_PATH)
+_HTML_OUTPUT_DATA_DIR = os.path.dirname(utils.JSON_DATA_PATH)
 
 # Each ordered pair is--
 #  (1) source directory relative to the repo root
@@ -40,7 +40,7 @@ HTML_OUTPUT_SUB_DIRS = [
 
 def get_json_path():
     repo_dir = utils.get_repo_dir()
-    json_path = os.path.join(repo_dir, JSON_OUTPUT_PATH)
+    json_path = os.path.join(repo_dir, JSON_DATA_PATH)
     return json_path
 
 
@@ -135,7 +135,7 @@ def make_html(output_dir, page_name=None, print_html=False, local_assets=False,
         target_dir = os.path.join(output_dir, rel_target_dir)
         copy_files(source_dir, target_dir)
 
-    json_data = jsongen.get_json()
+    json_data = get_json()
     data = context.make_html_data(json_data, local_assets=local_assets)
 
     page_bases = get_template_page_bases()

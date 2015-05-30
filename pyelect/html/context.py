@@ -354,6 +354,7 @@ def make_one_office2(html_obj, html_data, json_obj):
     return html_obj
 
 
+# TODO: remove this?
 def _add_english_fields_object(phrases, object_id, obj):
     # TODO: put this validation logic elsewhere.
     if " " in object_id:
@@ -373,6 +374,7 @@ def _add_english_fields_object(phrases, object_id, obj):
         obj[simple_name] = english
 
 
+# TODO: remove this?
 def add_english_fields(json_data, phrases):
     """Add a simple field for each internationalized field."""
     for node_name, objects in json_data.items():
@@ -458,16 +460,16 @@ def make_html_data(json_data, local_assets=False):
     category_ordering = _make_category_ordering()
 
     phrases = make_phrases(json_data)
-    add_english_fields(json_data, phrases)
+    # add_english_fields(json_data, phrases)
 
     bootstrap_prefix = _BOOTSTRAP_LOCAL if local_assets else _BOOTSTRAP_REMOTE
     jquery_prefix = _JQUERY_LOCAL if local_assets else _JQUERY_REMOTE
 
     html_data = {
         'jquery_prefix': jquery_prefix,
-        'json_path': JSON_OUTPUT_PATH,
+        'json_path': utils.JSON_DATA_PATH,
         'language_codes': [LANG_ENGLISH] + NON_ENGLISH_ORDER,
-        'license_path': LICENSE_PATH,
+        'license_path': utils.DATA_LICENSE_PATH,
         'bootstrap_prefix': bootstrap_prefix,
         'page_bases': _TABLE_OF_CONTENTS,
         NodeNames.phrases: phrases,

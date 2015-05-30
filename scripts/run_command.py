@@ -213,7 +213,7 @@ def create_parser():
                 help='update the i18n files for the "extra" phrases.',
                 details=details)
 
-    rel_path_default = utils.JSON_OUTPUT_PATH
+    rel_path_default = utils.JSON_DATA_PATH
     parser = make_subparser(sub, "make_json",
                 help="create or update a JSON data file.")
     parser.add_argument('output_path', metavar='PATH', nargs="?", default=rel_path_default,
