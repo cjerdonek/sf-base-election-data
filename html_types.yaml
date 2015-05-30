@@ -1,0 +1,54 @@
+_meta:
+  _type: auto_updated
+  _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
+types:
+  body:
+    district_type_id:
+      required: true
+    jurisdiction_area_id:
+      required: true
+    member_name:
+      required: false
+    office_name: {}
+    office_name_format: {}
+    partisan:
+      required: true
+    seat_count:
+      required: true
+    seat_name_format: {}
+  category:
+    name:
+      type: i18n
+  district:
+    district_code: {}
+    district_type_id: {}
+    label: {}
+    name:
+      required: true
+    name_short:
+      required: true
+    number: {}
+    wikipedia: {}
+  district_type:
+    body_id: {}
+    category_id: {}
+    district_count: {}
+    district_name_short_format: {}
+    district_name_format:
+      # Require this because it is used to generate the name.
+      required: true
+    geographic: {}
+    name:
+      required: true
+    description_plural:
+      required: true
+    parent_area_id: {}
+    wikipedia: {}
+  office:
+    body_id: {}
+    district_id: {}
+    # TODO: make this required
+    jurisdiction_area_id: {}
+    partisan: {}
+    seat: {}
+    seat_name: {}
