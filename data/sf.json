@@ -304,7 +304,7 @@
                 "en": "Superior Court of San Francisco",
                 "es": "Tribunal Superior"
             },
-            "notes": "The Commissioners mentioned by Wikipedia do not face election.",
+            "notes": "This court is a state trial court and belongs to the lowest level of state courts in California. The Commissioners mentioned by Wikipedia do not face election.",
             "office_name_format": "{member_name}, {seat_name}",
             "partisan": false,
             "seat_count": 52,
@@ -563,7 +563,7 @@
             },
             "number": 9
         },
-        "district_ca_board_of_equalization": {
+        "district_ca_board_of_equalization_2": {
             "district_type_id": "district_type_ca_board_of_equalization",
             "label": "Second",
             "name": "Second Equalization District",
@@ -1004,6 +1004,23 @@
             "seed_year": 2014,
             "term_length": 4,
             "url": "http://www.ltg.ca.gov/"
+        },
+        "office_ca_member_state_board_of_equalization_d2": {
+            "body_id": "body_ca_board_of_equalization",
+            "category_id": "category_state",
+            "district_id": "district_ca_board_of_equalization_2",
+            "district_name_short": "Second District",
+            "member_name": "Member, State Board of Equalization",
+            "name": "MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2",
+            "name_i18n": {
+                "_id": "text_office_member_state_board_of_eq_d2",
+                "en": "MEMBER, STATE BOARD OF EQUALIZATION, DISTRICT 2",
+                "es": "MIEMBRO, DIRECTIVA ESTATAL DE IMPUESTOS SOBRE VENTAS, USO, Y OTROS, DISTRITO 2",
+                "fil": "Miyembro, Lupon ng Tagasingil ng Buwis ng Estado Distrito 2",
+                "zh": "\u5dde\u5e73\u7a05\u5c40\u7b2c2\u9078\u5340\u6210\u54e1"
+            },
+            "partisan": true,
+            "seat_name": "Second District"
         },
         "office_ca_secretary": {
             "category_id": "category_state",

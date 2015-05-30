@@ -1,8 +1,6 @@
 TODO
 ====
 
-* Internationalize `body_ca_board_of_equalization.office_name`:
-  - `text_office_member_state_board_of_eq_d2`
 * Make `body.term_length` required.
 * Make `body_ca_courts_of_appeal_d1` inherit from `body_ca_courts_of_appeal`.
 * Get HTML working again.

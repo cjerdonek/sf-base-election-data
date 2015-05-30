@@ -48,6 +48,10 @@ offices:
     mixin_id: ca_common
     name_i18n: text_office_state_controller
     url: http://www.sco.ca.gov/
+  office_ca_member_state_board_of_equalization_d2:
+    body_id: body_ca_board_of_equalization
+    district_id: district_ca_board_of_equalization_2
+    name_i18n: text_office_member_state_board_of_eq_d2
   office_ca_governor:
     mixin_id: ca_common
     name_i18n: text_office_state_governor

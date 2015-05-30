@@ -11,7 +11,7 @@ districts:
   district_ca_bart_9:
     district_type_id: district_type_bart
     number: 9
-  district_ca_board_of_equalization:
+  district_ca_board_of_equalization_2:
     district_type_id: district_type_ca_board_of_equalization
     label: Second
     number: 2
