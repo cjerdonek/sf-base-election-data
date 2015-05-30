@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Make `body_ca_courts_of_appeal_d1` inherit from `body_ca_courts_of_appeal`.
 * Get HTML working again.
 * Get translated phrases working again.
 * Skip files beginning with a "." in the `copy_files()` helper function.
@@ -11,8 +10,9 @@ TODO
   - Need to work out i18n format string with i18n values, etc,
     and consider the various combinations.
 * Add court offices.
-  - Call to see if they have seat numbers.
+  - Find out if they have seat numbers.
 * Check Twitter for bodies.
+* Make `body_ca_courts_of_appeal_d1` inherit from `body_ca_courts_of_appeal`.
 * Check all `body.office_name_i18n` values.
 * Add `int` type to fields.yaml.
 * Member name for Supreme Court of California: Justice?
