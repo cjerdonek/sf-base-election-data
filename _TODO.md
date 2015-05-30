@@ -1,7 +1,6 @@
 TODO
 ====
 
-* Make `body.term_length` required.
 * Make `body_ca_courts_of_appeal_d1` inherit from `body_ca_courts_of_appeal`.
 * Get HTML working again.
 * Get translated phrases working again.

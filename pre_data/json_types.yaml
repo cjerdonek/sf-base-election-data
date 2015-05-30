@@ -39,7 +39,8 @@ types:
       seat_name_format:
         i18n_okay: true
       seed_year: {}
-      term_length: {}
+      term_length:
+        required: true
       url: {}
       vote_method: {}
       wikipedia: {}
