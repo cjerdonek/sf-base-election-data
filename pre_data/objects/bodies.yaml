@@ -160,8 +160,8 @@ bodies:
     jurisdiction_area_id: area_county_sf
     member_name_i18n: text_office_member_body_sf_superior_court
     name_i18n: text_body_sf_superior_court
-    notes: The lowest level of state courts in California. The Commissioners mentioned
-      by Wikipedia do not face election.
+    notes: This court is a state trial court and belongs to the lowest level of state
+      courts in California. The Commissioners mentioned by Wikipedia do not face election.
     partisan: false
     seat_count: 52
     seat_name_format: Seat No. {seat_number}
