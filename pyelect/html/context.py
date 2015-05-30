@@ -139,13 +139,12 @@ def _set_html_object_data(html_data, json_data, keys):
         html_data[i18n_key] = json_data.get(i18n_key, None)
 
 
-def _set_html_object_fields(html_data, json_data, fields):
-    for field_name in sorted(fields.keys()):
-        field = fields[field_name]
-        field_type = field.get('type', None)
+def _set_html_object_fields(html_data, json_data, html_type):
+    for field in html_type.fields():
+        field_name = field.name
         value = json_data.get(field_name, None)
         html_data[field_name] = value
-        if field_type == 'i18n':
+        if field.is_i18n:
             # Include internationalized values when they are available, for all fields.
             i18n_field_name = lang.get_i18n_field_name(field_name)
             html_data[i18n_field_name] = json_data.get(i18n_field_name, None)
@@ -158,9 +157,9 @@ def _make_html_object(json_data, keys, object_id):
     return context
 
 
-def _make_html_object2(json_data, fields, object_id):
+def _make_html_object2(json_data, object_id, html_type):
     context = {'id': object_id}
-    _set_html_object_fields(context, json_data, fields)
+    _set_html_object_fields(context, json_data, html_type)
     return context
 
 
@@ -360,7 +359,7 @@ def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
     return objects
 
 
-def add_html_node(base_name, html_data, json_data, field_data, json_key=None, **kwargs):
+def add_html_node(base_name, html_data, json_data, html_types, json_key=None, **kwargs):
     type_name = utils.types_name_to_singular(base_name)
 
     # TODO: document json_key vs. base_name.
@@ -369,7 +368,7 @@ def add_html_node(base_name, html_data, json_data, field_data, json_key=None, **
     make_object_func_name = "make_one_{0}2".format(type_name, **kwargs)
     set_object_fields = globals()[make_object_func_name]
 
-    fields = field_data[type_name]
+    html_type = html_types[type_name]
     json_node = json_data[json_key]
 
     objects = {}
@@ -378,7 +377,7 @@ def add_html_node(base_name, html_data, json_data, field_data, json_key=None, **
     # issues, so that the same item will error out when running a second time.
     for object_id in sorted(json_node.keys()):
         json_obj = json_node[object_id]
-        html_obj = _make_html_object2(json_obj, fields, object_id)
+        html_obj = _make_html_object2(json_obj, object_id, html_type=html_type)
         set_object_fields(html_obj, html_data, json_obj, **kwargs)
         # TODO: remove this hack (used to skip offices).
         if html_obj['name'] is None:
@@ -403,7 +402,7 @@ def make_html_data(json_data, local_assets=False):
     bootstrap_prefix = _BOOTSTRAP_LOCAL if local_assets else _BOOTSTRAP_REMOTE
     jquery_prefix = _JQUERY_LOCAL if local_assets else _JQUERY_REMOTE
 
-    object_types = yamlutil.load_type_definitions(utils.HTML_TYPES_PATH)
+    html_types = yamlutil.load_type_definitions(utils.HTML_TYPES_PATH)
 
     html_data = {
         'jquery_prefix': jquery_prefix,
@@ -416,7 +415,7 @@ def make_html_data(json_data, local_assets=False):
     }
 
     def _add_node(base_name, **kwargs):
-        add_html_node(base_name, html_data, json_data, object_types, **kwargs)
+        add_html_node(base_name, html_data, json_data, html_types=html_types, **kwargs)
 
     _add_node('categories', ordering=category_ordering)
 
