@@ -15,6 +15,7 @@ DIR_NAME_OBJECTS = 'objects'
 DIR_NAME_PRE_DATA = 'pre_data'
 
 DATA_LICENSE_PATH = 'data/LICENSE.txt'
+HTML_TYPES_PATH = 'html_types.yaml'
 JSON_DATA_PATH = 'data/sf.json'
 JSON_TYPES_PATH = os.path.join(DIR_NAME_PRE_DATA, 'json_types.yaml')
 

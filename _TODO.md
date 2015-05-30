@@ -2,6 +2,7 @@ TODO
 ====
 
 * Get HTML working again.
+  - use new approach for each type.
 * Get translated phrases working again.
 * Skip files beginning with a "." in the `copy_files()` helper function.
 * English format strings should always only be used to generate English values.

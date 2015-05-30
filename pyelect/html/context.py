@@ -14,6 +14,7 @@ from pyelect.html import pages
 from pyelect import lang
 from pyelect.common import utils
 from pyelect.common.utils import I18N_SUFFIX, LANG_ENGLISH, easy_format
+from pyelect.common import yamlutil
 
 
 _log = logging.getLogger()
@@ -59,59 +60,6 @@ OFFICE_BODY_COMMON_FIELDS_YAML = """\
   twitter: {}
   url: {}
   wikipedia: {}
-"""
-
-TYPE_FIELDS_YAML = """\
-body:
-  district_type_id:
-    required: true
-  jurisdiction_area_id:
-    required: true
-  member_name:
-    required: false
-  office_name: {}
-  office_name_format: {}
-  partisan:
-    required: true
-  seat_count:
-    required: true
-  seat_name_format: {}
-category:
-  name:
-    type: i18n
-district:
-  district_code: {}
-  district_type_id: {}
-  label: {}
-  name:
-    required: true
-  name_short:
-    required: true
-  number: {}
-  wikipedia: {}
-district_type:
-  body_id: {}
-  category_id: {}
-  district_count: {}
-  district_name_short_format: {}
-  district_name_format:
-    # Require this because it is used to generate the name.
-    required: true
-  geographic: {}
-  name:
-    required: true
-  description_plural:
-    required: true
-  parent_area_id: {}
-  wikipedia: {}
-office:
-  body_id: {}
-  district_id: {}
-  # TODO: make this required
-  jurisdiction_area_id: {}
-  partisan: {}
-  seat: {}
-  seat_name: {}
 """
 
 
@@ -444,16 +392,6 @@ def add_html_node(base_name, html_data, json_data, field_data, json_key=None, **
     return objects
 
 
-def load_field_data():
-    field_data = yaml.load(TYPE_FIELDS_YAML)
-    for name in ('body', 'office'):
-        fields = field_data[name]
-        extra_fields = yaml.load(OFFICE_BODY_COMMON_FIELDS_YAML)
-        fields.update(extra_fields)
-
-    return field_data
-
-
 # TODO: switch this to use add_context_node() everywhere possible.
 def make_html_data(json_data, local_assets=False):
     """Return the template data that will be used to create the context."""
@@ -465,6 +403,8 @@ def make_html_data(json_data, local_assets=False):
     bootstrap_prefix = _BOOTSTRAP_LOCAL if local_assets else _BOOTSTRAP_REMOTE
     jquery_prefix = _JQUERY_LOCAL if local_assets else _JQUERY_REMOTE
 
+    object_types = yamlutil.load_type_definitions(utils.HTML_TYPES_PATH)
+
     html_data = {
         'jquery_prefix': jquery_prefix,
         'json_path': utils.JSON_DATA_PATH,
@@ -475,6 +415,11 @@ def make_html_data(json_data, local_assets=False):
         NodeNames.phrases: phrases,
     }
 
+    def _add_node(base_name, **kwargs):
+        add_html_node(base_name, html_data, json_data, object_types, **kwargs)
+
+    _add_node('categories', ordering=category_ordering)
+
     base_names = [
         'areas',
         NodeNames.election_methods,
@@ -482,12 +427,6 @@ def make_html_data(json_data, local_assets=False):
     for base_name in base_names:
         add_context_node(html_data, json_data, base_name)
 
-    field_data = load_field_data()
-
-    def _add_node(base_name, **kwargs):
-        add_html_node(base_name, html_data, json_data, field_data, **kwargs)
-
-    _add_node('categories', ordering=category_ordering)
 
     base_names = [
         'bodies',

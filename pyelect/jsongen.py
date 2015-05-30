@@ -147,21 +147,8 @@ def add_json_node(json_data, node_name, object_types, mixins, **kwargs):
     json_data[node_name] = json_node
 
 
-def load_object_types():
-    data = yamlutil.read_yaml_rel(utils.JSON_TYPES_PATH)
-    types_data = get_required(data, 'types')
-    object_types = {}
-    for type_name, type_data in sorted(types_data.items()):
-        fields_data = get_required(type_data, 'fields')
-        fields = {name: Field(name, data) for name, data in fields_data.items()}
-        object_type = ObjectType(type_name, fields=fields, data=type_data)
-        object_types[type_name] = object_type
-
-    return object_types
-
-
 def make_json_data():
-    object_types = load_object_types()
+    object_types = yamlutil.load_type_definitions(utils.JSON_TYPES_PATH)
     mixins, meta = get_yaml_data('mixins')
     del meta
 

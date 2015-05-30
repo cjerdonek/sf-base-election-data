@@ -158,3 +158,16 @@ def normalize_yaml(path, stdout=None):
         return
 
     write_yaml_with_header(data, path, stdout=stdout)
+
+
+def load_type_definitions(path):
+    data = read_yaml_rel(path)
+    types_data = get_required(data, 'types')
+    object_types = {}
+    for type_name, type_data in sorted(types_data.items()):
+        fields_data = get_required(type_data, 'fields')
+        fields = {name: utils.Field(name, data) for name, data in fields_data.items()}
+        object_type = utils.ObjectType(type_name, fields=fields, data=type_data)
+        object_types[type_name] = object_type
+
+    return object_types
