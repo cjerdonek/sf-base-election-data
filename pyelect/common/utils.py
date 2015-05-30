@@ -221,8 +221,9 @@ def check_object(obj, object_id, data_type, object_type, object_types):
             # Ensure that every field value is supposed to be there.
             field = get_field(object_type, field_name)
         except KeyError:
-            raise Exception("field '{0}' is not defined for type '{1}':\n{2}"
-                            .format(field_name, type_name, pformat(obj)))
+            raise Exception("{data_type} type '{1}' does not define field '{0}':\nobject:\n{object}"
+                            .format(field_name, type_name, data_type=data_type,
+                                    object=pformat(obj)))
         if (field.is_i18n and not field_name.endswith(I18N_SUFFIX) and
             not isinstance(value, str)):
             raise Exception("field {0!r} should be a string:\n{1}"

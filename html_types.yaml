@@ -6,6 +6,8 @@ types:
     fields:
       district_type_id:
         required: true
+      id:
+        required: true
       jurisdiction_area_id:
         required: true
       member_name:
@@ -19,12 +21,16 @@ types:
       seat_name_format: {}
   category:
     fields:
+      id:
+        required: true
       name:
         type: i18n
   district:
     fields:
       district_code: {}
       district_type_id: {}
+      id:
+        required: true
       label: {}
       name:
         required: true
@@ -42,6 +48,8 @@ types:
         # Require this because it is used to generate the name.
         required: true
       geographic: {}
+      id:
+        required: true
       name:
         required: true
       description_plural:
@@ -52,6 +60,8 @@ types:
     fields:
       body_id: {}
       district_id: {}
+      id:
+        required: true
       # TODO: make this required
       jurisdiction_area_id: {}
       partisan: {}

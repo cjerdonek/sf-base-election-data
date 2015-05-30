@@ -382,7 +382,8 @@ def add_html_node(base_name, html_data, json_data, html_types, json_key=None, **
         # TODO: remove this hack (used to skip offices).
         if html_obj['name'] is None:
             continue
-        utils.check_object(html_obj, fields, type_name=type_name, data_type='HTML')
+        utils.check_object(html_obj, object_id=object_id, object_type=html_type,
+                           object_types=html_types, data_type='html')
         objects[object_id] = html_obj
 
     html_data[base_name] = objects
