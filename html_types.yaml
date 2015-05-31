@@ -1,8 +1,21 @@
 _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
+  mixins:
+    office_base:
+      category_id: {}
+      election_method_id: {}
+      name:
+        type: i18n
+      notes: {}
+      seed_year: {}
+      term_length: {}
+      twitter: {}
+      url: {}
+      wikipedia: {}
 types:
   body:
+    mixin: office_base
     fields:
       district_type_id:
         required: true
@@ -24,7 +37,10 @@ types:
       id:
         required: true
       name:
+        required: true
         type: i18n
+      order:
+        required: true
   district:
     fields:
       district_code: {}
@@ -57,6 +73,7 @@ types:
       parent_area_id: {}
       wikipedia: {}
   office:
+    mixin: office_base
     fields:
       body_id: {}
       district_id: {}

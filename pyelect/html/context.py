@@ -49,31 +49,10 @@ category_party
 """.splitlines()
 
 
-OFFICE_BODY_COMMON_FIELDS_YAML = """\
-  category_id: {}
-  election_method_id: {}
-  name:
-    type: i18n
-  notes: {}
-  seed_year: {}
-  term_length: {}
-  twitter: {}
-  url: {}
-  wikipedia: {}
-"""
-
-
 class NodeNames(object):
 
     election_methods = 'election_methods'
     phrases = 'phrases'
-
-
-def _make_category_ordering():
-    ordering = {}
-    for i, category_id in enumerate(CATEGORY_ORDER, start=1):
-        ordering[category_id] = i
-    return ordering
 
 
 def make_template_context(html_data, page_base):
@@ -129,40 +108,6 @@ def make_phrases(json_data):
     return phrases
 
 
-# TODO: remove this function in favor of _set_html_object_fields().
-def _set_html_object_data(html_data, json_data, keys):
-    for key in keys:
-        value = json_data.get(key, None)
-        html_data[key] = value
-        # Include internationalized values when they are available, for all fields.
-        i18n_key = lang.get_i18n_field_name(key)
-        html_data[i18n_key] = json_data.get(i18n_key, None)
-
-
-def _set_html_object_fields(html_data, json_data, html_type):
-    for field in html_type.fields():
-        field_name = field.name
-        value = json_data.get(field_name, None)
-        html_data[field_name] = value
-        if field.is_i18n:
-            # Include internationalized values when they are available, for all fields.
-            i18n_field_name = lang.get_i18n_field_name(field_name)
-            html_data[i18n_field_name] = json_data.get(i18n_field_name, None)
-
-
-# TODO: remove this function in favor of _make_html_object2().
-def _make_html_object(json_data, keys, object_id):
-    context = {'id': object_id}
-    _set_html_object_data(context, json_data, keys)
-    return context
-
-
-def _make_html_object2(json_data, object_id, html_type):
-    context = {'id': object_id}
-    _set_html_object_fields(context, json_data, html_type)
-    return context
-
-
 def _set_html_election_data(html_data, json_data):
     html_data['next_election_year'] = _compute_next_election_year(json_data)
 
@@ -185,12 +130,10 @@ def make_one_body2(html_obj, html_data, json_obj):
     return html_obj
 
 
-def make_one_category2(html_obj, html_data, json_obj, ordering):
-    category_id = html_obj['id']
-    order = ordering[category_id]
+def make_one_category2(html_obj, html_data, json_obj):
+    object_id = html_obj['id']
+    order = CATEGORY_ORDER.index(object_id)
     html_obj['order'] = order
-
-    return html_obj
 
 
 def make_one_district_type2(html_obj, html_data, json_obj):
@@ -359,29 +302,38 @@ def add_context_node(context, json_data, node_name, json_key=None, **kwargs):
     return objects
 
 
-def add_html_node(base_name, html_data, json_data, html_types, json_key=None, **kwargs):
-    type_name = utils.types_name_to_singular(base_name)
+def _set_html_object_fields(html_data, json_data, html_type):
+    for field in html_type.fields():
+        field_name = field.name
+        if field_name == 'id':
+            continue
+        value = json_data.get(field_name, None)
+        html_data[field_name] = value
+        if field.is_i18n:
+            # Include internationalized values when they are available, for all fields.
+            i18n_field_name = lang.get_i18n_field_name(field_name)
+            html_data[i18n_field_name] = json_data.get(i18n_field_name, None)
 
+
+def add_html_node(base_name, html_data, json_data, html_types, json_key=None):
     # TODO: document json_key vs. base_name.
     if json_key is None:
         json_key = base_name
-    make_object_func_name = "make_one_{0}2".format(type_name, **kwargs)
-    set_object_fields = globals()[make_object_func_name]
 
-    html_type = html_types[type_name]
     json_node = json_data[json_key]
+    type_name = utils.types_name_to_singular(base_name)
+    html_type = html_types[type_name]
+    customize_function_name = "make_one_{0}2".format(type_name)
+    customize_fields = globals()[customize_function_name] if html_type.customized else None
 
     objects = {}
-
     # Sort the items to get repeatability.  This helps when troubleshooting
     # issues, so that the same item will error out when running a second time.
     for object_id in sorted(json_node.keys()):
         json_obj = json_node[object_id]
-        html_obj = _make_html_object2(json_obj, object_id, html_type=html_type)
-        set_object_fields(html_obj, html_data, json_obj, **kwargs)
-        # TODO: remove this hack (used to skip offices).
-        if html_obj['name'] is None:
-            continue
+        html_obj = {'id': object_id}
+        _set_html_object_fields(html_obj, json_obj, html_type=html_type)
+        customize_fields(html_obj, html_data, json_obj)
         utils.check_object(html_obj, object_id=object_id, object_type=html_type,
                            object_types=html_types, data_type='html')
         objects[object_id] = html_obj
@@ -395,8 +347,6 @@ def add_html_node(base_name, html_data, json_data, html_types, json_key=None, **
 # TODO: switch this to use add_context_node() everywhere possible.
 def make_html_data(json_data, local_assets=False):
     """Return the template data that will be used to create the context."""
-    category_ordering = _make_category_ordering()
-
     phrases = make_phrases(json_data)
     # add_english_fields(json_data, phrases)
 
@@ -414,11 +364,15 @@ def make_html_data(json_data, local_assets=False):
         'page_bases': _TABLE_OF_CONTENTS,
         NodeNames.phrases: phrases,
     }
-
-    def _add_node(base_name, **kwargs):
-        add_html_node(base_name, html_data, json_data, html_types=html_types, **kwargs)
-
-    _add_node('categories', ordering=category_ordering)
+    base_names = [
+        'categories',
+        'bodies',
+        'district_types',
+        'districts',
+        'offices',
+    ]
+    for base_name in base_names:
+        add_html_node(base_name, html_data, json_data, html_types=html_types)
 
     base_names = [
         'areas',
@@ -426,16 +380,6 @@ def make_html_data(json_data, local_assets=False):
     ]
     for base_name in base_names:
         add_context_node(html_data, json_data, base_name)
-
-
-    base_names = [
-        'bodies',
-        'district_types',
-        'districts',
-        'offices',
-    ]
-    for base_name in base_names:
-        _add_node(base_name)
 
     offices = html_data['offices']
     office_count = 0
