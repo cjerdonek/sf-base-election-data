@@ -162,10 +162,17 @@ def normalize_yaml(path, stdout=None):
 
 def load_type_definitions(path):
     data = read_yaml_rel(path)
+    mixins = get_required(data, 'mixins')
     types_data = get_required(data, 'types')
     object_types = {}
     for type_name, type_data in sorted(types_data.items()):
-        fields_data = get_required(type_data, 'fields')
+        fields_data = {}
+        mixin_id = type_data.get('mixin_id')
+        if mixin_id is not None:
+            data = mixins[mixin_id]
+            fields_data.update(data)
+        data = get_required(type_data, 'fields')
+        fields_data.update(data)
         fields = {name: utils.Field(name, data) for name, data in fields_data.items()}
         object_type = utils.ObjectType(type_name, fields=fields, data=type_data)
         object_types[type_name] = object_type

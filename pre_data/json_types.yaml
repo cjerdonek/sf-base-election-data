@@ -1,6 +1,15 @@
 _meta:
   _type: auto_updated
   _type_comment: 'WARNING: this file is auto-updated. Any YAML comments will be deleted.'
+mixins:
+  office_base:
+    seed_year: {}
+    term_length:
+      required: true
+    twitter: {}
+    url: {}
+    vote_method: {}
+    wikipedia: {}
 types:
   area:
     customized: false
@@ -11,6 +20,7 @@ types:
       wikipedia: {}
   body:
     customized: false
+    mixin_id: office_base
     fields:
       category_id:
         required: true
@@ -38,12 +48,6 @@ types:
         required: true
       seat_name_format:
         i18n_okay: true
-      seed_year: {}
-      term_length:
-        required: true
-      url: {}
-      vote_method: {}
-      wikipedia: {}
   category:
     customized: false
     fields:
@@ -105,6 +109,7 @@ types:
         i18n_okay: true
   office:
     customized: false
+    mixin_id: office_base
     fields:
       body_id: {}
       category_id:
@@ -144,12 +149,6 @@ types:
         format_order: 2
         i18n_okay: true
         inherit: body_id.seat_name_format
-      seed_year: {}
-      term_length: {}
-      twitter: {}
-      url: {}
-      vote_method: {}
-      wikipedia: {}
   phrase:
     customized: false
     fields:
