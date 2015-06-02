@@ -114,7 +114,7 @@ def make_json_object(obj, customize_func, object_id, object_base,
         customize_func(json_object, obj, global_data=global_data)
 
     utils.check_object(json_object, object_id=object_id, object_type=object_type,
-                       object_types=object_types, data_type='JSON')
+                       object_types=object_types, data_type='json')
 
     return json_object
 

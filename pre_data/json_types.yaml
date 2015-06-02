@@ -4,8 +4,6 @@ _meta:
 mixins:
   office_base:
     seed_year: {}
-    term_length:
-      required: true
     twitter: {}
     url: {}
     vote_method: {}
@@ -48,6 +46,8 @@ types:
         required: true
       seat_name_format:
         i18n_okay: true
+      term_length:
+        required: true
   category:
     customized: false
     fields:
@@ -149,6 +149,9 @@ types:
         format_order: 2
         i18n_okay: true
         inherit: body_id.seat_name_format
+      term_length:
+        inherit: body_id.term_length
+        required: true
   phrase:
     customized: false
     fields:

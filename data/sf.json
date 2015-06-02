@@ -904,7 +904,8 @@
             "name": "BART DIRECTOR, DISTRICT 7",
             "partisan": false,
             "seat_name": "DISTRICT 7",
-            "seed_year": 2000
+            "seed_year": 2000,
+            "term_length": 4
         },
         "office_ca_bart_director_8": {
             "body_id": "body_bart",
@@ -928,7 +929,8 @@
             "name": "BART DIRECTOR, DISTRICT 8",
             "partisan": false,
             "seat_name": "DISTRICT 8",
-            "seed_year": 2002
+            "seed_year": 2002,
+            "term_length": 4
         },
         "office_ca_bart_director_9": {
             "body_id": "body_bart",
@@ -952,7 +954,8 @@
             "name": "BART DIRECTOR, DISTRICT 9",
             "partisan": false,
             "seat_name": "DISTRICT 9",
-            "seed_year": 2000
+            "seed_year": 2000,
+            "term_length": 4
         },
         "office_ca_controller": {
             "category_id": "category_state",
@@ -1027,7 +1030,8 @@
                 "zh": "\u5dde\u5e73\u7a05\u5c40\u7b2c2\u9078\u5340\u6210\u54e1"
             },
             "partisan": true,
-            "seat_name": "Second District"
+            "seat_name": "Second District",
+            "term_length": 4
         },
         "office_ca_secretary": {
             "category_id": "category_state",
@@ -1067,7 +1071,8 @@
             },
             "name": "MEMBER OF THE STATE ASSEMBLY, DISTRICT 17",
             "partisan": true,
-            "seat_name": "DISTRICT 17"
+            "seat_name": "DISTRICT 17",
+            "term_length": 2
         },
         "office_ca_state_assembly_19": {
             "body_id": "body_ca_state_assembly",
@@ -1091,7 +1096,8 @@
             },
             "name": "MEMBER OF THE STATE ASSEMBLY, DISTRICT 19",
             "partisan": true,
-            "seat_name": "DISTRICT 19"
+            "seat_name": "DISTRICT 19",
+            "term_length": 2
         },
         "office_ca_state_senate_11": {
             "body_id": "body_ca_state_senate",
@@ -1115,7 +1121,8 @@
             },
             "name": "STATE SENATOR, DISTRICT 11",
             "partisan": true,
-            "seat_name": "DISTRICT 11"
+            "seat_name": "DISTRICT 11",
+            "term_length": 4
         },
         "office_ca_superintendent_of_public_instruction": {
             "category_id": "category_state",
@@ -1169,7 +1176,8 @@
             "partisan": false,
             "seat_count": 3,
             "seat_name": "Elect 3",
-            "seed_year": 2014
+            "seed_year": 2014,
+            "term_length": 4
         },
         "office_sf_board_of_education_seats_4": {
             "body_id": "body_sf_board_of_education",
@@ -1186,7 +1194,8 @@
             "partisan": false,
             "seat_count": 4,
             "seat_name": "Elect 4",
-            "seed_year": 2012
+            "seed_year": 2012,
+            "term_length": 4
         },
         "office_sf_board_of_supervisors_01": {
             "body_id": "body_sf_board_of_supervisors",
@@ -1212,7 +1221,8 @@
             "name_short": "DISTRICT 1 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 1",
-            "seed_year": 2012
+            "seed_year": 2012,
+            "term_length": 4
         },
         "office_sf_board_of_supervisors_02": {
             "body_id": "body_sf_board_of_supervisors",
@@ -1238,7 +1248,8 @@
             "name_short": "DISTRICT 2 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 2",
-            "seed_year": 2014
+            "seed_year": 2014,
+            "term_length": 4
         },
         "office_sf_board_of_supervisors_03": {
             "body_id": "body_sf_board_of_supervisors",
@@ -1264,7 +1275,8 @@
             "name_short": "DISTRICT 3 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 3",
-            "seed_year": 2012
+            "seed_year": 2012,
+            "term_length": 4
         },
         "office_sf_board_of_supervisors_04": {
             "body_id": "body_sf_board_of_supervisors",
@@ -1290,7 +1302,8 @@
             "name_short": "DISTRICT 4 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 4",
-            "seed_year": 2014
+            "seed_year": 2014,
+            "term_length": 4
         },
         "office_sf_board_of_supervisors_05": {
             "body_id": "body_sf_board_of_supervisors",
@@ -1316,7 +1329,8 @@
             "name_short": "DISTRICT 5 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 5",
-            "seed_year": 2012
+            "seed_year": 2012,
+            "term_length": 4
         },
         "office_sf_board_of_supervisors_06": {
             "body_id": "body_sf_board_of_supervisors",
@@ -1342,7 +1356,8 @@
             "name_short": "DISTRICT 6 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 6",
-            "seed_year": 2014
+            "seed_year": 2014,
+            "term_length": 4
         },
         "office_sf_board_of_supervisors_07": {
             "body_id": "body_sf_board_of_supervisors",
@@ -1368,7 +1383,8 @@
             "name_short": "DISTRICT 7 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 7",
-            "seed_year": 2012
+            "seed_year": 2012,
+            "term_length": 4
         },
         "office_sf_board_of_supervisors_08": {
             "body_id": "body_sf_board_of_supervisors",
@@ -1394,7 +1410,8 @@
             "name_short": "DISTRICT 8 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 8",
-            "seed_year": 2014
+            "seed_year": 2014,
+            "term_length": 4
         },
         "office_sf_board_of_supervisors_09": {
             "body_id": "body_sf_board_of_supervisors",
@@ -1420,7 +1437,8 @@
             "name_short": "DISTRICT 9 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 9",
-            "seed_year": 2012
+            "seed_year": 2012,
+            "term_length": 4
         },
         "office_sf_board_of_supervisors_10": {
             "body_id": "body_sf_board_of_supervisors",
@@ -1446,7 +1464,8 @@
             "name_short": "DISTRICT 10 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 10",
-            "seed_year": 2014
+            "seed_year": 2014,
+            "term_length": 4
         },
         "office_sf_board_of_supervisors_11": {
             "body_id": "body_sf_board_of_supervisors",
@@ -1472,7 +1491,8 @@
             "name_short": "DISTRICT 11 SUPERVISOR",
             "partisan": false,
             "seat_name": "DISTRICT 11",
-            "seed_year": 2012
+            "seed_year": 2012,
+            "term_length": 4
         },
         "office_sf_city_attorney": {
             "category_id": "category_city_county",
@@ -1504,7 +1524,8 @@
             "partisan": false,
             "seat_count": 3,
             "seat_name": "Elect 3",
-            "seed_year": 2014
+            "seed_year": 2014,
+            "term_length": 4
         },
         "office_sf_college_board_seats_4": {
             "body_id": "body_sf_college_board",
@@ -1520,7 +1541,8 @@
             "partisan": false,
             "seat_count": 4,
             "seat_name": "Elect 4",
-            "seed_year": 2012
+            "seed_year": 2012,
+            "term_length": 4
         },
         "office_sf_district_attorney": {
             "category_id": "category_city_county",
@@ -1623,7 +1645,8 @@
             },
             "name": "UNITED STATES REPRESENTATIVE, DISTRICT 12",
             "partisan": true,
-            "seat_name": "DISTRICT 12"
+            "seat_name": "DISTRICT 12",
+            "term_length": 2
         },
         "office_usa_house_14": {
             "body_id": "body_usa_house",
@@ -1647,7 +1670,8 @@
             },
             "name": "UNITED STATES REPRESENTATIVE, DISTRICT 14",
             "partisan": true,
-            "seat_name": "DISTRICT 14"
+            "seat_name": "DISTRICT 14",
+            "term_length": 2
         },
         "office_usa_president_of_the_united_states": {
             "category_id": "category_federal",
@@ -1683,7 +1707,8 @@
             "partisan": true,
             "seat": 1,
             "seat_name": "California (Class 1)",
-            "seed_year": 2000
+            "seed_year": 2000,
+            "term_length": 6
         },
         "office_usa_senate_2": {
             "body_id": "body_usa_senate",
@@ -1702,7 +1727,8 @@
             "partisan": true,
             "seat": 3,
             "seat_name": "California (Class 3)",
-            "seed_year": 2004
+            "seed_year": 2004,
+            "term_length": 6
         }
     },
     "phrases": {
